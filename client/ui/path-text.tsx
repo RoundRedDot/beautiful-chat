@@ -5,6 +5,7 @@ import { useAgent, useWorkspace } from "@getpaseo/plugin/client";
 import type { ExtendedThemeTokens } from "../components/theme-tokens";
 import { radiusV2, space } from "../components/theme-tokens";
 import { codeSurface } from "../components/host-font-escape";
+import { frosted } from "../components/frosted";
 import { unselectable } from "../components/selection";
 import { useEnhancerPreferences } from "../preferences";
 import {
@@ -17,6 +18,7 @@ import { budgetForWidth, ellipsisCells, fitCells, shownPath, truncateMiddle } fr
 import { useCopy } from "./use-copy";
 import { useHover } from "./use-hover";
 import { useInputCapabilities } from "./use-input-capabilities";
+import { UI_SCALE } from "./tokens/typography";
 
 /** Where paths are made relative to, for one renderer (plan §3.9 item 3). */
 export interface PathContextValue {
@@ -239,9 +241,14 @@ export function PathText({
       {tooltip ? (
         <View
           pointerEvents="none"
+          // A floating layer, so the optional frosted glass applies here.
+          {...(tokens.frost ? frosted : null)}
           style={[
             styles.tooltip,
-            { backgroundColor: tokens.v2.surface2, borderColor: tokens.v2.border },
+            {
+              backgroundColor: tokens.frost ? tokens.surfaceGlass : tokens.v2.surface2,
+              borderColor: tokens.v2.border,
+            },
           ]}
         >
           <Text
@@ -311,6 +318,6 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   tooltipText: {
-    fontSize: 12,
+    fontSize: UI_SCALE.base,
   },
 });

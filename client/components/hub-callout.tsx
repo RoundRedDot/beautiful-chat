@@ -2,13 +2,14 @@ import React, { useMemo, useState } from "react";
 import { Image, View, Text, Pressable, StyleSheet } from "react-native";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { Glyph } from "./glyph";
-import { radius, radiusV2, withAlpha } from "./theme-tokens";
+import { radiusV2, space, withAlpha } from "./theme-tokens";
 import type { ExtendedThemeTokens } from "./theme-tokens";
 import { selectableSurface, unselectable } from "./selection";
 import { selectionSurface, selectionCodeText } from "./selection-actions";
 import { renderTerminalOutput } from "./syntax-highlight";
-import { Breathe } from "./breathe";
-import { shimmering } from "./shimmer";
+import { RunningDot } from "../ui/running-dot";
+import { codeSurface } from "./host-font-escape";
+import { runningDot } from "../ui/tokens/motion";
 import { normalizeProvider } from "./provider-logo";
 import { MARK_BITMAPS } from "./mark-bitmaps";
 import type {
@@ -23,6 +24,7 @@ import type {
   HubSendData,
   HubWaitedData,
 } from "../../shared/contracts";
+import { UI_SCALE } from "../ui/tokens/typography";
 
 interface HubCalloutProps {
   data: HubData;
@@ -248,7 +250,7 @@ function Chip({
 function MessageBody({ body, styles }: { body: string; styles: HubStyles }) {
   return (
     <View style={styles.messageBox}>
-      <Text selectable style={styles.messageText}>
+      <Text {...(codeSurface as object)} selectable style={styles.messageText}>
         {body}
       </Text>
     </View>
@@ -410,7 +412,7 @@ function SendView({ data, text, tokens, styles }: HubViewProps<HubSendData>) {
             tone={receiptTone(receipt.outcome, tokens)}
             styles={styles}
           />
-          <Text selectable style={styles.rowLabel} numberOfLines={1}>
+          <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
             {receipt.to}
           </Text>
           {receipt.error ? (
@@ -581,7 +583,7 @@ function PeersView({ data, text, tokens, styles }: HubViewProps<HubPeersData>) {
         <View key={peer.id} style={styles.stackRow}>
           <View style={styles.rowHead}>
             <Chip label={peer.status} tone={peerTone(peer.status, tokens)} styles={styles} />
-            <Text selectable style={styles.rowLabel} numberOfLines={1}>
+            <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
               {peer.id}
             </Text>
             {peer.displayName && peer.displayName !== peer.id ? (
@@ -672,7 +674,7 @@ function JobsView({ data, text, tokens, styles }: HubViewProps<HubJobsData>) {
           {cancelled.map((row) => (
             <View key={row.id} style={styles.rowHead}>
               <Chip label={row.status} tone={jobTone(row.status, tokens)} styles={styles} />
-              <Text selectable style={styles.rowLabel} numberOfLines={1}>
+              <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
                 {row.id}
               </Text>
               {row.message ? (
@@ -703,26 +705,22 @@ function JobsView({ data, text, tokens, styles }: HubViewProps<HubJobsData>) {
 
 function RunningJobHead({
   running,
+  tokens,
   styles,
   children,
 }: {
   running: boolean;
+  tokens: ExtendedThemeTokens;
   styles: HubStyles;
   children: React.ReactNode;
 }) {
-  // The sweep is a CSS gradient (see `./shimmer`): an Animated band is a
-  // hard-edged rectangle, which reads as a grey box parked on the text.
-  const sweep = running ? shimmering : undefined;
-
+  // The slot keeps its width when the job ends, so the row does not shift;
+  // the dot inside is mounted only while the job runs (plan §3.7).
   return (
-    <View {...sweep} style={styles.jobHead}>
+    <View style={styles.jobHead}>
       <View style={styles.rowHead}>
         <View style={styles.jobRailSlot} pointerEvents="none" accessible={false}>
-          {running ? (
-            <Breathe active={running} depth={1.06} durationMs={3200}>
-              <View style={styles.jobRail} />
-            </Breathe>
-          ) : null}
+          {running ? <RunningDot color={tokens.accent} /> : null}
         </View>
         {children}
       </View>
@@ -801,9 +799,9 @@ function JobRow({
 
   return (
     <View style={styles.stackRow}>
-      <RunningJobHead running={running} styles={styles}>
+      <RunningJobHead running={running} tokens={tokens} styles={styles}>
         <Chip label={job.status} tone={jobTone(job.status, tokens)} styles={styles} />
-        <Text selectable style={styles.rowLabel} numberOfLines={1}>
+        <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
           {job.id}
         </Text>
         <Text selectable style={styles.figure}>
@@ -875,7 +873,7 @@ function AgentRow({
   return (
     <View style={styles.stackRow}>
       <View style={styles.rowHead}>
-        <Text selectable style={styles.rowLabel} numberOfLines={1}>
+        <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
           {agent.id}
         </Text>
         {agent.parentId ? (
@@ -986,7 +984,7 @@ function ProcessView({ data, text, tokens, styles }: HubViewProps<HubProcessData
       {data.matched ? (
         <View style={styles.rowHead}>
           <Text style={styles.sectionLabel}>matched</Text>
-          <Text selectable style={styles.rowLabel}>
+          <Text {...(codeSurface as object)} selectable style={styles.rowLabel}>
             {data.matched}
           </Text>
         </View>
@@ -1036,7 +1034,7 @@ function DaemonRow({
     <View style={styles.stackRow}>
       <View style={styles.rowHead}>
         <Chip label={row.state} tone={daemonTone(row.state, tokens)} styles={styles} />
-        <Text selectable style={styles.rowLabel} numberOfLines={1}>
+        <Text {...(codeSurface as object)} selectable style={styles.rowLabel} numberOfLines={1}>
           {row.name}
         </Text>
         {typeof row.pid === "number" ? (
@@ -1107,7 +1105,6 @@ interface HubStyles {
   stackRow: ViewStyle;
   jobHead: ViewStyle;
   jobRailSlot: ViewStyle;
-  jobRail: ViewStyle;
   jobModel: ViewStyle;
   messageBox: ViewStyle;
   replyBox: ViewStyle;
@@ -1143,13 +1140,14 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
           borderColor: tokens.v2.border,
           overflow: "hidden",
           ...selectableSurface,
-          gap: 8,
-          padding: 12,
+          gap: space.sm,
+          padding: space.md,
         },
         embedded: {
           borderWidth: 0,
           backgroundColor: "transparent",
-          borderRadius: 0,
+          // No frame to round: the tool card around it supplies the corners.
+          borderRadius: undefined,
           padding: 0,
         },
         header: {
@@ -1157,7 +1155,7 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
           alignItems: "center",
           justifyContent: "space-between",
           flexWrap: "wrap",
-          gap: 8,
+          gap: space.sm,
         },
         titleRow: {
           flexDirection: "row",
@@ -1173,13 +1171,13 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         // The op reads as a label, not a filled badge (plan §3.6).
         opBadge: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           fontWeight: "500",
           color: tokens.foregroundMuted,
         },
         headline: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           fontWeight: "600",
           color: tokens.foreground,
           flexShrink: 1,
@@ -1189,31 +1187,22 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
           flexDirection: "row",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 8,
+          gap: space.sm,
         },
         stackRow: {
-          gap: 4,
+          gap: space.xs,
           paddingTop: 6,
           borderTopWidth: 1,
           borderTopColor: tokens.borderSubtle,
         },
         jobHead: {
           position: "relative",
-          overflow: "hidden",
         },
         jobRailSlot: {
-          width: 2,
+          width: runningDot.size,
           height: 14,
           alignItems: "center",
           justifyContent: "center",
-          ...unselectable,
-        },
-        jobRail: {
-          width: 2,
-          height: 12,
-          borderRadius: 1,
-          backgroundColor: tokens.accent,
-          opacity: 0.45,
           ...unselectable,
         },
         jobModel: {
@@ -1226,48 +1215,48 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
 
         chip: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           fontWeight: "700",
           textTransform: "uppercase",
           letterSpacing: 0.4,
           paddingHorizontal: 6,
           paddingVertical: 2,
-          borderRadius: radius.chip,
+          borderRadius: radiusV2.chip,
           overflow: "hidden",
         },
         chipPlain: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           fontWeight: "600",
           paddingHorizontal: 6,
           paddingVertical: 2,
-          borderRadius: radius.chip,
+          borderRadius: radiusV2.chip,
           overflow: "hidden",
         },
         // An id takes the free width and wraps there, so it never pushes a
         // chip or a duration off the card.
         rowLabel: {
           fontFamily: tokens.fontMono,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           color: tokens.foreground,
           flex: 1,
           minWidth: 0,
         },
         sender: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           fontWeight: "700",
           color: tokens.accent,
         },
         figure: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           color: tokens.foregroundSubtle,
           flexShrink: 1,
         },
         marker: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           fontWeight: "700",
           textTransform: "uppercase",
           letterSpacing: 0.4,
@@ -1276,7 +1265,7 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         },
         sectionLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           fontWeight: "700",
           textTransform: "uppercase",
           letterSpacing: 0.5,
@@ -1285,14 +1274,14 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         },
         errorText: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           lineHeight: 16,
           color: tokens.danger,
           flexShrink: 1,
         },
         bodyText: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 18,
           color: tokens.foreground,
           flex: 1,
@@ -1300,7 +1289,7 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         },
         subtleBody: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           lineHeight: 16,
           color: tokens.foregroundMuted,
           flex: 1,
@@ -1308,41 +1297,41 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         },
         placeholder: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontStyle: "italic",
           color: tokens.foregroundSubtle,
           ...unselectable,
         },
         messageBox: {
           padding: 10,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.surfaceCode,
           borderLeftWidth: 3,
           borderLeftColor: tokens.accent,
         },
         messageText: {
           fontFamily: tokens.fontMono,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 18,
           color: tokens.foreground,
         },
         replyBox: {
           padding: 10,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.surface0,
           borderWidth: 1,
           borderColor: tokens.borderSubtle,
-          gap: 4,
+          gap: space.xs,
         },
         replyText: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 18,
           color: tokens.foregroundMuted,
         },
         codeBlock: {
           padding: 10,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.surfaceCode,
           borderWidth: 1,
           borderColor: tokens.borderSubtle,
@@ -1350,13 +1339,13 @@ function useHubStyles(tokens: ExtendedThemeTokens): HubStyles {
         },
         codeText: {
           fontFamily: tokens.fontMono,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           lineHeight: 16,
           color: tokens.foregroundMuted,
         },
         moreLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontWeight: "500",
           color: tokens.accent,
           ...unselectable,

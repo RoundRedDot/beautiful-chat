@@ -1,11 +1,15 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { preferencesSchema } from "../../shared/preferences-settings";
 import {
   DEFAULT_PREFERENCES,
   LEGACY_STORAGE_KEY,
   STORAGE_KEY,
   migrateV1Preferences,
+  monoChoice,
+  monoChoiceUpdate,
   parsePreferences,
   readStoredPreferences,
+  storedPart,
 } from "../../client/preferences";
 
 function memoryStorage(initial: Record<string, string> = {}) {
@@ -109,5 +113,85 @@ describe("parsePreferences", () => {
     expect(parsePreferences({ codeFontSize: 3 }).codeFontSize).toBe(10);
     expect(parsePreferences({ codeFontSize: null }).codeFontSize).toBeNull();
     expect(parsePreferences({ codeFontSize: Number.NaN }).codeFontSize).toBeNull();
+  });
+});
+
+describe("monospace choice (settings page)", () => {
+  it("tells Iosevka and Iosevka Code apart by the ligature setting", () => {
+    expect(monoChoice({ monoFont: "iosevka", codeFont: "plain" })).toBe("iosevka");
+    expect(monoChoice({ monoFont: "iosevka", codeFont: "code" })).toBe("iosevka-code");
+    expect(monoChoice({ monoFont: "host", codeFont: "plain" })).toBe("host");
+    expect(monoChoice({ monoFont: "custom", codeFont: "code" })).toBe("custom");
+  });
+
+  it("round-trips every choice through the stored preferences", () => {
+    for (const choice of ["host", "iosevka", "iosevka-code", "custom"] as const) {
+      const stored = parsePreferences({ ...DEFAULT_PREFERENCES, ...monoChoiceUpdate(choice) });
+      expect(monoChoice(stored)).toBe(choice);
+    }
+  });
+
+  it("brings ligatures back when returning to Follow Paseo (plan D2)", () => {
+    expect(monoChoiceUpdate("host")).toEqual({ monoFont: "host", codeFont: "code" });
+  });
+});
+
+describe("daemon-backed store (S5 fix round 1)", () => {
+  async function freshModule(seed: Record<string, string> = {}) {
+    vi.resetModules();
+    const local = memoryStorage(seed);
+    (globalThis as { localStorage?: unknown }).localStorage = local;
+    const mod = await import("../../client/preferences");
+    return { mod, local };
+  }
+
+  afterEach(() => {
+    delete (globalThis as { localStorage?: unknown }).localStorage;
+  });
+
+  it("degrades each stored field on its own instead of rejecting the record", () => {
+    const parsed = preferencesSchema.parse({ accent: "neon", codeFontSize: "big", monoFont: "custom" });
+    expect(parsed.accent).toBe("host");
+    expect(parsed.codeFontSize).toBeNull();
+    expect(parsed.monoFont).toBe("custom");
+    expect(preferencesSchema.parse({})).toEqual(storedPart(DEFAULT_PREFERENCES));
+  });
+
+  it("offers the old local record once, then never again", async () => {
+    const { mod } = await freshModule({ [STORAGE_KEY]: JSON.stringify({ accent: "jade" }) });
+    expect(mod.legacyLocalPreferences()?.accent).toBe("jade");
+    mod.markLegacyMigrated();
+    expect(mod.legacyLocalPreferences()).toBeNull();
+  });
+
+  it("has nothing to offer from a client that never stored preferences", async () => {
+    const { mod } = await freshModule();
+    expect(mod.legacyLocalPreferences()).toBeNull();
+  });
+
+  it("starts from the web cache and applies daemon values without touching the local debug flag", async () => {
+    const { mod, local } = await freshModule({
+      [STORAGE_KEY]: JSON.stringify({ codeFontSize: 15, debugPerf: true }),
+    });
+    expect(mod.getEnhancerPreferences().codeFontSize).toBe(15);
+    const listener = vi.fn();
+    mod.subscribeEnhancerPreferences(listener);
+    mod.applyStoredPreferences({ ...storedPart(DEFAULT_PREFERENCES), codeFontSize: 15 });
+    expect(listener).not.toHaveBeenCalled();
+    mod.applyStoredPreferences({ ...storedPart(DEFAULT_PREFERENCES), monoFont: "custom", customMonoFont: "Menlo" });
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(mod.getEnhancerPreferences()).toMatchObject({ monoFont: "custom", codeFontSize: null, debugPerf: true });
+    expect(JSON.parse(local.getItem(STORAGE_KEY) ?? "{}").customMonoFont).toBe("Menlo");
+  });
+
+  it("hands only stored changes to the daemon persister", async () => {
+    const { mod } = await freshModule();
+    const persist = vi.fn();
+    mod.setPreferencePersister(persist);
+    mod.updateEnhancerPreferences({ debugPerf: true });
+    expect(persist).not.toHaveBeenCalled();
+    mod.updateEnhancerPreferences({ codeFontSize: 16 });
+    expect(persist).toHaveBeenCalledWith(expect.objectContaining({ codeFontSize: 16 }));
+    expect(persist.mock.calls[0]![0]).not.toHaveProperty("debugPerf");
   });
 });

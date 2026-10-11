@@ -1,5 +1,5 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { Animated, View, Text, Pressable, Platform, StyleSheet } from "react-native";
+import React, { useCallback, useContext, useMemo, useState } from "react";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import type { TextStyle, ViewStyle } from "react-native";
 import { Glyph } from "./glyph";
 import { surfaceProps } from "./view-props";
@@ -23,10 +23,11 @@ import { CopyButton } from "../ui/copy-button";
 import { ActionMenuList, ActionMenuTrigger, useActionMenu, type ActionMenuItem } from "../ui/action-menu";
 import { useCopy } from "../ui/use-copy";
 import { useInputCapabilities } from "../ui/use-input-capabilities";
-import { useReducedMotion } from "../ui/use-reduced-motion";
-import { duration, easing } from "../ui/tokens/motion";
+import { FadeIn } from "../ui/fade-in";
 import { formatPath } from "../paths/format-path";
-import { summarizeTool } from "../tools/summarize";
+import { lineRangeLabel, summarizeTool } from "../tools/summarize";
+import { UI_SCALE } from "../ui/tokens/typography";
+import { codeSurface } from "./host-font-escape";
 import { toolCopyPlan } from "../tools/copy";
 import { stringifyValue, type ToolCallView, type ToolKind } from "../tools/classify";
 
@@ -291,30 +292,9 @@ function MetaPath({
       compact={compact}
       copyOnHover={false}
       budget={compact ? 20 : 32}
-      style={{ fontSize: 12, color: tokens.foregroundMuted }}
+      style={{ fontSize: UI_SCALE.base, color: tokens.foregroundMuted }}
     />
   );
-}
-
-/** The expand fade (plan §3.7): opacity 0 → 1 over 120 ms; none under reduced motion. */
-function FadeIn({ style, children }: { style: ViewStyle | ViewStyle[]; children: React.ReactNode }) {
-  const reducedMotion = useReducedMotion();
-  const opacity = useRef(new Animated.Value(reducedMotion ? 1 : 0)).current;
-  useEffect(() => {
-    if (reducedMotion) {
-      opacity.setValue(1);
-      return;
-    }
-    const fade = Animated.timing(opacity, {
-      toValue: 1,
-      duration: duration.fast,
-      easing: easing.out,
-      useNativeDriver: Platform.OS !== "web",
-    });
-    fade.start();
-    return () => fade.stop();
-  }, [opacity, reducedMotion]);
-  return <Animated.View style={[style, { opacity }]}>{children}</Animated.View>;
 }
 
 const styles = StyleSheet.create({
@@ -328,7 +308,7 @@ const styles = StyleSheet.create({
     ...selectableSurface,
   },
   errorLine: {
-    fontSize: 12,
+    fontSize: UI_SCALE.base,
     lineHeight: 16,
     // Under the verb: header padding + icon slot + gap.
     paddingLeft: space.sm + 16 + 6,
@@ -361,6 +341,51 @@ const MAX_FILE_ROWS = 50;
  * The expanded body: the details the card always had — arguments, content
  * and logs, nothing trimmed — without the nested frames and shadows.
  */
+/**
+ * The path in a read, write or edit code header (plan §3.9 item 5): a
+ * `PathText` (relative, middle-truncated, press to reveal or copy on touch)
+ * and, for a read of part of a file, its line window as a muted suffix.
+ */
+function CodeHeaderPath({
+  path,
+  suffix,
+  tokens,
+  compact,
+  onReveal,
+}: {
+  path: string;
+  suffix?: string;
+  tokens: ExtendedThemeTokens;
+  compact: boolean;
+  onReveal?: () => void;
+}) {
+  return (
+    <View style={codeHeaderStyles.row}>
+      <PathText
+        path={path}
+        tokens={tokens}
+        compact={compact}
+        onReveal={onReveal ? () => onReveal() : undefined}
+        style={{ fontSize: UI_SCALE.base }}
+      />
+      {suffix ? (
+        <Text
+          {...(codeSurface as object)}
+          selectable={false}
+          style={[codeHeaderStyles.suffix, unselectable, { color: tokens.foregroundMuted, fontFamily: tokens.fontMono }]}
+        >
+          {suffix}
+        </Text>
+      ) : null}
+    </View>
+  );
+}
+
+const codeHeaderStyles = StyleSheet.create({
+  row: { flexDirection: "row", alignItems: "center", gap: space.xs, flexShrink: 1, minWidth: 0 },
+  suffix: { fontSize: UI_SCALE.base, fontVariant: ["tabular-nums"], flexShrink: 0 },
+});
+
 function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }: ToolBodyProps) {
   const styles = useBodyStyles(tokens);
   const isRunning = data.status === "running";
@@ -425,7 +450,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
             </Text>
           ) : null}
           {data.shell?.stderr ? (
-            <Text selectable style={[styles.terminalOutput, { color: tokens.danger }]}>
+            <Text selectable {...(codeSurface as object)} style={[styles.terminalOutput, { color: tokens.danger }]}>
               {data.shell.stderr}
             </Text>
           ) : null}
@@ -498,11 +523,20 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           <SyntaxHighlightBlock
             code={data.code || "// [Empty content or pending stream]"}
             language={data.language ?? "text"}
-            // TODO(S2): pass `filenameNode={<PathText path=… />}` with the
-            // `L10–80` suffix once SyntaxHighlightBlock takes one. Until then
-            // `filename` is the relative path alone: the block reads the file
-            // extension from its end, so a suffix would break highlighting.
+            // `filename` stays the bare path, because the block reads the
+            // grammar from its extension; what is drawn is `filenameNode`.
             filename={displayPath}
+            filenameNode={
+              data.filePath ? (
+                <CodeHeaderPath
+                  path={data.filePath}
+                  suffix={data.tool === "read" ? (lineRangeLabel(data.offset, data.limit) ?? data.lineRange) : undefined}
+                  tokens={tokens}
+                  compact={compact}
+                  onReveal={revealFile}
+                />
+              ) : undefined
+            }
             tokens={tokens}
             showLineNumbers={Boolean(data.code)}
             onRevealFile={revealFile}
@@ -515,6 +549,11 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           code={data.diff || data.code || "// [Edit: diff applied]"}
           language="diff"
           filename={displayPath}
+          filenameNode={
+            data.filePath ? (
+              <CodeHeaderPath path={data.filePath} tokens={tokens} compact={compact} onReveal={revealFile} />
+            ) : undefined
+          }
           tokens={tokens}
           showLineNumbers
           onRevealFile={revealFile}
@@ -611,7 +650,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
             <View>
               {data.search.files.slice(0, MAX_FILE_ROWS).map((file, index) => (
                 <View key={`${index}:${file}`} style={styles.fileRow}>
-                  <PathText path={file} tokens={tokens} compact={compact} style={{ fontSize: 12 }} fit />
+                  <PathText path={file} tokens={tokens} compact={compact} style={{ fontSize: UI_SCALE.base }} fit />
                 </View>
               ))}
               {data.search.files.length > MAX_FILE_ROWS ? (
@@ -626,7 +665,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
               <Text selectable numberOfLines={1} style={styles.plainText}>
                 {row.title}
               </Text>
-              <Text selectable numberOfLines={1} style={[styles.monoText, styles.mutedColor]}>
+              <Text selectable {...(codeSurface as object)} numberOfLines={1} style={[styles.monoText, styles.mutedColor]}>
                 {row.url}
               </Text>
             </View>
@@ -646,7 +685,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
 
       {data.tool === "fetch" && data.fetch && (
         <View style={styles.section}>
-          <Text selectable style={styles.monoText}>
+          <Text selectable {...(codeSurface as object)} style={styles.monoText}>
             {data.fetch.url}
           </Text>
           {data.fetch.prompt ? (
@@ -668,14 +707,14 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
             <PathText path={data.worktree.worktreePath} tokens={tokens} compact={compact} fit />
           ) : null}
           {data.worktree.branchName ? (
-            <Text selectable style={[styles.monoText, styles.mutedColor]}>
+            <Text selectable {...(codeSurface as object)} style={[styles.monoText, styles.mutedColor]}>
               {data.worktree.branchName}
             </Text>
           ) : null}
           {data.worktree.commands.map((step) => (
             <View key={step.index} style={styles.terminalWindow}>
               <View style={styles.inlineRow}>
-                <Text selectable style={[styles.monoText, styles.flex]} numberOfLines={2}>
+                <Text selectable {...(codeSurface as object)} style={[styles.monoText, styles.flex]} numberOfLines={2}>
                   {`$ ${step.command}`}
                 </Text>
                 {step.status === "running" ? <RunningDot color={tokens.accent} /> : null}
@@ -711,7 +750,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           ) : null}
           {data.subAgent.actions?.map((action) => (
             <View key={action.index} style={styles.inlineRow}>
-              <Text selectable style={[styles.monoText, styles.mutedColor]}>
+              <Text selectable {...(codeSurface as object)} style={[styles.monoText, styles.mutedColor]}>
                 {action.toolName}
               </Text>
               {action.summary ? (
@@ -838,58 +877,58 @@ function useBodyStyles(tokens: ExtendedThemeTokens): BodyStyles {
         askOptionText: { flex: 1, gap: 2 },
         terminalOutput: {
           fontFamily: tokens.fontMono,
-          fontSize: 11.5,
-          lineHeight: 17,
+          fontSize: tokens.typography.mono.size,
+          lineHeight: tokens.typography.mono.lineHeight,
           color: tokens.foregroundMuted,
         },
         commandLine: {
           fontFamily: tokens.fontMono,
-          fontSize: 12,
-          lineHeight: 18,
+          fontSize: tokens.typography.mono.size,
+          lineHeight: tokens.typography.mono.lineHeight,
           color: tokens.foreground,
         },
         silentText: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundMuted,
           fontStyle: "italic",
           ...unselectable,
         },
         sectionTitle: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontWeight: "500",
           color: tokens.foregroundMuted,
           ...unselectable,
         },
         plainText: {
           fontFamily: tokens.fontUi,
-          fontSize: 13,
+          fontSize: UI_SCALE.md,
           lineHeight: 19,
           color: tokens.foreground,
         },
         mutedText: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 17,
           color: tokens.foregroundMuted,
         },
         monoText: {
           fontFamily: tokens.fontMono,
-          fontSize: 12,
+          fontSize: tokens.typography.mono.size,
           color: tokens.foreground,
         },
         mutedColor: { color: tokens.foregroundMuted },
         metaText: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           color: tokens.foregroundMuted,
           fontVariant: ["tabular-nums"],
           ...unselectable,
         },
         askOptionLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: 13,
+          fontSize: UI_SCALE.md,
           color: tokens.foreground,
         },
         strong: { fontWeight: "600" },
@@ -1039,18 +1078,18 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         head: { flexDirection: "row", alignItems: "center", gap: 6 },
         headline: {
           fontFamily: tokens.fontUi,
-          fontSize: 13,
+          fontSize: UI_SCALE.md,
           fontWeight: "600",
           color: tokens.foreground,
           flexShrink: 1,
         },
         chip: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           color: tokens.foregroundMuted,
         },
         contextBox: {
-          gap: 4,
+          gap: space.xs,
           padding: space.sm,
           borderRadius: radiusV2.block,
           backgroundColor: tokens.v2.surface1,
@@ -1058,14 +1097,14 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         contextToggle: { flexDirection: "row", alignItems: "center", gap: 6 },
         contextLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontWeight: "500",
           color: tokens.foregroundMuted,
           ...unselectable,
         },
         contextBody: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 17,
           color: tokens.foregroundMuted,
         },
@@ -1073,21 +1112,21 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         rowHead: { flexDirection: "row", alignItems: "center", gap: 6 },
         name: {
           fontFamily: tokens.fontUi,
-          fontSize: 12.5,
+          fontSize: UI_SCALE.md,
           fontWeight: "600",
           color: tokens.foreground,
           flexShrink: 1,
         },
         brief: {
           fontFamily: tokens.fontUi,
-          fontSize: 12,
+          fontSize: UI_SCALE.base,
           lineHeight: 16,
           color: tokens.foregroundMuted,
         },
         pending: { flexDirection: "row", alignItems: "center", gap: 6 },
         pendingText: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontWeight: "500",
           color: tokens.accent,
           ...unselectable,

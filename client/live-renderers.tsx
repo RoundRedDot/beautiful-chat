@@ -13,14 +13,14 @@ import { observeReasoning, observedDurationMs } from "./reasoning/observed";
 import { useDisclosure } from "./state/disclosure-store";
 import { TaskList } from "./components/task-list";
 import { UserMessage } from "./components/user-message";
-import { hostFontEscape } from "./components/host-font-escape";
+import { itemRootFont } from "./components/host-font-escape";
 import { promptRowAnchor } from "./components/prompt-anchor";
 import { surfaceProps } from "./components/view-props";
 import { useSelectionActions } from "./components/selection-actions";
-import { usePointerGlow } from "./components/glow";
 import type { TurnUsage } from "./components/user-message";
 import { NoticeCallout } from "./components/notice-callout";
 import { useEnhancerPreferences } from "./preferences";
+import { PreferenceSyncSlot } from "./state/preference-sync-slot";
 import { publishHubSnapshot } from "./hub-activity";
 import { MarkdownView } from "./components/markdown/markdown-view";
 import { TimelineTailHub } from "./components/hub-live";
@@ -93,7 +93,6 @@ function LiveToolCallRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
   const data = item.data;
 
   const view = useMemo(() => classifyTool(data), [data]);
@@ -141,8 +140,9 @@ function LiveToolCallRendererBody({
   );
 
   return (
-    <View {...hostFontEscape} {...probe.viewProps}>
+    <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
+      <PreferenceSyncSlot />
       <PathContext.Provider value={pathContext}>
         <ToolCallout
           data={view}
@@ -179,7 +179,6 @@ function LiveReasoningRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
   const text = item.data.text || "";
   const streaming = item.data.phase === "streaming";
 
@@ -204,8 +203,9 @@ function LiveReasoningRendererBody({
   const durationMs = streaming ? null : observedDurationMs(storeKey);
 
   return (
-    <View {...hostFontEscape} {...probe.viewProps}>
+    <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
+      <PreferenceSyncSlot />
       <ReasoningCard
         segmentation={segmentation}
         streaming={streaming}
@@ -231,7 +231,6 @@ function LiveTodoRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
   const data = item.data;
 
   const taskListData: TaskListData = useMemo(() => {
@@ -255,8 +254,9 @@ function LiveTodoRendererBody({
   }, [data]);
 
   return (
-    <View {...hostFontEscape} {...probe.viewProps}>
+    <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
+      <PreferenceSyncSlot />
       <TaskList data={taskListData} tokens={tokens} />
     </View>
   );
@@ -299,7 +299,6 @@ function LiveAssistantRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
 
   // Replacing the reply costs the host's footer, which the stream layout hangs
   // off an `assistant_message` item that no longer exists. Rebuild it where the
@@ -328,10 +327,11 @@ function LiveAssistantRendererBody({
   );
 
   return (
-    <View {...hostFontEscape} {...probe.viewProps}>
+    <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
+      <PreferenceSyncSlot />
       {envelope ? (
-        <SystemCard envelope={envelope} tokens={tokens} />
+        <SystemCard envelope={envelope} tokens={tokens} compact={layout.compact} />
       ) : (
         <MarkdownView
           text={revealed}
@@ -371,7 +371,6 @@ function LiveNoticeRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
   const data = item.data;
   const level = data.level === "warning" || data.level === "error" ? data.level : "info";
 
@@ -386,8 +385,9 @@ function LiveNoticeRendererBody({
   );
 
   return (
-    <View {...hostFontEscape} {...probe.viewProps}>
+    <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
+      <PreferenceSyncSlot />
       <NoticeCallout data={noticeData} tokens={tokens} />
     </View>
   );
@@ -419,7 +419,6 @@ function LiveUserMessageRendererBody({
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
-  usePointerGlow(preferences.pointerGlow);
   const paseo = usePaseo();
   const handle = useMemo(() => paseo.agents.ref(agentId), [paseo, agentId]);
 
@@ -463,12 +462,13 @@ function LiveUserMessageRendererBody({
 
   return (
     <View
-      {...surfaceProps(hostFontEscape, promptRowAnchor(item.data.messageId))}
+      {...surfaceProps(itemRootFont(preferences.uiFont), promptRowAnchor(item.data.messageId))}
       {...probe.viewProps}
     >
       {probe.node}
+      <PreferenceSyncSlot />
       {envelope ? (
-        <SystemCard envelope={envelope} tokens={tokens} />
+        <SystemCard envelope={envelope} tokens={tokens} compact={layout.compact} />
       ) : (
         <UserMessage
           text={item.data.text}

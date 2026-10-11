@@ -230,3 +230,32 @@ export function hostTypographyKey(theme: unknown): string {
     host.lineHeight?.code,
   ].join("|");
 }
+
+/**
+ * The `fontFamily` interface text is drawn with (plan §3.10 item 4).
+ *
+ * Undefined means "set none": the text keeps React Native's default class on
+ * web, which the host's UI font rule overrides, and the system face on
+ * native. That is "Follow Paseo" without host typography. It has to be
+ * undefined rather than a family name: React Native Web writes a style that
+ * is not from `StyleSheet.create` as an inline style, and an inline
+ * `font-family` beats the host's rule however specific that rule is.
+ *
+ * With H1 the host family is set explicitly (it is the same value the host
+ * rule would apply). Native never gets the embedded name, which iOS and
+ * Android do not have. An explicit Inter or System choice also escapes the
+ * item root (`itemRootFont`) and is drawn as chosen; Inter is the bare
+ * embedded name, not the full stack `ui.family` builds, because the stack's
+ * fallback faces shift line boxes by about 2px on text without an explicit
+ * line height (S1) and the embedded face is always registered on web.
+ */
+export function interfaceFamily(
+  typography: Typography,
+  uiFont: TypographyPreferences["uiFont"],
+  platform: TypographyPlatform,
+): string | undefined {
+  if (platform !== "web") return typography.ui.family;
+  if (uiFont === "inter") return EMBEDDED_FAMILY.ui;
+  if (uiFont === "system") return "System";
+  return typography.fromHost ? typography.ui.family : undefined;
+}

@@ -4,6 +4,7 @@ import { DEFAULT_PREFERENCES, type EnhancerPreferences, ACCENT_PRESETS } from ".
 import {
   EMBEDDED_FAMILY,
   NATIVE_DEFAULT_MONO,
+  interfaceFamily,
   resolveTypography,
   type Typography,
   type TypographyPlatform,
@@ -26,7 +27,15 @@ export const radius = { card: 12, block: 8, chip: 5 } as const;
  * cards line up with native rows. New primitives use these; existing
  * components move over in their own slices.
  */
-export const radiusV2 = { card: 8, block: 6, chip: 4, pill: 999 } as const;
+export const radiusV2 = {
+  card: 8,
+  block: 6,
+  chip: 4,
+  pill: 999,
+  /** The user bubble, as the host draws its own: 2xl with an sm tail corner. */
+  bubble: 16,
+  bubbleTail: 2,
+} as const;
 
 /** Token v2 spacing, the host's `SPACING` steps. */
 export const space = { xs: 4, sm: 8, md: 12, lg: 16 } as const;
@@ -52,7 +61,17 @@ export const fontMono =
  * bytes it stands for, which is wrong for a log line or a patch.
  */
 export const fontCode = STATIC_PLATFORM === "web" ? EMBEDDED_FAMILY.code : fontMono;
-export const fontUi = STATIC_PLATFORM === "web" ? EMBEDDED_FAMILY.ui : "System";
+/** Interface text sets no family: the host's UI font (web) or the system face applies. */
+export const fontUi: string | undefined = undefined;
+
+/** A React Native shadow. Floating layers only (plan §3.6); inline blocks carry none. */
+export interface Elevation {
+  shadowColor: string;
+  shadowOffset: { width: number; height: number };
+  shadowOpacity: number;
+  shadowRadius: number;
+  elevation: number;
+}
 
 export interface ExtendedThemeTokens {
   isDark: boolean;
@@ -60,8 +79,8 @@ export interface ExtendedThemeTokens {
   fontMono: string;
   /** `typography.mono.codeFamily`. */
   fontCode: string;
-  /** The interface family; see `legacyUiFamily`. */
-  fontUi: string;
+  /** The interface family, or undefined to set none; see `interfaceFamily`. */
+  fontUi: string | undefined;
   typography: Typography;
 
   // Surfaces
@@ -69,7 +88,10 @@ export interface ExtendedThemeTokens {
   surface1: string;
   surface2: string;
   surfaceCode: string;
-  // Translucent variants, for surfaces that blur what sits behind them.
+  /** The frosted-glass setting: floating surfaces (overlays) may blur behind them. */
+  frost: boolean;
+  // Translucent variants, for overlay surfaces that blur what sits behind them
+  // (and the approval card, left as it was; plan D7). Inline blocks use surface0.
   surfaceGlass: string;
   surfaceCodeGlass: string;
 
@@ -105,13 +127,6 @@ export interface ExtendedThemeTokens {
   // Borders
   border: string;
   borderSubtle: string;
-  boxShadow: {
-    shadowColor: string;
-    shadowOffset: { width: number; height: number };
-    shadowOpacity: number;
-    shadowRadius: number;
-    elevation: number;
-  };
 
   /**
    * Token v2 (plan §3.6), added beside the tokens above so existing
@@ -130,7 +145,7 @@ export interface ExtendedThemeTokens {
     /** Divider inside a block, e.g. between header and body. */
     borderSubtle: string;
     /** Shadow for floating layers only; inline blocks carry none. */
-    elevation: { overlay: ExtendedThemeTokens["boxShadow"] };
+    elevation: { overlay: Elevation };
   };
 
   // Syntax
@@ -219,30 +234,6 @@ export interface ThemeTokenOptions {
   theme?: unknown;
 }
 
-/**
- * The interface family the existing components draw with.
- *
- * Until slice S5 moves `data-pmono` from item roots to code surfaces, the
- * host's UI font cannot reach plugin text on web, so "follow Paseo" has
- * nothing to follow there; and the stack `typography.ui.family` builds for
- * Inter changes line boxes wherever Inter lacks a glyph. Web therefore keeps
- * the bare embedded Inter it has always drawn, for both. Native gets the host
- * family when H1 provides one, else the system face — never the embedded
- * name, which iOS and Android do not have.
- */
-function legacyUiFamily(
-  typography: Typography,
-  preferences: EnhancerPreferences,
-  platform: TypographyPlatform,
-): string {
-  if (platform !== "web") return typography.ui.family ?? "System";
-  if (preferences.uiFont === "system") return "System";
-  if (preferences.uiFont === "host" && typography.fromHost && typography.ui.family) {
-    return typography.ui.family;
-  }
-  return EMBEDDED_FAMILY.ui;
-}
-
 export function buildThemeTokens(
   colors: PluginSurfaceColors,
   preferences: EnhancerPreferences = DEFAULT_PREFERENCES,
@@ -257,7 +248,7 @@ export function buildThemeTokens(
   const warning = isDark ? "#d9a53f" : "#a36a00";
   const danger = colors.statusDanger;
   const tint = isDark ? 0.1 : 0.08;
-  const boxShadow = {
+  const overlayShadow: Elevation = {
     shadowColor: "#000000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: isDark ? 0.12 : 0.08,
@@ -273,13 +264,14 @@ export function buildThemeTokens(
     isDark,
     fontMono: typography.mono.family,
     fontCode: typography.mono.codeFamily,
-    fontUi: legacyUiFamily(typography, preferences, platform),
+    fontUi: interfaceFamily(typography, preferences.uiFont, platform),
     typography,
 
     surface0: colors.surface0,
     surface1: withAlpha(fg, isDark ? 0.03 : 0.025),
     surface2: withAlpha(fg, isDark ? 0.06 : 0.045),
     surfaceCode,
+    frost: preferences.frostedGlass,
     // Translucent so the blur behind them reads, but still dense enough to
     // keep text legible over whatever scrolls past.
     surfaceGlass: preferences.frostedGlass
@@ -319,7 +311,6 @@ export function buildThemeTokens(
 
     border,
     borderSubtle,
-    boxShadow,
 
     v2: {
       radius: radiusV2,
@@ -330,7 +321,7 @@ export function buildThemeTokens(
       surfaceCode,
       border,
       borderSubtle,
-      elevation: { overlay: boxShadow },
+      elevation: { overlay: overlayShadow },
     },
 
     // GitHub Dark Dimmed / GitHub Light

@@ -144,14 +144,29 @@ Devicon brand marks, and the file-manager link.
 
 ![Settings screen](docs/images/settings.png)
 
-| Setting                | Effect                                                             |
-| ---------------------- | ------------------------------------------------------------------ |
-| Accent colour          | Follow the Paseo theme, or pick Jade, Violet, Amber, or Rose.      |
-| Interface font         | Embedded Inter, or the system interface face.                      |
-| Code glyphs            | Iosevka with ligatures, or literal glyphs.                         |
-| Frosted glass          | Blur card surfaces, or paint them solid.                           |
-| Enhanced prompt bubble | Off hands prompts back to Paseo, whose bubble shows pasted images. |
-| Assistant markdown     | Off hands replies back to Paseo's own markdown renderer.           |
+| Setting                | Effect                                                                                       |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| Accent colour          | Follow the Paseo theme, or pick Jade, Violet, Amber, or Rose.                                |
+| Frosted glass          | Blur floating bars (selection actions, full-path tooltip). Web and desktop only.             |
+| Pointer glow           | A light that follows the pointer across floating bars. Web and desktop only.                 |
+| Monospace font         | Follow Paseo, Iosevka, Iosevka Code (ligatures in code blocks), or Custom. On iOS/Android, Custom picks from faces the platform ships. |
+| Code font size         | Follow Paseo, or 10-22px with a live preview. Applies to code, diffs, terminals and paths.   |
+| Interface font         | Follow Paseo's interface font, embedded Inter (web only), or the system face.                |
+| Tool details           | Tool calls start collapsed; optionally open failed calls on their own.                       |
+| File paths             | Relative to the workspace, or absolute. Copying always gives the absolute path.              |
+| Enhanced prompt bubble | Off hands prompts back to Paseo, whose bubble shows pasted images.                           |
+| Assistant markdown     | Off hands replies back to Paseo's own markdown renderer.                                     |
+
+Preferences are stored by the daemon, through the SDK's settings (`defineSettings` /
+`useSettings`, record `presentation` in `shared/preferences-settings.ts`). Host scope is the only
+scope the SDK allows, so **every client connected to one daemon shares them**: a change on the
+desktop shows up on iOS, and the other way round. A choice one platform cannot draw is stored as
+made and degraded where it renders by `resolveTypography` (Iosevka and a typed custom family become
+the platform monospace on iOS/Android; Inter becomes the system face). On web, `localStorage` is
+only a fast-start cache, and a record saved there by an older version is copied to the daemon once,
+if the daemon has none yet. Until the settings arrive, cards draw with the cached or default
+values and switch once; a record the daemon cannot read shows the defaults and a hint on the
+settings page.
 
 ---
 
@@ -233,8 +248,11 @@ timestamp, item}`, and plugin navigation offers only `openSettings`, `openSurfac
 10. **No CSS escape hatch.** React Native styles drop unknown keys, so `backdrop-filter` is
     impossible through the style API. Frosted glass is a hand-injected `<style>` rule matched by a
     data attribute.
-11. **No font registration.** Faces are embedded as data URIs in an injected `@font-face` rule, and
-    every surface needs a wrapper that escapes the host's own font cascade.
+11. **No font registration.** Faces are embedded as data URIs in an injected `@font-face` rule
+    (web only). Paseo forces its UI font on every node not under `data-pmono`; the plugin marks
+    only monospace regions with it, so interface text follows the host font, and leaves the
+    interface `fontFamily` unset for "Follow Paseo", since React Native Web writes non-StyleSheet
+    styles inline and an inline family would beat the host rule.
 12. **A closed module allowlist, and no SVG renderer.** Plugin client code may import only
     `react`, `react/jsx-runtime`, `react-native`, `@tanstack/react-query`, `zod`,
     `@getpaseo/plugin`, `@getpaseo/plugin/client`, `@getpaseo/plugin/client/react-native`, and
@@ -246,8 +264,9 @@ timestamp, item}`, and plugin navigation offers only `openSettings`, `openSurfac
     GIF, and WebP but never SVG, so a data-URI SVG renders on web and stays blank on iOS and
     Android. Those marks ship as PNG rasters in `client/components/mark-bitmaps.ts`.
 13. **Settings are host-scoped only.** `defineSettings` rejects any scope other than `host`, so
-    per-workspace or per-agent presentation settings are impossible. This plugin keeps presentation
-    preferences in client storage instead.
+    per-workspace, per-agent or per-client presentation settings are impossible. This plugin stores
+    its preferences in that host scope (shared by all clients of the daemon); only the hidden
+    `debugPerf` probe flag stays per client.
 14. **Paseo's chat find cannot reach replaced rows.** Paseo 0.9.1 finds a match by its original
     message id, then waits for a row carrying that id. A transformed row always carries
     `<pluginId>/<itemId>` instead, so Ctrl+F on a styled prompt or reply never reveals the match.
@@ -300,8 +319,9 @@ the host's options and compiles it with `hermesc` from the `react-native`
 devDependency. Any error is mapped back to its source file and line. The
 script then evaluates the bundle in the bundled `hermes` VM against stub
 modules, calls `contribute`, and checks the host's registration rules. Pass
-`--no-run` to compile only. The script uses no new dependency: esbuild comes
-from the root install (through vitest) or from `.showcase/`.
+`--no-run` to compile only. esbuild is a root devDependency, pinned to the
+same release vitest resolves, so the check does not hang on a transitive
+install.
 
 What must not reach client code, including client dependencies:
 

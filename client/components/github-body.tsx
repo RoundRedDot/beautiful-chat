@@ -1,13 +1,16 @@
 import React, { useMemo, useState } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Glyph } from "./glyph";
-import { radius } from "./theme-tokens";
+import { radiusV2, space } from "./theme-tokens";
 import type { ExtendedThemeTokens } from "./theme-tokens";
 import { SyntaxHighlightBlock, renderTerminalOutput } from "./syntax-highlight";
 import { unselectable } from "./selection";
 import { selectionCodeText } from "./selection-actions";
+import { codeSurface } from "./host-font-escape";
 import { openLink } from "./open-link";
 import type { GitHubToolData } from "../../shared/contracts";
+import { FadeIn } from "../ui/fade-in";
+import { UI_SCALE } from "../ui/tokens/typography";
 
 interface GitHubBodyProps {
   data: GitHubToolData | undefined;
@@ -31,73 +34,73 @@ export function GitHubBody({ data, tokens, running }: GitHubBodyProps) {
   const styles = useMemo(
     () =>
       StyleSheet.create({
-        container: { gap: 8 },
+        container: { gap: space.sm },
         row: {
           flexDirection: "row",
           alignItems: "center",
-          gap: 8,
+          gap: space.sm,
           paddingVertical: 3,
         },
         label: {
           fontFamily: tokens.fontMono,
-          fontSize: 11.5,
+          fontSize: UI_SCALE.base,
           color: tokens.foreground,
           flexShrink: 1,
           minWidth: 0,
         },
-        value: { fontFamily: tokens.fontUi, fontSize: 11, color: tokens.foregroundMuted },
+        value: { fontFamily: tokens.fontUi, fontSize: UI_SCALE.sm, color: tokens.foregroundMuted },
         okValue: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           color: tokens.success,
           backgroundColor: tokens.successBg,
           paddingHorizontal: 6,
           paddingVertical: 1,
-          borderRadius: radius.chip,
+          borderRadius: radiusV2.chip,
         },
         badValue: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           color: tokens.danger,
           backgroundColor: tokens.dangerBg,
           paddingHorizontal: 6,
           paddingVertical: 1,
-          borderRadius: radius.chip,
+          borderRadius: radiusV2.chip,
         },
         spacer: { flex: 1, minWidth: 8 },
         link: {
           fontFamily: tokens.fontMono,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           color: tokens.accent,
           textDecorationLine: "underline",
         },
         terminal: {
           padding: 10,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.surfaceCode,
           borderWidth: 1,
           borderColor: tokens.borderSubtle,
         },
         terminalText: {
           fontFamily: tokens.fontMono,
-          fontSize: 11.5,
-          lineHeight: 17,
+          fontSize: tokens.typography.mono.size,
+          lineHeight: tokens.typography.mono.lineHeight,
           color: tokens.foregroundMuted,
         },
-        note: { fontFamily: tokens.fontUi, fontSize: 11, color: tokens.foregroundSubtle },
+        note: { fontFamily: tokens.fontUi, fontSize: UI_SCALE.sm, color: tokens.foregroundSubtle },
         toggle: {
           flexDirection: "row",
           alignItems: "center",
-          gap: 4,
+          gap: space.xs,
           alignSelf: "flex-start",
           paddingHorizontal: 6,
           paddingVertical: 3,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.surface2,
         },
         toggleLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           color: tokens.foregroundMuted,
           ...unselectable,
         },
@@ -128,7 +131,7 @@ export function GitHubBody({ data, tokens, running }: GitHubBodyProps) {
 
       {data.rows?.map((row) => (
         <View key={`${row.label}:${row.value}`} style={styles.row}>
-          <Text selectable style={styles.label} numberOfLines={1}>
+          <Text {...(codeSurface as object)} selectable style={styles.label} numberOfLines={1}>
             {row.label}
           </Text>
           <View style={styles.spacer} />
@@ -157,7 +160,7 @@ export function GitHubBody({ data, tokens, running }: GitHubBodyProps) {
 
       {data.link ? (
         <Pressable accessibilityRole="link" onPress={() => openLink(data.link ?? "")}>
-          <Text style={styles.link} numberOfLines={1}>
+          <Text {...(codeSurface as object)} style={styles.link} numberOfLines={1}>
             {data.link}
           </Text>
         </Pressable>
@@ -178,14 +181,16 @@ export function GitHubBody({ data, tokens, running }: GitHubBodyProps) {
             style={styles.toggle}
           >
             <Glyph
-              name={showRequest ? "ChevronUp" : "ChevronDown"}
+              name={showRequest ? "ChevronDown" : "ChevronRight"}
               size={11}
               color={tokens.foregroundMuted}
             />
             <Text style={styles.toggleLabel}>request</Text>
           </Pressable>
           {showRequest ? (
-            <SyntaxHighlightBlock code={data.request} language="json" tokens={tokens} compact />
+            <FadeIn>
+              <SyntaxHighlightBlock code={data.request} language="json" tokens={tokens} compact />
+            </FadeIn>
           ) : null}
         </View>
       ) : null}

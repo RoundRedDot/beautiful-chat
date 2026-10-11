@@ -2,10 +2,11 @@ import React, { useCallback } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Icon } from "@getpaseo/plugin/client/react-native";
 import type { ExtendedThemeTokens } from "../components/theme-tokens";
-import { radiusV2 } from "../components/theme-tokens";
+import { radiusV2, space } from "../components/theme-tokens";
 import { unselectable } from "../components/selection";
 import { useCopy, type CopyFeedback } from "./use-copy";
 import { useHover } from "./use-hover";
+import { UI_SCALE } from "./tokens/typography";
 
 /** Visual box; `hitSlop` brings the touch target to 32 (plan §3.8, §3.11). */
 const BOX = 24;
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
   },
   withLabel: {
     paddingHorizontal: 6,
-    gap: 4,
+    gap: space.xs,
   },
   icon: {
     width: ICON,
@@ -92,6 +93,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   label: {
-    fontSize: 12,
+    fontSize: UI_SCALE.base,
   },
 });

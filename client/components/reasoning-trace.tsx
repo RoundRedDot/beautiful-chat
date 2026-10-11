@@ -16,7 +16,7 @@ import { useHover } from "../ui/use-hover";
 import { useInputCapabilities } from "../ui/use-input-capabilities";
 import { getDisclosure, setDisclosure, useDisclosure } from "../state/disclosure-store";
 import { copyPlan } from "../copy/content";
-import { FadeIn } from "../reasoning/fade-in";
+import { FadeIn } from "../ui/fade-in";
 import {
   reasoningText,
   segmentReasoning,
@@ -25,6 +25,7 @@ import {
 } from "../reasoning/segment";
 import { reasoningHeaderText } from "../reasoning/preview";
 import { CLAMPED_LINES, splitBodyRuns, type BodyRun } from "../reasoning/paragraphs";
+import { UI_SCALE } from "../ui/tokens/typography";
 
 /** Section title size (plan §3.4 item 4): between the 12 meta and the 13 body. */
 const SECTION_TITLE_SIZE = 12.5;
@@ -60,7 +61,7 @@ function LongParagraph({ text, tokens, storeKey, live }: LongParagraphProps) {
   return (
     <View>
       <View style={open ? null : styles.clamped}>
-        <MarkdownView text={text} tokens={tokens} variant="compact" />
+        <MarkdownView text={text} tokens={tokens} variant="compact" collapseCode />
       </View>
       <Pressable
         accessibilityRole="button"
@@ -92,9 +93,8 @@ interface BodyRunViewProps {
 
 const BodyRunView = memo(
   function BodyRunView({ run, tokens, storeKey, live }: BodyRunViewProps) {
-    // TODO(S2): pass `collapseCode` once MarkdownView has it, so fenced code
-    // starts folded as `code · ts · 24 lines ›` (plan §3.4 item 4).
-    if (!run.long) return <MarkdownView text={run.text} tokens={tokens} variant="compact" />;
+    // Fenced code starts folded as `ts · 24 lines ›` (plan §3.4 item 4).
+    if (!run.long) return <MarkdownView text={run.text} tokens={tokens} variant="compact" collapseCode />;
     return <LongParagraph text={run.text} tokens={tokens} storeKey={storeKey} live={live} />;
   },
   (a, b) =>
@@ -446,7 +446,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   preview: {
-    fontSize: 13,
+    fontSize: UI_SCALE.md,
   },
   body: {
     borderTopWidth: 1,
@@ -487,6 +487,6 @@ const styles = StyleSheet.create({
     marginTop: space.xs,
   },
   moreText: {
-    fontSize: 12,
+    fontSize: UI_SCALE.base,
   },
 });

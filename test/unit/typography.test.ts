@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   EMBEDDED_FAMILY,
+  interfaceFamily,
   lineHeightFor,
   readHostTypography,
   resolveTypography,
@@ -171,5 +172,35 @@ describe("readHostTypography", () => {
     expect(readHostTypography(undefined)).toBeNull();
     expect(readHostTypography({ typography: { fontFamily: { ui: "" }, fontSize: { code: -1 } } })).toBeNull();
     expect(readHostTypography({ typography: { fontSize: { code: 14 } } })?.fontSize?.code).toBe(14);
+  });
+});
+
+describe("interfaceFamily (plan §3.10 item 4)", () => {
+  const ui = (theme: unknown, uiFont: TypographyPreferences["uiFont"], platform: TypographyPlatform) =>
+    interfaceFamily(resolveTypography(theme, { ...follow, uiFont }, platform), uiFont, platform);
+
+  it("follows the host family when H1 provides one", () => {
+    expect(ui(withHost, "host", "web")).toContain("Geist");
+    expect(ui(withHost, "host", "ios")).toBe("Geist");
+  });
+
+  it("sets no family without H1, so the host's UI font rule (web) or the system face (native) applies", () => {
+    expect(ui(noHost, "host", "web")).toBeUndefined();
+    expect(ui(noHost, "host", "ios")).toBeUndefined();
+    expect(ui(noHost, "system", "web")).toBe("System");
+  });
+
+  it("draws an explicit Inter as the bare embedded name on web only", () => {
+    expect(ui(noHost, "inter", "web")).toBe(EMBEDDED_FAMILY.ui);
+    expect(ui(withHost, "inter", "web")).toBe(EMBEDDED_FAMILY.ui);
+    expect(ui(noHost, "inter", "android")).toBeUndefined();
+  });
+
+  it("never hands native the embedded name", () => {
+    for (const uiFont of ["host", "inter", "system"] as const) {
+      for (const platform of ["ios", "android"] as const) {
+        expect(ui(noHost, uiFont, platform) ?? "").not.toContain(EMBEDDED_FAMILY.ui);
+      }
+    }
   });
 });

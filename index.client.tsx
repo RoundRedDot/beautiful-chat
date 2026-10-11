@@ -3,13 +3,13 @@ import { z } from "zod";
 import { BeautifulChatSettingsPage } from "./client/settings-page";
 import { embedFonts } from "./client/components/embed-fonts";
 import { installFrostedGlass } from "./client/components/frosted";
-import { installShimmer } from "./client/components/shimmer";
 import { installPointerGlow } from "./client/components/glow";
 import { installHostNoticeStyle } from "./client/components/host-notice";
 import { installChatFind } from "./client/components/chat-find";
 import { extractPromptImages } from "./client/prompt-images";
 import { getEnhancerPreferences } from "./client/preferences";
 import { perfSlashCommand } from "./client/debug/perf-command";
+import { toolErrorText } from "./client/tools/error-text";
 import {
   LiveToolCallRenderer,
   LiveReasoningRenderer,
@@ -29,7 +29,6 @@ export default function contribute(client: PluginClientContext) {
   // Install the bundled faces before any surface paints.
   const removeFonts = embedFonts();
   const removeFrost = installFrostedGlass();
-  const removeShimmer = installShimmer();
   const removeGlow = installPointerGlow();
   // The host draws  rows itself; this only re-chromes them.
   const removeNoticeStyle = installHostNoticeStyle();
@@ -62,7 +61,7 @@ export default function contribute(client: PluginClientContext) {
               status: item.status,
               detail: toJsonValue(item.detail),
               ...(item.callId ? { callId: item.callId } : {}),
-              error: item.error ? String(item.error) : null,
+              error: toolErrorText(item.error),
               phase,
             },
           },
@@ -267,7 +266,6 @@ export default function contribute(client: PluginClientContext) {
     removePerfCommand();
     removeFonts();
     removeFrost();
-    removeShimmer();
     removeGlow();
     removeNoticeStyle();
     removeChatFind();

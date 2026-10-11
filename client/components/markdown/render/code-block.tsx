@@ -4,6 +4,8 @@ import { Icon } from "@getpaseo/plugin/client/react-native";
 import type { Tokens } from "../../../vendor/marked";
 import { SyntaxHighlightBlock } from "../../syntax-highlight";
 import type { RenderContext } from "./context";
+import { FadeIn } from "../../../ui/fade-in";
+import { codeSurface } from "../../host-font-escape";
 import { codeLanguage, fenceClosed } from "./text";
 
 /** A document-variant block longer than this starts folded … */
@@ -49,7 +51,7 @@ export function CodeBlock({
         style={styles.codeSummary}
       >
         <Icon name="ChevronRight" size={metrics.glyphSize} color={tokens.foregroundMuted} />
-        <Text style={styles.codeSummaryText}>
+        <Text {...(codeSurface as object)} style={styles.codeSummaryText}>
           {`${lang || "code"} · ${lines} ${lines === 1 ? "line" : "lines"}`}
         </Text>
       </Pressable>
@@ -59,8 +61,10 @@ export function CodeBlock({
   const closed = !open || token.codeBlockStyle === "indented" || fenceClosed(token.raw);
   const fold = variant === "document" && lines > FOLD_OVER_LINES ? FOLD_TO_LINES : undefined;
 
+  // A block the reader unfolded fades in like any expanded body (plan §3.7).
+  const Frame = collapseCode && variant === "compact" ? FadeIn : View;
   return (
-    <View style={styles.codeBlock}>
+    <Frame style={styles.codeBlock}>
       <SyntaxHighlightBlock
         code={token.text}
         language={language}
@@ -71,6 +75,6 @@ export function CodeBlock({
         scrollX
         initialLines={fold}
       />
-    </View>
+    </Frame>
   );
 }

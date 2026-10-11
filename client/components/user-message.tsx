@@ -1,9 +1,9 @@
-import React, { useMemo, useCallback, useState } from "react";
+import React, { useMemo, useCallback } from "react";
 import { View, Text, Pressable, StyleSheet, Image } from "react-native";
-import { copyText } from "@getpaseo/plugin/client/react-native";
 import { Glyph } from "./glyph";
-import { Pop } from "./motion";
-import { radius } from "./theme-tokens";
+import { radiusV2, space } from "./theme-tokens";
+import { useCopy } from "../ui/use-copy";
+import { UI_SCALE } from "../ui/tokens/typography";
 import type { ExtendedThemeTokens } from "./theme-tokens";
 import { selectableSurface } from "./selection";
 import { selectionSurface } from "./selection-actions";
@@ -61,7 +61,7 @@ function UsageFigure({
 }) {
   if (typeof value !== "number") return null;
   return (
-    <View style={{ flexDirection: "row", alignItems: "center", gap: 4 }}>
+    <View style={{ flexDirection: "row", alignItems: "center", gap: space.xs }}>
       <Text selectable style={styles.usageKey}>
         {label}
       </Text>
@@ -87,17 +87,10 @@ export function UserMessage({
   usage,
   pending = false,
 }: UserMessageProps) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = useCallback(() => {
-    // The host owns clipboard access. Reaching for navigator directly would
-    // only work on web and would bypass its permission handling.
-    copyText(text)
-      .then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1600);
-      })
-      .catch(() => {});
-  }, [text]);
+  // The shared copy path: the icon turns into a check for 1.2 s, a failure
+  // is a toast, and the timer is cleared on unmount.
+  const { copied, copy } = useCopy();
+  const handleCopy = useCallback(() => void copy(text), [copy, text]);
 
   const styles = useMemo(
     () =>
@@ -107,16 +100,13 @@ export function UserMessage({
           maxWidth: "82%",
           flexDirection: "row",
           gap: 10,
-          paddingVertical: 8,
-          paddingLeft: 12,
-          paddingRight: 10,
-          borderRadius: radius.card,
+          paddingVertical: space.sm,
+          paddingHorizontal: space.md,
+          borderRadius: radiusV2.bubble,
           // The square tail marks the turn's owner, matching the native stream.
-          borderTopRightRadius: radius.chip,
+          borderTopRightRadius: radiusV2.bubbleTail,
+          // Colour alone carries the bubble (plan §3.6): no border, no shadow.
           backgroundColor: tokens.userSurface,
-          borderWidth: 1,
-          borderColor: tokens.userBorder,
-          ...tokens.boxShadow,
           ...selectableSurface,
         },
         body: { flex: 1, gap: 3 },
@@ -124,33 +114,33 @@ export function UserMessage({
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "flex-end",
-          gap: 8,
+          gap: space.sm,
         },
         label: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           fontWeight: "600",
           letterSpacing: 0.4,
           textTransform: "uppercase",
           color: tokens.userTextMuted,
         },
         copyButton: {
-          paddingHorizontal: 4,
+          paddingHorizontal: space.xs,
           paddingVertical: 2,
         },
         clock: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           color: tokens.userTextMuted,
         },
         text: {
           fontFamily: tokens.fontUi,
-          fontSize: 13.5,
+          fontSize: UI_SCALE.lg,
           lineHeight: 20,
           color: tokens.userText,
         },
         imageRow: {
-          marginTop: 8,
+          marginTop: space.sm,
           gap: 6,
         },
         image: {
@@ -158,7 +148,7 @@ export function UserMessage({
           // Tall enough to read, bounded so a screenshot cannot take over
           // the thread.
           height: 200,
-          borderRadius: radius.block,
+          borderRadius: radiusV2.block,
           backgroundColor: tokens.userBorder,
         },
         usageRow: {
@@ -174,12 +164,12 @@ export function UserMessage({
         },
         usageKey: {
           fontFamily: tokens.fontUi,
-          fontSize: 10,
+          fontSize: UI_SCALE.xs,
           color: tokens.userTextMuted,
         },
         usageValue: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
+          fontSize: UI_SCALE.sm,
           fontWeight: "600",
           color: tokens.userText,
         },
@@ -202,16 +192,14 @@ export function UserMessage({
           <Pressable
             onPress={handleCopy}
             accessibilityRole="button"
-            accessibilityLabel="Copy prompt"
+            accessibilityLabel={copied ? "Prompt copied" : "Copy prompt"}
             style={styles.copyButton}
           >
-            <Pop trigger={copied}>
-              <Glyph
-                name={copied ? "Check" : "Copy"}
-                size={11}
-                color={copied ? tokens.userText : tokens.userTextMuted}
-              />
-            </Pop>
+            <Glyph
+              name={copied ? "Check" : "Copy"}
+              size={UI_SCALE.sm}
+              color={copied ? tokens.userText : tokens.userTextMuted}
+            />
           </Pressable>
         </View>
         <Text selectable style={styles.text}>

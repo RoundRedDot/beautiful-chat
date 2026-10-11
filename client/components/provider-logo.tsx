@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-import { fontUi, radius } from "./theme-tokens";
+import { fontUi, radiusV2 } from "./theme-tokens";
 import { MARK_BITMAPS, MONO_MARKS } from "./mark-bitmaps";
 import { unselectable } from "./selection";
+import { UI_SCALE } from "../ui/tokens/typography";
 
 export type KnownProvider =
   | "paseo"
@@ -140,8 +141,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderWidth: 1,
-    borderRadius: radius.chip,
+    borderRadius: radiusV2.chip,
   },
   fallbackLabel: { fontFamily: fontUi, fontWeight: "700" },
-  label: { fontFamily: fontUi, fontSize: 11, fontWeight: "600" },
+  label: { fontFamily: fontUi, fontSize: UI_SCALE.sm, fontWeight: "600" },
 });
