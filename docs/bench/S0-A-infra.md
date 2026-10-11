@@ -52,3 +52,7 @@ npm run replay -- [--fixtures dir] [--only name] [--speed 1] [--host current|cac
 | smoke-bash-tool | 17 | 2824 | 17 | 27 | 11 | 14 | 0 | 0 | 0 | 2 (`Breathe`) |
 
 The user message re-renders on every chunk (109 renders for 109 events); with `--host cached` it renders once. The unclosed code fence flips block kinds 3 times and the bash fixture ends with 2 `Breathe` loops still mounted when idle. Both are the hot spots the plan targets.
+
+## Correction (real-host run)
+
+The bundling smoke test above only proved that the daemon compiles the client and that Node runs the bundle. On the iOS app (Hermes) a bundle that imports `marked@18.1.0` fails to evaluate (`right operand of 'in' is not an object`), and class syntax in the plugin's own code fails too. The debug probe import was removed and the perf store rewritten without classes; see `baseline-host.md`.
