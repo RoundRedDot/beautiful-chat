@@ -1,0 +1,21 @@
+// V1 walk-through, part 8: expanding the 2852-line shell log (scenario 2) and the tool-expanded stream (scenario 10, finished state).
+import { launch, open, shot, rowIntoView, OUT } from "./web-lib.mjs";
+import { writeFileSync } from "node:fs";
+const out = {};
+const { ctx, page } = await launch();
+await open(page, "shell-log-large");
+const idx = await page.evaluate(() => [...document.querySelectorAll("[data-history-row-id]")].findIndex((e) => /Bash/.test((e.textContent || "").slice(0, 20))));
+out.rowFound = idx >= 0;
+const t0 = Date.now();
+await page.evaluate((i) => { const r = document.querySelectorAll("[data-history-row-id]")[i]; (r.querySelector("[role=button]") ?? r.firstElementChild).click(); }, idx);
+await page.waitForFunction((i) => document.querySelectorAll("[data-history-row-id]")[i].getBoundingClientRect().height > 300, idx, { timeout: 20000 });
+out.expandMs = Date.now() - t0;
+await page.waitForTimeout(1500);
+out.rowHeight = await page.evaluate((i) => Math.round(document.querySelectorAll("[data-history-row-id]")[i].getBoundingClientRect().height), idx);
+out.textLines = await page.evaluate((i) => document.querySelectorAll("[data-history-row-id]")[i].textContent.split(/\n/).length, idx);
+out.showAll = await page.evaluate((i) => /Show all|显示全部|more lines|lines hidden/i.test(document.querySelectorAll("[data-history-row-id]")[i].textContent), idx);
+await rowIntoView(page, idx);
+await shot(page, "web-shell-log-expanded.png");
+await ctx.close();
+writeFileSync(`${OUT}/web-walk-8.json`, JSON.stringify(out, null, 2));
+console.log(JSON.stringify(out));
