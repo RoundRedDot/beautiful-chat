@@ -1,15 +1,14 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
-import { Glyph } from "./glyph";
+import React, { memo, useCallback, useEffect, useState, useMemo, type ReactNode } from "react";
+import { View, Text, Pressable, ScrollView, StyleSheet } from "react-native";
 import { frosted } from "./frosted";
 import { surfaceProps } from "./view-props";
 import { glowing } from "./glow";
-import { Pop } from "./motion";
 import { radius, type ExtendedThemeTokens } from "./theme-tokens";
 import { FileTypeLogo, detectFileType } from "./file-type-logo";
 import { selectableSurface, unselectable } from "./selection";
 import { selectionCodeSurface, selectionSurface } from "./selection-actions";
 import { useHighlightedLines } from "../highlight";
+import { CopyButton } from "../ui/copy-button";
 import type { HighlightLine, HighlightToken } from "../../shared/highlight-rpc";
 
 interface SyntaxHighlightProps {
@@ -21,7 +20,48 @@ interface SyntaxHighlightProps {
   compact?: boolean;
   /** Shows the file in the machine's own file manager. Omitted: plain label. */
   onRevealFile?: () => void;
+  /**
+   * Drawn in the header in place of the filename label, e.g. a `PathText` that
+   * owns its own press, copy and relative display. `filename` still picks the
+   * grammar and the file-type logo.
+   */
+  filenameNode?: ReactNode;
+  /**
+   * False while the block is still being written (an open Markdown fence):
+   * lines are coloured by the local tokeniser and the daemon is not asked,
+   * so a streaming block costs one highlight call, made once it is complete.
+   */
+  highlight?: boolean;
+  /** Lines keep their length and the block scrolls sideways instead of wrapping. */
+  scrollX?: boolean;
+  /**
+   * Lines drawn before "Show all". Blocks longer than `LARGE_BLOCK_LINES` start
+   * at that many whatever this says (plan §3.2: mounting every row of a
+   * 5000-line diff froze the native UI for seconds).
+   */
+  initialLines?: number;
 }
+
+/** A block longer than this mounts its first rows only, then appends on request. */
+export const LARGE_BLOCK_LINES = 400;
+/**
+ * Rows appended per frame once "Show all" is pressed. Every commit re-lays out
+ * the whole growing block natively, so fewer, larger batches finish sooner: on
+ * the iOS simulator (dev build) a 5128-row diff expanded with 17% dropped
+ * frames at 400 rows per batch and 83% at 100.
+ */
+const APPEND_BATCH = 400;
+
+const scheduleFrame: (callback: () => void) => () => void =
+  typeof requestAnimationFrame === "function"
+    ? (callback) => {
+        const handle = requestAnimationFrame(callback);
+        return () => cancelAnimationFrame(handle);
+      }
+    : (callback) => {
+        const handle = setTimeout(callback, 16);
+        return () => clearTimeout(handle);
+      };
 
 const STATIC_KEYWORDS: Record<string, true> = {
   import: true,
@@ -471,18 +511,26 @@ export function SyntaxHighlightBlock({
   filename,
   compact = false,
   onRevealFile,
+  filenameNode,
+  highlight = true,
+  scrollX = false,
+  initialLines,
 }: SyntaxHighlightProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = useCallback(() => {
-    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(code).catch(() => {});
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1800);
-  }, [code]);
-
   const lines = useMemo(() => code.trimEnd().split("\n"), [code]);
+  const total = lines.length;
+  const firstCap = Math.min(
+    initialLines !== undefined && initialLines < total ? initialLines : total,
+    LARGE_BLOCK_LINES,
+  );
+  // null: the first rows only. A number: "Show all" was pressed, and rows are
+  // appended a batch per frame until every row is mounted, so expanding a huge
+  // block never blocks the UI thread for the whole block at once.
+  const [limit, setLimit] = useState<number | null>(null);
+  const shown = limit === null ? firstCap : Math.min(limit, total);
+  useEffect(() => {
+    if (limit === null || limit >= total) return;
+    return scheduleFrame(() => setLimit((current) => (current ?? firstCap) + APPEND_BATCH));
+  }, [limit, total, firstCap]);
   // A diff is a diff whatever the label says, and everything below reads this
   // flag rather than the label.
   const isDiff = useMemo(
@@ -513,6 +561,7 @@ export function SyntaxHighlightBlock({
     filename,
     dark: tokens.isDark,
     diffBodyCode,
+    enabled: highlight,
   });
   const shikiLines = highlightResult?.lines;
   const diffBodyLines = highlightResult?.diffLines;
@@ -580,22 +629,25 @@ export function SyntaxHighlightBlock({
           paddingVertical: 2,
           borderRadius: radius.chip,
         },
-        copyButton: {
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 4,
-          paddingHorizontal: 8,
-          paddingVertical: 3,
-          borderRadius: radius.block,
-          backgroundColor: tokens.surface2,
-          flexShrink: 0,
+        showAll: {
+          alignSelf: "flex-start",
+          marginTop: 6,
+          paddingVertical: 2,
         },
-        copyText: {
+        showAllText: {
           fontFamily: tokens.fontUi,
-          fontSize: 11,
-          color: copied ? tokens.success : tokens.foregroundMuted,
-          fontWeight: "500",
+          fontSize: 12,
+          color: tokens.accent,
           ...unselectable,
+        },
+        // A line in the sideways scroller sizes to its own text: `flex: 0`
+        // would map to a zero basis on web and wrap every word.
+        lineNoWrap: {
+          flexShrink: 0,
+          fontSize: 12,
+          lineHeight: 18,
+          fontFamily: tokens.fontCode,
+          color: tokens.foreground,
         },
         codeArea: {
           padding: compact ? 8 : 12,
@@ -605,7 +657,6 @@ export function SyntaxHighlightBlock({
           alignItems: "flex-start",
         },
         lineNumber: {
-          width: 32,
           fontSize: 12,
           fontFamily: tokens.fontMono,
           color: tokens.foregroundSubtle,
@@ -621,7 +672,81 @@ export function SyntaxHighlightBlock({
           color: tokens.foreground,
         },
       }),
-    [tokens, compact, copied],
+    [tokens, compact],
+  );
+
+  const numberWidth = lineNumberWidth(total);
+  // One row, as a stable function of the block's inputs: the chunks below are
+  // memoised on it, so appending rows never re-renders the rows already shown.
+  const row = useCallback(
+    (line: string, idx: number) => {
+      const shikiLine = shikiLines?.[idx];
+      // The patched file's tokens, and only for a line the file owns. A
+      // chrome line keeps the diff rendering it has today.
+      const bodyLine = isDiff && !isDiffChrome(line) ? diffBodyLines?.[idx] : undefined;
+      const kind = diffTint(lines[idx], isDiff);
+      const lineBg =
+        kind === "add"
+          ? tokens.syntax.diffAddBg
+          : kind === "remove"
+            ? tokens.syntax.diffRemoveBg
+            : "transparent";
+
+      // Adjacent added and removed rows form one hunk. Only the hunk's
+      // outer edges round, so a delete-to-add transition stays flush.
+      const previousKind = diffTint(lines[idx - 1], isDiff);
+      const nextKind = diffTint(lines[idx + 1], isDiff);
+      const opensRun = kind !== null && previousKind === null;
+      const closesRun = kind !== null && nextKind === null;
+      const corner = radius.chip;
+
+      return (
+        <View
+          key={idx}
+          style={[
+            styles.lineRow,
+            {
+              backgroundColor: lineBg,
+              borderTopLeftRadius: opensRun ? corner : 0,
+              borderTopRightRadius: opensRun ? corner : 0,
+              borderBottomLeftRadius: closesRun ? corner : 0,
+              borderBottomRightRadius: closesRun ? corner : 0,
+            },
+          ]}
+        >
+          {showLineNumbers && (
+            <Text style={[styles.lineNumber, { width: numberWidth }]}>{idx + 1}</Text>
+          )}
+          <Text selectable style={scrollX ? styles.lineNoWrap : styles.lineContent}>
+            {bodyLine
+              ? renderDiffBodyLine(line, bodyLine, tokens)
+              : shikiLine
+                ? renderShikiLine(shikiLine, tokens)
+                : renderSyntaxLine(
+                    line,
+                    isDiff,
+                    language,
+                    lineDialects[idx] ?? codeLanguage,
+                    tokens,
+                  )}
+          </Text>
+        </View>
+      );
+    },
+    [
+      shikiLines,
+      diffBodyLines,
+      isDiff,
+      lines,
+      tokens,
+      styles,
+      showLineNumbers,
+      numberWidth,
+      scrollX,
+      language,
+      lineDialects,
+      codeLanguage,
+    ],
   );
 
   return (
@@ -637,7 +762,9 @@ export function SyntaxHighlightBlock({
               size="sm"
               foregroundColor={tokens.foreground}
             />
-            {filename ? (
+            {filenameNode !== undefined ? (
+              filenameNode
+            ) : filename ? (
               onRevealFile ? (
                 <Pressable
                   onPress={onRevealFile}
@@ -659,74 +786,90 @@ export function SyntaxHighlightBlock({
               </Text>
             ) : null}
           </View>
-          <Pressable onPress={handleCopy} style={styles.copyButton}>
-            <Pop trigger={copied}>
-              <Glyph
-                name={copied ? "Check" : "Copy"}
-                size={12}
-                color={copied ? tokens.success : tokens.foregroundMuted}
-              />
-            </Pop>
-            <Text style={styles.copyText}>{copied ? "Copied" : "Copy"}</Text>
-          </Pressable>
+          <CopyButton text={code} tokens={tokens} label="Copy" showLabel />
         </View>
       )}
 
       <View {...selectionCodeSurface} style={styles.codeArea}>
-        {lines.map((line, idx) => {
-          const shikiLine = shikiLines?.[idx];
-          // The patched file's tokens, and only for a line the file owns. A
-          // chrome line keeps the diff rendering it has today.
-          const bodyLine = isDiff && !isDiffChrome(line) ? diffBodyLines?.[idx] : undefined;
-          const kind = diffTint(lines[idx], isDiff);
-          const lineBg =
-            kind === "add"
-              ? tokens.syntax.diffAddBg
-              : kind === "remove"
-                ? tokens.syntax.diffRemoveBg
-                : "transparent";
-
-          // Adjacent added and removed rows form one hunk. Only the hunk's
-          // outer edges round, so a delete-to-add transition stays flush.
-          const previousKind = diffTint(lines[idx - 1], isDiff);
-          const nextKind = diffTint(lines[idx + 1], isDiff);
-          const opensRun = kind !== null && previousKind === null;
-          const closesRun = kind !== null && nextKind === null;
-          const corner = radius.chip;
-
-          return (
-            <View
-              key={idx}
-              style={[
-                styles.lineRow,
-                {
-                  backgroundColor: lineBg,
-                  borderTopLeftRadius: opensRun ? corner : 0,
-                  borderTopRightRadius: opensRun ? corner : 0,
-                  borderBottomLeftRadius: closesRun ? corner : 0,
-                  borderBottomRightRadius: closesRun ? corner : 0,
-                },
-              ]}
-            >
-              {showLineNumbers && <Text style={styles.lineNumber}>{idx + 1}</Text>}
-              <Text selectable style={styles.lineContent}>
-                {bodyLine
-                  ? renderDiffBodyLine(line, bodyLine, tokens)
-                  : shikiLine
-                    ? renderShikiLine(shikiLine, tokens)
-                    : renderSyntaxLine(
-                        line,
-                        isDiff,
-                        language,
-                        lineDialects[idx] ?? codeLanguage,
-                        tokens,
-                      )}
-              </Text>
-            </View>
-          );
-        })}
+        {wrapRows(scrollX, chunkRows(shown, (from, to) => (
+          <CodeRows
+            key={from}
+            from={from}
+            to={to}
+            lines={lines}
+            row={row}
+          />
+        )))}
+        {shown < total ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => setLimit(shown + APPEND_BATCH)}
+            disabled={limit !== null}
+            style={styles.showAll}
+          >
+            <Text style={styles.showAllText}>
+              {limit !== null ? `Showing ${shown} of ${total} lines` : `Show all ${total} lines`}
+            </Text>
+          </Pressable>
+        ) : null}
       </View>
     </View>
+  );
+}
+
+/** Rows per memoised chunk: appending a batch mounts new chunks only. */
+const CHUNK_LINES = 100;
+
+function chunkRows(
+  shown: number,
+  render: (from: number, to: number) => React.ReactNode,
+): React.ReactNode[] {
+  const chunks: React.ReactNode[] = [];
+  for (let from = 0; from < shown; from += CHUNK_LINES) {
+    chunks.push(render(from, Math.min(shown, from + CHUNK_LINES)));
+  }
+  return chunks;
+}
+
+interface CodeRowsProps {
+  from: number;
+  to: number;
+  lines: string[];
+  row(line: string, idx: number): React.ReactNode;
+}
+
+function CodeRowsBody({ from, to, lines, row }: CodeRowsProps) {
+  const out: React.ReactNode[] = [];
+  for (let idx = from; idx < to; idx++) out.push(row(lines[idx] ?? "", idx));
+  return <>{out}</>;
+}
+
+const CodeRows = memo(CodeRowsBody);
+
+/** The gutter fits the largest line number: 3 digits must not wrap under 2. */
+function lineNumberWidth(total: number): number {
+  const digits = String(Math.max(1, total)).length;
+  return Math.max(32, Math.ceil(digits * 7.5) + 12);
+}
+
+const rowStyles = StyleSheet.create({
+  scrollContent: { flexGrow: 1 },
+  scrollRows: { flexGrow: 1 },
+});
+
+/** Rows as they are, or in a sideways scroller that lets lines keep their length. */
+function wrapRows(scrollX: boolean, rows: React.ReactNode[]): React.ReactNode {
+  if (!scrollX) return rows;
+  return (
+    // The content is at least as wide as the block, so a diff row's tint still
+    // spans the block when every line is short.
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={rowStyles.scrollContent}
+    >
+      <View style={rowStyles.scrollRows}>{rows}</View>
+    </ScrollView>
   );
 }
 

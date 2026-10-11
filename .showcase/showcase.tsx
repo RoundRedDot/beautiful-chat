@@ -25,8 +25,9 @@ import { buildHubData } from "../client/hub-details";
 import { NoticeCallout } from "../client/components/notice-callout";
 import { SystemCard } from "../client/components/system-card";
 import { AssistantFooter } from "../client/components/turn-footer";
-import { MarkdownView } from "../client/components/markdown/markdown-view";
+import { MARKDOWN_VARIANTS, MarkdownView } from "../client/components/markdown/markdown-view";
 import { parseSystemEnvelope } from "../client/system-envelope";
+import { HERO_REPLY, MD_SAMPLER, REASONING_PROSE, REASONING_SECTIONS, REPLY } from "./markdown-corpus";
 import { installPointerGlow } from "../client/components/glow";
 import type { ToolCalloutData } from "../shared/contracts";
 import { DEFAULT_PREFERENCES } from "../client/preferences";
@@ -599,31 +600,6 @@ Background job MarkdownFixes has completed. Resume your work using the result be
 </task-result>
 </system-notice>`;
 
-const REPLY = [
-  "## What shipped",
-  "",
-  "Links in a reply are clickable now, and they route through the host's own opener —",
-  "see [pull/125](https://github.com/paseo-cafe/paseo-cafe/pull/125) or the bare form",
-  "https://paseo.sh/docs.",
-  "",
-  "| Area | Result |",
-  "| --- | --- |",
-  "| Selection | Copy and Add to chat |",
-  "| Highlighting | shiki on the daemon |",
-  "| System text | drawn as cards |",
-  "",
-  "1. Parse the envelope, never guess.",
-  "2. Draw the card from typed fields.",
-  "   - job output on the code surface",
-  "   - a relayed message as prose",
-  "",
-  "> A refused scheme stays inert: `javascript:` never reaches a sink.",
-  "",
-  "```ts",
-  'const ALLOWED = new Set(["http:", "https:", "mailto:"]);',
-  "if (!ALLOWED.has(new URL(url).protocol)) return;",
-  "```",
-].join("\n");
 
 function Thread() {
   const envelope = parseSystemEnvelope(JOB_NOTICE);
@@ -656,21 +632,6 @@ function Thread() {
   );
 }
 
-const HERO_REPLY = [
-  "## What shipped",
-  "",
-  "Links route through the host's own opener — [pull/125](https://github.com/paseo-cafe/paseo-cafe/pull/125)",
-  "or the bare form https://paseo.sh/docs.",
-  "",
-  "| Area | Result |",
-  "| --- | --- |",
-  "| Selection | Copy and Add to chat |",
-  "| Highlighting | shiki on the daemon |",
-  "",
-  "```ts",
-  'const ALLOWED = new Set(["http:", "https:", "mailto:"]);',
-  "```",
-].join("\n");
 
 /**
  * One screenful for the top of the README: a prompt, a tool call with a
@@ -740,31 +701,7 @@ function Caption({ tokens, children }: { tokens: ExtendedThemeTokens; children: 
 
 // --- Reasoning v2 states (plan §3.4) ---------------------------------------
 
-const REASONING_SECTIONS = [
-  "Let me trace where the stutter comes from before changing anything.",
-  "",
-  "**Understanding the symptom**",
-  "",
-  "The highlighter re-tokenises every fenced block on each delta. The message cache then measures a stale selection range, which forces a second layout.",
-  "",
-  "**Mapping the render path**",
-  "",
-  "I need to:",
-  "",
-  "1. Find where `splitBlocks` runs.",
-  "2. Check whether finished blocks are memoised.",
-  "3. Confirm the theme object is stable.",
-  "",
-  "**Checking the memo**",
-  "",
-  "The card compares `text.length` and `phase` only. " +
-    "That should stop most renders, but the host hands every row a fresh theme object on every chunk, so the tokens memo has to key on the colour strings rather than the object identity. ".repeat(4) +
-    "Once that holds, a finished section never renders again while later sections stream in.",
-].join("\n");
 
-const REASONING_PROSE =
-  "The list re-renders on each chunk because the live head is rebuilt from a new array. Memo on the row would stop it, but the theme object changes too. " +
-  "So the comparator has to look at colours, not identity.\n\nThat leaves the reveal loop, which only runs while the text streams.";
 
 function ReasoningState({
   tokens,
@@ -1178,6 +1115,37 @@ function Showcase() {
       </Shot>
       <Shot id="shot-primitives-light" width={640} background={LIGHT.surface0}>
         <Primitives tokens={v2Light} />
+      </Shot>
+      {MARKDOWN_VARIANTS.map((variant) => (
+        <React.Fragment key={variant}>
+          <Shot id={`shot-md-${variant}-dark`} width={720}>
+            <MarkdownView text={MD_SAMPLER} tokens={v2Dark} variant={variant} />
+          </Shot>
+          <Shot id={`shot-md-${variant}-light`} width={720} background={LIGHT.surface0}>
+            <MarkdownView text={MD_SAMPLER} tokens={v2Light} variant={variant} />
+          </Shot>
+        </React.Fragment>
+      ))}
+      <Shot id="shot-md-streaming" width={720}>
+        <Text style={{ color: v2Dark.foregroundSubtle, fontSize: 11, fontFamily: v2Dark.fontUi }}>
+          streaming, cut inside the table header and inside the code fence
+        </Text>
+        <MarkdownView
+          text={MD_SAMPLER.slice(0, MD_SAMPLER.indexOf("| :---") + 3)}
+          tokens={v2Dark}
+          variant="document"
+          streaming
+        />
+        <MarkdownView
+          text={MD_SAMPLER.slice(0, MD_SAMPLER.indexOf("token.raw);") + 4)}
+          tokens={v2Dark}
+          variant="compact"
+          streaming
+        />
+        <Text style={{ color: v2Dark.foregroundSubtle, fontSize: 11, fontFamily: v2Dark.fontUi }}>
+          compact, collapseCode (reasoning)
+        </Text>
+        <MarkdownView text={REPLY} tokens={v2Dark} variant="compact" collapseCode />
       </Shot>
       <Shot id="shot-settings" width={760}>
         <View style={{ height: 880 }}>
