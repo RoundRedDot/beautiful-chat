@@ -1,0 +1,123 @@
+{
+  "at": "2026-10-11T03:34:13.981Z",
+  "enabled": true,
+  "platform": "web",
+  "platformVersion": "0.0.0",
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "scale": 1
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "agent": {
+    "id": "a1db2c21-43bd-40b6-ad96-1d77534b45f8"
+  },
+  "heapBytes": 154332936,
+  "snapshot": {
+    "renders": {
+      "byKind": {
+        "assistant": 774,
+        "user_message": 8
+      },
+      "byItem": {
+        "assistant:assistant#a5fcc4b2": 4,
+        "user_message:e7076a4a-52ef-4ca0-8ea6-e3a56ff6f489": 3,
+        "user_message:eca703b3-bff5-4ed8-ac2a-d7f7c2012fe5": 5,
+        "assistant:assistant#dc9c4a98": 770
+      }
+    },
+    "commitMs": {
+      "assistant": {
+        "count": 774,
+        "total": 7379.9,
+        "mean": 9.535,
+        "p50": 9.4,
+        "p95": 16.3,
+        "max": 107.6
+      },
+      "user_message": {
+        "count": 8,
+        "total": 100.9,
+        "mean": 12.613,
+        "p50": 5.4,
+        "p95": 23.3,
+        "max": 23.3
+      }
+    },
+    "markdown": {
+      "parses": 385,
+      "parseMs": {
+        "count": 385,
+        "total": 114,
+        "mean": 0.296,
+        "p50": 0.2,
+        "p95": 0.5,
+        "max": 16.5
+      },
+      "parseChars": {
+        "count": 385,
+        "total": 4512976,
+        "mean": 11722.016,
+        "p50": 11727,
+        "p95": 21664,
+        "max": 23168
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 1,
+      "whileStreaming": 0,
+      "totalPx": 26,
+      "events": [
+        {
+          "key": "assistant:assistant#a5fcc4b2",
+          "from": 664,
+          "to": 638,
+          "streaming": null
+        }
+      ]
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 0,
+      "mountsTotal": 0,
+      "byName": {}
+    },
+    "frames": {
+      "count": 3370,
+      "dropped": 192,
+      "droppedRatio": 0.054,
+      "longestMs": 200,
+      "intervalMs": {
+        "count": 3370,
+        "total": 59364.3,
+        "mean": 17.616,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 200
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 5,
+      "total": 444,
+      "mean": 88.8,
+      "p50": 64,
+      "p95": 202,
+      "max": 202
+    },
+    "layoutShifts": {
+      "count": 245,
+      "total": 0.639,
+      "mean": 0.003,
+      "p50": 0.002,
+      "p95": 0.006,
+      "max": 0.009
+    }
+  }
+}

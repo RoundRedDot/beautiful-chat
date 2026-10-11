@@ -1,0 +1,183 @@
+{
+  "at": "2026-10-11T03:32:04.309Z",
+  "enabled": true,
+  "platform": "web",
+  "platformVersion": "0.0.0",
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "scale": 1
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "agent": {
+    "id": "04e62b8e-ccbb-49aa-abd7-24fbe2aeb969"
+  },
+  "heapBytes": 340742282,
+  "snapshot": {
+    "renders": {
+      "byKind": {
+        "assistant": 31,
+        "user_message": 8,
+        "reasoning": 21,
+        "tool_call": 126
+      },
+      "byItem": {
+        "assistant:assistant#a5fcc4b2": 5,
+        "user_message:ce203ce0-a40d-41f7-afaa-144808fbe93b": 3,
+        "user_message:f06bfc7a-3ae8-45b2-af2d-205f58369eb2": 5,
+        "reasoning:reasoning#1e1fc5d4": 21,
+        "assistant:assistant#edd7b689": 8,
+        "tool_call:toolu_reads200001": 5,
+        "tool_call:toolu_reads200002": 5,
+        "tool_call:toolu_reads200003": 6,
+        "tool_call:toolu_reads200004": 5,
+        "tool_call:toolu_reads200005": 4,
+        "tool_call:toolu_reads200006": 6,
+        "tool_call:toolu_reads200007": 5,
+        "tool_call:toolu_reads200008": 5,
+        "tool_call:toolu_reads200009": 6,
+        "tool_call:toolu_reads200010": 5,
+        "tool_call:toolu_reads200011": 5,
+        "tool_call:toolu_reads200012": 5,
+        "tool_call:toolu_reads200013": 6,
+        "tool_call:toolu_reads200014": 5,
+        "tool_call:toolu_reads200015": 5,
+        "tool_call:toolu_reads200016": 6,
+        "tool_call:toolu_reads200017": 4,
+        "tool_call:toolu_reads200018": 5,
+        "tool_call:toolu_reads200019": 5,
+        "tool_call:toolu_reads200020": 6,
+        "tool_call:toolu_reads200021": 5,
+        "tool_call:toolu_reads200022": 5,
+        "tool_call:toolu_reads200023": 5,
+        "tool_call:toolu_reads200024": 7,
+        "assistant:assistant#c2de69ca": 18
+      }
+    },
+    "commitMs": {
+      "assistant": {
+        "count": 31,
+        "total": 803.4,
+        "mean": 25.916,
+        "p50": 2.4,
+        "p95": 318.5,
+        "max": 322.1
+      },
+      "user_message": {
+        "count": 8,
+        "total": 673.7,
+        "mean": 84.213,
+        "p50": 5.3,
+        "p95": 323.1,
+        "max": 323.1
+      },
+      "reasoning": {
+        "count": 21,
+        "total": 374.6,
+        "mean": 17.838,
+        "p50": 1.8,
+        "p95": 12.4,
+        "max": 320.1
+      },
+      "tool_call": {
+        "count": 126,
+        "total": 5523.5,
+        "mean": 43.837,
+        "p50": 13.3,
+        "p95": 230.2,
+        "max": 317.9
+      }
+    },
+    "markdown": {
+      "parses": 12,
+      "parseMs": {
+        "count": 12,
+        "total": 0.4,
+        "mean": 0.033,
+        "p50": 0,
+        "p95": 0.1,
+        "max": 0.1
+      },
+      "parseChars": {
+        "count": 12,
+        "total": 4204,
+        "mean": 350.333,
+        "p50": 164,
+        "p95": 2127,
+        "max": 2127
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 3,
+      "whileStreaming": 0,
+      "totalPx": 190,
+      "events": [
+        {
+          "key": "assistant:assistant#a5fcc4b2",
+          "from": 664,
+          "to": 638,
+          "streaming": null
+        },
+        {
+          "key": "reasoning:reasoning#1e1fc5d4",
+          "from": 212,
+          "to": 74,
+          "streaming": false
+        },
+        {
+          "key": "assistant:assistant#edd7b689",
+          "from": 49,
+          "to": 23,
+          "streaming": null
+        }
+      ]
+    },
+    "highlightRpc": {
+      "count": 48,
+      "byLanguage": {
+        "typescript": 48
+      }
+    },
+    "animations": {
+      "mounted": 72,
+      "peak": 76,
+      "mountsTotal": 99,
+      "byName": {
+        "Breathe": 72
+      }
+    },
+    "frames": {
+      "count": 1506,
+      "dropped": 151,
+      "droppedRatio": 0.091,
+      "longestMs": 566.5,
+      "intervalMs": {
+        "count": 1506,
+        "total": 27615.5,
+        "mean": 18.337,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 566.5
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 15,
+      "total": 1265,
+      "mean": 84.333,
+      "p50": 56,
+      "p95": 362,
+      "max": 362
+    },
+    "layoutShifts": {
+      "count": 12,
+      "total": 0.031,
+      "mean": 0.003,
+      "p50": 0.001,
+      "p95": 0.015,
+      "max": 0.015
+    }
+  }
+}
