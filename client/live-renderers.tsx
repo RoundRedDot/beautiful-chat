@@ -41,6 +41,7 @@ import type {
 import { revealPathRpc } from "../shared/file-rpc";
 import { buildGitHubData } from "./github-request";
 import { useImageFile } from "./image-file";
+import { probeCard, textItemKey } from "./debug/perf";
 
 type JsonValue = boolean | null | number | string | JsonValue[] | { [key: string]: JsonValue };
 
@@ -391,6 +392,11 @@ export function LiveToolCallRenderer({
   layout,
   timestamp,
 }: PluginTimelineItemProps<LiveToolCallPayload>) {
+  const probe = probeCard(
+    "tool_call",
+    item.data.callId ?? item.data.name,
+    item.data.phase === undefined ? null : item.data.phase === "streaming",
+  );
   const revealPath = useRpc(revealPathRpc);
   const cwd = useAgent(agentId, (agent) => agent.cwd);
   const preferences = useEnhancerPreferences();
@@ -616,7 +622,8 @@ export function LiveToolCallRenderer({
   );
 
   return (
-    <View {...hostFontEscape}>
+    <View {...hostFontEscape} {...probe.viewProps}>
+      {probe.node}
       <ToolCallout
         data={calloutData}
         tokens={tokens}
@@ -639,6 +646,11 @@ export function LiveReasoningRenderer({
   item,
   theme,
 }: PluginTimelineItemProps<LiveReasoningPayload>) {
+  const probe = probeCard(
+    "reasoning",
+    textItemKey("reasoning", item.data.text),
+    item.data.phase === undefined ? null : item.data.phase === "streaming",
+  );
   const preferences = useEnhancerPreferences();
   const tokens = useMemo(
     () => buildThemeTokens(theme.colors, preferences),
@@ -694,7 +706,8 @@ export function LiveReasoningRenderer({
   }, [data, revealed]);
 
   return (
-    <View {...hostFontEscape}>
+    <View {...hostFontEscape} {...probe.viewProps}>
+      {probe.node}
       <ReasoningTrace
         data={reasoningData}
         tokens={tokens}
@@ -704,7 +717,12 @@ export function LiveReasoningRenderer({
   );
 }
 
-export function LiveTodoRenderer({ item, theme }: PluginTimelineItemProps<LiveTodoPayload>) {
+export function LiveTodoRenderer({
+  item,
+  theme,
+  timestamp,
+}: PluginTimelineItemProps<LiveTodoPayload>) {
+  const probe = probeCard("todo", String(timestamp.getTime()), item.data.phase === "streaming");
   const preferences = useEnhancerPreferences();
   const tokens = useMemo(
     () => buildThemeTokens(theme.colors, preferences),
@@ -735,7 +753,8 @@ export function LiveTodoRenderer({ item, theme }: PluginTimelineItemProps<LiveTo
   }, [data]);
 
   return (
-    <View {...hostFontEscape}>
+    <View {...hostFontEscape} {...probe.viewProps}>
+      {probe.node}
       <TaskList data={taskListData} tokens={tokens} />
     </View>
   );
@@ -758,6 +777,7 @@ export function LiveAssistantRenderer({
   theme,
   timestamp,
 }: PluginTimelineItemProps<LiveAssistantPayload>) {
+  const probe = probeCard("assistant", textItemKey("assistant", item.data.text));
   const preferences = useEnhancerPreferences();
   const tokens = useMemo(
     () => buildThemeTokens(theme.colors, preferences),
@@ -778,11 +798,17 @@ export function LiveAssistantRenderer({
   const envelope = useMemo(() => parseSystemEnvelope(item.data.text), [item.data.text]);
 
   return (
-    <View {...hostFontEscape}>
+    <View {...hostFontEscape} {...probe.viewProps}>
+      {probe.node}
       {envelope ? (
         <SystemCard envelope={envelope} tokens={tokens} />
       ) : (
-        <MarkdownView text={item.data.text} tokens={tokens} variant={preferences.markdownVariant} />
+        <MarkdownView
+          text={item.data.text}
+          tokens={tokens}
+          variant={preferences.markdownVariant}
+          probeId={itemKey}
+        />
       )}
       {isTail && !envelope ? (
         <AssistantFooter text={item.data.text} at={timestamp} tokens={tokens} />
@@ -803,7 +829,12 @@ export function LiveAssistantRenderer({
  * which reads as a different product beside the plugin's callouts. Both carry
  * only a level and a message, so the card is a badge plus that message.
  */
-export function LiveNoticeRenderer({ item, theme }: PluginTimelineItemProps<LiveNoticePayload>) {
+export function LiveNoticeRenderer({
+  item,
+  theme,
+  timestamp,
+}: PluginTimelineItemProps<LiveNoticePayload>) {
+  const probe = probeCard("notice", String(timestamp.getTime()));
   const preferences = useEnhancerPreferences();
   const tokens = useMemo(
     () => buildThemeTokens(theme.colors, preferences),
@@ -825,7 +856,8 @@ export function LiveNoticeRenderer({ item, theme }: PluginTimelineItemProps<Live
   );
 
   return (
-    <View {...hostFontEscape}>
+    <View {...hostFontEscape} {...probe.viewProps}>
+      {probe.node}
       <NoticeCallout data={noticeData} tokens={tokens} />
     </View>
   );
@@ -852,6 +884,7 @@ export function LiveUserMessageRenderer({
   agentId,
   timestamp,
 }: PluginTimelineItemProps<LiveUserMessagePayload>) {
+  const probe = probeCard("user_message", item.data.messageId ?? String(timestamp.getTime()));
   const preferences = useEnhancerPreferences();
   const tokens = useMemo(
     () => buildThemeTokens(theme.colors, preferences),
@@ -901,7 +934,11 @@ export function LiveUserMessageRenderer({
   const envelope = useMemo(() => parseSystemEnvelope(item.data.text), [item.data.text]);
 
   return (
-    <View {...surfaceProps(hostFontEscape, promptRowAnchor(item.data.messageId))}>
+    <View
+      {...surfaceProps(hostFontEscape, promptRowAnchor(item.data.messageId))}
+      {...probe.viewProps}
+    >
+      {probe.node}
       {envelope ? (
         <SystemCard envelope={envelope} tokens={tokens} />
       ) : (
