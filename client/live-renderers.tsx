@@ -750,7 +750,17 @@ function LiveTodoRendererBody({
 
 export interface LiveAssistantPayload {
   text: string;
+  /** The host's phase for the item; absent from transformers before S2. */
+  phase?: string;
 }
+
+/**
+ * Streamed replies reveal at the host's own cadence (`useRevealedText`, plan
+ * §3.1 item 8), so only the tail block re-renders, once per frame. Set false
+ * to draw each chunk as it arrives instead, if per-frame renders measure too
+ * expensive on a device.
+ */
+const ASSISTANT_REVEAL = true;
 
 /**
  * The assistant's own reply, drawn with the plugin's markdown renderer.
@@ -766,7 +776,12 @@ function LiveAssistantRendererBody({
   layout,
   timestamp,
 }: PluginTimelineItemProps<LiveAssistantPayload>) {
-  const probe = probeCard("assistant", textItemKey("assistant", item.data.text));
+  const streaming = item.data.phase === "streaming";
+  const probe = probeCard(
+    "assistant",
+    textItemKey("assistant", item.data.text),
+    item.data.phase === undefined ? null : streaming,
+  );
   const preferences = useEnhancerPreferences();
   const tokens = useThemeTokens(theme, preferences, layout.platform);
   useSelectionActions(tokens, preferences.selectionActions);
@@ -782,6 +797,21 @@ function LiveAssistantRendererBody({
   // files any unclaimed `custom` message under this item kind. They are not
   // the model's words, so they are drawn as a card, not as prose.
   const envelope = useMemo(() => parseSystemEnvelope(item.data.text), [item.data.text]);
+  const revealed = useRevealedText(
+    item.data.text,
+    ASSISTANT_REVEAL && streaming ? "streaming" : "complete",
+  );
+
+  // A path in the prose reveals like a path in a tool card: one daemon RPC,
+  // relative to the agent's directory.
+  const revealPath = useRpc(revealPathRpc);
+  const cwd = useAgent(agentId, (agent) => agent.cwd);
+  const handleRevealPath = useCallback(
+    (path: string) => {
+      void revealPath({ cwd: cwd ?? "", path }).catch(() => {});
+    },
+    [cwd, revealPath],
+  );
 
   return (
     <View {...hostFontEscape} {...probe.viewProps}>
@@ -790,9 +820,11 @@ function LiveAssistantRendererBody({
         <SystemCard envelope={envelope} tokens={tokens} />
       ) : (
         <MarkdownView
-          text={item.data.text}
+          text={revealed}
           tokens={tokens}
           variant={preferences.markdownVariant}
+          streaming={streaming}
+          onRevealPath={handleRevealPath}
           probeId={itemKey}
         />
       )}
