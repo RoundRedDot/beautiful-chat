@@ -10,7 +10,6 @@ import { createRoot } from "react-dom/client";
 import { Text, View } from "react-native";
 
 import { embedFonts } from "../client/components/embed-fonts";
-import { installFrostedGlass } from "../client/components/frosted";
 import { buildThemeTokens } from "../client/components/theme-tokens";
 import { ToolCallout } from "../client/components/tool-callouts";
 import { ReasoningCard, ReasoningTrace } from "../client/components/reasoning-trace";
@@ -28,7 +27,6 @@ import { AssistantFooter } from "../client/components/turn-footer";
 import { MARKDOWN_VARIANTS, MarkdownView } from "../client/components/markdown/markdown-view";
 import { parseSystemEnvelope } from "../client/system-envelope";
 import { HERO_REPLY, MD_SAMPLER, REASONING_PROSE, REASONING_SECTIONS, REPLY } from "./markdown-corpus";
-import { installPointerGlow } from "../client/components/glow";
 import type { ToolCalloutData } from "../shared/contracts";
 import { DEFAULT_PREFERENCES } from "../client/preferences";
 import type { ExtendedThemeTokens } from "../client/components/theme-tokens";
@@ -39,6 +37,7 @@ import { PathContext, PathText, type PathContextValue } from "../client/ui/path-
 import { RunningDot } from "../client/ui/running-dot";
 import { Glyph } from "../client/components/glyph";
 import { classifyTool, type ToolCallPayload, type ToolCallView } from "../client/tools/classify";
+import { S7_GROUPS } from "./s7-groups";
 
 const DARK = {
   surface0: "#0f0f11",
@@ -78,8 +77,21 @@ const THEME =
     : "dark";
 const BASE = THEME === "light" ? LIGHT : DARK;
 
-// The shipped defaults (no frost, no glow), as a reader first sees them.
+// The shipped defaults, as a reader first sees them.
 const tokens = buildThemeTokens(BASE, DEFAULT_PREFERENCES, { platform: "web" });
+
+/**
+ * `?layout=compact` draws the S7 groups in the touch layout: compact rows and
+ * the native content size (16), passed the way a host with typography would.
+ */
+const COMPACT =
+  typeof location !== "undefined" && new URLSearchParams(location.search).get("layout") === "compact";
+const s7Tokens = COMPACT
+  ? buildThemeTokens(BASE, DEFAULT_PREFERENCES, {
+      platform: "web",
+      theme: { colors: BASE, typography: { fontSize: { content: 16 } } },
+    })
+  : tokens;
 
 const bash: ToolCalloutData = {
   id: "bash",
@@ -1159,6 +1171,18 @@ function Showcase() {
           layout={{ compact: false, platform: "web" }}
         />
       </Shot>
+      {S7_GROUPS.map((group) => (
+        <Shot key={group.id} id={`shot-s7-${group.id}`}>
+          {group.render(s7Tokens, COMPACT)}
+        </Shot>
+      ))}
+      <Shot id="shot-s7-settings">
+        <BeautifulChatSettingsPage
+          theme={{ colors: BASE }}
+          host={{ id: "local", label: "Local" }}
+          layout={{ compact: COMPACT, platform: COMPACT ? "ios" : "web" }}
+        />
+      </Shot>
       <Shot id="shot-settings-native" width={420}>
         <BeautifulChatSettingsPage
           theme={{ colors: BASE }}
@@ -1171,8 +1195,6 @@ function Showcase() {
 }
 
 embedFonts();
-installFrostedGlass();
-installPointerGlow();
 
 console.log("showcase: bundle evaluated");
 const mount = document.getElementById("root");

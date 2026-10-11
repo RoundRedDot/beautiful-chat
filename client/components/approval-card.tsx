@@ -1,9 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Glyph } from "./glyph";
-import { frosted } from "./frosted";
 import { surfaceProps } from "./view-props";
-import { glowing } from "./glow";
 import { radius, radiusV2 } from "./theme-tokens";
 import type { ExtendedThemeTokens } from "./theme-tokens";
 import type { ApprovalRequest } from "../../shared/contracts";
@@ -44,7 +42,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
         card: {
           marginVertical: 10,
           borderRadius: radius.card,
-          backgroundColor: tokens.surfaceGlass,
+          backgroundColor: tokens.surface0,
           borderWidth: 1,
           borderColor: isHighRisk ? tokens.dangerBorder : tokens.borderSubtle,
           overflow: "hidden",
@@ -77,7 +75,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
           color: tokens.foreground,
         },
         toolChip: {
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           fontFamily: tokens.fontUi,
           fontWeight: "600",
           paddingHorizontal: 6,
@@ -96,7 +94,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
         },
         riskText: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.xs,
+          fontSize: UI_SCALE.base,
           fontWeight: "700",
           textTransform: "uppercase",
           letterSpacing: 0.5,
@@ -125,11 +123,11 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
         },
         metaLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundSubtle,
         },
         metaValue: {
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           fontFamily: tokens.fontMono,
           color: tokens.foregroundMuted,
         },
@@ -229,7 +227,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
           ...unselectable,
         },
         shortcutBadge: {
-          fontSize: UI_SCALE.xs,
+          fontSize: UI_SCALE.base,
           fontFamily: tokens.fontUi,
           paddingHorizontal: 4,
           paddingVertical: 1,
@@ -239,7 +237,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
           ...unselectable,
         },
         denyShortcutBadge: {
-          fontSize: UI_SCALE.xs,
+          fontSize: UI_SCALE.base,
           fontFamily: tokens.fontUi,
           paddingHorizontal: 4,
           paddingVertical: 1,
@@ -250,7 +248,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
         },
         undoText: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundMuted,
           textDecorationLine: "underline",
           ...unselectable,
@@ -271,7 +269,7 @@ export function ApprovalCard({ request, tokens, onApprove, onDeny }: ApprovalCar
   };
 
   return (
-    <View {...surfaceProps(frosted, glowing(tokens.isDark), selectionSurface)} style={styles.card}>
+    <View {...surfaceProps(selectionSurface)} style={styles.card}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <Glyph name="ShieldAlert" size={15} color={riskBadgeColor} />

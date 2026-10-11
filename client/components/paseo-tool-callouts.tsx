@@ -76,13 +76,9 @@ function CreateAgentView({
             <Text
               selectable
               style={{
-                fontSize: UI_SCALE.sm,
+                fontSize: UI_SCALE.base,
                 fontFamily: tokens.fontUi,
                 color: tokens.foregroundMuted,
-                backgroundColor: tokens.surface2,
-                paddingHorizontal: 6,
-                paddingVertical: 2,
-                borderRadius: radiusV2.block,
               }}
             >
               {data.model}
@@ -92,11 +88,9 @@ function CreateAgentView({
             <Text
               selectable
               style={{
-                fontSize: UI_SCALE.xs,
+                fontSize: UI_SCALE.base,
                 fontWeight: "600",
-                textTransform: "uppercase",
                 color: tokens.accent,
-                backgroundColor: tokens.accentBg,
                 paddingHorizontal: 6,
                 paddingVertical: 2,
                 borderRadius: radiusV2.block,
@@ -115,14 +109,13 @@ function CreateAgentView({
             paddingHorizontal: space.sm,
             paddingVertical: 3,
             borderRadius: radiusV2.block,
-            backgroundColor: tokens.successBg,
           }}
         >
           <Glyph name="CheckCircle" size={11} color={tokens.success} />
           <Text
             selectable
             style={{
-              fontSize: UI_SCALE.sm,
+              fontSize: UI_SCALE.base,
               fontFamily: tokens.fontUi,
               color: tokens.success,
               fontWeight: "600",
@@ -137,13 +130,12 @@ function CreateAgentView({
         <Text
           selectable
           style={{
-            fontSize: UI_SCALE.xs,
-            fontWeight: "700",
-            textTransform: "uppercase",
-            color: tokens.foregroundSubtle,
+            fontSize: UI_SCALE.base,
+            fontWeight: "500",
+            color: tokens.foregroundMuted,
           }}
         >
-          Initial Task Prompt
+          Initial task prompt
         </Text>
         <SyntaxHighlightBlock
           code={data.initialPrompt}
@@ -168,7 +160,7 @@ function ListProvidersView({
       <Text
         selectable
         style={{
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundMuted,
         }}
       >
@@ -188,9 +180,7 @@ function ListProvidersView({
                 paddingHorizontal: 10,
                 paddingVertical: 7,
                 borderRadius: radiusV2.block,
-                backgroundColor: tokens.surface1,
-                borderWidth: 1,
-                borderColor: tokens.borderSubtle,
+                backgroundColor: tokens.v2.surface2,
               }}
             >
               <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
@@ -216,9 +206,9 @@ function ListProvidersView({
                     <Text
                       selectable
                       style={{
-                        fontSize: UI_SCALE.xs,
+                        fontSize: UI_SCALE.base,
                         fontFamily: tokens.fontUi,
-                        color: tokens.foregroundSubtle,
+                        color: tokens.foregroundMuted,
                       }}
                     >
                       {p.id}
@@ -227,7 +217,7 @@ function ListProvidersView({
                   <Text
                     selectable
                     style={{
-                      fontSize: UI_SCALE.sm,
+                      fontSize: UI_SCALE.base,
                       color: tokens.foregroundMuted,
                       marginTop: 1,
                     }}
@@ -250,10 +240,9 @@ function ListProvidersView({
                 <Text
                   selectable
                   style={{
-                    fontSize: UI_SCALE.xs,
+                    fontSize: UI_SCALE.base,
                     fontWeight: "600",
-                    textTransform: "uppercase",
-                    color: isAvail ? tokens.success : tokens.foregroundSubtle,
+                    color: isAvail ? tokens.success : tokens.foregroundMuted,
                   }}
                 >
                   {p.status}
@@ -278,7 +267,7 @@ function ListModelsView({
     <View style={{ gap: space.sm }}>
       <View style={{ flexDirection: "row", alignItems: "center", gap: space.sm }}>
         <ProviderLogo provider={data.provider} size={16} showLabel />
-        <Text selectable style={{ fontSize: UI_SCALE.sm, color: tokens.foregroundSubtle }}>
+        <Text selectable style={{ fontSize: UI_SCALE.base, color: tokens.foregroundMuted }}>
           Supported models & reasoning modes:
         </Text>
       </View>
@@ -294,9 +283,7 @@ function ListModelsView({
               paddingHorizontal: 10,
               paddingVertical: 6,
               borderRadius: radiusV2.block,
-              backgroundColor: tokens.surface1,
-              borderWidth: 1,
-              borderColor: tokens.borderSubtle,
+              backgroundColor: tokens.v2.surface2,
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center", gap: space.sm }}>
@@ -314,7 +301,7 @@ function ListModelsView({
               <Text
                 selectable
                 style={{
-                  fontSize: UI_SCALE.sm,
+                  fontSize: UI_SCALE.base,
                   color: tokens.foregroundMuted,
                 }}
               >
@@ -332,14 +319,13 @@ function ListModelsView({
                     paddingHorizontal: 5,
                     paddingVertical: 1,
                     borderRadius: radiusV2.chip,
-                    backgroundColor: tokens.accentBg,
                   }}
                 >
                   <Glyph name="Brain" size={10} color={tokens.accent} />
                   <Text
                     selectable
                     style={{
-                      fontSize: UI_SCALE.xs,
+                      fontSize: UI_SCALE.base,
                       color: tokens.accent,
                       fontWeight: "600",
                     }}
@@ -351,13 +337,9 @@ function ListModelsView({
               <Text
                 selectable
                 style={{
-                  fontSize: UI_SCALE.xs,
+                  fontSize: UI_SCALE.base,
                   fontFamily: tokens.fontUi,
-                  color: tokens.foregroundSubtle,
-                  backgroundColor: tokens.surface2,
-                  paddingHorizontal: 5,
-                  paddingVertical: 1,
-                  borderRadius: radiusV2.chip,
+                  color: tokens.foregroundMuted,
                 }}
               >
                 {m.contextTokens}
@@ -394,7 +376,7 @@ function GetActivityView({
           <Text
             selectable
             style={{
-              fontSize: UI_SCALE.sm,
+              fontSize: UI_SCALE.base,
               fontFamily: tokens.fontUi,
               color: tokens.foregroundMuted,
             }}
@@ -402,7 +384,7 @@ function GetActivityView({
             Target: {data.agentId}
           </Text>
         </View>
-        <Text selectable style={{ fontSize: UI_SCALE.xs, color: tokens.foregroundSubtle }}>
+        <Text selectable style={{ fontSize: UI_SCALE.base, color: tokens.foregroundMuted }}>
           {data.activities.length} recent activities
         </Text>
       </View>
@@ -439,9 +421,9 @@ function GetActivityView({
             <Text
               selectable
               style={{
-                fontSize: UI_SCALE.xs,
+                fontSize: UI_SCALE.base,
                 fontFamily: tokens.fontUi,
-                color: tokens.foregroundSubtle,
+                color: tokens.foregroundMuted,
               }}
             >
               {act.elapsed}

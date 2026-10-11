@@ -7,8 +7,9 @@ import { selectableSurface, unselectable } from "./selection";
 import { selectionSurface } from "./selection-actions";
 import { surfaceProps } from "./view-props";
 import { MarkdownView } from "./markdown/markdown-view";
+import { variantMetrics } from "./markdown/render/styles";
 import type { ReasoningTraceData } from "../../shared/contracts";
-import { DisclosureHeader } from "../ui/disclosure-header";
+import { DISCLOSURE_HEADER, DisclosureHeader } from "../ui/disclosure-header";
 import { RunningDot } from "../ui/running-dot";
 import { CopyButton } from "../ui/copy-button";
 import { useCopy } from "../ui/use-copy";
@@ -25,16 +26,19 @@ import {
 } from "../reasoning/segment";
 import { reasoningHeaderText } from "../reasoning/preview";
 import { CLAMPED_LINES, splitBodyRuns, type BodyRun } from "../reasoning/paragraphs";
-import { UI_SCALE } from "../ui/tokens/typography";
+import { TYPE, UI_SCALE } from "../ui/tokens/typography";
 
-/** Section title size (plan §3.4 item 4): between the 12 meta and the 13 body. */
-const SECTION_TITLE_SIZE = 12.5;
-/** `MarkdownView variant="compact"` body line height; the clamp is six of these. */
-const COMPACT_LINE_HEIGHT = 19;
+/** Four lines of a thought's body: the quiet compact Markdown at the host's size. */
+function clampHeight(tokens: ExtendedThemeTokens): number {
+  return variantMetrics("compact", tokens.typography.content.size, false, true).bodyLineHeight * CLAMPED_LINES;
+}
 
 function copyTextOf(text: string): string {
   return copyPlan({ kind: "reasoning", text }).primary?.text ?? "";
 }
+
+/** "Show more" is 28 tall; this brings it to a 44pt target on touch. */
+const MORE_SLOP = 8;
 
 // --- Body ------------------------------------------------------------------
 
@@ -47,7 +51,7 @@ interface LongParagraphProps {
 }
 
 /**
- * A plain paragraph over ~600 characters: six lines and "Show more". A
+ * A plain paragraph over ~600 characters: four lines and "Show more". A
  * paragraph that mounted while it was still streaming starts open and stays
  * open, so text the reader watched arrive never snaps shut under them. The
  * choice lives in the disclosure store, so remounting into history keeps it.
@@ -60,13 +64,13 @@ function LongParagraph({ text, tokens, storeKey, live }: LongParagraphProps) {
   }, [liveAtMount, storeKey]);
   return (
     <View>
-      <View style={open ? null : styles.clamped}>
-        <MarkdownView text={text} tokens={tokens} variant="compact" collapseCode />
+      <View style={open ? null : { maxHeight: clampHeight(tokens), overflow: "hidden" }}>
+        <MarkdownView text={text} tokens={tokens} variant="compact" collapseCode quiet />
       </View>
       <Pressable
         accessibilityRole="button"
         onPress={() => setOpen(!open)}
-        hitSlop={8}
+        hitSlop={MORE_SLOP}
         style={styles.moreButton}
       >
         <Text
@@ -94,7 +98,7 @@ interface BodyRunViewProps {
 const BodyRunView = memo(
   function BodyRunView({ run, tokens, storeKey, live }: BodyRunViewProps) {
     // Fenced code starts folded as `ts · 24 lines ›` (plan §3.4 item 4).
-    if (!run.long) return <MarkdownView text={run.text} tokens={tokens} variant="compact" collapseCode />;
+    if (!run.long) return <MarkdownView text={run.text} tokens={tokens} variant="compact" collapseCode quiet />;
     return <LongParagraph text={run.text} tokens={tokens} storeKey={storeKey} live={live} />;
   },
   (a, b) =>
@@ -145,8 +149,8 @@ interface SectionViewProps {
 }
 
 /**
- * One step: a 12.5 semibold title with no number, and its Markdown body,
- * behind a thin static rule. The title row carries a copy button for the
+ * One step: a 14/500 title with no number over its Markdown body, in the
+ * row's text column with no rule or box (S7 §3.2). The title row carries a copy button for the
  * section's own text — revealed on hover where the pointer can hover, and
  * always shown (muted) on touch, where the body only exists once expanded.
  */
@@ -162,7 +166,7 @@ function SectionViewBody({ section, tokens, compact, storeKey, live }: SectionVi
   }
   const showCopy = !capabilities.hover || hovered;
   return (
-    <View style={[styles.section, { borderLeftColor: tokens.v2.border }]}>
+    <View style={styles.section}>
       <Pressable accessible={false} focusable={false} {...hoverProps} style={styles.sectionTitleRow}>
         <Text
           selectable
@@ -317,15 +321,10 @@ export function ReasoningCard({
     if (value) void copy(value, { feedback: "toast" });
   }, [copy, copySource]);
 
+  // The row alone while collapsed; the opened body is its sibling, so the row
+  // keeps its place in the tree (and its hover) across the toggle.
   return (
-    <View
-      style={[
-        styles.card,
-        expanded
-          ? { borderColor: tokens.v2.border, backgroundColor: tokens.v2.surface0 }
-          : styles.cardCollapsed,
-      ]}
-    >
+    <>
       <DisclosureHeader
         expanded={expanded}
         onToggle={onToggle}
@@ -335,7 +334,7 @@ export function ReasoningCard({
           streaming ? (
             <RunningDot color={tokens.accent} accessibilityLabel="Thinking" />
           ) : (
-            <Icon name="Brain" size={14} color={tokens.foregroundMuted} />
+            <Icon name="Lightbulb" size={DISCLOSURE_HEADER.icon} color={tokens.foregroundMuted} />
           )
         }
         verb={header.verb}
@@ -361,10 +360,7 @@ export function ReasoningCard({
       />
       {expanded ? (
         <FadeIn>
-          <View
-            {...surfaceProps(selectionSurface)}
-            style={[styles.body, selectableSurface, { borderTopColor: tokens.v2.borderSubtle }]}
-          >
+          <View {...surfaceProps(selectionSurface)} style={[styles.body, selectableSurface]}>
             <ReasoningSectionsView
               segmentation={segmentation}
               tokens={tokens}
@@ -375,7 +371,7 @@ export function ReasoningCard({
           </View>
         </FadeIn>
       ) : null}
-    </View>
+    </>
   );
 }
 
@@ -435,31 +431,23 @@ export function ReasoningTrace({
 }
 
 const styles = StyleSheet.create({
-  card: {
-    // Always 1px, transparent while collapsed, so expanding shifts nothing sideways.
-    borderWidth: 1,
-    borderRadius: radiusV2.card,
-    overflow: "hidden",
-  },
-  cardCollapsed: {
-    borderColor: "transparent",
-    backgroundColor: "transparent",
-  },
+  // The live preview takes the row's free width and ends in an ellipsis.
   preview: {
-    fontSize: UI_SCALE.md,
+    flex: 1,
+    minWidth: 0,
+    fontSize: TYPE.label.size,
+    lineHeight: TYPE.label.lineHeight,
   },
+  // The thought, in the row's text column: no box, no rule (S7 §3.2).
   body: {
-    borderTopWidth: 1,
-    paddingHorizontal: space.md,
-    paddingTop: space.sm,
-    paddingBottom: space.md,
+    paddingLeft: DISCLOSURE_HEADER.textColumn,
+    paddingTop: space.xs,
+    paddingBottom: space.sm,
   },
   sections: {
     gap: space.md,
   },
   section: {
-    borderLeftWidth: 1,
-    paddingLeft: space.md,
     gap: space.xs,
   },
   sectionTitleRow: {
@@ -469,8 +457,9 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     flex: 1,
-    fontSize: SECTION_TITLE_SIZE,
-    fontWeight: "600",
+    fontSize: TYPE.label.size,
+    lineHeight: TYPE.label.lineHeight,
+    fontWeight: "500",
   },
   sectionBody: {
     gap: space.sm,
@@ -478,15 +467,14 @@ const styles = StyleSheet.create({
   hidden: {
     opacity: 0,
   },
-  clamped: {
-    maxHeight: COMPACT_LINE_HEIGHT * CLAMPED_LINES,
-    overflow: "hidden",
-  },
   moreButton: {
     alignSelf: "flex-start",
-    marginTop: space.xs,
+    height: 28,
+    justifyContent: "center",
   },
   moreText: {
-    fontSize: UI_SCALE.base,
+    fontSize: TYPE.button.size,
+    lineHeight: TYPE.button.lineHeight,
+    fontWeight: "500",
   },
 });

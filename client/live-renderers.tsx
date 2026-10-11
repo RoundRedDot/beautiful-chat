@@ -258,7 +258,7 @@ function LiveTodoRendererBody({
     <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
       <PreferenceSyncSlot />
-      <TaskList data={taskListData} tokens={tokens} />
+      <TaskList data={taskListData} tokens={tokens} compact={layout.compact} />
     </View>
   );
 }
@@ -342,13 +342,24 @@ function LiveAssistantRendererBody({
           text={revealed}
           tokens={tokens}
           variant={preferences.markdownVariant}
+          compact={layout.compact}
           streaming={streaming}
           onRevealPath={handleRevealPath}
           probeId={`assistant:${timestamp.getTime()}`}
         />
       )}
-      {isTail && !envelope ? (
-        <AssistantFooter text={item.data.text} at={timestamp} tokens={tokens} />
+      {/* As the host does (`CompletedTurnFooter`): the footer belongs to a
+          finished turn. Under a streaming reply it is only pushed down by
+          every chunk (S7 replay: that move was the whole layout-shift
+          increase), and Copy would copy half a reply. */}
+      {isTail && !envelope && !streaming ? (
+        <TailFooter
+          agentId={agentId}
+          text={item.data.text}
+          at={timestamp}
+          tokens={tokens}
+          compact={layout.compact}
+        />
       ) : null}
       <TimelineTailHub
         agentId={agentId}
@@ -360,6 +371,33 @@ function LiveAssistantRendererBody({
     </View>
   );
 }
+
+/**
+ * The footer under the newest reply, shown once the agent has stopped, the
+ * way the host shows its own only for a completed turn. A reply in the middle
+ * of a turn is the tail only until the next tool call arrives, and a footer
+ * that appeared there and vanished moved everything below it twice. The
+ * agent subscription lives here, mounted under the tail reply alone, and its
+ * selector returns a boolean, so an agent update reaches this row only when
+ * the agent starts or stops (F2, D3).
+ */
+const TailFooter = memo(function TailFooter({
+  agentId,
+  text,
+  at,
+  tokens,
+  compact,
+}: {
+  agentId: string;
+  text: string;
+  at: Date;
+  tokens: ReturnType<typeof useThemeTokens>;
+  compact: boolean;
+}) {
+  const running = useAgent(agentId, (agent) => agent.status === "running");
+  if (running === true) return null;
+  return <AssistantFooter text={text} at={at} tokens={tokens} compact={compact} />;
+});
 
 /**
  * The host draws a `notification` or `error` item as bare text with an icon,
@@ -393,7 +431,7 @@ function LiveNoticeRendererBody({
     <View {...itemRootFont(preferences.uiFont)} {...probe.viewProps}>
       {probe.node}
       <PreferenceSyncSlot />
-      <NoticeCallout data={noticeData} tokens={tokens} />
+      <NoticeCallout data={noticeData} tokens={tokens} at={timestamp} compact={layout.compact} />
     </View>
   );
 }
@@ -506,6 +544,7 @@ function LiveUserMessageRendererBody({
           images={item.data.images}
           timestamp={timestamp}
           tokens={tokens}
+          compact={layout.compact}
           footer={
             observedLive ? (
               <LivePromptUsage agentId={agentId} promptKey={promptKey} at={atMs} tokens={tokens} />

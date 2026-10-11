@@ -16,7 +16,8 @@ import { isImagePath } from "../image-file";
 import type { ImageFile } from "../image-file";
 import { selectableSurface, unselectable } from "./selection";
 import { selectionCodeText, selectionSurface } from "./selection-actions";
-import { DisclosureHeader } from "../ui/disclosure-header";
+import { Icon } from "@getpaseo/plugin/client/react-native";
+import { DISCLOSURE_HEADER, DisclosureHeader } from "../ui/disclosure-header";
 import { PathContext, PathText } from "../ui/path-text";
 import { RunningDot } from "../ui/running-dot";
 import { CopyButton } from "../ui/copy-button";
@@ -26,35 +27,39 @@ import { useInputCapabilities } from "../ui/use-input-capabilities";
 import { FadeIn } from "../ui/fade-in";
 import { formatPath } from "../paths/format-path";
 import { lineRangeLabel, summarizeTool } from "../tools/summarize";
-import { UI_SCALE } from "../ui/tokens/typography";
+import { TYPE, UI_SCALE } from "../ui/tokens/typography";
 import { codeSurface } from "./host-font-escape";
 import { toolCopyPlan } from "../tools/copy";
 import { stringifyValue, type ToolCallView, type ToolKind } from "../tools/classify";
 
-/** The muted icon a settled call shows in the header's status slot. */
-function toolIconName(tool: ToolKind): string {
+/**
+ * The muted icon a settled call shows in the row's status slot: one Lucide
+ * family drawn by the host (S7 design spec §2.5), except the two brand marks
+ * Lucide does not carry, which stay `Glyph` bitmaps.
+ */
+export function toolIconName(tool: ToolKind): string {
   switch (tool) {
     case "git":
     case "worktree_setup":
       return "GitBranch";
     case "github":
-      return "GitHub";
+      return "brand:GitHub";
     case "paseo":
-      return "Paseo";
+      return "brand:Paseo";
     case "bash":
     case "shell":
-      return "Terminal";
+      return "SquareTerminal";
     case "read":
-      return "BookOpen";
+      return "FileText";
     case "edit":
     case "write":
       return "Pencil";
     case "thinking":
-      return "Brain";
+      return "Lightbulb";
     case "eval":
       return "Play";
     case "ask":
-      return "HelpCircle";
+      return "CircleHelp";
     case "mcp":
       return "Plug";
     case "task":
@@ -73,6 +78,28 @@ function toolIconName(tool: ToolKind): string {
     default:
       return "Wrench";
   }
+}
+
+/** A row icon by name: the host's Lucide set, or a brand bitmap for `brand:*`. */
+export function RowIcon({ name, color, size = DISCLOSURE_HEADER.icon }: { name: string; color: string; size?: number }) {
+  if (name.startsWith("brand:")) return <Glyph name={name.slice(6)} size={size} color={color} />;
+  return <Icon name={name} size={size} color={color} />;
+}
+
+/** `exit 1`, `failed`: the meta entries a failure colours (S7: only these and the icon turn danger). */
+const FAILURE_META = /^(exit [1-9]\d*|failed|error|timed out)$/;
+
+/** `+12 −3`: the diff counts, as success and danger spans of the meta Text. */
+function diffCountSpans(entry: string, tokens: ExtendedThemeTokens): React.ReactNode {
+  const match = /^\+(\d+) −(\d+)$/.exec(entry);
+  if (!match) return entry;
+  return (
+    <>
+      <Text style={{ color: tokens.success }}>{`+${match[1]}`}</Text>
+      {" "}
+      <Text style={{ color: tokens.danger }}>{`−${match[2]}`}</Text>
+    </>
+  );
 }
 
 /** Label of the header's copy button: what the primary copy puts on the clipboard. */
@@ -176,27 +203,40 @@ export function ToolCallout({
   );
 
   const running = data.status === "running";
-  const failed = data.status === "failed";
+  const failed = data.status === "failed" || summary.tone === "danger";
   const statusIcon = running ? (
     <RunningDot color={tokens.accent} />
-  ) : failed ? (
-    <Glyph name="X" size={14} color={tokens.danger} />
   ) : (
-    <Glyph name={toolIconName(data.tool)} size={14} color={tokens.foregroundMuted} />
+    <RowIcon
+      name={toolIconName(data.tool)}
+      color={failed ? tokens.danger : tokens.foregroundMuted}
+    />
   );
 
   const target =
     summary.targetIsPath && summary.target ? (
-      <PathText path={summary.target} tokens={tokens} compact={compact} copyOnHover={false} fit />
+      <PathText
+        path={summary.target}
+        tokens={tokens}
+        compact={compact}
+        copyOnHover={false}
+        fit
+        grow
+        style={compact ? TARGET_STYLE.compact : TARGET_STYLE.desktop}
+      />
     ) : (
       summary.target
     );
-  const meta = summary.metaPath
-    ? [
-        <MetaPath key="path" path={summary.metaPath} tokens={tokens} compact={compact} />,
-        ...summary.meta,
-      ]
-    : summary.meta;
+  const meta = summary.meta.map((entry) =>
+    failed && FAILURE_META.test(entry) ? (
+      <Text style={{ color: tokens.danger }}>{entry}</Text>
+    ) : (
+      diffCountSpans(entry, tokens)
+    ),
+  );
+  const metaLead = summary.metaPath ? (
+    <MetaPath path={summary.metaPath} tokens={tokens} compact={compact} />
+  ) : undefined;
 
   const actions = (
     <>
@@ -216,14 +256,12 @@ export function ToolCallout({
     return reveal ? () => reveal(absolutePath) : undefined;
   }, [filePath, resolvePath, touchFirst, copy, reveal]);
 
+  // No frame (S7 design spec §3.1): the row, then — only when there is one —
+  // the error line, the copy menu and the opened body as its siblings. A
+  // collapsed call is the row alone, and the row keeps its place in the tree
+  // when the body opens, so hover and press state survive the toggle.
   return (
-    <View
-      {...surfaceProps(selectionSurface)}
-      style={[
-        styles.frame,
-        expanded && { borderColor: tokens.v2.border, backgroundColor: tokens.v2.surface0 },
-      ]}
-    >
+    <>
       <DisclosureHeader
         expanded={expanded}
         onToggle={onToggle}
@@ -233,37 +271,48 @@ export function ToolCallout({
         verb={summary.verb}
         target={target}
         meta={meta}
-        tone={summary.tone}
+        metaLead={metaLead}
         actions={actions}
         actionsActive={menu.open}
         onLongPress={capabilities.touch ? onLongPress : undefined}
         accessibilityLabel={[summary.verb, summary.target, ...summary.meta].filter(Boolean).join(" ")}
       />
-      {summary.errorLine ? (
+      {summary.errorLine && !expanded ? (
         <Text
+          {...(surfaceProps(selectionSurface, codeSurface) as object)}
           selectable
           numberOfLines={1}
-          style={[styles.errorLine, { color: tokens.danger, fontFamily: tokens.fontUi }]}
+          style={[styles.errorLine, { color: tokens.foregroundMuted, fontFamily: tokens.fontMono }]}
         >
           {summary.errorLine}
         </Text>
       ) : null}
-      <ActionMenuList items={menuItems} open={menu.open} onClose={menu.close} tokens={tokens} compact={compact} />
+      {menu.open ? (
+        <ActionMenuList items={menuItems} open={menu.open} onClose={menu.close} tokens={tokens} compact={compact} />
+      ) : null}
       {expanded ? (
-        <FadeIn style={[styles.body, { borderTopColor: tokens.v2.borderSubtle }]}>
-          <ToolBody
-            data={data}
-            tokens={tokens}
-            compact={compact}
-            imageFile={imageFile}
-            revealFile={revealFile}
-            displayPath={filePath ? formatPath(filePath, pathContext).displayPath : undefined}
-          />
+        <FadeIn style={[styles.body, { backgroundColor: tokens.v2.surface1 }]}>
+          <View {...surfaceProps(selectionSurface)} style={styles.bodyInner}>
+            <ToolBody
+              data={data}
+              tokens={tokens}
+              compact={compact}
+              imageFile={imageFile}
+              revealFile={revealFile}
+              displayPath={filePath ? formatPath(filePath, pathContext).displayPath : undefined}
+            />
+          </View>
         </FadeIn>
       ) : null}
-    </View>
+    </>
   );
 }
+
+/** A path target takes the row's target type (S7 design spec §2.3). */
+const TARGET_STYLE = {
+  compact: { fontSize: TYPE.target.compact.size, lineHeight: TYPE.target.compact.lineHeight },
+  desktop: { fontSize: TYPE.target.desktop.size, lineHeight: TYPE.target.desktop.lineHeight },
+} as const;
 
 /**
  * A path among the header's meta (a shell's cwd, a worktree's directory).
@@ -292,33 +341,33 @@ function MetaPath({
       compact={compact}
       copyOnHover={false}
       budget={compact ? 20 : 32}
-      style={{ fontSize: UI_SCALE.base, color: tokens.foregroundMuted }}
+      style={{ fontSize: TYPE.meta.size, color: tokens.foregroundMuted }}
     />
   );
 }
 
 const styles = StyleSheet.create({
-  // A transparent border while collapsed keeps the header from moving by a
-  // pixel when the frame appears.
-  frame: {
-    borderWidth: 1,
-    borderColor: "transparent",
-    borderRadius: radiusV2.card,
-    overflow: "hidden",
+  // The first line of a failure, under the verb (the row's text column).
+  errorLine: {
+    fontSize: TYPE.caption.size,
+    lineHeight: 18,
+    paddingLeft: DISCLOSURE_HEADER.textColumn,
+    marginTop: -2,
+    paddingBottom: 2,
     ...selectableSurface,
   },
-  errorLine: {
-    fontSize: UI_SCALE.base,
-    lineHeight: 16,
-    // Under the verb: header padding + icon slot + gap.
-    paddingLeft: space.sm + 16 + 6,
-    paddingRight: space.sm,
-    paddingBottom: space.xs,
-  },
+  // An opened call: one surface1 slab under the row, full width, no frame.
   body: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    padding: space.sm,
+    marginTop: 2,
+    marginBottom: 6,
+    borderRadius: radiusV2.block,
+    overflow: "hidden",
+  },
+  bodyInner: {
+    paddingVertical: space.sm,
+    paddingHorizontal: space.md,
     gap: space.sm,
+    ...selectableSurface,
   },
 });
 
@@ -387,7 +436,7 @@ const codeHeaderStyles = StyleSheet.create({
 });
 
 function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }: ToolBodyProps) {
-  const styles = useBodyStyles(tokens);
+  const styles = useBodyStyles(tokens, compact);
   const isRunning = data.status === "running";
 
   // Every branch below needs a payload. A tool that carries none — a hub op
@@ -494,6 +543,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           {data.mcp.transport ? <Text style={styles.sectionTitle}>{data.mcp.transport}</Text> : null}
           <Text style={styles.sectionTitle}>Input parameters</Text>
           <SyntaxHighlightBlock
+            bare
             code={JSON.stringify(data.mcp.arguments, null, 2)}
             language="json"
             tokens={tokens}
@@ -503,6 +553,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
             <>
               <Text style={styles.sectionTitle}>Response</Text>
               <SyntaxHighlightBlock
+            bare
                 code={
                   typeof data.mcp.result === "string"
                     ? data.mcp.result
@@ -527,6 +578,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           <ImagePreview path={data.filePath ?? ""} file={imageFile} tokens={tokens} onReveal={revealFile} />
         ) : (
           <SyntaxHighlightBlock
+            bare
             code={data.code || "// [Empty content or pending stream]"}
             language={data.language ?? "text"}
             // `filename` stays the bare path, because the block reads the
@@ -552,6 +604,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
 
       {data.tool === "edit" && (
         <SyntaxHighlightBlock
+            bare
           code={data.diff || data.code || "// [Edit: diff applied]"}
           language="diff"
           filename={displayPath}
@@ -577,6 +630,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
             <View key={idx} style={styles.section}>
               {cell.code ? (
                 <SyntaxHighlightBlock
+            bare
                   code={cell.code}
                   language={cell.language}
                   filename={cell.title || "Persistent Kernel Cell"}
@@ -797,7 +851,7 @@ function ToolBody({ data, tokens, compact, imageFile, revealFile, displayPath }:
           {stringifyValue(data.input) ? (
             <>
               <Text style={styles.sectionTitle}>Input</Text>
-              <SyntaxHighlightBlock code={stringifyValue(data.input) ?? ""} language="json" tokens={tokens} compact />
+              <SyntaxHighlightBlock code={stringifyValue(data.input) ?? ""} language="json" tokens={tokens} compact bare />
             </>
           ) : null}
           {data.output ? (
@@ -855,21 +909,19 @@ interface BodyStyles {
 }
 
 /** Body styles, built only once a card is opened. */
-function useBodyStyles(tokens: ExtendedThemeTokens): BodyStyles {
+function useBodyStyles(tokens: ExtendedThemeTokens, compact: boolean): BodyStyles {
   return useMemo(
     () =>
       StyleSheet.create({
         section: { gap: 6 },
         inlineRow: { flexDirection: "row", alignItems: "center", gap: 6 },
         flex: { flex: 1, minWidth: 0 },
-        fileRow: { height: 24, justifyContent: "center" },
+        fileRow: { height: compact ? 28 : 24, justifyContent: "center" },
         webRow: { gap: 1 },
-        // Code-surface blocks inside a card: radius 6, no border, no shadow.
+        // The opened body is already the code surface (S7 §3.1): command
+        // output sits on it directly, with no inner panel.
         terminalWindow: {
-          borderRadius: radiusV2.block,
-          backgroundColor: tokens.v2.surfaceCode,
-          padding: space.sm,
-          gap: 6,
+          gap: space.xs,
         },
         askOption: {
           flexDirection: "row",
@@ -902,7 +954,7 @@ function useBodyStyles(tokens: ExtendedThemeTokens): BodyStyles {
         },
         sectionTitle: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           fontWeight: "500",
           color: tokens.foregroundMuted,
           ...unselectable,
@@ -927,7 +979,7 @@ function useBodyStyles(tokens: ExtendedThemeTokens): BodyStyles {
         mutedColor: { color: tokens.foregroundMuted },
         metaText: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundMuted,
           fontVariant: ["tabular-nums"],
           ...unselectable,
@@ -939,7 +991,7 @@ function useBodyStyles(tokens: ExtendedThemeTokens): BodyStyles {
         },
         strong: { fontWeight: "600" },
       }),
-    [tokens],
+    [tokens, compact],
   );
 }
 
@@ -1091,7 +1143,7 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         },
         chip: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           color: tokens.foregroundMuted,
         },
         contextBox: {
@@ -1103,7 +1155,7 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         contextToggle: { flexDirection: "row", alignItems: "center", gap: 6 },
         contextLabel: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           fontWeight: "500",
           color: tokens.foregroundMuted,
           ...unselectable,
@@ -1132,7 +1184,7 @@ function useSubagentStyles(tokens: ExtendedThemeTokens): SubagentStyles {
         pending: { flexDirection: "row", alignItems: "center", gap: 6 },
         pendingText: {
           fontFamily: tokens.fontUi,
-          fontSize: UI_SCALE.sm,
+          fontSize: UI_SCALE.base,
           fontWeight: "500",
           color: tokens.accent,
           ...unselectable,
