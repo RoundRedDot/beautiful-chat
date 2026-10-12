@@ -91,4 +91,4 @@ node docs/bench/tools/recheck-ab.mjs --reps 3 --modes base,main,pr --out <dir> c
 python3 docs/bench/tools/recheck-summary.py <dir>
 ```
 
-`recheck-ab.mjs` 要能解析到 `playwright-core`（`.showcase/node_modules`）。`recheck-lex-retention.ts` 里的 import 是 worktree 的绝对路径，换路径后用 esbuild 打包，再用 `node --expose-gc` 运行。
+`recheck-ab.mjs` 要能解析到 `playwright-core`（`.showcase/node_modules`）。`recheck-lex-retention.ts` 的用法写在文件开头（esbuild 打包，再用 `node --expose-gc` 运行）。
