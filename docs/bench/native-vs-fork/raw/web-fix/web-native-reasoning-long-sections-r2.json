@@ -1,0 +1,85 @@
+{
+  "fixture": "reasoning-long-sections",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "53b0119e-449a-44a3-a517-e16966c4b236",
+  "streamMs": 15299,
+  "probe": {
+    "label": "reasoning-long-sections",
+    "platform": "web",
+    "elapsedMs": 19307.600000023842,
+    "rows": {
+      "plugin": 0,
+      "native": 774
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 15,
+        "mounts": 2,
+        "n": 15,
+        "p50": 0,
+        "p95": 1.5,
+        "max": 1.5,
+        "sum": 3.799999952316284
+      },
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.10000002384185791,
+        "p95": 0.9000000953674316,
+        "max": 0.9000000953674316,
+        "sum": 1.3000001907348633
+      },
+      "reasoning": {
+        "commits": 752,
+        "mounts": 2,
+        "n": 752,
+        "p50": 0.40000009536743164,
+        "p95": 0.6000000238418579,
+        "max": 8.100000023841858,
+        "sum": 335.0000013113022
+      }
+    },
+    "allRows": {
+      "n": 774,
+      "p50": 0.40000009536743164,
+      "p95": 0.6000000238418579,
+      "max": 8.100000023841858,
+      "sum": 340.10000145435333
+    },
+    "perCommit": {
+      "n": 755,
+      "p50": 0.40000009536743164,
+      "p95": 0.6000000238418579,
+      "max": 8.100000023841858,
+      "sum": 340.10000145435333
+    },
+    "frames": {
+      "count": 1135,
+      "dropped": 24,
+      "droppedRatio": 0.02070750647109577,
+      "longestMs": 316.60000000000036
+    },
+    "longTasks": {
+      "count": 1,
+      "totalMs": 72
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 166.98025035858154
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.8368099999999998,
+      "ScriptDuration": 1.0647389999999999,
+      "LayoutDuration": 0.007992,
+      "RecalcStyleDuration": 0.152128,
+      "LayoutCount": 28,
+      "RecalcStyleCount": 839
+    },
+    "nodes": 1128,
+    "jsHeapUsedMB": 144.89562225341797
+  }
+}

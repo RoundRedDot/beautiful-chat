@@ -7,7 +7,7 @@
 ## 结论
 
 - **每一行渲染一次的代价，fork 更低。** Web 上 11 个场景里，有 10 个的行渲染 p95 降了 33–88%，剩下的 `history-100` 持平。iOS 上，8 个场景的「单次提交里所有行之和」p95 降了 15–86%。纯文本流式（长回复、代码块、表格、思考）收益最大：Web 主线程 CPU 降 7–53%，iOS 上长回复单次提交 p95 从 59ms 降到 8ms。
-- **Web 上有一处倒退：工具在运行时的那个圆点。** 它用 React Native 的 `Animated`，Web 上没有 native driver，每一帧都触发一次 React 提交。工具和待办较多的场景因此比原生多花 20–38% 的主线程时间：`mixed-turn` +38%，`shell-log-large` +22%，`tool-expanded-streaming` +33%，`history-100` +20%。打开「减少动态效果」让圆点静止后，这几项全都降到原生以下（−2% 到 −37%）。归因已经确认，见 §4。
+- **Web 上有一处倒退，已修：运行中的那个圆点。** 它用 React Native 的 `Animated`，Web 上没有 native driver，每一帧都触发一次 React 提交。工具和待办较多的场景因此比原生多花 20–38% 的主线程时间：`mixed-turn` +38%，`shell-log-large` +22%，`tool-expanded-streaming` +33%，`history-100` +20%。打开「减少动态效果」让圆点静止后，这几项全都降到原生以下（−2% 到 −37%），归因因此确认。`58f6728` 在 Web 上把圆点改成 CSS 动画；修复后 11 个场景在 `main` 上重跑，有 10 个的主线程时间低于原生，只有 `history-100` 仍然多 8%，见 §4。
 - **iOS 没有这处倒退**，那里的圆点走 native driver。iOS 上单次提交 p95 比原生差的有三项：`history-100` +34%，`shell-log-large` +22%，`reasoning-long-prose` +6%（这一项在噪声范围内）。掉帧方面，文本流式明显好转（长回复 45.9% → 29.0%，代码块 32.4% → 20.9%），其余场景持平或差几个百分点。iOS 只跑了 2 轮，这个幅度落在噪声范围内。
 - **Web 的布局偏移，fork 更高**：长回复 0.21 → 0.41，代码块 0.045 → 0.084。fork 在 Web 上按 daemon 的 chunk（大约 60ms）一批出字，原生是逐帧揭示，所以 fork 每次长高的幅度更大。
 
@@ -33,14 +33,15 @@ Web 生产构建默认不跑 `<Profiler>`。补丁让 Metro 在构建时设置 `
 |---|---|
 | 机器 | Apple M5 Pro，macOS 27.0.1。**同时有其他 agent 在跑，负载 11–17**，所以按场景交替两种模式（ABBA）、取中位数 |
 | daemon | 单独的 `~/.paseo-bench-ab`（127.0.0.1:6869，0.11.2），只装 `bc-bench` 和本仓库 `c00be20` 的 worktree。两种模式只差 `paseo plugin enable/disable beautiful-chat`；插件设置都是默认值（增强提问气泡关，所以两边的用户消息都是 Paseo 自己画的） |
+| 插件 | §3、§5 是 `c00be20`；§4.2 是 `main` `724c96f`（修前），加 `58f6728`（修后） |
 | 宿主 | Paseo `759532509`（v0.11.2）加探针补丁，worktree 在 `paseo/.worktrees/bc-native-perf`（分支 `bench/native-vs-fork`） |
 | Web | `expo export --platform web` 生产构建，headless Chrome 155.0.8059.40，1280×900，`zh-CN`。**每个场景每种模式 3 次**，取中位数，每次重新加载页面 |
 | iOS | 新建的 iPhone 16 Pro 模拟器 `bc-native-ab`（iOS 18.6），Paseo 0.11.2 **开发版**，JS 由 Metro 提供（8085）。**每次运行前都冷启动 App**，每个场景每种模式 2 次，`mixed-turn` 4 次。开发版的绝对毫秒数只能做相对比较 |
-| 原始数据 | `raw/web/*.json`（66 次 + 12 次减少动态效果），`raw/ios/*.json`（48 次），每次都附截图 |
+| 原始数据 | `raw/web/*.json`（`c00be20`，66 次，另有 12 次减少动态效果），`raw/web-fix/*.json`（`main` `724c96f`：修前的 fork 12 次，修后的 fork 和原生各 33 次），`raw/ios/*.json`（`c00be20`，48 次）。每个平台每种模式只留一张 `mixed-turn` 截图 |
 
 ## 3. Web（生产构建，3 次取中位数）
 
-单元格是 `原生 → fork`，百分比是 fork 相对原生的变化，负数表示 fork 更快或更少。
+单元格是 `原生 → fork`，百分比是 fork 相对原生的变化，负数表示 fork 更快或更少。本节是 `c00be20`，还没有修圆点；修复后的数字在 §4.2。
 
 ### 3.1 主线程 CPU（秒，整段回放）
 
@@ -109,7 +110,33 @@ Layout+Style 在 11 个场景里都是 fork 更低。Script 升高的 5 个场�
 | tool-expanded-streaming | 1,217 → 409 | 1.14 / 1.51 / **0.78** |
 | history-100 | 5,460 → 5,227 | 1.18 / 1.42 / **1.17** |
 
-圆点静止后，fork 在这四个场景里都不比原生慢，其中三个快 31–37%。可选的修法：Web 上改用 CSS `@keyframes` 做透明度动画，交给合成线程；或者把圆点隔离成不随行一起提交的叶子节点。改完需要再跑一次 §3。
+圆点静止后，fork 在这四个场景里都不比原生慢，其中三个快 31–37%。
+
+### 4.1 修法
+
+`58f6728`：Web 上的圆点是普通 `View`，用 `StyleSheet.create` 里的 `animationKeyframes` 让 React Native Web 编译出 `@keyframes`。周期 1200ms，透明度 1 → 0.3 → 1，每半程 `cubic-bezier(0.33, 1, 0.68, 1)`，和原来的 `outCubic` 一致。这个属性只能写在 `StyleSheet.create` 里，写成内联样式不生效。iOS/Android 仍走 native driver。减少动态效果时圆点静止。在真实的 Web 构建里确认过：圆点的 `animationName` 是编译出来的类名，`1.2s infinite`，计算出的透明度在 0.30 和 1.00 之间循环。
+
+### 4.2 修复后重跑（`main` `724c96f`，Web 生产构建，每格 3 次）
+
+分两批跑。第一批是修前的 `main`，只跑四个场景；第二批是修后的 `main`，跑全部 11 个。两批都和原生交替跑，但第二批的原生结果和第一批同名，把第一批的覆盖掉了，所以表里的原生数字都来自第二批。第一批期间机器负载一度到 30，所以修前和修后之间只比次数，不比毫秒。
+
+| 场景 | 行提交次数：修前 → 修后（原生） | 主线程任务时间 秒：原生 → 修后 | |
+| --- | ---: | ---: | ---: |
+| codeblock-streaming | — | 4.18 → 2.12 | −49% |
+| diff-large | — | 0.47 → 0.38 | −20% |
+| history-100 | 5,624 → 5,763（5,270） | 1.76 → 1.90 | +8% |
+| markdown-long | — | 7.27 → 4.80 | −34% |
+| mixed-turn | 1,518 → 196（274） | 1.41 → 1.29 | −8% |
+| reads-20 | — | 1.29 → 0.78 | −39% |
+| reasoning-long-prose | — | 2.34 → 1.35 | −42% |
+| reasoning-long-sections | — | 2.11 → 1.28 | −39% |
+| shell-log-large | 604 → 38（43） | 0.89 → 0.74 | −17% |
+| table-streaming | — | 2.89 → 1.39 | −52% |
+| tool-expanded-streaming | 1,216 → 407（315） | 1.29 → 1.10 | −15% |
+
+修复后，单行渲染 p95 在 10 个场景里低于原生，`tool-expanded-streaming` 是 0.3 → 0.4。修前的数字之所以显得更低，是因为大量 0.1ms 的圆点提交把分布往下拉了。
+
+`main` 上还有一个和圆点无关的变化：`reads-20` 结束时的 DOM 节点从原生的 1,476 涨到 2,573，JS 堆从 130MB 涨到 195MB。在 `c00be20` 上这两项都比原生低（1,440 和 127MB）。这次没有查是 `c00be20..724c96f` 之间哪个提交带来的。
 
 ## 5. iOS（模拟器开发版，冷启动，2 次取中位数；`mixed-turn` 4 次）
 
@@ -170,8 +197,15 @@ node tools/web-ab.mjs --reps 3 --modes fork --reduced-motion --out raw/web mixed
 node tools/control-server.mjs raw/ios 8099 &
 BC_SIM_UDID=<udid> BC_WORKSPACE=<wks> OUT=raw/ios tools/ios-all.sh 2
 
-# 表格
+# 修前 / 修后（插件 worktree 分别处在两个版本，各跑一批）
+node tools/web-ab.mjs --reps 3 --fork-label forkold --out raw/web-fix mixed-turn:1 shell-log-large:1 tool-expanded-streaming:4 history-100:max
+node tools/web-ab.mjs --reps 3 --fork-label forkfix --out raw/web-fix
+
+# 表格和 docs/perf 的两张图
 node tools/report.mjs raw/web
+node tools/report.mjs raw/web-fix --a native --b forkfix
+node tools/chart.mjs web raw/web-fix ../../perf/web-native-cpu.svg forkfix
+node tools/chart.mjs ios raw/ios ../../perf/ios-native-commit.svg
 node tools/report.mjs raw/web --a fork --b forkrm
 node tools/report.mjs raw/ios --ios
 ```

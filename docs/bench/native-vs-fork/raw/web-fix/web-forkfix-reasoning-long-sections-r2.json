@@ -1,0 +1,85 @@
+{
+  "fixture": "reasoning-long-sections",
+  "speed": "1",
+  "mode": "forkfix",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "18108e00-6d78-4de4-a7a5-3a71edd14cf0",
+  "streamMs": 14928,
+  "probe": {
+    "label": "reasoning-long-sections",
+    "platform": "web",
+    "elapsedMs": 18933.199999928474,
+    "rows": {
+      "plugin": 416,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 0.8000000715255737,
+        "max": 0.8000000715255737,
+        "sum": 1.2999999523162842
+      },
+      "assistant": {
+        "commits": 144,
+        "mounts": 2,
+        "n": 144,
+        "p50": 0,
+        "p95": 0,
+        "max": 0.8999999761581421,
+        "sum": 2.4999998807907104
+      },
+      "reasoning": {
+        "commits": 272,
+        "mounts": 2,
+        "n": 272,
+        "p50": 0.20000004768371582,
+        "p95": 0.40000009536743164,
+        "max": 1.1999999284744263,
+        "sum": 60.000000953674316
+      }
+    },
+    "allRows": {
+      "n": 422,
+      "p50": 0.10000002384185791,
+      "p95": 0.3999999761581421,
+      "max": 1.1999999284744263,
+      "sum": 63.80000078678131
+    },
+    "perCommit": {
+      "n": 276,
+      "p50": 0.20000004768371582,
+      "p95": 0.40000009536743164,
+      "max": 1.600000023841858,
+      "sum": 63.80000078678131
+    },
+    "frames": {
+      "count": 1133,
+      "dropped": 3,
+      "droppedRatio": 0.002640845070422535,
+      "longestMs": 33.400000000001455
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.0007773437499999998,
+    "heapMB": 150.6041440963745
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.209069,
+      "ScriptDuration": 0.532594,
+      "LayoutDuration": 0.009392000000000001,
+      "RecalcStyleDuration": 0.105775,
+      "LayoutCount": 52,
+      "RecalcStyleCount": 844
+    },
+    "nodes": 981,
+    "jsHeapUsedMB": 128.43991470336914
+  }
+}

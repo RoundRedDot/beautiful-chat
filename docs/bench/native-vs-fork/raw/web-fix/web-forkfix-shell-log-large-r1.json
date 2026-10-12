@@ -1,0 +1,85 @@
+{
+  "fixture": "shell-log-large",
+  "speed": "1",
+  "mode": "forkfix",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "b00c2e25-8127-4629-81a0-582560ef4336",
+  "streamMs": 14994,
+  "probe": {
+    "label": "shell-log-large",
+    "platform": "web",
+    "elapsedMs": 19003.100000023842,
+    "rows": {
+      "plugin": 31,
+      "native": 7
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 21,
+        "mounts": 4,
+        "n": 21,
+        "p50": 0.20000004768371582,
+        "p95": 1.1999999284744263,
+        "max": 2.200000047683716,
+        "sum": 8.100000262260437
+      },
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.19999992847442627,
+        "p95": 0.8999999761581421,
+        "max": 0.8999999761581421,
+        "sum": 1.5999997854232788
+      },
+      "tool": {
+        "commits": 10,
+        "mounts": 1,
+        "n": 10,
+        "p50": 0,
+        "p95": 3.100000023841858,
+        "max": 3.100000023841858,
+        "sum": 6.700000047683716
+      }
+    },
+    "allRows": {
+      "n": 38,
+      "p50": 0.10000002384185791,
+      "p95": 2.200000047683716,
+      "max": 3.100000023841858,
+      "sum": 16.40000009536743
+    },
+    "perCommit": {
+      "n": 18,
+      "p50": 0.3999999761581421,
+      "p95": 3.200000047683716,
+      "max": 3.200000047683716,
+      "sum": 16.40000009536743
+    },
+    "frames": {
+      "count": 1134,
+      "dropped": 6,
+      "droppedRatio": 0.005263157894736842,
+      "longestMs": 50
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000015190972222222225,
+    "heapMB": 210.56371116638184
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.7577529999999999,
+      "ScriptDuration": 0.21891000000000005,
+      "LayoutDuration": 0.0077220000000000006,
+      "RecalcStyleDuration": 0.090257,
+      "LayoutCount": 36,
+      "RecalcStyleCount": 647
+    },
+    "nodes": 2058,
+    "jsHeapUsedMB": 187.10177612304688
+  }
+}

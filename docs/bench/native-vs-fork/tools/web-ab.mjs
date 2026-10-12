@@ -9,7 +9,7 @@
 // probe (__hostPerf, see paseo bench/native-vs-fork) plus CDP Performance metrics.
 import { chromium } from "playwright-core";
 import { execFileSync } from "node:child_process";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const HOME = `${process.env.HOME}/.paseo-bench-ab`;
 const SERVER_ID = readFileSync(`${HOME}/server-id`, "utf8").trim();
@@ -44,6 +44,8 @@ const OUT = flag("--out", "/tmp/bcnp-web-out");
 const modes = flag("--modes", "native,fork").split(",");
 // --reduced-motion: emulate prefers-reduced-motion and label runs "<mode>rm" (attribution check).
 const reducedMotion = args.includes("--reduced-motion");
+// --fork-label <name>: file label for fork runs, e.g. to keep two plugin builds apart.
+const forkLabel = flag("--fork-label", "fork");
 if (reducedMotion) args.splice(args.indexOf("--reduced-motion"), 1);
 const fixtures = (args.length ? args : DEFAULT_FIXTURES).map((spec) => {
   const [name, speed] = spec.split(":");
@@ -111,6 +113,9 @@ async function open(url) {
 }
 
 async function run(fixture, mode, rep) {
+  const label = mode === "fork" ? forkLabel : mode;
+  const stem = `web-${label}${reducedMotion ? "rm" : ""}-${fixture.name}-r${rep}`;
+  if (existsSync(`${OUT}/${stem}.json`)) throw new Error(`${stem}.json exists; use another --out`);
   const id = paseo(
     "run", "-d", "-q", "--provider", "bc-bench", "--cwd", PROJECT,
     "--title", `ab-${mode}-${fixture.name}-${rep}`, "list",
@@ -140,7 +145,7 @@ async function run(fixture, mode, rep) {
   const result = {
     fixture: fixture.name,
     speed: fixture.speed,
-    mode,
+    mode: mode === "fork" ? forkLabel : mode,
     reducedMotion,
     rep,
     agentId: id,
@@ -148,7 +153,6 @@ async function run(fixture, mode, rep) {
     probe,
     cdp: { delta: cdpDelta, nodes: after.Nodes, jsHeapUsedMB: after.JSHeapUsedSize / 1048576 },
   };
-  const stem = `web-${mode}${reducedMotion ? "rm" : ""}-${fixture.name}-r${rep}`;
   writeFileSync(`${OUT}/${stem}.json`, JSON.stringify(result, null, 2));
   await page.screenshot({ path: `${OUT}/${stem}.png` });
   try {

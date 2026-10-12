@@ -1,0 +1,85 @@
+{
+  "fixture": "tool-expanded-streaming",
+  "speed": "4",
+  "mode": "forkfix",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "96b543fe-9af1-46e6-a7d7-fa6dd48f9252",
+  "streamMs": 19877,
+  "probe": {
+    "label": "tool-expanded-streaming",
+    "platform": "web",
+    "elapsedMs": 23883.899999976158,
+    "rows": {
+      "plugin": 401,
+      "native": 7
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 205,
+        "mounts": 4,
+        "n": 205,
+        "p50": 0,
+        "p95": 0.19999992847442627,
+        "max": 1.3000000715255737,
+        "sum": 10.399999618530273
+      },
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.10000002384185791,
+        "p95": 0.7000000476837158,
+        "max": 0.7000000476837158,
+        "sum": 1.3000000715255737
+      },
+      "tool": {
+        "commits": 196,
+        "mounts": 1,
+        "n": 196,
+        "p50": 0.10000002384185791,
+        "p95": 0.5,
+        "max": 1.2999999523162842,
+        "sum": 33.10000038146973
+      }
+    },
+    "allRows": {
+      "n": 408,
+      "p50": 0,
+      "p95": 0.40000009536743164,
+      "max": 1.3000000715255737,
+      "sum": 44.800000071525574
+    },
+    "perCommit": {
+      "n": 202,
+      "p50": 0.19999992847442627,
+      "p95": 0.6000000238418579,
+      "max": 1.3000000715255737,
+      "sum": 44.800000071525574
+    },
+    "frames": {
+      "count": 1432,
+      "dropped": 1,
+      "droppedRatio": 0.0006978367062107466,
+      "longestMs": 33.29999999999927
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000017418543497721358,
+    "heapMB": 154.82184505462646
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.256445,
+      "ScriptDuration": 0.47411600000000004,
+      "LayoutDuration": 0.006924,
+      "RecalcStyleDuration": 0.121612,
+      "LayoutCount": 38,
+      "RecalcStyleCount": 948
+    },
+    "nodes": 986,
+    "jsHeapUsedMB": 131.78510665893555
+  }
+}

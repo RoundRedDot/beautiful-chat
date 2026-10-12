@@ -1,0 +1,85 @@
+{
+  "fixture": "tool-expanded-streaming",
+  "speed": "4",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "e754554a-e431-4379-aa6b-5e23528907ef",
+  "streamMs": 16484,
+  "probe": {
+    "label": "tool-expanded-streaming",
+    "platform": "web",
+    "elapsedMs": 20487.799999952316,
+    "rows": {
+      "plugin": 0,
+      "native": 316
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 209,
+        "mounts": 4,
+        "n": 209,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 1.8000000715255737,
+        "sum": 8.100000023841858
+      },
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.10000002384185791,
+        "p95": 0.6000000238418579,
+        "max": 0.6000000238418579,
+        "sum": 1.3000000715255737
+      },
+      "tool": {
+        "commits": 100,
+        "mounts": 1,
+        "n": 100,
+        "p50": 0.20000004768371582,
+        "p95": 0.6000000238418579,
+        "max": 9.200000047683716,
+        "sum": 33.60000026226044
+      }
+    },
+    "allRows": {
+      "n": 316,
+      "p50": 0,
+      "p95": 0.3999999761581421,
+      "max": 9.200000047683716,
+      "sum": 43.00000035762787
+    },
+    "perCommit": {
+      "n": 104,
+      "p50": 0.20000004768371582,
+      "p95": 0.7999999523162842,
+      "max": 11,
+      "sum": 43.00000035762787
+    },
+    "frames": {
+      "count": 1227,
+      "dropped": 2,
+      "droppedRatio": 0.0016273393002441008,
+      "longestMs": 49.899999999999636
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 155.97614765167236
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.4569120000000002,
+      "ScriptDuration": 0.475225,
+      "LayoutDuration": 0.006487000000000001,
+      "RecalcStyleDuration": 0.178944,
+      "LayoutCount": 31,
+      "RecalcStyleCount": 942
+    },
+    "nodes": 1117,
+    "jsHeapUsedMB": 133.76691055297852
+  }
+}

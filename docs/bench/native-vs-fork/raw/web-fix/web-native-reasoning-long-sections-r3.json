@@ -1,0 +1,85 @@
+{
+  "fixture": "reasoning-long-sections",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "a42b4834-e463-4e44-a453-0e844bacd8f1",
+  "streamMs": 18150,
+  "probe": {
+    "label": "reasoning-long-sections",
+    "platform": "web",
+    "elapsedMs": 22156.699999928474,
+    "rows": {
+      "plugin": 0,
+      "native": 750
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 1.2999999523162842,
+        "max": 1.2999999523162842,
+        "sum": 1.9999998807907104
+      },
+      "assistant": {
+        "commits": 15,
+        "mounts": 2,
+        "n": 15,
+        "p50": 0,
+        "p95": 2.1999999284744263,
+        "max": 2.1999999284744263,
+        "sum": 4.199999809265137
+      },
+      "reasoning": {
+        "commits": 729,
+        "mounts": 2,
+        "n": 729,
+        "p50": 0.5,
+        "p95": 0.6000000238418579,
+        "max": 8.799999952316284,
+        "sum": 352.8000000715256
+      }
+    },
+    "allRows": {
+      "n": 750,
+      "p50": 0.5,
+      "p95": 0.6000000238418579,
+      "max": 8.799999952316284,
+      "sum": 358.9999997615814
+    },
+    "perCommit": {
+      "n": 732,
+      "p50": 0.5,
+      "p95": 0.6000000238418579,
+      "max": 8.899999976158142,
+      "sum": 358.9999997615814
+    },
+    "frames": {
+      "count": 1325,
+      "dropped": 4,
+      "droppedRatio": 0.0030097817908201654,
+      "longestMs": 66.70000000000073
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 150.1245756149292
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.172174,
+      "ScriptDuration": 1.1524329999999998,
+      "LayoutDuration": 0.005919000000000001,
+      "RecalcStyleDuration": 0.165821,
+      "LayoutCount": 28,
+      "RecalcStyleCount": 841
+    },
+    "nodes": 1040,
+    "jsHeapUsedMB": 128.0459976196289
+  }
+}
