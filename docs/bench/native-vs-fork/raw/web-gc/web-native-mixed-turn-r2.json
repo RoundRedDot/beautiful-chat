@@ -1,0 +1,107 @@
+{
+  "fixture": "mixed-turn",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "55cf71f9-65ec-4e4c-a46e-c5a9635a4eeb",
+  "streamMs": 12405,
+  "probe": {
+    "label": "mixed-turn",
+    "platform": "web",
+    "elapsedMs": 16410,
+    "rows": {
+      "plugin": 0,
+      "native": 263
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0,
+        "p95": 2,
+        "max": 2,
+        "sum": 2.200000047683716
+      },
+      "assistant": {
+        "commits": 117,
+        "mounts": 17,
+        "n": 117,
+        "p50": 0.7000000476837158,
+        "p95": 2.299999952316284,
+        "max": 2.899999976158142,
+        "sum": 90.1000006198883
+      },
+      "reasoning": {
+        "commits": 83,
+        "mounts": 6,
+        "n": 83,
+        "p50": 0.5,
+        "p95": 1,
+        "max": 6,
+        "sum": 45.299999713897705
+      },
+      "todo": {
+        "commits": 15,
+        "mounts": 4,
+        "n": 15,
+        "p50": 0.09999990463256836,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 2.700000047683716
+      },
+      "tool": {
+        "commits": 42,
+        "mounts": 7,
+        "n": 42,
+        "p50": 0.2999999523162842,
+        "p95": 2.399999976158142,
+        "max": 5.600000023841858,
+        "sum": 24.700000166893005
+      }
+    },
+    "allRows": {
+      "n": 263,
+      "p50": 0.40000009536743164,
+      "p95": 2.100000023841858,
+      "max": 6,
+      "sum": 165.00000059604645
+    },
+    "perCommit": {
+      "n": 158,
+      "p50": 0.6000000238418579,
+      "p95": 3,
+      "max": 6,
+      "sum": 165.00000059604645
+    },
+    "frames": {
+      "count": 983,
+      "dropped": 2,
+      "droppedRatio": 0.0020304568527918783,
+      "longestMs": 33.29999999999927
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.05550631747775606,
+    "heapMB": 172.94477367401123
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.414244,
+      "ScriptDuration": 0.551811,
+      "LayoutDuration": 0.024088000000000002,
+      "RecalcStyleDuration": 0.179199,
+      "LayoutCount": 121,
+      "RecalcStyleCount": 794
+    },
+    "nodes": 1431,
+    "jsHeapUsedMB": 121.25888061523438,
+    "beforeGc": {
+      "nodes": 1431,
+      "jsHeapUsedMB": 129.64739227294922
+    }
+  }
+}

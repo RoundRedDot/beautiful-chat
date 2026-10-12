@@ -138,6 +138,12 @@ async function run(fixture, mode, rep) {
   await page.waitForTimeout(4000);
   const probe = await page.evaluate((label) => globalThis.__hostPerf.snapshot(label), fixture.name);
   const after = await metrics();
+  // CDP counts detached DOM nodes and unreachable heap until a GC runs, so without one
+  // the reading is bimodal (about 1.4k vs 2.5k nodes for the same run). Time metrics
+  // above are read first; heap and nodes below are read after a forced collection.
+  await cdp.send("HeapProfiler.collectGarbage");
+  await page.waitForTimeout(300);
+  const settled = await metrics();
   const cdpDelta = {};
   for (const key of ["TaskDuration", "ScriptDuration", "LayoutDuration", "RecalcStyleDuration", "LayoutCount", "RecalcStyleCount"]) {
     cdpDelta[key] = after[key] - before[key];
@@ -151,7 +157,12 @@ async function run(fixture, mode, rep) {
     agentId: id,
     streamMs,
     probe,
-    cdp: { delta: cdpDelta, nodes: after.Nodes, jsHeapUsedMB: after.JSHeapUsedSize / 1048576 },
+    cdp: {
+      delta: cdpDelta,
+      nodes: settled.Nodes,
+      jsHeapUsedMB: settled.JSHeapUsedSize / 1048576,
+      beforeGc: { nodes: after.Nodes, jsHeapUsedMB: after.JSHeapUsedSize / 1048576 },
+    },
   };
   writeFileSync(`${OUT}/${stem}.json`, JSON.stringify(result, null, 2));
   await page.screenshot({ path: `${OUT}/${stem}.png` });

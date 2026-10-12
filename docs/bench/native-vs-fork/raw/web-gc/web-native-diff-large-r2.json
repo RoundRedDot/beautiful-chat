@@ -1,0 +1,89 @@
+{
+  "fixture": "diff-large",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "a68dc47f-2598-45ea-9066-4ae7b42b384f",
+  "streamMs": 6575,
+  "probe": {
+    "label": "diff-large",
+    "platform": "web",
+    "elapsedMs": 10585.099999904633,
+    "rows": {
+      "plugin": 0,
+      "native": 46
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 1.5999999046325684,
+        "max": 1.5999999046325684,
+        "sum": 3
+      },
+      "assistant": {
+        "commits": 33,
+        "mounts": 3,
+        "n": 33,
+        "p50": 0.20000004768371582,
+        "p95": 2.5,
+        "max": 3.5,
+        "sum": 25.09999966621399
+      },
+      "tool": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0,
+        "p95": 13.800000071525574,
+        "max": 13.800000071525574,
+        "sum": 16.399999976158142
+      }
+    },
+    "allRows": {
+      "n": 46,
+      "p50": 0.10000002384185791,
+      "p95": 2.5,
+      "max": 13.800000071525574,
+      "sum": 44.49999964237213
+    },
+    "perCommit": {
+      "n": 22,
+      "p50": 1.399999976158142,
+      "p95": 2.5,
+      "max": 17.300000071525574,
+      "sum": 44.49999964237213
+    },
+    "frames": {
+      "count": 628,
+      "dropped": 7,
+      "droppedRatio": 0.011023622047244094,
+      "longestMs": 66.70000000000073
+    },
+    "longTasks": {
+      "count": 1,
+      "totalMs": 62
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 169.88250637054443
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.5578879999999999,
+      "ScriptDuration": 0.26164799999999994,
+      "LayoutDuration": 0.007189000000000001,
+      "RecalcStyleDuration": 0.053208000000000005,
+      "LayoutCount": 31,
+      "RecalcStyleCount": 151
+    },
+    "nodes": 1046,
+    "jsHeapUsedMB": 116.1270866394043,
+    "beforeGc": {
+      "nodes": 1046,
+      "jsHeapUsedMB": 125.21976470947266
+    }
+  }
+}
