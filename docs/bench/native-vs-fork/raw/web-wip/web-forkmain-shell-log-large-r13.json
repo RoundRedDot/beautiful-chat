@@ -1,0 +1,89 @@
+{
+  "fixture": "shell-log-large",
+  "speed": "1",
+  "mode": "forkmain",
+  "reducedMotion": false,
+  "rep": 13,
+  "agentId": "a9bde9db-f19e-4007-b30f-327a74a21958",
+  "streamMs": 11224,
+  "probe": {
+    "label": "shell-log-large",
+    "platform": "web",
+    "elapsedMs": 15226.899999976158,
+    "rows": {
+      "plugin": 32,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 1,
+        "max": 1,
+        "sum": 1.600000023841858
+      },
+      "assistant": {
+        "commits": 21,
+        "mounts": 4,
+        "n": 21,
+        "p50": 0.10000002384185791,
+        "p95": 0.7000000476837158,
+        "max": 1.5,
+        "sum": 4.999999761581421
+      },
+      "tool": {
+        "commits": 11,
+        "mounts": 1,
+        "n": 11,
+        "p50": 0,
+        "p95": 2,
+        "max": 2,
+        "sum": 2.9999998807907104
+      }
+    },
+    "allRows": {
+      "n": 38,
+      "p50": 0.09999990463256836,
+      "p95": 1.5,
+      "max": 2,
+      "sum": 9.59999966621399
+    },
+    "perCommit": {
+      "n": 18,
+      "p50": 0.2999999523162842,
+      "p95": 2.5999999046325684,
+      "max": 2.5999999046325684,
+      "sum": 9.59999966621399
+    },
+    "frames": {
+      "count": 913,
+      "dropped": 1,
+      "droppedRatio": 0.0010940919037199124,
+      "longestMs": 33.30000000000018
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000017418543497721358,
+    "heapMB": 185.23628902435303
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.42569599999999996,
+      "ScriptDuration": 0.14328000000000002,
+      "LayoutDuration": 0.004667999999999999,
+      "RecalcStyleDuration": 0.062134,
+      "LayoutCount": 36,
+      "RecalcStyleCount": 650
+    },
+    "nodes": 986,
+    "jsHeapUsedMB": 129.02197647094727,
+    "beforeGc": {
+      "nodes": 1063,
+      "jsHeapUsedMB": 162.88812637329102
+    }
+  }
+}

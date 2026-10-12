@@ -1,0 +1,89 @@
+{
+  "fixture": "shell-log-large",
+  "speed": "1",
+  "mode": "forkmain",
+  "reducedMotion": false,
+  "rep": 16,
+  "agentId": "0afdbccd-451b-4d06-8680-3947a189d87e",
+  "streamMs": 11180,
+  "probe": {
+    "label": "shell-log-large",
+    "platform": "web",
+    "elapsedMs": 15184.599999904633,
+    "rows": {
+      "plugin": 31,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 0.6000000238418579,
+        "max": 0.6000000238418579,
+        "sum": 1.100000023841858
+      },
+      "assistant": {
+        "commits": 21,
+        "mounts": 4,
+        "n": 21,
+        "p50": 0.10000002384185791,
+        "p95": 0.7000000476837158,
+        "max": 1.399999976158142,
+        "sum": 5.199999809265137
+      },
+      "tool": {
+        "commits": 10,
+        "mounts": 1,
+        "n": 10,
+        "p50": 0,
+        "p95": 2,
+        "max": 2,
+        "sum": 3.1000001430511475
+      }
+    },
+    "allRows": {
+      "n": 37,
+      "p50": 0.10000002384185791,
+      "p95": 1.399999976158142,
+      "max": 2,
+      "sum": 9.399999976158142
+    },
+    "perCommit": {
+      "n": 18,
+      "p50": 0.30000007152557373,
+      "p95": 2.5,
+      "max": 2.5,
+      "sum": 9.399999976158142
+    },
+    "frames": {
+      "count": 910,
+      "dropped": 1,
+      "droppedRatio": 0.0010976948408342481,
+      "longestMs": 33.30000000000018
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000015190972222222225,
+    "heapMB": 160.27049922943115
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.425357,
+      "ScriptDuration": 0.135718,
+      "LayoutDuration": 0.004276000000000001,
+      "RecalcStyleDuration": 0.061507000000000006,
+      "LayoutCount": 34,
+      "RecalcStyleCount": 649
+    },
+    "nodes": 986,
+    "jsHeapUsedMB": 129.47560501098633,
+    "beforeGc": {
+      "nodes": 986,
+      "jsHeapUsedMB": 138.076904296875
+    }
+  }
+}
