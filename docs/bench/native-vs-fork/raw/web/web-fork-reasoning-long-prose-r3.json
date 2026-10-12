@@ -1,0 +1,84 @@
+{
+  "fixture": "reasoning-long-prose",
+  "speed": "1",
+  "mode": "fork",
+  "rep": 3,
+  "agentId": "e8d050b6-8dc1-4dc8-8cf1-b448b571d7af",
+  "streamMs": 19512,
+  "probe": {
+    "label": "reasoning-long-prose",
+    "platform": "web",
+    "elapsedMs": 23525.100000023842,
+    "rows": {
+      "plugin": 1257,
+      "native": 7
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 164,
+        "mounts": 3,
+        "n": 164,
+        "p50": 0,
+        "p95": 0.19999992847442627,
+        "max": 1.899999976158142,
+        "sum": 5.899999976158142
+      },
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.10000002384185791,
+        "p95": 1.2000000476837158,
+        "max": 1.2000000476837158,
+        "sum": 1.8000000715255737
+      },
+      "reasoning": {
+        "commits": 1093,
+        "mounts": 2,
+        "n": 1093,
+        "p50": 0.10000002384185791,
+        "p95": 0.3999999761581421,
+        "max": 1.2000000476837158,
+        "sum": 189.1999969482422
+      }
+    },
+    "allRows": {
+      "n": 1264,
+      "p50": 0.10000002384185791,
+      "p95": 0.3999999761581421,
+      "max": 1.899999976158142,
+      "sum": 196.8999969959259
+    },
+    "perCommit": {
+      "n": 1100,
+      "p50": 0.10000002384185791,
+      "p95": 0.3999999761581421,
+      "max": 3.100000023841858,
+      "sum": 196.8999969959259
+    },
+    "frames": {
+      "count": 1387,
+      "dropped": 25,
+      "droppedRatio": 0.017705382436260624,
+      "longestMs": 383.40000000000055
+    },
+    "longTasks": {
+      "count": 1,
+      "totalMs": 51
+    },
+    "layoutShift": 0.0017338356441921657,
+    "heapMB": 147.75103569030762
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.4232299999999998,
+      "ScriptDuration": 1.257905,
+      "LayoutDuration": 0.027339,
+      "RecalcStyleDuration": 0.158615,
+      "LayoutCount": 128,
+      "RecalcStyleCount": 1929
+    },
+    "nodes": 979,
+    "jsHeapUsedMB": 125.71274185180664
+  }
+}
