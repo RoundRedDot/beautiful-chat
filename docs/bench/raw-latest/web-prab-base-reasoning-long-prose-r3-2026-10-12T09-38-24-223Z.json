@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-12T09:38:24.219Z",
+  "enabled": true,
+  "platform": "web",
+  "platformVersion": "0.0.0",
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "scale": 1
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "agent": {
+    "id": "662a2574-a076-4cd6-9fa9-860a19b3ba52"
+  },
+  "heapBytes": 139689860,
+  "snapshot": {
+    "renders": {
+      "byKind": {
+        "user_message": 6,
+        "assistant": 14,
+        "reasoning": 786
+      },
+      "byItem": {
+        "user_message:154d13e8-3aaa-4031-8c35-94f81ea378c5": 2,
+        "assistant:assistant#a5fcc4b2": 4,
+        "user_message:df0855b5-2fd7-4ae7-9ecb-1ab9270d70c8": 4,
+        "reasoning:reasoning#b8743b64": 786,
+        "assistant:assistant#3b1e2a77": 10
+      }
+    },
+    "commitMs": {
+      "user_message": {
+        "count": 6,
+        "total": 17.4,
+        "mean": 2.9,
+        "p50": 3.1,
+        "p95": 4.4,
+        "max": 4.4
+      },
+      "assistant": {
+        "count": 14,
+        "total": 21.1,
+        "mean": 1.507,
+        "p50": 1.1,
+        "p95": 4,
+        "max": 4
+      },
+      "reasoning": {
+        "count": 786,
+        "total": 844.4,
+        "mean": 1.074,
+        "p50": 1,
+        "p95": 1.4,
+        "max": 3.3
+      }
+    },
+    "markdown": {
+      "parses": 4,
+      "parseMs": {
+        "count": 4,
+        "total": 0.1,
+        "mean": 0.025,
+        "p50": 0,
+        "p95": 0.1,
+        "max": 0.1
+      },
+      "parseChars": {
+        "count": 4,
+        "total": 415,
+        "mean": 103.75,
+        "p50": 59,
+        "p95": 175,
+        "max": 175
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 1,
+      "whileStreaming": 0,
+      "totalPx": 1872,
+      "events": [
+        {
+          "key": "reasoning:reasoning#b8743b64",
+          "from": 1946,
+          "to": 74,
+          "streaming": false
+        }
+      ]
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 3,
+      "mountsTotal": 13,
+      "byName": {}
+    },
+    "frames": {
+      "count": 1592,
+      "dropped": 3,
+      "droppedRatio": 0.002,
+      "longestMs": 66.7,
+      "intervalMs": {
+        "count": 1592,
+        "total": 26582.3,
+        "mean": 16.697,
+        "p50": 16.7,
+        "p95": 16.7,
+        "max": 66.7
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 83,
+      "total": 0.1,
+      "mean": 0.001,
+      "p50": 0.001,
+      "p95": 0.003,
+      "max": 0.005
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "at": "2026-10-12T09:45:16.688Z",
+  "enabled": true,
+  "platform": "web",
+  "platformVersion": "0.0.0",
+  "window": {
+    "width": 1280,
+    "height": 900,
+    "scale": 1
+  },
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+  "agent": {
+    "id": "29214102-8d97-4bd7-aa41-036963dccf81"
+  },
+  "heapBytes": 175673329,
+  "snapshot": {
+    "renders": {
+      "byKind": {
+        "assistant": 105,
+        "tool_call": 194
+      },
+      "byItem": {
+        "assistant:assistant#c2e29086": 99,
+        "assistant:assistant#a5fcc4b2": 1,
+        "tool_call:toolu_toolexpa0001": 194,
+        "assistant:assistant#585bc586": 5
+      }
+    },
+    "commitMs": {
+      "assistant": {
+        "count": 11,
+        "total": 12.4,
+        "mean": 1.127,
+        "p50": 0.8,
+        "p95": 3.7,
+        "max": 3.7
+      },
+      "tool_call": {
+        "count": 97,
+        "total": 54,
+        "mean": 0.557,
+        "p50": 0.5,
+        "p95": 0.8,
+        "max": 2.8
+      }
+    },
+    "markdown": {
+      "parses": 6,
+      "parseMs": {
+        "count": 6,
+        "total": 1.5,
+        "mean": 0.25,
+        "p50": 0.1,
+        "p95": 1,
+        "max": 1
+      },
+      "parseChars": {
+        "count": 6,
+        "total": 312,
+        "mean": 52,
+        "p50": 39,
+        "p95": 72,
+        "max": 72
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 0,
+      "whileStreaming": 0,
+      "totalPx": 0,
+      "events": []
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 1,
+      "mountsTotal": 1,
+      "byName": {}
+    },
+    "frames": {
+      "count": 1395,
+      "dropped": 3,
+      "droppedRatio": 0.002,
+      "longestMs": 33.4,
+      "intervalMs": {
+        "count": 1395,
+        "total": 23299,
+        "mean": 16.702,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 33.4
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 4,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "counters": {
+      "md.blockRender": 5
+    }
+  }
+}
