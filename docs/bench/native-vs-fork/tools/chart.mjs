@@ -1,6 +1,6 @@
 // Native-vs-fork bar charts for docs/perf, in the style of web-p95.svg / ios-p95.svg.
 //   node chart.mjs web <raw-web-dir> <out.svg> [forkLabel]   Web main-thread Task seconds
-//   node chart.mjs ios <raw-ios-dir> <out.svg>               iOS per-commit row total p95, ms
+//   node chart.mjs ios <raw-ios-dir>[,<dir>...] <out.svg>     iOS per-commit row total p95, ms
 // The pale bar is native Paseo; the coloured bar starts at that length and settles at the
 // fork's: green when it shrinks, oxide when it grows. Medians across runs.
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -27,15 +27,23 @@ const metric =
     : { get: (r) => r.perCommit.p95, ticks: [0, 30, 60, 90, 120], unit: "ms", digits: 1,
         title: "iOS 模拟器开发版，单次提交里所有行之和的 p95（毫秒）。淡色是 Paseo 原生，彩色收回或伸出后是本仓库。" };
 
-// File names are <platform>-<mode>-<fixture>-r<rep>.json.
-const runs = readdirSync(dir)
-  .filter((f) => f.endsWith(".json"))
-  .map((f) => {
-    const [, mode, ...rest] = f.replace(/\.json$/, "").split("-");
-    rest.pop();
-    const raw = JSON.parse(readFileSync(path.join(dir, f), "utf8"));
-    return { mode, fixture: rest.join("-"), sample: kind === "web" ? raw : raw.probe ?? raw };
-  });
+// File names are <platform>-<mode>-<fixture>-r<rep>.json. `dir` may list several
+// directories, comma-separated: a fixture found in a later one replaces the earlier runs.
+const loadDir = (one) =>
+  readdirSync(one)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => {
+      const [, mode, ...rest] = f.replace(/\.json$/, "").split("-");
+      rest.pop();
+      const raw = JSON.parse(readFileSync(path.join(one, f), "utf8"));
+      return { mode, fixture: rest.join("-"), sample: kind === "web" ? raw : raw.probe ?? raw };
+    });
+let runs = [];
+for (const one of dir.split(",")) {
+  const next = loadDir(one);
+  const replaced = new Set(next.map((r) => r.fixture));
+  runs = [...runs.filter((r) => !replaced.has(r.fixture)), ...next];
+}
 const median = (values) => {
   const sorted = values.sort((a, b) => a - b);
   const mid = Math.floor(sorted.length / 2);

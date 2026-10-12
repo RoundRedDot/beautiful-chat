@@ -1,0 +1,80 @@
+{
+  "fixture": "markdown-long",
+  "speed": "1",
+  "mode": "forkchunk",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "9e4084c5-3beb-41b1-8e17-c146694da3fc",
+  "streamMs": 39227,
+  "probe": {
+    "label": "markdown-long",
+    "platform": "web",
+    "elapsedMs": 43230.89999997616,
+    "rows": {
+      "plugin": 808,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0,
+        "p95": 0.6000000238418579,
+        "max": 0.6000000238418579,
+        "sum": 0.9000000953674316
+      },
+      "assistant": {
+        "commits": 808,
+        "mounts": 2,
+        "n": 808,
+        "p50": 0.2999999523162842,
+        "p95": 0.6999999284744263,
+        "max": 10,
+        "sum": 272.3000000715256
+      }
+    },
+    "allRows": {
+      "n": 815,
+      "p50": 0.2999999523162842,
+      "p95": 0.6999999284744263,
+      "max": 10,
+      "sum": 273.200000166893
+    },
+    "perCommit": {
+      "n": 807,
+      "p50": 0.2999999523162842,
+      "p95": 0.6999999284744263,
+      "max": 10,
+      "sum": 273.200000166893
+    },
+    "frames": {
+      "count": 2592,
+      "dropped": 2,
+      "droppedRatio": 0.0007710100231303007,
+      "longestMs": 50
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.4101864176432281,
+    "heapMB": 193.5616636276245
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 4.187734,
+      "ScriptDuration": 2.002618,
+      "LayoutDuration": 0.15045,
+      "RecalcStyleDuration": 0.464951,
+      "LayoutCount": 902,
+      "RecalcStyleCount": 3337
+    },
+    "nodes": 2835,
+    "jsHeapUsedMB": 126.9520034790039,
+    "beforeGc": {
+      "nodes": 4859,
+      "jsHeapUsedMB": 150.28935623168945
+    }
+  }
+}

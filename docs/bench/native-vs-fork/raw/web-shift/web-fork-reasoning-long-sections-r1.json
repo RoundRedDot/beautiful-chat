@@ -1,0 +1,89 @@
+{
+  "fixture": "reasoning-long-sections",
+  "speed": "1",
+  "mode": "fork",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "0ee19d9c-7bc5-4037-a146-1d4b102dc467",
+  "streamMs": 17384,
+  "probe": {
+    "label": "reasoning-long-sections",
+    "platform": "web",
+    "elapsedMs": 21388.700000047684,
+    "rows": {
+      "plugin": 410,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.09999990463256836,
+        "p95": 0.5999999046325684,
+        "max": 0.5999999046325684,
+        "sum": 0.9999997615814209
+      },
+      "assistant": {
+        "commits": 142,
+        "mounts": 2,
+        "n": 142,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 1,
+        "sum": 2.600000023841858
+      },
+      "reasoning": {
+        "commits": 268,
+        "mounts": 2,
+        "n": 268,
+        "p50": 0.20000004768371582,
+        "p95": 0.6000000238418579,
+        "max": 1.5,
+        "sum": 71.30000019073486
+      }
+    },
+    "allRows": {
+      "n": 416,
+      "p50": 0.10000002384185791,
+      "p95": 0.5,
+      "max": 1.5,
+      "sum": 74.89999997615814
+    },
+    "perCommit": {
+      "n": 272,
+      "p50": 0.20000004768371582,
+      "p95": 0.6000000238418579,
+      "max": 1.5,
+      "sum": 74.89999997615814
+    },
+    "frames": {
+      "count": 1283,
+      "dropped": 0,
+      "droppedRatio": 0,
+      "longestMs": 16.80000000000291
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.0007773437499999998,
+    "heapMB": 176.32951545715332
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.07789,
+      "ScriptDuration": 0.5825210000000001,
+      "LayoutDuration": 0.009170000000000001,
+      "RecalcStyleDuration": 0.09361,
+      "LayoutCount": 53,
+      "RecalcStyleCount": 846
+    },
+    "nodes": 981,
+    "jsHeapUsedMB": 123.56633758544922,
+    "beforeGc": {
+      "nodes": 981,
+      "jsHeapUsedMB": 133.0446014404297
+    }
+  }
+}

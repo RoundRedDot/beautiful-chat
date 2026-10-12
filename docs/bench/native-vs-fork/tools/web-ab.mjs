@@ -46,6 +46,10 @@ const modes = flag("--modes", "native,fork").split(",");
 const reducedMotion = args.includes("--reduced-motion");
 // --fork-label <name>: file label for fork runs, e.g. to keep two plugin builds apart.
 const forkLabel = flag("--fork-label", "fork");
+// --init-script <js>: evaluated before the app on every page load (e.g. an experiment switch).
+const initScript = flag("--init-script", "");
+// --rep-start <n>: number the reps from n, so separate invocations can share one --out.
+const repStart = Number(flag("--rep-start", "1"));
 if (reducedMotion) args.splice(args.indexOf("--reduced-motion"), 1);
 const fixtures = (args.length ? args : DEFAULT_FIXTURES).map((spec) => {
   const [name, speed] = spec.split(":");
@@ -81,6 +85,7 @@ const page = context.pages()[0] ?? (await context.newPage());
 await page.routeWebSocket(/:(6767|6868)\//, (ws) => ws.close());
 page.on("pageerror", (error) => console.log("pageerror", String(error).slice(0, 200)));
 if (reducedMotion) await page.emulateMedia({ reducedMotion: "reduce" });
+if (initScript) await page.addInitScript(initScript);
 const cdp = await context.newCDPSession(page);
 await cdp.send("Performance.enable", { timeDomain: "threadTicks" });
 
@@ -178,7 +183,7 @@ async function run(fixture, mode, rep) {
 console.log("chrome", context.browser()?.version(), "server", SERVER_ID);
 // Modes alternate per fixture (ABBA across reps) so machine-load drift hits both sides.
 let current = null;
-for (let rep = 1; rep <= reps; rep++) {
+for (let rep = repStart; rep < repStart + reps; rep++) {
   for (const [index, fixture] of fixtures.entries()) {
     const order = (rep + index) % 2 === 1 ? modes : [...modes].reverse();
     for (const mode of order) {

@@ -1,0 +1,89 @@
+{
+  "fixture": "tool-expanded-streaming",
+  "speed": "4",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "578eac04-91f0-4059-8aa2-f3df878f57c0",
+  "streamMs": 17665,
+  "probe": {
+    "label": "tool-expanded-streaming",
+    "platform": "web",
+    "elapsedMs": 21706.200000047684,
+    "rows": {
+      "plugin": 0,
+      "native": 313
+    },
+    "kinds": {
+      "user": {
+        "commits": 5,
+        "mounts": 1,
+        "n": 5,
+        "p50": 0.2999999523162842,
+        "p95": 1,
+        "max": 1,
+        "sum": 2.100000023841858
+      },
+      "assistant": {
+        "commits": 208,
+        "mounts": 4,
+        "n": 208,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 3.399999976158142,
+        "sum": 12.400000214576721
+      },
+      "tool": {
+        "commits": 100,
+        "mounts": 1,
+        "n": 100,
+        "p50": 0.30000007152557373,
+        "p95": 0.6000000238418579,
+        "max": 15,
+        "sum": 50
+      }
+    },
+    "allRows": {
+      "n": 313,
+      "p50": 0,
+      "p95": 0.6000000238418579,
+      "max": 15,
+      "sum": 64.50000023841858
+    },
+    "perCommit": {
+      "n": 103,
+      "p50": 0.30000007152557373,
+      "p95": 1.3000000715255737,
+      "max": 17.700000047683716,
+      "sum": 64.50000023841858
+    },
+    "frames": {
+      "count": 1292,
+      "dropped": 10,
+      "droppedRatio": 0.007680491551459293,
+      "longestMs": 83.30000000000018
+    },
+    "longTasks": {
+      "count": 1,
+      "totalMs": 53
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 177.54608345031738
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.822835,
+      "ScriptDuration": 0.671463,
+      "LayoutDuration": 0.009202000000000002,
+      "RecalcStyleDuration": 0.223214,
+      "LayoutCount": 32,
+      "RecalcStyleCount": 937
+    },
+    "nodes": 1056,
+    "jsHeapUsedMB": 123.93093490600586,
+    "beforeGc": {
+      "nodes": 1056,
+      "jsHeapUsedMB": 132.94594955444336
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "fixture": "tool-expanded-streaming",
+  "speed": "4",
+  "mode": "fork",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "3969c69c-79ff-4c27-87d4-1fdb8208ef71",
+  "streamMs": 16066,
+  "probe": {
+    "label": "tool-expanded-streaming",
+    "platform": "web",
+    "elapsedMs": 20069.600000023842,
+    "rows": {
+      "plugin": 401,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 0.7000000476837158
+      },
+      "assistant": {
+        "commits": 205,
+        "mounts": 4,
+        "n": 205,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 1.399999976158142,
+        "sum": 7.6000001430511475
+      },
+      "tool": {
+        "commits": 196,
+        "mounts": 1,
+        "n": 196,
+        "p50": 0.10000002384185791,
+        "p95": 0.40000009536743164,
+        "max": 1.600000023841858,
+        "sum": 26.100000500679016
+      }
+    },
+    "allRows": {
+      "n": 407,
+      "p50": 0,
+      "p95": 0.3999999761581421,
+      "max": 1.600000023841858,
+      "sum": 34.40000069141388
+    },
+    "perCommit": {
+      "n": 202,
+      "p50": 0.10000002384185791,
+      "p95": 0.5,
+      "max": 2.1999999284744263,
+      "sum": 34.40000069141388
+    },
+    "frames": {
+      "count": 1204,
+      "dropped": 0,
+      "droppedRatio": 0,
+      "longestMs": 16.80000000000291
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000015190972222222225,
+    "heapMB": 281.3395586013794
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.753698,
+      "ScriptDuration": 0.33426900000000004,
+      "LayoutDuration": 0.004773,
+      "RecalcStyleDuration": 0.082485,
+      "LayoutCount": 37,
+      "RecalcStyleCount": 947
+    },
+    "nodes": 986,
+    "jsHeapUsedMB": 126.04762268066406,
+    "beforeGc": {
+      "nodes": 2069,
+      "jsHeapUsedMB": 233.3086814880371
+    }
+  }
+}
