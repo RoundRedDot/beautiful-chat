@@ -2,6 +2,8 @@
 
 Plugin: `main` at `81ce36b` (all slices S0-S5 merged). Baselines: `baseline-showcase.md` (offline) and `baseline-host.md` (iOS simulator and web production build), taken on the pre-upgrade UI (`42b61d8` plus inert probes). Nothing in the plugin was changed for this report; defects are reported, not fixed.
 
+Later fixes (per-frame reveal off on web, a held-back closing fence, the settings-sync memo, and the 400-line cap) are summarised in [`docs/fork-vs-upstream.md`](../fork-vs-upstream.md). The tables below are this V1 run.
+
 ## 1. Environment and method
 
 | | |
