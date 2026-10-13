@@ -1,10 +1,10 @@
-// Native Paseo rendering vs the beautiful-chat fork, production web build, same fixtures.
+// Native Paseo rendering vs the better-paseo fork, production web build, same fixtures.
 //
 //   node web-ab.mjs --reps 3 --out <dir> [fixture:speed ...]
 //
 // Needs: the A/B daemon (~/.paseo-bench-ab, 127.0.0.1:6869) with bc-bench and
-// beautiful-chat installed, and the instrumented web export served on :8092
-// (serve-web.mjs). Mode "native" disables beautiful-chat in that daemon, mode
+// better-paseo installed, and the instrumented web export served on :8092
+// (serve-web.mjs). Mode "native" disables better-paseo in that daemon, mode
 // "fork" enables it. Mode "upstream" enables it too, after retargeting
 // BC_PLUGIN_LINK at BC_UPSTREAM_DIR (and "fork" at BC_FORK_DIR). The page is
 // reloaded per run. Each run dumps the host probe (__hostPerf) plus CDP metrics.
@@ -63,7 +63,7 @@ const paseo = (...rest) =>
 
 // Optional: one directory install whose symlink is retargeted per mode, so native,
 // the current fork, and the upstream plugin share one daemon and one page.
-//   BC_PLUGIN_LINK  symlink the daemon's beautiful-chat path points at
+//   BC_PLUGIN_LINK  symlink the daemon's better-paseo path points at
 //   BC_FORK_DIR     worktree for mode "fork"
 //   BC_UPSTREAM_DIR worktree for mode "upstream"
 const PLUGIN_LINK = process.env.BC_PLUGIN_LINK ?? "";
@@ -89,17 +89,17 @@ function pointPlugin(mode) {
 function setMode(mode) {
   const pluginOn = mode !== "native";
   const swapped = pluginOn ? pointPlugin(mode) : false;
-  const [now] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
-  if (now.enabled !== pluginOn) paseo("plugin", pluginOn ? "enable" : "disable", "beautiful-chat");
+  const [now] = JSON.parse(paseo("plugin", "ls", "better-paseo", "--json"));
+  if (now.enabled !== pluginOn) paseo("plugin", pluginOn ? "enable" : "disable", "better-paseo");
   // enable can keep the bundle compiled before the symlink moved, so reload after a swap.
-  if (swapped && pluginOn) paseo("plugin", "reload", "beautiful-chat");
+  if (swapped && pluginOn) paseo("plugin", "reload", "better-paseo");
   for (let attempt = 0; attempt < 30; attempt++) {
-    const [row] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
+    const [row] = JSON.parse(paseo("plugin", "ls", "better-paseo", "--json"));
     const ready = pluginOn ? row.status === "running" : row.enabled === false;
     if (ready) return;
     execFileSync("sleep", ["1"]);
   }
-  throw new Error(`beautiful-chat did not reach mode ${mode}`);
+  throw new Error(`better-paseo did not reach mode ${mode}`);
 }
 
 const context = await chromium.launchPersistentContext(PROFILE, {

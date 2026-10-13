@@ -1,12 +1,12 @@
 #!/bin/zsh
-# Native Paseo rendering vs the beautiful-chat fork on the iOS simulator (dev build).
+# Native Paseo rendering vs the better-paseo fork on the iOS simulator (dev build).
 #
 #   ios-ab.sh <mode> <fixture> <speed> <rep>        mode: native | fork
 #
 # Needs: control-server.mjs on :8099, the patched Paseo JS served by Metro on $METRO_PORT
 # (EXPO_PUBLIC_BC_HOST_PERF=1, EXPO_PUBLIC_LOCAL_DAEMON=localhost:6869), the A/B daemon
 # ~/.paseo-bench-ab, and the simulator $BC_SIM_UDID with the sh.paseo dev client.
-# Mode toggles beautiful-chat in the daemon; the app is relaunched before every run.
+# Mode toggles better-paseo in the daemon; the app is relaunched before every run.
 set -u
 H=$HOME/.paseo-bench-ab
 U=${BC_SIM_UDID:?set BC_SIM_UDID}
@@ -19,7 +19,7 @@ mode=$1 fixture=$2 speed=$3 rep=$4
 label="ios-$mode-$fixture-r$rep"
 
 current_mode() {
-  paseo --home $H plugin ls beautiful-chat --json | node -e 'const [r]=JSON.parse(require("fs").readFileSync(0));console.log(r.enabled?"fork":"native")'
+  paseo --home $H plugin ls better-paseo --json | node -e 'const [r]=JSON.parse(require("fs").readFileSync(0));console.log(r.enabled?"fork":"native")'
 }
 
 app_alive() {
@@ -51,8 +51,8 @@ relaunch() {
 
 # Every run starts from a freshly launched app, so neither mode inherits the other's heap.
 if [ "$(current_mode)" != "$mode" ]; then
-  if [ $mode = fork ]; then paseo --home $H plugin enable beautiful-chat >/dev/null
-  else paseo --home $H plugin disable beautiful-chat >/dev/null; fi
+  if [ $mode = fork ]; then paseo --home $H plugin enable better-paseo >/dev/null
+  else paseo --home $H plugin disable better-paseo >/dev/null; fi
   sleep 2
 fi
 relaunch || exit 1

@@ -1,6 +1,6 @@
 // CPU profile of one replay in the fork, summarized by function self time.
 //   node cpu-profile.mjs <fixture> <speed> <out.cpuprofile>
-// Same daemon and web export as web-ab.mjs; beautiful-chat must be enabled.
+// Same daemon and web export as web-ab.mjs; better-paseo must be enabled.
 import { chromium } from "playwright-core";
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";

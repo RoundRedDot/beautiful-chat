@@ -13,9 +13,9 @@ const SERVER_ID = readFileSync(`${HOME}/server-id`, "utf8").trim();
 const paseo = (...rest) =>
   execFileSync("paseo", ["--home", HOME, ...rest], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 
-const [row] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
+const [row] = JSON.parse(paseo("plugin", "ls", "better-paseo", "--json"));
 if (row.enabled !== (mode === "fork")) {
-  paseo("plugin", mode === "fork" ? "enable" : "disable", "beautiful-chat");
+  paseo("plugin", mode === "fork" ? "enable" : "disable", "better-paseo");
   execFileSync("sleep", ["3"]);
 }
 

@@ -1,6 +1,6 @@
 # Paseo 原生渲染 vs 本仓库 fork 插件
 
-问题：装上本仓库的 beautiful-chat 之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。2026-10-13 又把官方插件 `42b61d8` 放进同一次会话。
+问题：装上本仓库的 better-paseo 之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。2026-10-13 又把官方插件 `42b61d8` 放进同一次会话。
 
 场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。下面 §3–§5 是 2026-10-12 的记录（当时的插件是 `c00be20` 到 `1ec3458` 一带）。**当前 Web 数字在 §8**，插件是 `2146289`，官方是 `42b61d8`。iOS 没有在 10 月 13 日重跑。
 
@@ -35,7 +35,7 @@ Web 生产构建默认不跑 `<Profiler>`。补丁让 Metro 在构建时设置 `
 | | |
 |---|---|
 | 机器 | Apple M5 Pro，macOS 27.0.1。**同时有其他 agent 在跑，负载 11–17**，所以按场景交替两种模式（ABBA）、取中位数 |
-| daemon | 单独的 `~/.paseo-bench-ab`（127.0.0.1:6869，0.11.2），只装 `bc-bench` 和本仓库 `c00be20` 的 worktree。两种模式只差 `paseo plugin enable/disable beautiful-chat`；插件设置都是默认值（增强提问气泡关，所以两边的用户消息都是 Paseo 自己画的） |
+| daemon | 单独的 `~/.paseo-bench-ab`（127.0.0.1:6869，0.11.2），只装 `bc-bench` 和本仓库 `c00be20` 的 worktree。两种模式只差 `paseo plugin enable/disable better-paseo`；插件设置都是默认值（增强提问气泡关，所以两边的用户消息都是 Paseo 自己画的） |
 | 插件 | §3、§5 是 `c00be20`；§4.2 是 `main` `724c96f`（修前），加 `58f6728`（修后） |
 | 宿主 | Paseo `759532509`（v0.11.2）加探针补丁，worktree 在 `paseo/.worktrees/bc-native-perf`（分支 `bench/native-vs-fork`） |
 | Web | `expo export --platform web` 生产构建，headless Chrome 155.0.8059.40，1280×900，`zh-CN`。**每个场景每种模式 3 次**，取中位数，每次重新加载页面 |
@@ -271,7 +271,7 @@ BC_SIM_UDID=<udid> BC_WORKSPACE=<wks> OUT=raw/ios tools/ios-all.sh 2
 node tools/web-ab.mjs --reps 3 --fork-label forkold --out raw/web-fix mixed-turn:1 shell-log-large:1 tool-expanded-streaming:4 history-100:max
 node tools/web-ab.mjs --reps 3 --fork-label forkfix --out raw/web-fix
 
-# 2026-10-13 三方（daemon 的 beautiful-chat 路径指向一条符号链接）
+# 2026-10-13 三方（daemon 的 better-paseo 路径指向一条符号链接）
 # BC_PLUGIN_LINK=.../bench-active BC_FORK_DIR=.../bench-fork BC_UPSTREAM_DIR=.../bench-upstream
 node tools/web-ab.mjs --reps 3 --modes native,fork,upstream --out raw/web-2026-10-13
 node tools/report.mjs raw/web-2026-10-13 --a native --b fork
