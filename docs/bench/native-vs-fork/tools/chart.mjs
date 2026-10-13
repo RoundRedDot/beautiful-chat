@@ -20,13 +20,13 @@ const SCENARIOS = [
   ["table-streaming", "表格流式"],
   ["tool-expanded-streaming", "展开的工具"],
 ];
-const baselineName = baseline === "upstream" ? "官方插件" : "Paseo 原生";
+const baselineName = baseline === "upstream" ? "Beautiful Chat" : "Paseo 原生";
 const metric =
   kind === "web"
     ? { get: (r) => r.cdp.delta.TaskDuration, ticks: [0, 2, 4, 6, 8], unit: "s", digits: 2,
-        title: `Web 生产构建，整段回放的主线程任务时间（秒）。淡色是${baselineName}，彩色收回或伸出后是本仓库。` }
+        title: `Web 生产构建，整段回放的主线程任务时间（秒）。淡色是 ${baselineName}，彩色收回或伸出后是本仓库。` }
     : { get: (r) => r.perCommit.p95, ticks: [0, 30, 60, 90, 120], unit: "ms", digits: 1,
-        title: `iOS 模拟器开发版，单次提交里所有行之和的 p95（毫秒）。淡色是${baselineName}，彩色收回或伸出后是本仓库。` };
+        title: `iOS 模拟器开发版，单次提交里所有行之和的 p95（毫秒）。淡色是 ${baselineName}，彩色收回或伸出后是本仓库。` };
 
 // File names are <platform>-<mode>-<fixture>-r<rep>.json. `dir` may list several
 // directories, comma-separated: a fixture found in a later one replaces the earlier runs.
