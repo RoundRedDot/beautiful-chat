@@ -5,11 +5,12 @@
 // Needs: the A/B daemon (~/.paseo-bench-ab, 127.0.0.1:6869) with bc-bench and
 // beautiful-chat installed, and the instrumented web export served on :8092
 // (serve-web.mjs). Mode "native" disables beautiful-chat in that daemon, mode
-// "fork" enables it; the page is reloaded per run. Each run dumps the host
-// probe (__hostPerf, see paseo bench/native-vs-fork) plus CDP Performance metrics.
+// "fork" enables it. Mode "upstream" enables it too, after retargeting
+// BC_PLUGIN_LINK at BC_UPSTREAM_DIR (and "fork" at BC_FORK_DIR). The page is
+// reloaded per run. Each run dumps the host probe (__hostPerf) plus CDP metrics.
 import { chromium } from "playwright-core";
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, realpathSync, writeFileSync } from "node:fs";
 
 const HOME = `${process.env.HOME}/.paseo-bench-ab`;
 const SERVER_ID = readFileSync(`${HOME}/server-id`, "utf8").trim();
@@ -60,14 +61,41 @@ mkdirSync(OUT, { recursive: true });
 const paseo = (...rest) =>
   execFileSync("paseo", ["--home", HOME, ...rest], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 
-function setMode(mode) {
-  const [now] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
-  if (now.enabled !== (mode === "fork")) {
-    paseo("plugin", mode === "fork" ? "enable" : "disable", "beautiful-chat");
+// Optional: one directory install whose symlink is retargeted per mode, so native,
+// the current fork, and the upstream plugin share one daemon and one page.
+//   BC_PLUGIN_LINK  symlink the daemon's beautiful-chat path points at
+//   BC_FORK_DIR     worktree for mode "fork"
+//   BC_UPSTREAM_DIR worktree for mode "upstream"
+const PLUGIN_LINK = process.env.BC_PLUGIN_LINK ?? "";
+const PLUGIN_TARGETS = {
+  fork: process.env.BC_FORK_DIR ?? "",
+  upstream: process.env.BC_UPSTREAM_DIR ?? "",
+};
+
+function pointPlugin(mode) {
+  const target = PLUGIN_TARGETS[mode];
+  if (!target) {
+    if (mode !== "native" && mode !== "fork") throw new Error(`no plugin directory for mode ${mode}`);
+    return false;
   }
+  if (!PLUGIN_LINK) throw new Error("BC_PLUGIN_LINK is required to switch plugin builds");
+  const next = realpathSync(target);
+  const current = existsSync(PLUGIN_LINK) ? realpathSync(PLUGIN_LINK) : "";
+  if (current === next) return false;
+  execFileSync("ln", ["-sfn", target, PLUGIN_LINK]);
+  return true;
+}
+
+function setMode(mode) {
+  const pluginOn = mode !== "native";
+  const swapped = pluginOn ? pointPlugin(mode) : false;
+  const [now] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
+  if (now.enabled !== pluginOn) paseo("plugin", pluginOn ? "enable" : "disable", "beautiful-chat");
+  // enable can keep the bundle compiled before the symlink moved, so reload after a swap.
+  if (swapped && pluginOn) paseo("plugin", "reload", "beautiful-chat");
   for (let attempt = 0; attempt < 30; attempt++) {
     const [row] = JSON.parse(paseo("plugin", "ls", "beautiful-chat", "--json"));
-    const ready = mode === "fork" ? row.status === "running" : row.enabled === false;
+    const ready = pluginOn ? row.status === "running" : row.enabled === false;
     if (ready) return;
     execFileSync("sleep", ["1"]);
   }
@@ -185,7 +213,14 @@ console.log("chrome", context.browser()?.version(), "server", SERVER_ID);
 let current = null;
 for (let rep = repStart; rep < repStart + reps; rep++) {
   for (const [index, fixture] of fixtures.entries()) {
-    const order = (rep + index) % 2 === 1 ? modes : [...modes].reverse();
+    // Two modes keep the old ABBA order. Three or more rotate, so each build
+    // leads equally often while the machine load drifts.
+    const order =
+      modes.length === 2
+        ? (rep + index) % 2 === 1
+          ? modes
+          : [...modes].reverse()
+        : modes.map((_, k) => modes[(rep + index + k) % modes.length]);
     for (const mode of order) {
       if (mode !== current) setMode(mode);
       current = mode;

@@ -6,7 +6,7 @@
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const [kind, dir, out, forkLabel = "fork"] = process.argv.slice(2);
+const [kind, dir, out, forkLabel = "fork", baseline = "native"] = process.argv.slice(2);
 const SCENARIOS = [
   ["codeblock-streaming", "代码块流式"],
   ["diff-large", "大 diff"],
@@ -20,12 +20,13 @@ const SCENARIOS = [
   ["table-streaming", "表格流式"],
   ["tool-expanded-streaming", "展开的工具"],
 ];
+const baselineName = baseline === "upstream" ? "官方插件" : "Paseo 原生";
 const metric =
   kind === "web"
     ? { get: (r) => r.cdp.delta.TaskDuration, ticks: [0, 2, 4, 6, 8], unit: "s", digits: 2,
-        title: "Web 生产构建，整段回放的主线程任务时间（秒）。淡色是 Paseo 原生，彩色收回或伸出后是本仓库。" }
+        title: `Web 生产构建，整段回放的主线程任务时间（秒）。淡色是${baselineName}，彩色收回或伸出后是本仓库。` }
     : { get: (r) => r.perCommit.p95, ticks: [0, 30, 60, 90, 120], unit: "ms", digits: 1,
-        title: "iOS 模拟器开发版，单次提交里所有行之和的 p95（毫秒）。淡色是 Paseo 原生，彩色收回或伸出后是本仓库。" };
+        title: `iOS 模拟器开发版，单次提交里所有行之和的 p95（毫秒）。淡色是${baselineName}，彩色收回或伸出后是本仓库。` };
 
 // File names are <platform>-<mode>-<fixture>-r<rep>.json. `dir` may list several
 // directories, comma-separated: a fixture found in a later one replaces the earlier runs.
@@ -54,6 +55,11 @@ const value = (fixture, mode) =>
 
 const X0 = 132;
 const WIDTH = 520;
+const peak = Math.max(
+  ...SCENARIOS.map(([fixture]) => value(fixture, baseline) ?? 0),
+  ...SCENARIOS.map(([fixture]) => value(fixture, forkLabel) ?? 0),
+);
+if (kind === "web" && peak > 8) metric.ticks = [0, 3, 6, 9];
 const max = metric.ticks[metric.ticks.length - 1];
 const x = (v) => X0 + (Math.min(v, max) / max) * WIDTH;
 const ROW = 34;
@@ -79,7 +85,7 @@ for (const tick of metric.ticks) {
   parts.push(`<text x="${x(tick).toFixed(1)}" y="${axisBottom + 24}" text-anchor="middle" fill="#5c6e76" font-size="11" font-family="${SANS}">${tick}${metric.unit}</text>`);
 }
 SCENARIOS.forEach(([fixture, name], index) => {
-  const native = value(fixture, "native");
+  const native = value(fixture, baseline);
   const fork = value(fixture, forkLabel);
   const y = TOP + 14 + index * ROW;
   const better = fork <= native;

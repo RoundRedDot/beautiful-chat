@@ -1,0 +1,89 @@
+{
+  "fixture": "shell-log-large",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "7b447a12-111d-48b0-8ee0-4519d447bb4a",
+  "streamMs": 11285,
+  "probe": {
+    "label": "shell-log-large",
+    "platform": "web",
+    "elapsedMs": 15288.5,
+    "rows": {
+      "plugin": 0,
+      "native": 45
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.10000002384185791,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 1.100000023841858
+      },
+      "assistant": {
+        "commits": 32,
+        "mounts": 3,
+        "n": 32,
+        "p50": 0,
+        "p95": 1.399999976158142,
+        "max": 2.600000023841858,
+        "sum": 16.99999976158142
+      },
+      "tool": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0,
+        "p95": 6.700000047683716,
+        "max": 6.700000047683716,
+        "sum": 9.900000095367432
+      }
+    },
+    "allRows": {
+      "n": 45,
+      "p50": 0.10000002384185791,
+      "p95": 2.600000023841858,
+      "max": 6.700000047683716,
+      "sum": 27.99999988079071
+    },
+    "perCommit": {
+      "n": 21,
+      "p50": 1.0999999046325684,
+      "p95": 2.700000047683716,
+      "max": 8.100000023841858,
+      "sum": 27.99999988079071
+    },
+    "frames": {
+      "count": 915,
+      "dropped": 2,
+      "droppedRatio": 0.0021810250817884407,
+      "longestMs": 50
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 187.46933937072754
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.8160639999999999,
+      "ScriptDuration": 0.184948,
+      "LayoutDuration": 0.006076,
+      "RecalcStyleDuration": 0.112373,
+      "LayoutCount": 37,
+      "RecalcStyleCount": 648
+    },
+    "nodes": 1104,
+    "jsHeapUsedMB": 135.00640487670898,
+    "beforeGc": {
+      "nodes": 1104,
+      "jsHeapUsedMB": 144.1295394897461
+    }
+  }
+}

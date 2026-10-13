@@ -1,0 +1,89 @@
+{
+  "fixture": "shell-log-large",
+  "speed": "1",
+  "mode": "native",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "d0a03118-61bd-4aff-bb4e-64435ff14a51",
+  "streamMs": 14807,
+  "probe": {
+    "label": "shell-log-large",
+    "platform": "web",
+    "elapsedMs": 18816.5,
+    "rows": {
+      "plugin": 0,
+      "native": 42
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0,
+        "p95": 1.2000000476837158,
+        "max": 1.2000000476837158,
+        "sum": 1.5
+      },
+      "assistant": {
+        "commits": 29,
+        "mounts": 3,
+        "n": 29,
+        "p50": 0,
+        "p95": 1.8000000715255737,
+        "max": 2.399999976158142,
+        "sum": 16.100000143051147
+      },
+      "tool": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0,
+        "p95": 9.399999976158142,
+        "max": 9.399999976158142,
+        "sum": 12.600000023841858
+      }
+    },
+    "allRows": {
+      "n": 42,
+      "p50": 0,
+      "p95": 2.399999976158142,
+      "max": 9.399999976158142,
+      "sum": 30.200000166893005
+    },
+    "perCommit": {
+      "n": 18,
+      "p50": 1.1999999284744263,
+      "p95": 11.200000047683716,
+      "max": 11.200000047683716,
+      "sum": 30.200000166893005
+    },
+    "frames": {
+      "count": 1124,
+      "dropped": 5,
+      "droppedRatio": 0.0044286979627989375,
+      "longestMs": 50
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000016810904608832466,
+    "heapMB": 185.96006298065186
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.8750260000000001,
+      "ScriptDuration": 0.22369799999999995,
+      "LayoutDuration": 0.007484000000000001,
+      "RecalcStyleDuration": 0.115341,
+      "LayoutCount": 35,
+      "RecalcStyleCount": 646
+    },
+    "nodes": 1104,
+    "jsHeapUsedMB": 133.06571197509766,
+    "beforeGc": {
+      "nodes": 1104,
+      "jsHeapUsedMB": 142.61529922485352
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "fixture": "diff-large",
+  "speed": "1",
+  "mode": "upstream",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "70b7333a-97ef-43a8-af47-7d869e487fbd",
+  "streamMs": 6096,
+  "probe": {
+    "label": "diff-large",
+    "platform": "web",
+    "elapsedMs": 10101.699999928474,
+    "rows": {
+      "plugin": 318,
+      "native": 0
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.6000000238418579,
+        "p95": 0.7000000476837158,
+        "max": 0.7000000476837158,
+        "sum": 3.5
+      },
+      "assistant": {
+        "commits": 18,
+        "mounts": 4,
+        "n": 18,
+        "p50": 0.5,
+        "p95": 1,
+        "max": 1,
+        "sum": 10.000000238418579
+      },
+      "tool": {
+        "commits": 294,
+        "mounts": 1,
+        "n": 294,
+        "p50": 0.10000002384185791,
+        "p95": 0.20000004768371582,
+        "max": 178.400000333786,
+        "sum": 807.700000166893
+      }
+    },
+    "allRows": {
+      "n": 318,
+      "p50": 0.10000002384185791,
+      "p95": 0.6000000238418579,
+      "max": 178.400000333786,
+      "sum": 821.2000004053116
+    },
+    "perCommit": {
+      "n": 302,
+      "p50": 0.10000002384185791,
+      "p95": 0.5,
+      "max": 179.20000040531158,
+      "sum": 821.2000004053116
+    },
+    "frames": {
+      "count": 517,
+      "dropped": 90,
+      "droppedRatio": 0.14827018121911037,
+      "longestMs": 500
+    },
+    "longTasks": {
+      "count": 6,
+      "totalMs": 1513
+    },
+    "layoutShift": 0.024003285047743055,
+    "heapMB": 410.9002733230591
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.047922,
+      "ScriptDuration": 1.511492,
+      "LayoutDuration": 0.141054,
+      "RecalcStyleDuration": 0.11797000000000002,
+      "LayoutCount": 29,
+      "RecalcStyleCount": 420
+    },
+    "nodes": 40362,
+    "jsHeapUsedMB": 239.47991561889648,
+    "beforeGc": {
+      "nodes": 58917,
+      "jsHeapUsedMB": 365.9807548522949
+    }
+  }
+}

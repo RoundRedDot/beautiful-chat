@@ -1,10 +1,12 @@
 # Paseo 原生渲染 vs 本仓库 fork 插件
 
-问题：装上本仓库的 beautiful-chat（`c00be20`）之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。
+问题：装上本仓库的 beautiful-chat 之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。2026-10-13 又把官方插件 `42b61d8` 放进同一次会话。
 
-场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。测量于 2026-10-12。
+场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。下面 §3–§5 是 2026-10-12 的记录（当时的插件是 `c00be20` 到 `1ec3458` 一带）。**当前 Web 数字在 §8**，插件是 `2146289`，官方是 `42b61d8`。iOS 没有在 10 月 13 日重跑。
 
 ## 结论
+
+2026-10-13 的 Web 三方对照在 §8：11 个场景里本仓库都比不开插件短（大 diff 整段 0.37–0.38 秒，记为持平），也比官方插件短。官方默认展开工具，读 20 个文件的 DOM 节点到 56,158，主线程到 3.72 秒；本仓库是 1,488 个节点、0.70 秒。下面几条是 10 月 12 日、还没有官方这一列时的记录。
 
 - **每一行渲染一次的代价，fork 更低。** Web 上 11 个场景里，有 10 个的行渲染 p95 降了 33–88%，剩下的 `history-100` 持平。iOS 上，8 个场景的「单次提交里所有行之和」p95 降了 15–86%。纯文本流式（长回复、代码块、表格、思考）收益最大：Web 主线程 CPU 降 7–53%，iOS 上长回复单次提交 p95 从 59ms 降到 8ms。
 - **Web 上有一处倒退，已修：运行中的那个圆点。** 它用 React Native 的 `Animated`，Web 上没有 native driver，每一帧都触发一次 React 提交。工具和待办较多的场景因此比原生多花 20–38% 的主线程时间：`mixed-turn` +38%，`shell-log-large` +22%，`tool-expanded-streaming` +33%，`history-100` +20%。打开「减少动态效果」让圆点静止后，这几项全都降到原生以下（−2% 到 −37%），归因因此确认。`58f6728` 在 Web 上把圆点改成 CSS 动画；修复后在 `main` 上重跑了两轮。第一轮 10 个场景的主线程时间低于原生，`history-100` 多 8%；第二轮（`de7c0d3`）11 个全部低于原生，`history-100` 少 10%，视为持平，见 §4。
@@ -26,7 +28,7 @@
 
 Web 生产构建默认不跑 `<Profiler>`。补丁让 Metro 在构建时设置 `BC_REACT_PROFILING=1`，把 `react-dom/client` 换成 React 自带的 `react-dom/profiling`，这一项对两边一样。
 
-和 `fork-vs-upstream.md` 的数字**不能直接比**。那份文档测的是插件卡片内部「开始渲染 → layout effect」的时间；这里测的是宿主行外壳的 React 渲染时间。Web 上的 `Profiler` 计时精度是 0.1ms（Chrome 不在跨源隔离环境下会把 `performance.now()` 截到 100µs），所以 0 和 0.1 之间的差别没有意义。
+`fork-vs-upstream.md` 开头的 10 月 13 日表和这里 §8 是同一套宿主探针。那份文档后半段的卡片内部探针测的是「开始渲染 → layout effect」，和这里的行外壳不是同一个口径，毫秒数不能直接比。Web 上的 `Profiler` 计时精度是 0.1ms（Chrome 不在跨源隔离环境下会把 `performance.now()` 截到 100µs），所以 0 和 0.1 之间的差别没有意义。
 
 ## 2. 环境
 
@@ -269,7 +271,15 @@ BC_SIM_UDID=<udid> BC_WORKSPACE=<wks> OUT=raw/ios tools/ios-all.sh 2
 node tools/web-ab.mjs --reps 3 --fork-label forkold --out raw/web-fix mixed-turn:1 shell-log-large:1 tool-expanded-streaming:4 history-100:max
 node tools/web-ab.mjs --reps 3 --fork-label forkfix --out raw/web-fix
 
-# 表格和 docs/perf 的两张图
+# 2026-10-13 三方（daemon 的 beautiful-chat 路径指向一条符号链接）
+# BC_PLUGIN_LINK=.../bench-active BC_FORK_DIR=.../bench-fork BC_UPSTREAM_DIR=.../bench-upstream
+node tools/web-ab.mjs --reps 3 --modes native,fork,upstream --out raw/web-2026-10-13
+node tools/report.mjs raw/web-2026-10-13 --a native --b fork
+node tools/report.mjs raw/web-2026-10-13 --a upstream --b fork
+node tools/chart.mjs web raw/web-2026-10-13 ../../perf/web-native-cpu.svg fork native
+node tools/chart.mjs web raw/web-2026-10-13 ../../perf/web-upstream-cpu.svg fork upstream
+
+# 表格和 docs/perf 的两张图（10 月 12 日）
 node tools/report.mjs raw/web
 node tools/report.mjs raw/web-fix --a native --b forkfix
 node tools/chart.mjs web raw/web-fix ../../perf/web-native-cpu.svg forkfix
@@ -277,3 +287,42 @@ node tools/chart.mjs ios raw/ios ../../perf/ios-native-commit.svg
 node tools/report.mjs raw/web --a fork --b forkrm
 node tools/report.mjs raw/ios --ios
 ```
+
+## 8. 2026-10-13：不开插件、官方、本仓库，同一次会话
+
+插件 `2146289`（`.worktrees/bench-fork`）和官方 `42b61d8`（`.worktrees/bench-upstream`）装在同一个目录插件上，用符号链接切换，`web-ab.mjs` 在换目标后 `plugin reload`。模式顺序按轮旋转，所以三种模式轮流先跑。每格 3 次，原始数据在 `raw/web-2026-10-13/`（99 个 JSON）。宿主仍是 10 月 12 日那份带探针的 Web 生产构建。开跑时 1 分钟负载 18、15 分钟负载 242，结束时分别是 10 和 21。第一轮有几个场景偏慢（例如不开插件的代码块流式 11.3 / 3.8 / 3.8 秒，中位数 3.81），中位数取的是中间那次。
+
+主线程任务时间，秒，中位数。本仓库相对不开插件、相对官方的变化见 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的性能一节。
+
+| 场景 | 不开插件 | 官方 | 本仓库 |
+| --- | ---: | ---: | ---: |
+| codeblock-streaming | 3.81 | 3.45 | 1.70 |
+| diff-large | 0.38 | 2.41 | 0.37 |
+| history-100 | 2.92 | 8.49 | 2.14 |
+| markdown-long | 7.07 | 8.42 | 3.67 |
+| mixed-turn | 1.20 | 2.95 | 1.02 |
+| reads-20 | 0.96 | 3.72 | 0.70 |
+| reasoning-long-prose | 2.06 | 3.57 | 1.27 |
+| reasoning-long-sections | 1.97 | 3.92 | 1.02 |
+| shell-log-large | 0.88 | 1.60 | 0.64 |
+| table-streaming | 2.77 | 1.64 | 1.08 |
+| tool-expanded-streaming | 1.49 | 3.26 | 0.97 |
+
+回收之后的 JS 堆（MB）和 DOM 节点，挑差距大的几格：
+
+| 场景 | 堆：不开插件 / 官方 / 本仓库 | DOM：不开插件 / 官方 / 本仓库 |
+| --- | ---: | ---: |
+| diff-large | 132 / 239 / 135 | 1,094 / 40,362 / 1,039 |
+| history-100 | 140 / 265 / 142 | 1,828 / 14,263 / 1,845 |
+| markdown-long | 181 / 141 / 140 | 4,764 / 2,930 / 2,883 |
+| reads-20 | 136 / 266 / 139 | 1,524 / 56,158 / 1,488 |
+| shell-log-large | 133 / 152 / 135 | 1,104 / 9,625 / 1,034 |
+| tool-expanded-streaming | 135 / 147 / 138 | 1,095 / 6,501 / 1,034 |
+
+其余场景的堆，三种模式都在 133–147MB。官方默认把运行中的工具展开，读 20 个文件因此提交 11,015 次，本仓库 286 次，不开插件 277 次。官方也自己画用户气泡，本仓库和不开插件的用户行都是 Paseo 的气泡。
+
+布局偏移：长回复 0.157 / 0.644 / 0，代码块 0.039 / 0.127 / 0.012，表格 0.049 / 0.040 / 0.011，100 轮历史 0 / 0.478 / 0。顺序是不开插件 / 官方 / 本仓库。
+
+`history-100` 不开插件的三次是 5.52、2.92、1.95 秒，中位数 2.92 仍比本仓库的 2.14 高，但这一格的不开插件一侧波动大。官方三次都在 8.4–8.5 秒。本仓库三次是 2.15、2.14、2.04。
+
+图：`docs/perf/web-native-cpu.svg`（淡色是不开插件），`docs/perf/web-upstream-cpu.svg`（淡色是官方）。
