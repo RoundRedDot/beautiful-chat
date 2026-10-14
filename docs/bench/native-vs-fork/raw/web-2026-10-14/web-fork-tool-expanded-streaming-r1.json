@@ -1,0 +1,95 @@
+{
+  "fixture": "tool-expanded-streaming",
+  "speed": "4",
+  "mode": "fork",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "f2be5503-f88b-4ed4-93de-914424718c1a",
+  "streamMs": 15849,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "tool-expanded-streaming",
+    "platform": "web",
+    "elapsedMs": 19855.100000023842,
+    "rows": {
+      "plugin": 307,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.19999998807907104,
+        "p95": 0.40000003576278687,
+        "max": 0.40000003576278687,
+        "sum": 1.0000000596046448
+      },
+      "assistant": {
+        "commits": 110,
+        "mounts": 4,
+        "n": 110,
+        "p50": 0.10000002384185791,
+        "p95": 0.5,
+        "max": 1.899999976158142,
+        "sum": 16.40000009536743
+      },
+      "tool": {
+        "commits": 197,
+        "mounts": 1,
+        "n": 197,
+        "p50": 0.5,
+        "p95": 0.800000011920929,
+        "max": 2.099999964237213,
+        "sum": 93.19999986886978
+      }
+    },
+    "allRows": {
+      "n": 313,
+      "p50": 0.20000004768371582,
+      "p95": 0.800000011920929,
+      "max": 2.099999964237213,
+      "sum": 110.60000002384186
+    },
+    "perCommit": {
+      "n": 202,
+      "p50": 0.5,
+      "p95": 1,
+      "max": 2.899999976158142,
+      "sum": 110.60000002384186
+    },
+    "frames": {
+      "count": 1192,
+      "dropped": 0,
+      "droppedRatio": 0,
+      "longestMs": 16.80000000000291
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000015190972222222225,
+    "heapMB": 164.86179542541504
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.43525,
+      "ScriptDuration": 0.729115,
+      "LayoutDuration": 0.008483000000000001,
+      "RecalcStyleDuration": 0.11067799999999998,
+      "LayoutCount": 38,
+      "RecalcStyleCount": 948
+    },
+    "nodes": 1361,
+    "jsHeapUsedMB": 112.00263214111328,
+    "beforeGc": {
+      "nodes": 1361,
+      "jsHeapUsedMB": 120.52429580688477
+    }
+  }
+}

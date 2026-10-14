@@ -1,0 +1,118 @@
+{
+  "label": "ios-upstream-shell-log-large-r2",
+  "platform": "ios",
+  "elapsedMs": 16767.82754200697,
+  "rows": {
+    "plugin": 26,
+    "native": 0
+  },
+  "kinds": {
+    "user": {
+      "commits": 8,
+      "mounts": 1,
+      "n": 8,
+      "p50": 1.065417766571045,
+      "p95": 2.250661015510559,
+      "max": 2.250661015510559,
+      "sum": 10.315869450569153
+    },
+    "assistant": {
+      "commits": 11,
+      "mounts": 3,
+      "n": 11,
+      "p50": 1.6400468349456787,
+      "p95": 3.997500956058502,
+      "max": 3.997500956058502,
+      "sum": 18.44548100233078
+    },
+    "tool": {
+      "commits": 7,
+      "mounts": 1,
+      "n": 7,
+      "p50": 0.18437516689300537,
+      "p95": 210.80172032117844,
+      "max": 210.80172032117844,
+      "sum": 328.53951531648636
+    }
+  },
+  "allRows": {
+    "n": 26,
+    "p50": 1.065417766571045,
+    "p95": 105.29529398679733,
+    "max": 210.80172032117844,
+    "sum": 357.3008657693863
+  },
+  "perCommit": {
+    "n": 14,
+    "p50": 1.5740307569503784,
+    "p95": 210.80172032117844,
+    "max": 210.80172032117844,
+    "sum": 357.3008657693863
+  },
+  "frames": {
+    "count": 958,
+    "dropped": 51,
+    "droppedRatio": 0.05054509415262636,
+    "longestMs": 317.6772499680519
+  },
+  "longTasks": null,
+  "layoutShift": null,
+  "heapMB": null,
+  "identity": {
+    "status": "match",
+    "fork": false,
+    "upstream": false,
+    "host": true,
+    "documentMissing": true,
+    "contexts": 2,
+    "rows": {
+      "plugin": 26,
+      "native": 0
+    },
+    "reason": "plugin rows without imageRpc",
+    "readings": [
+      {
+        "fork": false,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      }
+    ],
+    "mode": "upstream"
+  },
+  "streamS": 11,
+  "agentId": "8dbc43d0-381b-42f9-a087-8c4b185336fa",
+  "fixture": "shell-log-large",
+  "mode": "upstream",
+  "rep": 2
+}

@@ -1,0 +1,104 @@
+{
+  "fixture": "reads-20",
+  "speed": "1",
+  "mode": "upstream",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "17b9e5c1-6876-4998-8b3f-b2ece9d11a91",
+  "streamMs": 6633,
+  "identity": {
+    "fork": false,
+    "upstream": true,
+    "host": true
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "reads-20",
+    "platform": "web",
+    "elapsedMs": 10638.699999988079,
+    "rows": {
+      "plugin": 10859,
+      "native": 0
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.30000001192092896,
+        "p95": 1.0999999642372131,
+        "max": 1.0999999642372131,
+        "sum": 3.1999999284744263
+      },
+      "assistant": {
+        "commits": 34,
+        "mounts": 4,
+        "n": 34,
+        "p50": 0.6000000238418579,
+        "p95": 1.199999988079071,
+        "max": 1.199999988079071,
+        "sum": 20.59999978542328
+      },
+      "reasoning": {
+        "commits": 40,
+        "mounts": 2,
+        "n": 40,
+        "p50": 0.20000004768371582,
+        "p95": 1.300000011920929,
+        "max": 3.5,
+        "sum": 21.700000166893005
+      },
+      "tool": {
+        "commits": 10779,
+        "mounts": 24,
+        "n": 10779,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 16.600000083446503,
+        "sum": 945.5000001192093
+      }
+    },
+    "allRows": {
+      "n": 10859,
+      "p50": 0,
+      "p95": 0.10000002384185791,
+      "max": 16.600000083446503,
+      "sum": 991
+    },
+    "perCommit": {
+      "n": 690,
+      "p50": 0.6000000238418579,
+      "p95": 6.399999976158142,
+      "max": 121.50000023841858,
+      "sum": 991
+    },
+    "frames": {
+      "count": 623,
+      "dropped": 15,
+      "droppedRatio": 0.023510971786833857,
+      "longestMs": 183.29999999999927
+    },
+    "longTasks": {
+      "count": 1,
+      "totalMs": 175
+    },
+    "layoutShift": 0.6797131604512534,
+    "heapMB": 346.72051334381104
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 3.4279789999999997,
+      "ScriptDuration": 2.3735690000000003,
+      "LayoutDuration": 0.098755,
+      "RecalcStyleDuration": 0.210446,
+      "LayoutCount": 158,
+      "RecalcStyleCount": 1018
+    },
+    "nodes": 56471,
+    "jsHeapUsedMB": 239.94915008544922,
+    "beforeGc": {
+      "nodes": 56948,
+      "jsHeapUsedMB": 304.26470947265625
+    }
+  }
+}

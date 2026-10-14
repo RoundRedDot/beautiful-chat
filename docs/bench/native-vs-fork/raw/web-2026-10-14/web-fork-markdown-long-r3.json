@@ -1,0 +1,86 @@
+{
+  "fixture": "markdown-long",
+  "speed": "1",
+  "mode": "fork",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "ea80b4d4-5b76-44f2-83a1-452ab621eec8",
+  "streamMs": 38982,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "markdown-long",
+    "platform": "web",
+    "elapsedMs": 42987.90000003576,
+    "rows": {
+      "plugin": 814,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.09999996423721313,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 0.800000011920929
+      },
+      "assistant": {
+        "commits": 814,
+        "mounts": 2,
+        "n": 814,
+        "p50": 0.30000001192092896,
+        "p95": 1.5,
+        "max": 9.300000011920929,
+        "sum": 489.40000081062317
+      }
+    },
+    "allRows": {
+      "n": 821,
+      "p50": 0.30000001192092896,
+      "p95": 1.5,
+      "max": 9.300000011920929,
+      "sum": 490.2000008225441
+    },
+    "perCommit": {
+      "n": 812,
+      "p50": 0.30000007152557373,
+      "p95": 1.5,
+      "max": 9.300000011920929,
+      "sum": 490.2000008225441
+    },
+    "frames": {
+      "count": 2577,
+      "dropped": 2,
+      "droppedRatio": 0.0007754943776657619,
+      "longestMs": 33.400000000001455
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 169.6966037750244
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 5.648692,
+      "ScriptDuration": 3.129708,
+      "LayoutDuration": 0.257103,
+      "RecalcStyleDuration": 0.283868,
+      "LayoutCount": 717,
+      "RecalcStyleCount": 2834
+    },
+    "nodes": 3205,
+    "jsHeapUsedMB": 117.44611358642578,
+    "beforeGc": {
+      "nodes": 3205,
+      "jsHeapUsedMB": 126.45281982421875
+    }
+  }
+}

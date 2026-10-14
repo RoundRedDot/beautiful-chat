@@ -1,0 +1,136 @@
+{
+  "label": "ios-native-mixed-turn-r1",
+  "platform": "ios",
+  "elapsedMs": 17384.705250024796,
+  "rows": {
+    "plugin": 0,
+    "native": 162
+  },
+  "kinds": {
+    "user": {
+      "commits": 5,
+      "mounts": 1,
+      "n": 5,
+      "p50": 0.42649805545806885,
+      "p95": 2.036201298236847,
+      "max": 2.036201298236847,
+      "sum": 3.263995349407196
+    },
+    "assistant": {
+      "commits": 72,
+      "mounts": 16,
+      "n": 72,
+      "p50": 0.22375082969665527,
+      "p95": 10.132000267505646,
+      "max": 11.829748094081879,
+      "sum": 164.50194531679153
+    },
+    "reasoning": {
+      "commits": 35,
+      "mounts": 6,
+      "n": 35,
+      "p50": 1.268667995929718,
+      "p95": 9.269299626350403,
+      "max": 10.70304274559021,
+      "sum": 58.440033078193665
+    },
+    "todo": {
+      "commits": 11,
+      "mounts": 4,
+      "n": 11,
+      "p50": 0.006208062171936035,
+      "p95": 4.733581960201263,
+      "max": 4.733581960201263,
+      "sum": 12.391200125217438
+    },
+    "tool": {
+      "commits": 39,
+      "mounts": 7,
+      "n": 39,
+      "p50": 1.2794981002807617,
+      "p95": 3.7801308631896973,
+      "max": 3.8052075505256653,
+      "sum": 60.17653739452362
+    }
+  },
+  "allRows": {
+    "n": 162,
+    "p50": 0.455081045627594,
+    "p95": 7.859454870223999,
+    "max": 11.829748094081879,
+    "sum": 298.77371126413345
+  },
+  "perCommit": {
+    "n": 80,
+    "p50": 1.6050310134887695,
+    "p95": 14.472620010375977,
+    "max": 23.793992400169373,
+    "sum": 298.77371126413345
+  },
+  "frames": {
+    "count": 985,
+    "dropped": 69,
+    "droppedRatio": 0.06546489563567362,
+    "longestMs": 125.73270803689957
+  },
+  "longTasks": null,
+  "layoutShift": null,
+  "heapMB": null,
+  "identity": {
+    "status": "match",
+    "fork": false,
+    "upstream": false,
+    "host": true,
+    "documentMissing": true,
+    "contexts": 2,
+    "rows": {
+      "plugin": 0,
+      "native": 162
+    },
+    "reason": "no plugin marker",
+    "readings": [
+      {
+        "fork": false,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      }
+    ],
+    "mode": "native"
+  },
+  "streamS": 12,
+  "agentId": "6a43a7bf-f6d1-443b-bc9c-9f3d5a28c277",
+  "fixture": "mixed-turn",
+  "mode": "native",
+  "rep": 1
+}
