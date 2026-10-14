@@ -214,4 +214,28 @@ node xl.mjs base1 <qaDir> && node xl.mjs cand <qaDir>
 - iOS 上的代码字号切换。
 - Android。
 
+## 11. Android 模拟器验收（rrd-mac-studio）
+
+### 环境
+
+- **App**：由同一份 Paseo `v0.11.2`（`759532509`）源码编译的开发版 `sh.paseo.debug`。编译命令为 `expo prebuild --platform android` 加 `./gradlew :app:assembleDebug`（JDK 17，arm64-v8a），未改动任何源码。
+- **模拟器**：新建的专用 AVD `bc-perf-android`（Android 37，google_apis，Pixel 9 外形），以无窗口方式运行在端口 5580；所有 adb 命令都指定 `-s emulator-5580`。机器上原有的 AVD 未使用，也没有连接真机。
+- **连接方式**：通过 `adb reverse` 只转发 Metro 8095 和私有 daemon 6871；App 只添加了 `127.0.0.1:6871`。JS 引擎为 Hermes。
+- **插件切换**：与 iOS 相同，在同一会话里切换构建做 A-B-A 对比。
+
+### 结果
+
+| 项 | 基线 `8425dd0` | P1 候选 |
+| --- | --- | --- |
+| 超长 diff（40 万行）展开 | **Hermes 渲染报错** `RangeError: Maximum call stack size exceeded (native stack depth)`，调用栈指向 `SyntaxHighlightBlock :4473:57`；关闭报错浮层后，该行显示 “Plugin failed: …”（`android/xl-base-*.png`、`android/metro-hermes-error.log`） | 正常展开，显示 “Show 399991 more lines”；同一会话切回候选后同样正常（`android/xl-cand.png`、`android/xl-same-agent-on-cand.png`） |
+| diff-large：浅色展开、显示全部（等待 30 秒后已完整展开，出现 “Show less”，末行号 5603）、切回浅色 | — | 原分辨率逐像素比较，差异为 0 |
+| 深色（`cmd uimode night yes`，等待 12 秒） | — | 仅状态栏时钟不同（290 像素） |
+| 复制 | — | 未验证：该镜像不支持 `cmd clipboard` |
+
+**结论**：超长 diff 的 spread 参数上限问题在 Android 模拟器的 Hermes 上同样复现，P1 修复了它。iOS 与 Android 两个模拟器都已确认；真机和 release 构建上没有验证。
+
+**操作注意**：在开发版 App 中用 `adb shell input text` 输入文字时，按键会被开发版的快捷键处理，打开了系统的“显示在其他应用上层”设置页（没有修改任何权限）。因此 Android 上的探针读数改为通过 Metro 检查器代理，以 CDP 直接读取 `globalThis.__bcPerf`。
+
+**两版本都存在的既有现象**：切换主题后，diff 块回到折叠状态。Android 深色模式下没有出现 iOS 上的段落黑色底块。
+
 `attempt-1-sandbox-blocked/` 保存的是首轮由 worker 在 Codex 沙箱内的尝试：因为监听端口时报 `EPERM`，测量没有执行，其中的驱动脚本从未运行过，仅作记录。
