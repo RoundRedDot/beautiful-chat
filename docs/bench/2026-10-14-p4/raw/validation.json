@@ -1,0 +1,80 @@
+[
+  {
+    "command": "npm ci",
+    "log": "npm-ci.log",
+    "exitCode": 0,
+    "result": "413 packages installed; package files unchanged"
+  },
+  {
+    "command": "npm run typecheck (baseline)",
+    "log": "baseline-0.log",
+    "exitCode": 0,
+    "result": "c8ed5c7"
+  },
+  {
+    "command": "npm test -- --reporter=dot (baseline)",
+    "log": "baseline-1.log",
+    "exitCode": 0,
+    "result": "91 files / 1110 tests"
+  },
+  {
+    "command": "npm run check:hermes",
+    "log": "baseline-2.log",
+    "exitCode": 0,
+    "result": "compile + stock/sticky host evaluation"
+  },
+  {
+    "command": "node .showcase/tools/bundle-size.mjs",
+    "log": "baseline-3.log",
+    "exitCode": 0,
+    "result": "842214 bytes / gzip 194447 bytes"
+  },
+  {
+    "command": "node docs/bench/2026-10-14-p4/baseline.mjs --write",
+    "log": "baseline-generate.log",
+    "exitCode": 0,
+    "result": "36 loaded entries / 192 resolver cases / 56 outputs"
+  },
+  {
+    "command": "npm run typecheck (with new test)",
+    "log": "final-typecheck.log",
+    "exitCode": 0,
+    "result": "new test included"
+  },
+  {
+    "command": "npm test -- --reporter=dot test/unit/p4-highlight-equivalence.test.ts",
+    "log": "equivalence-test.log",
+    "exitCode": 0,
+    "result": "249 tests"
+  },
+  {
+    "command": "node docs/bench/2026-10-14-p4/baseline.mjs --verify",
+    "log": null,
+    "exitCode": 0,
+    "result": "exact golden equality"
+  },
+  {
+    "command": "npm test -- --reporter=dot (final)",
+    "log": "final-test.log",
+    "exitCode": 0,
+    "result": "92 files / 1359 tests"
+  },
+  {
+    "command": "node docs/bench/2026-10-14-p4/run.mjs",
+    "log": "measurements.log",
+    "exitCode": 0,
+    "result": "91 cold processes, 22 fixture scenarios; final isolated run"
+  },
+  {
+    "command": "node docs/bench/2026-10-14-p4/summarize.mjs",
+    "log": null,
+    "exitCode": 0,
+    "result": "summary.json"
+  },
+  {
+    "command": "node docs/bench/2026-10-14-p4/verify-model.mjs",
+    "log": "verify-model.log",
+    "exitCode": 0,
+    "result": "uninstrumented handler + 16-grammar markdown model equivalent"
+  }
+]

@@ -1,0 +1,4469 @@
+[
+  {
+    "fixture": "codeblock-streaming.jsonl",
+    "sha256": "e58f27ceb776bae63a58ced8a67afa2382653cee78b168e1392b7d1ce4a27c18",
+    "scope": "default",
+    "order": [
+      "typescript",
+      "python",
+      "diff",
+      "rust"
+    ],
+    "firstLoads": [
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      },
+      {
+        "id": "python",
+        "newGrammars": [
+          "python"
+        ]
+      },
+      {
+        "id": "diff",
+        "newGrammars": [
+          "diff"
+        ]
+      },
+      {
+        "id": "rust",
+        "newGrammars": [
+          "rust"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 4,
+    "requests": [
+      {
+        "t": 3036,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 460,
+        "lines": 13
+      },
+      {
+        "t": 6577,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "python",
+        "filename": null,
+        "resolved": "python",
+        "canonical": "python",
+        "bytes": 558,
+        "lines": 21
+      },
+      {
+        "t": 11527,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "diff",
+        "filename": null,
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 184,
+        "lines": 11
+      },
+      {
+        "t": 15294,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "rust",
+        "filename": null,
+        "resolved": "rust",
+        "canonical": "rust",
+        "bytes": 630,
+        "lines": 25
+      }
+    ]
+  },
+  {
+    "fixture": "codeblock-streaming.jsonl",
+    "sha256": "e58f27ceb776bae63a58ced8a67afa2382653cee78b168e1392b7d1ce4a27c18",
+    "scope": "expanded",
+    "order": [
+      "typescript",
+      "python",
+      "diff",
+      "rust"
+    ],
+    "firstLoads": [
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      },
+      {
+        "id": "python",
+        "newGrammars": [
+          "python"
+        ]
+      },
+      {
+        "id": "diff",
+        "newGrammars": [
+          "diff"
+        ]
+      },
+      {
+        "id": "rust",
+        "newGrammars": [
+          "rust"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 4,
+    "requests": [
+      {
+        "t": 3036,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 460,
+        "lines": 13
+      },
+      {
+        "t": 6577,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "python",
+        "filename": null,
+        "resolved": "python",
+        "canonical": "python",
+        "bytes": 558,
+        "lines": 21
+      },
+      {
+        "t": 11527,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "diff",
+        "filename": null,
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 184,
+        "lines": 11
+      },
+      {
+        "t": 15294,
+        "origin": "assistant_message:0",
+        "scope": "default",
+        "hint": "rust",
+        "filename": null,
+        "resolved": "rust",
+        "canonical": "rust",
+        "bytes": 630,
+        "lines": 25
+      }
+    ]
+  },
+  {
+    "fixture": "diff-large.jsonl",
+    "sha256": "17efa4c27ea9b592dfcd80e33a864b8896429b4baf9c8b92b70ccd2f59a38699",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "diff-large.jsonl",
+    "sha256": "17efa4c27ea9b592dfcd80e33a864b8896429b4baf9c8b92b70ccd2f59a38699",
+    "scope": "expanded",
+    "order": [
+      "diff",
+      "tsx"
+    ],
+    "firstLoads": [
+      {
+        "id": "diff",
+        "newGrammars": [
+          "diff"
+        ]
+      },
+      {
+        "id": "tsx",
+        "newGrammars": [
+          "tsx"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 2,
+    "requests": [
+      {
+        "t": 358,
+        "origin": "tool:toolu_difflarg0001:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/timeline-list.tsx",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 358,
+        "origin": "tool:toolu_difflarg0001:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/components/timeline-list.tsx",
+        "resolved": "tsx",
+        "canonical": "tsx",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1758,
+        "origin": "tool:toolu_difflarg0001:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/timeline-list.tsx",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 231658,
+        "lines": 5129
+      },
+      {
+        "t": 1758,
+        "origin": "tool:toolu_difflarg0001:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/components/timeline-list.tsx",
+        "resolved": "tsx",
+        "canonical": "tsx",
+        "bytes": 1,
+        "lines": 1
+      }
+    ]
+  },
+  {
+    "fixture": "history-100.jsonl",
+    "sha256": "b9f2338d7372137c5c83e0c2bf7125b63744e4b42c9e1814f60168256a26ae7f",
+    "scope": "default",
+    "order": [
+      "typescript"
+    ],
+    "firstLoads": [
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 1,
+    "requests": [
+      {
+        "t": 343,
+        "origin": "assistant_message:11",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 508,
+        "lines": 14
+      },
+      {
+        "t": 500,
+        "origin": "assistant_message:16",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 615,
+        "lines": 14
+      },
+      {
+        "t": 629,
+        "origin": "assistant_message:22",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 467,
+        "lines": 14
+      },
+      {
+        "t": 778,
+        "origin": "assistant_message:26",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 624,
+        "lines": 14
+      },
+      {
+        "t": 1565,
+        "origin": "assistant_message:42",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 635,
+        "lines": 14
+      },
+      {
+        "t": 1603,
+        "origin": "assistant_message:44",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 542,
+        "lines": 14
+      },
+      {
+        "t": 1887,
+        "origin": "assistant_message:51",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 484,
+        "lines": 14
+      },
+      {
+        "t": 1996,
+        "origin": "assistant_message:53",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 463,
+        "lines": 13
+      },
+      {
+        "t": 2142,
+        "origin": "assistant_message:55",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 597,
+        "lines": 14
+      },
+      {
+        "t": 2220,
+        "origin": "assistant_message:57",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 511,
+        "lines": 14
+      },
+      {
+        "t": 2548,
+        "origin": "assistant_message:65",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 617,
+        "lines": 14
+      },
+      {
+        "t": 2662,
+        "origin": "assistant_message:69",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 622,
+        "lines": 14
+      },
+      {
+        "t": 2981,
+        "origin": "assistant_message:76",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 629,
+        "lines": 14
+      },
+      {
+        "t": 3243,
+        "origin": "assistant_message:85",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 604,
+        "lines": 14
+      },
+      {
+        "t": 3603,
+        "origin": "assistant_message:94",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 553,
+        "lines": 14
+      },
+      {
+        "t": 3649,
+        "origin": "assistant_message:96",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 484,
+        "lines": 14
+      },
+      {
+        "t": 3725,
+        "origin": "assistant_message:98",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 447,
+        "lines": 13
+      },
+      {
+        "t": 3891,
+        "origin": "assistant_message:104",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 538,
+        "lines": 14
+      },
+      {
+        "t": 4004,
+        "origin": "assistant_message:108",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 496,
+        "lines": 13
+      },
+      {
+        "t": 4757,
+        "origin": "assistant_message:129",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 447,
+        "lines": 14
+      },
+      {
+        "t": 4958,
+        "origin": "assistant_message:136",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 465,
+        "lines": 14
+      },
+      {
+        "t": 5036,
+        "origin": "assistant_message:137",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 667,
+        "lines": 14
+      },
+      {
+        "t": 5447,
+        "origin": "assistant_message:147",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 620,
+        "lines": 14
+      },
+      {
+        "t": 5651,
+        "origin": "assistant_message:153",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 696,
+        "lines": 14
+      },
+      {
+        "t": 5987,
+        "origin": "assistant_message:160",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 440,
+        "lines": 13
+      }
+    ]
+  },
+  {
+    "fixture": "history-100.jsonl",
+    "sha256": "b9f2338d7372137c5c83e0c2bf7125b63744e4b42c9e1814f60168256a26ae7f",
+    "scope": "expanded",
+    "order": [
+      "diff",
+      "typescript"
+    ],
+    "firstLoads": [
+      {
+        "id": "diff",
+        "newGrammars": [
+          "diff"
+        ]
+      },
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 2,
+    "requests": [
+      {
+        "t": 43,
+        "origin": "tool:toolu_history10001:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-session.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 43,
+        "origin": "tool:toolu_history10001:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 48,
+        "origin": "tool:toolu_history10001:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-session.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 474,
+        "lines": 15
+      },
+      {
+        "t": 48,
+        "origin": "tool:toolu_history10001:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 169,
+        "origin": "tool:toolu_history10005:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 173,
+        "origin": "tool:toolu_history10005:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1201,
+        "lines": 30
+      },
+      {
+        "t": 248,
+        "origin": "tool:toolu_history10007:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 252,
+        "origin": "tool:toolu_history10007:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1774,
+        "lines": 40
+      },
+      {
+        "t": 303,
+        "origin": "tool:toolu_history10008:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 303,
+        "origin": "tool:toolu_history10008:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 308,
+        "origin": "tool:toolu_history10008:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 509,
+        "lines": 13
+      },
+      {
+        "t": 308,
+        "origin": "tool:toolu_history10008:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 343,
+        "origin": "assistant_message:11",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 508,
+        "lines": 14
+      },
+      {
+        "t": 367,
+        "origin": "tool:toolu_history10010:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 371,
+        "origin": "tool:toolu_history10010:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1458,
+        "lines": 38
+      },
+      {
+        "t": 481,
+        "origin": "tool:toolu_history10013:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-message.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 481,
+        "origin": "tool:toolu_history10013:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 486,
+        "origin": "tool:toolu_history10013:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-message.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 490,
+        "lines": 11
+      },
+      {
+        "t": 486,
+        "origin": "tool:toolu_history10013:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 500,
+        "origin": "assistant_message:16",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 615,
+        "lines": 14
+      },
+      {
+        "t": 575,
+        "origin": "tool:toolu_history10015:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 575,
+        "origin": "tool:toolu_history10015:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 580,
+        "origin": "tool:toolu_history10015:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 495,
+        "lines": 15
+      },
+      {
+        "t": 580,
+        "origin": "tool:toolu_history10015:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 586,
+        "origin": "tool:toolu_history10016:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 586,
+        "origin": "tool:toolu_history10016:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 591,
+        "origin": "tool:toolu_history10016:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 433,
+        "lines": 13
+      },
+      {
+        "t": 591,
+        "origin": "tool:toolu_history10016:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 629,
+        "origin": "assistant_message:22",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 467,
+        "lines": 14
+      },
+      {
+        "t": 706,
+        "origin": "tool:toolu_history10017:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 710,
+        "origin": "tool:toolu_history10017:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1656,
+        "lines": 39
+      },
+      {
+        "t": 716,
+        "origin": "tool:toolu_history10018:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 720,
+        "origin": "tool:toolu_history10018:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1117,
+        "lines": 29
+      },
+      {
+        "t": 778,
+        "origin": "assistant_message:26",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 624,
+        "lines": 14
+      },
+      {
+        "t": 856,
+        "origin": "tool:toolu_history10020:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 856,
+        "origin": "tool:toolu_history10020:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 861,
+        "origin": "tool:toolu_history10020:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 366,
+        "lines": 9
+      },
+      {
+        "t": 861,
+        "origin": "tool:toolu_history10020:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 929,
+        "origin": "tool:toolu_history10022:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 933,
+        "origin": "tool:toolu_history10022:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2609,
+        "lines": 60
+      },
+      {
+        "t": 1000,
+        "origin": "tool:toolu_history10025:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1000,
+        "origin": "tool:toolu_history10025:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1005,
+        "origin": "tool:toolu_history10025:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 436,
+        "lines": 11
+      },
+      {
+        "t": 1005,
+        "origin": "tool:toolu_history10025:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1015,
+        "origin": "tool:toolu_history10026:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1019,
+        "origin": "tool:toolu_history10026:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1378,
+        "lines": 28
+      },
+      {
+        "t": 1129,
+        "origin": "tool:toolu_history10029:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1133,
+        "origin": "tool:toolu_history10029:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1555,
+        "lines": 35
+      },
+      {
+        "t": 1261,
+        "origin": "tool:toolu_history10032:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1261,
+        "origin": "tool:toolu_history10032:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1266,
+        "origin": "tool:toolu_history10032:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 471,
+        "lines": 15
+      },
+      {
+        "t": 1266,
+        "origin": "tool:toolu_history10032:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1330,
+        "origin": "tool:toolu_history10034:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1330,
+        "origin": "tool:toolu_history10034:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1335,
+        "origin": "tool:toolu_history10034:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 513,
+        "lines": 17
+      },
+      {
+        "t": 1335,
+        "origin": "tool:toolu_history10034:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1357,
+        "origin": "tool:toolu_history10036:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1357,
+        "origin": "tool:toolu_history10036:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1362,
+        "origin": "tool:toolu_history10036:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 426,
+        "lines": 9
+      },
+      {
+        "t": 1362,
+        "origin": "tool:toolu_history10036:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1407,
+        "origin": "tool:toolu_history10037:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1411,
+        "origin": "tool:toolu_history10037:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1840,
+        "lines": 35
+      },
+      {
+        "t": 1421,
+        "origin": "tool:toolu_history10038:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1421,
+        "origin": "tool:toolu_history10038:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1426,
+        "origin": "tool:toolu_history10038:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 482,
+        "lines": 15
+      },
+      {
+        "t": 1426,
+        "origin": "tool:toolu_history10038:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1482,
+        "origin": "tool:toolu_history10040:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1482,
+        "origin": "tool:toolu_history10040:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1487,
+        "origin": "tool:toolu_history10040:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 391,
+        "lines": 13
+      },
+      {
+        "t": 1487,
+        "origin": "tool:toolu_history10040:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1496,
+        "origin": "tool:toolu_history10041:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-session.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1496,
+        "origin": "tool:toolu_history10041:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1501,
+        "origin": "tool:toolu_history10041:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-session.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 509,
+        "lines": 17
+      },
+      {
+        "t": 1501,
+        "origin": "tool:toolu_history10041:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1507,
+        "origin": "tool:toolu_history10042:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1511,
+        "origin": "tool:toolu_history10042:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1238,
+        "lines": 29
+      },
+      {
+        "t": 1565,
+        "origin": "assistant_message:42",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 635,
+        "lines": 14
+      },
+      {
+        "t": 1603,
+        "origin": "assistant_message:44",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 542,
+        "lines": 14
+      },
+      {
+        "t": 1784,
+        "origin": "tool:toolu_history10048:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1788,
+        "origin": "tool:toolu_history10048:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-message.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1125,
+        "lines": 28
+      },
+      {
+        "t": 1866,
+        "origin": "tool:toolu_history10049:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/window-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1870,
+        "origin": "tool:toolu_history10049:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/window-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1395,
+        "lines": 37
+      },
+      {
+        "t": 1887,
+        "origin": "assistant_message:51",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 484,
+        "lines": 14
+      },
+      {
+        "t": 1947,
+        "origin": "tool:toolu_history10052:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 1947,
+        "origin": "tool:toolu_history10052:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1952,
+        "origin": "tool:toolu_history10052:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 450,
+        "lines": 13
+      },
+      {
+        "t": 1952,
+        "origin": "tool:toolu_history10052:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 1996,
+        "origin": "assistant_message:53",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 463,
+        "lines": 13
+      },
+      {
+        "t": 2038,
+        "origin": "tool:toolu_history10054:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 2038,
+        "origin": "tool:toolu_history10054:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2043,
+        "origin": "tool:toolu_history10054:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 434,
+        "lines": 9
+      },
+      {
+        "t": 2043,
+        "origin": "tool:toolu_history10054:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2142,
+        "origin": "assistant_message:55",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 597,
+        "lines": 14
+      },
+      {
+        "t": 2220,
+        "origin": "assistant_message:57",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 511,
+        "lines": 14
+      },
+      {
+        "t": 2309,
+        "origin": "tool:toolu_history10063:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 2309,
+        "origin": "tool:toolu_history10063:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2314,
+        "origin": "tool:toolu_history10063:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 385,
+        "lines": 13
+      },
+      {
+        "t": 2314,
+        "origin": "tool:toolu_history10063:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2396,
+        "origin": "tool:toolu_history10064:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2400,
+        "origin": "tool:toolu_history10064:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2736,
+        "lines": 57
+      },
+      {
+        "t": 2548,
+        "origin": "assistant_message:65",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 617,
+        "lines": 14
+      },
+      {
+        "t": 2614,
+        "origin": "tool:toolu_history10069:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 2614,
+        "origin": "tool:toolu_history10069:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2619,
+        "origin": "tool:toolu_history10069:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 421,
+        "lines": 13
+      },
+      {
+        "t": 2619,
+        "origin": "tool:toolu_history10069:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2640,
+        "origin": "tool:toolu_history10071:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2644,
+        "origin": "tool:toolu_history10071:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2008,
+        "lines": 45
+      },
+      {
+        "t": 2662,
+        "origin": "assistant_message:69",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 622,
+        "lines": 14
+      },
+      {
+        "t": 2697,
+        "origin": "tool:toolu_history10072:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2701,
+        "origin": "tool:toolu_history10072:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2593,
+        "lines": 59
+      },
+      {
+        "t": 2770,
+        "origin": "tool:toolu_history10075:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 2770,
+        "origin": "tool:toolu_history10075:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2775,
+        "origin": "tool:toolu_history10075:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 440,
+        "lines": 13
+      },
+      {
+        "t": 2775,
+        "origin": "tool:toolu_history10075:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2812,
+        "origin": "tool:toolu_history10076:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2816,
+        "origin": "tool:toolu_history10076:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/timeline-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2080,
+        "lines": 49
+      },
+      {
+        "t": 2859,
+        "origin": "tool:toolu_history10077:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 2859,
+        "origin": "tool:toolu_history10077:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2864,
+        "origin": "tool:toolu_history10077:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 404,
+        "lines": 13
+      },
+      {
+        "t": 2864,
+        "origin": "tool:toolu_history10077:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 2940,
+        "origin": "tool:toolu_history10079:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2944,
+        "origin": "tool:toolu_history10079:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2538,
+        "lines": 58
+      },
+      {
+        "t": 2981,
+        "origin": "assistant_message:76",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 629,
+        "lines": 14
+      },
+      {
+        "t": 3134,
+        "origin": "tool:toolu_history10081:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3138,
+        "origin": "tool:toolu_history10081:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1770,
+        "lines": 44
+      },
+      {
+        "t": 3213,
+        "origin": "tool:toolu_history10084:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3217,
+        "origin": "tool:toolu_history10084:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1914,
+        "lines": 46
+      },
+      {
+        "t": 3243,
+        "origin": "assistant_message:85",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 604,
+        "lines": 14
+      },
+      {
+        "t": 3276,
+        "origin": "tool:toolu_history10087:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3280,
+        "origin": "tool:toolu_history10087:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1628,
+        "lines": 47
+      },
+      {
+        "t": 3348,
+        "origin": "tool:toolu_history10089:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3348,
+        "origin": "tool:toolu_history10089:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3353,
+        "origin": "tool:toolu_history10089:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 525,
+        "lines": 19
+      },
+      {
+        "t": 3353,
+        "origin": "tool:toolu_history10089:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3374,
+        "origin": "tool:toolu_history10091:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3374,
+        "origin": "tool:toolu_history10091:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3379,
+        "origin": "tool:toolu_history10091:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 423,
+        "lines": 17
+      },
+      {
+        "t": 3379,
+        "origin": "tool:toolu_history10091:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/response-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3415,
+        "origin": "tool:toolu_history10092:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3415,
+        "origin": "tool:toolu_history10092:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3420,
+        "origin": "tool:toolu_history10092:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 543,
+        "lines": 19
+      },
+      {
+        "t": 3420,
+        "origin": "tool:toolu_history10092:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3425,
+        "origin": "tool:toolu_history10093:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3425,
+        "origin": "tool:toolu_history10093:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3430,
+        "origin": "tool:toolu_history10093:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-chunk.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 500,
+        "lines": 13
+      },
+      {
+        "t": 3430,
+        "origin": "tool:toolu_history10093:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3463,
+        "origin": "tool:toolu_history10094:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3467,
+        "origin": "tool:toolu_history10094:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1141,
+        "lines": 26
+      },
+      {
+        "t": 3522,
+        "origin": "tool:toolu_history10095:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3522,
+        "origin": "tool:toolu_history10095:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3527,
+        "origin": "tool:toolu_history10095:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 469,
+        "lines": 13
+      },
+      {
+        "t": 3527,
+        "origin": "tool:toolu_history10095:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/token-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3603,
+        "origin": "assistant_message:94",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 553,
+        "lines": 14
+      },
+      {
+        "t": 3649,
+        "origin": "assistant_message:96",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 484,
+        "lines": 14
+      },
+      {
+        "t": 3694,
+        "origin": "tool:toolu_history10099:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-buffer.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3698,
+        "origin": "tool:toolu_history10099:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-buffer.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1894,
+        "lines": 44
+      },
+      {
+        "t": 3708,
+        "origin": "tool:toolu_history10100:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3712,
+        "origin": "tool:toolu_history10100:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2422,
+        "lines": 51
+      },
+      {
+        "t": 3725,
+        "origin": "assistant_message:98",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 447,
+        "lines": 13
+      },
+      {
+        "t": 3752,
+        "origin": "tool:toolu_history10101:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3756,
+        "origin": "tool:toolu_history10101:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2173,
+        "lines": 46
+      },
+      {
+        "t": 3764,
+        "origin": "tool:toolu_history10102:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3764,
+        "origin": "tool:toolu_history10102:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/message-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3769,
+        "origin": "tool:toolu_history10102:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 459,
+        "lines": 11
+      },
+      {
+        "t": 3769,
+        "origin": "tool:toolu_history10102:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/message-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3891,
+        "origin": "assistant_message:104",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 538,
+        "lines": 14
+      },
+      {
+        "t": 4004,
+        "origin": "assistant_message:108",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 496,
+        "lines": 13
+      },
+      {
+        "t": 4049,
+        "origin": "tool:toolu_history10106:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4053,
+        "origin": "tool:toolu_history10106:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2192,
+        "lines": 51
+      },
+      {
+        "t": 4117,
+        "origin": "tool:toolu_history10108:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4121,
+        "origin": "tool:toolu_history10108:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1027,
+        "lines": 25
+      },
+      {
+        "t": 4133,
+        "origin": "tool:toolu_history10109:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4137,
+        "origin": "tool:toolu_history10109:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/token-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2536,
+        "lines": 56
+      },
+      {
+        "t": 4190,
+        "origin": "tool:toolu_history10110:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4190,
+        "origin": "tool:toolu_history10110:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4195,
+        "origin": "tool:toolu_history10110:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/request-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 529,
+        "lines": 19
+      },
+      {
+        "t": 4195,
+        "origin": "tool:toolu_history10110:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/request-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4201,
+        "origin": "tool:toolu_history10111:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4205,
+        "origin": "tool:toolu_history10111:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2646,
+        "lines": 59
+      },
+      {
+        "t": 4240,
+        "origin": "tool:toolu_history10113:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4244,
+        "origin": "tool:toolu_history10113:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1169,
+        "lines": 29
+      },
+      {
+        "t": 4255,
+        "origin": "tool:toolu_history10114:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4259,
+        "origin": "tool:toolu_history10114:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2102,
+        "lines": 48
+      },
+      {
+        "t": 4311,
+        "origin": "tool:toolu_history10115:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4311,
+        "origin": "tool:toolu_history10115:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4316,
+        "origin": "tool:toolu_history10115:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 531,
+        "lines": 11
+      },
+      {
+        "t": 4316,
+        "origin": "tool:toolu_history10115:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/chunk-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4398,
+        "origin": "tool:toolu_history10116:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4398,
+        "origin": "tool:toolu_history10116:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4403,
+        "origin": "tool:toolu_history10116:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 445,
+        "lines": 17
+      },
+      {
+        "t": 4403,
+        "origin": "tool:toolu_history10116:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4414,
+        "origin": "tool:toolu_history10117:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4414,
+        "origin": "tool:toolu_history10117:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4419,
+        "origin": "tool:toolu_history10117:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 458,
+        "lines": 13
+      },
+      {
+        "t": 4419,
+        "origin": "tool:toolu_history10117:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/queue-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4531,
+        "origin": "tool:toolu_history10120:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4535,
+        "origin": "tool:toolu_history10120:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1944,
+        "lines": 41
+      },
+      {
+        "t": 4657,
+        "origin": "tool:toolu_history10122:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4661,
+        "origin": "tool:toolu_history10122:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/entry-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1751,
+        "lines": 41
+      },
+      {
+        "t": 4686,
+        "origin": "tool:toolu_history10124:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4686,
+        "origin": "tool:toolu_history10124:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/message-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4691,
+        "origin": "tool:toolu_history10124:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/message-cache.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 532,
+        "lines": 21
+      },
+      {
+        "t": 4691,
+        "origin": "tool:toolu_history10124:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/message-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4757,
+        "origin": "assistant_message:129",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 447,
+        "lines": 14
+      },
+      {
+        "t": 4789,
+        "origin": "tool:toolu_history10126:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4793,
+        "origin": "tool:toolu_history10126:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 727,
+        "lines": 20
+      },
+      {
+        "t": 4879,
+        "origin": "tool:toolu_history10127:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 4879,
+        "origin": "tool:toolu_history10127:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4884,
+        "origin": "tool:toolu_history10127:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-handler.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 451,
+        "lines": 15
+      },
+      {
+        "t": 4884,
+        "origin": "tool:toolu_history10127:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 4958,
+        "origin": "assistant_message:136",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 465,
+        "lines": 14
+      },
+      {
+        "t": 5010,
+        "origin": "tool:toolu_history10131:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5014,
+        "origin": "tool:toolu_history10131:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/handler-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1545,
+        "lines": 36
+      },
+      {
+        "t": 5036,
+        "origin": "assistant_message:137",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 667,
+        "lines": 14
+      },
+      {
+        "t": 5132,
+        "origin": "tool:toolu_history10132:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-window.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5132,
+        "origin": "tool:toolu_history10132:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-window.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5137,
+        "origin": "tool:toolu_history10132:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-window.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 454,
+        "lines": 9
+      },
+      {
+        "t": 5137,
+        "origin": "tool:toolu_history10132:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-window.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5156,
+        "origin": "tool:toolu_history10134:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5160,
+        "origin": "tool:toolu_history10134:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2378,
+        "lines": 59
+      },
+      {
+        "t": 5214,
+        "origin": "tool:toolu_history10135:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5218,
+        "origin": "tool:toolu_history10135:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1019,
+        "lines": 26
+      },
+      {
+        "t": 5224,
+        "origin": "tool:toolu_history10136:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5224,
+        "origin": "tool:toolu_history10136:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5229,
+        "origin": "tool:toolu_history10136:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-range.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 578,
+        "lines": 15
+      },
+      {
+        "t": 5229,
+        "origin": "tool:toolu_history10136:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-range.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5236,
+        "origin": "tool:toolu_history10137:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5236,
+        "origin": "tool:toolu_history10137:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5241,
+        "origin": "tool:toolu_history10137:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 528,
+        "lines": 21
+      },
+      {
+        "t": 5241,
+        "origin": "tool:toolu_history10137:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-offset.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5290,
+        "origin": "tool:toolu_history10138:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-frame.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5290,
+        "origin": "tool:toolu_history10138:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5295,
+        "origin": "tool:toolu_history10138:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-frame.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 449,
+        "lines": 15
+      },
+      {
+        "t": 5295,
+        "origin": "tool:toolu_history10138:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/snapshot-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5397,
+        "origin": "tool:toolu_history10141:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-frame.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5397,
+        "origin": "tool:toolu_history10141:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5402,
+        "origin": "tool:toolu_history10141:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-frame.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 472,
+        "lines": 15
+      },
+      {
+        "t": 5402,
+        "origin": "tool:toolu_history10141:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/buffer-frame.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5411,
+        "origin": "tool:toolu_history10142:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5415,
+        "origin": "tool:toolu_history10142:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-handler.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1643,
+        "lines": 42
+      },
+      {
+        "t": 5447,
+        "origin": "assistant_message:147",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 620,
+        "lines": 14
+      },
+      {
+        "t": 5487,
+        "origin": "tool:toolu_history10145:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5491,
+        "origin": "tool:toolu_history10145:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/offset-response.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1350,
+        "lines": 30
+      },
+      {
+        "t": 5546,
+        "origin": "tool:toolu_history10147:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5546,
+        "origin": "tool:toolu_history10147:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5551,
+        "origin": "tool:toolu_history10147:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 399,
+        "lines": 11
+      },
+      {
+        "t": 5551,
+        "origin": "tool:toolu_history10147:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-cursor.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5610,
+        "origin": "tool:toolu_history10149:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5614,
+        "origin": "tool:toolu_history10149:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1936,
+        "lines": 41
+      },
+      {
+        "t": 5651,
+        "origin": "assistant_message:153",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 696,
+        "lines": 14
+      },
+      {
+        "t": 5719,
+        "origin": "tool:toolu_history10151:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-queue.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5719,
+        "origin": "tool:toolu_history10151:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5724,
+        "origin": "tool:toolu_history10151:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-queue.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 441,
+        "lines": 9
+      },
+      {
+        "t": 5724,
+        "origin": "tool:toolu_history10151:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5770,
+        "origin": "tool:toolu_history10152:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5774,
+        "origin": "tool:toolu_history10152:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 841,
+        "lines": 22
+      },
+      {
+        "t": 5866,
+        "origin": "tool:toolu_history10154:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 5870,
+        "origin": "tool:toolu_history10154:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2237,
+        "lines": 50
+      },
+      {
+        "t": 5879,
+        "origin": "tool:toolu_history10155:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 5879,
+        "origin": "tool:toolu_history10155:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5884,
+        "origin": "tool:toolu_history10155:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-entry.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 523,
+        "lines": 17
+      },
+      {
+        "t": 5884,
+        "origin": "tool:toolu_history10155:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/frame-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 5987,
+        "origin": "assistant_message:160",
+        "scope": "default",
+        "hint": "ts",
+        "filename": null,
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 440,
+        "lines": 13
+      },
+      {
+        "t": 6029,
+        "origin": "tool:toolu_history10160:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 6029,
+        "origin": "tool:toolu_history10160:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 6034,
+        "origin": "tool:toolu_history10160:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/session-timeline.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 393,
+        "lines": 11
+      },
+      {
+        "t": 6034,
+        "origin": "tool:toolu_history10160:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/session-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 6040,
+        "origin": "tool:toolu_history10161:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 6044,
+        "origin": "tool:toolu_history10161:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/cursor-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1071,
+        "lines": 29
+      },
+      {
+        "t": 6054,
+        "origin": "tool:toolu_history10162:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-snapshot.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 6054,
+        "origin": "tool:toolu_history10162:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/context-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 6059,
+        "origin": "tool:toolu_history10162:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/context-snapshot.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 574,
+        "lines": 21
+      },
+      {
+        "t": 6059,
+        "origin": "tool:toolu_history10162:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/context-snapshot.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 6100,
+        "origin": "tool:toolu_history10163:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 6100,
+        "origin": "tool:toolu_history10163:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 6105,
+        "origin": "tool:toolu_history10163:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-request.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 497,
+        "lines": 13
+      },
+      {
+        "t": 6105,
+        "origin": "tool:toolu_history10163:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/cache-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      }
+    ]
+  },
+  {
+    "fixture": "markdown-long.jsonl",
+    "sha256": "b418e6c3118e75acaec1564bf5e0e003ee97ca69b45bc3884e6a18c69bd1526f",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "markdown-long.jsonl",
+    "sha256": "b418e6c3118e75acaec1564bf5e0e003ee97ca69b45bc3884e6a18c69bd1526f",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "mixed-turn.jsonl",
+    "sha256": "557d9cac02b42e0471663d005c78621b99117f858ce4c612256fcf1a7bc026d1",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "mixed-turn.jsonl",
+    "sha256": "557d9cac02b42e0471663d005c78621b99117f858ce4c612256fcf1a7bc026d1",
+    "scope": "expanded",
+    "order": [
+      "typescript",
+      "diff"
+    ],
+    "firstLoads": [
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      },
+      {
+        "id": "diff",
+        "newGrammars": [
+          "diff"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 2,
+    "requests": [
+      {
+        "t": 2057,
+        "origin": "tool:toolu_mixedtur0002:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/reasoning-block.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2057,
+        "origin": "tool:toolu_mixedtur0003:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2197,
+        "origin": "tool:toolu_mixedtur0002:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/reasoning-block.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 3123,
+        "lines": 70
+      },
+      {
+        "t": 2247,
+        "origin": "tool:toolu_mixedtur0003:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 2141,
+        "lines": 45
+      },
+      {
+        "t": 3593,
+        "origin": "tool:toolu_mixedtur0004:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 3593,
+        "origin": "tool:toolu_mixedtur0004:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 3853,
+        "origin": "tool:toolu_mixedtur0004:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 453,
+        "lines": 14
+      },
+      {
+        "t": 3853,
+        "origin": "tool:toolu_mixedtur0004:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 7353,
+        "origin": "tool:toolu_mixedtur0006:running",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.test.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 23,
+        "lines": 1
+      },
+      {
+        "t": 7353,
+        "origin": "tool:toolu_mixedtur0006:running:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.test.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      },
+      {
+        "t": 7563,
+        "origin": "tool:toolu_mixedtur0006:completed",
+        "scope": "expanded",
+        "hint": "diff",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.test.ts",
+        "resolved": "diff",
+        "canonical": "diff",
+        "bytes": 207,
+        "lines": 8
+      },
+      {
+        "t": 7563,
+        "origin": "tool:toolu_mixedtur0006:completed:diffBody",
+        "scope": "expanded",
+        "hint": null,
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/turn-state.test.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 1,
+        "lines": 1
+      }
+    ]
+  },
+  {
+    "fixture": "reads-20.jsonl",
+    "sha256": "a0d0e96fcecdd3690822559e5998a5728b818d2731111d435dcfbfbd02557052",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "reads-20.jsonl",
+    "sha256": "a0d0e96fcecdd3690822559e5998a5728b818d2731111d435dcfbfbd02557052",
+    "scope": "expanded",
+    "order": [
+      "typescript"
+    ],
+    "firstLoads": [
+      {
+        "id": "typescript",
+        "newGrammars": [
+          "typescript"
+        ]
+      }
+    ],
+    "eagerInitEvents": 1,
+    "lazyInitEvents": 1,
+    "requests": [
+      {
+        "t": 854,
+        "origin": "tool:toolu_reads200001:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/cache-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 860,
+        "origin": "tool:toolu_reads200002:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/timeline-chunk.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 866,
+        "origin": "tool:toolu_reads200003:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/context-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 932,
+        "origin": "tool:toolu_reads200001:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/cache-cache.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 6630,
+        "lines": 150
+      },
+      {
+        "t": 976,
+        "origin": "tool:toolu_reads200002:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/timeline-chunk.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 7845,
+        "lines": 195
+      },
+      {
+        "t": 1155,
+        "origin": "tool:toolu_reads200003:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/context-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 10202,
+        "lines": 244
+      },
+      {
+        "t": 1442,
+        "origin": "tool:toolu_reads200004:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/buffer-window.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1448,
+        "origin": "tool:toolu_reads200005:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/chunk-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1454,
+        "origin": "tool:toolu_reads200006:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/window-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1598,
+        "origin": "tool:toolu_reads200005:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/chunk-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4734,
+        "lines": 109
+      },
+      {
+        "t": 1609,
+        "origin": "tool:toolu_reads200004:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/buffer-window.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 8034,
+        "lines": 197
+      },
+      {
+        "t": 1639,
+        "origin": "tool:toolu_reads200006:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/window-request.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 3834,
+        "lines": 88
+      },
+      {
+        "t": 1960,
+        "origin": "tool:toolu_reads200007:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/frame-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1966,
+        "origin": "tool:toolu_reads200008:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/cursor-window.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 1972,
+        "origin": "tool:toolu_reads200009:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/buffer-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2034,
+        "origin": "tool:toolu_reads200007:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/frame-token.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 5372,
+        "lines": 126
+      },
+      {
+        "t": 2100,
+        "origin": "tool:toolu_reads200008:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/cursor-window.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4770,
+        "lines": 112
+      },
+      {
+        "t": 2196,
+        "origin": "tool:toolu_reads200009:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/buffer-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 6793,
+        "lines": 144
+      },
+      {
+        "t": 2496,
+        "origin": "tool:toolu_reads200010:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/frame-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2502,
+        "origin": "tool:toolu_reads200011:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/window-buffer.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2508,
+        "origin": "tool:toolu_reads200012:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/entry-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2514,
+        "origin": "tool:toolu_reads200013:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/context-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 2628,
+        "origin": "tool:toolu_reads200011:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/window-buffer.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 3676,
+        "lines": 89
+      },
+      {
+        "t": 2687,
+        "origin": "tool:toolu_reads200010:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/frame-chunk.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4768,
+        "lines": 104
+      },
+      {
+        "t": 2739,
+        "origin": "tool:toolu_reads200012:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/entry-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 7691,
+        "lines": 163
+      },
+      {
+        "t": 2804,
+        "origin": "tool:toolu_reads200013:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/context-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 6784,
+        "lines": 157
+      },
+      {
+        "t": 3111,
+        "origin": "tool:toolu_reads200014:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/cursor-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3117,
+        "origin": "tool:toolu_reads200015:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/snapshot-chunk.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3123,
+        "origin": "tool:toolu_reads200016:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/range-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3197,
+        "origin": "tool:toolu_reads200014:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/cursor-session.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4774,
+        "lines": 122
+      },
+      {
+        "t": 3330,
+        "origin": "tool:toolu_reads200015:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/snapshot-chunk.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 5069,
+        "lines": 131
+      },
+      {
+        "t": 3386,
+        "origin": "tool:toolu_reads200016:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/components/range-entry.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 7655,
+        "lines": 162
+      },
+      {
+        "t": 3665,
+        "origin": "tool:toolu_reads200017:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/session-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3671,
+        "origin": "tool:toolu_reads200018:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/chunk-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 3753,
+        "origin": "tool:toolu_reads200017:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/store/session-context.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4591,
+        "lines": 109
+      },
+      {
+        "t": 3934,
+        "origin": "tool:toolu_reads200018:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/chunk-timeline.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 10517,
+        "lines": 241
+      },
+      {
+        "t": 4069,
+        "origin": "tool:toolu_reads200019:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4075,
+        "origin": "tool:toolu_reads200020:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/cursor-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4257,
+        "origin": "tool:toolu_reads200019:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/server/handlers/response-queue.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 7067,
+        "lines": 167
+      },
+      {
+        "t": 4312,
+        "origin": "tool:toolu_reads200020:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/cursor-payload.ts",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 6919,
+        "lines": 150
+      },
+      {
+        "t": 4567,
+        "origin": "tool:toolu_reads200021:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/buffer-queue.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4573,
+        "origin": "tool:toolu_reads200022:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/offset-buffer.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4579,
+        "origin": "tool:toolu_reads200023:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/range-session.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4585,
+        "origin": "tool:toolu_reads200024:running",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/chunk-handler.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 36,
+        "lines": 1
+      },
+      {
+        "t": 4673,
+        "origin": "tool:toolu_reads200021:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/buffer-queue.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4891,
+        "lines": 108
+      },
+      {
+        "t": 4755,
+        "origin": "tool:toolu_reads200023:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/shared/range-session.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 5082,
+        "lines": 117
+      },
+      {
+        "t": 4776,
+        "origin": "tool:toolu_reads200024:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/lib/chunk-handler.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 7226,
+        "lines": 169
+      },
+      {
+        "t": 4822,
+        "origin": "tool:toolu_reads200022:completed",
+        "scope": "expanded",
+        "hint": "typescript",
+        "filename": "/Users/dev/workspace/acme-chat/client/hooks/offset-buffer.tsx",
+        "resolved": "typescript",
+        "canonical": "typescript",
+        "bytes": 4879,
+        "lines": 113
+      }
+    ]
+  },
+  {
+    "fixture": "reasoning-long-prose.jsonl",
+    "sha256": "dbcaf2c3b34999feb9f4271e7b5817024ac4ea6404bb0a096d5c63ab50f12784",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "reasoning-long-prose.jsonl",
+    "sha256": "dbcaf2c3b34999feb9f4271e7b5817024ac4ea6404bb0a096d5c63ab50f12784",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "reasoning-long-sections.jsonl",
+    "sha256": "2530547d850a65611e1b22b01f06d3eb0b079d555d94e0033d5fd04268652937",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "reasoning-long-sections.jsonl",
+    "sha256": "2530547d850a65611e1b22b01f06d3eb0b079d555d94e0033d5fd04268652937",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "shell-log-large.jsonl",
+    "sha256": "5feb18829e48a727384b61bad6920d6802bba797fadc5deb13b63e91bcde217d",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "shell-log-large.jsonl",
+    "sha256": "5feb18829e48a727384b61bad6920d6802bba797fadc5deb13b63e91bcde217d",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "table-streaming.jsonl",
+    "sha256": "e65585dcda820f2a56e488c74e23e5abd94282c6a6521df22c6984d7574dd85d",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "table-streaming.jsonl",
+    "sha256": "e65585dcda820f2a56e488c74e23e5abd94282c6a6521df22c6984d7574dd85d",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "tool-expanded-streaming.jsonl",
+    "sha256": "e5a52511676e4e62960ef0a3ed1be9f56024efab8fa3c9abe0012b834cceff19",
+    "scope": "default",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  },
+  {
+    "fixture": "tool-expanded-streaming.jsonl",
+    "sha256": "e5a52511676e4e62960ef0a3ed1be9f56024efab8fa3c9abe0012b834cceff19",
+    "scope": "expanded",
+    "order": [],
+    "firstLoads": [],
+    "eagerInitEvents": 0,
+    "lazyInitEvents": 0,
+    "requests": []
+  }
+]
