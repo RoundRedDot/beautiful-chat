@@ -1,0 +1,41 @@
+diff --color -ru client/components/syntax-highlight.tsx ../base-count/client/components/syntax-highlight.tsx
+--- client/components/syntax-highlight.tsx	2026-10-14 12:54:46
++++ ../base-count/client/components/syntax-highlight.tsx	2026-10-14 16:31:32
+@@ -10,6 +10,7 @@
+ import { selectableSurface, unselectable } from "./selection";
+ import { selectionCodeSurface, selectionSurface } from "./selection-actions";
+ import { useHighlightedLines } from "../highlight";
++import { perfCount } from "../debug/perf";
+ import { CopyButton } from "../ui/copy-button";
+ import { SelectableSpan } from "../ui/prose-text";
+ import type { HighlightLine, HighlightToken } from "../../shared/highlight-rpc";
+@@ -682,7 +683,7 @@
+     [tokens, compact, hasHeader, bare],
+   );
+ 
+-  const numberWidth = lineNumberWidth(numbers ? Math.max(...numbers.map((n) => n ?? 0)) : total, mono.size);
++  const numberWidth = lineNumberWidth(numbers ? (perfCount("code.maxLineNumber"), Math.max(...numbers.map((n) => n ?? 0))) : total, mono.size);
+   // One row, as a stable function of the block's inputs: the chunks below are
+   // memoised on it, so appending rows never re-renders the rows already shown.
+   const row = useCallback(
+diff --color -ru client/highlight.ts ../base-count/client/highlight.ts
+--- client/highlight.ts	2026-10-14 12:54:46
++++ ../base-count/client/highlight.ts	2026-10-14 16:31:32
+@@ -1,7 +1,7 @@
+ import { useEffect, useState } from "react";
+ import { useRpc } from "@getpaseo/plugin/client";
+ import { highlightRpc, type HighlightLine, type HighlightToken } from "../shared/highlight-rpc";
+-import { probeHighlightRpc } from "./debug/perf";
++import { perfCount, probeHighlightRpc } from "./debug/perf";
+ 
+ export type { HighlightLine, HighlightToken };
+ 
+@@ -203,7 +203,7 @@
+ export function useHighlightedLines(request: HighlightRequest): HighlightResponse {
+   const call: HighlightCall = useRpc(highlightRpc);
+   const { code, language, filename, dark, diffBodyCode, enabled = true } = request;
+-  const key = code.length > 0 ? cacheKey(request) : null;
++  const key = code.length > 0 ? (perfCount("highlight.cacheKey"), cacheKey(request)) : null;
+   // Reading the cache during render, not in an effect, is what removes the
+   // unhighlighted frame on a block that was tokenised once already.
+   const cached = key !== null ? (cache.get(key) ?? null) : null;

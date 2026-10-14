@@ -1,0 +1,100 @@
+{
+  "scenario": "diff-expand",
+  "mode": "cand",
+  "rep": 4,
+  "slot": 2,
+  "agentId": "7a467e26-1bbf-4e04-aff7-bb7e9dabc20a",
+  "plugin": "/tmp/bc-perf-p0p1/cand",
+  "pluginIsCandidate": true,
+  "daemon": {
+    "home": "/Users/rrd/.paseo-bench-p0p1",
+    "port": 6871
+  },
+  "chrome": "155.0.8059.40",
+  "streamMs": 0,
+  "machine": {
+    "uptimeBefore": "16:24  up 5 days,  5:14, 2 users, load averages: 0.99 1.12 1.42",
+    "uptimeAfter": "16:24  up 5 days,  5:14, 2 users, load averages: 0.90 1.09 1.40"
+  },
+  "probe": {
+    "label": "diff-expand-cand-r4",
+    "platform": "web",
+    "elapsedMs": 14608.300000011921,
+    "rows": {
+      "plugin": 69,
+      "native": 10
+    },
+    "kinds": {
+      "tool": {
+        "commits": 54,
+        "mounts": 2,
+        "n": 54,
+        "p50": 0.09999996423721313,
+        "p95": 11.699999928474426,
+        "max": 15.900000035762787,
+        "sum": 135.8999997973442
+      },
+      "user": {
+        "commits": 10,
+        "mounts": 4,
+        "n": 10,
+        "p50": 0.09999996423721313,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 1.5999999642372131
+      },
+      "assistant": {
+        "commits": 15,
+        "mounts": 6,
+        "n": 15,
+        "p50": 0.19999998807907104,
+        "p95": 1,
+        "max": 1,
+        "sum": 3.600000023841858
+      }
+    },
+    "allRows": {
+      "n": 79,
+      "p50": 0.10000002384185791,
+      "p95": 10,
+      "max": 15.900000035762787,
+      "sum": 141.09999978542328
+    },
+    "perCommit": {
+      "n": 54,
+      "p50": 0.10000002384185791,
+      "p95": 11.699999928474426,
+      "max": 15.900000035762787,
+      "sum": 141.09999978542328
+    },
+    "frames": {
+      "count": 859,
+      "dropped": 18,
+      "droppedRatio": 0.020524515393386546,
+      "longestMs": 116.59999999999854
+    },
+    "longTasks": {
+      "count": 2,
+      "totalMs": 218
+    },
+    "layoutShift": 0.0004484375,
+    "heapMB": 360.36814975738525
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.9899799999999999,
+      "ScriptDuration": 0.395126,
+      "LayoutDuration": 0.052959,
+      "RecalcStyleDuration": 0.139061,
+      "LayoutCount": 93,
+      "RecalcStyleCount": 222
+    },
+    "nodes": 40603,
+    "jsHeapUsedMB": 127.6119270324707,
+    "beforeGc": {
+      "nodes": 42174,
+      "jsHeapUsedMB": 315.25839614868164
+    }
+  },
+  "pageErrors": []
+}

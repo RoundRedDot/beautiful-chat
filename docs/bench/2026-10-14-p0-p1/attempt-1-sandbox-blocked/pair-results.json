@@ -1,0 +1,21 @@
+{
+  "status": "not measured",
+  "reason": "The instrumented host server could not bind 127.0.0.1:8092 in the sandbox (listen EPERM); no browser page was loaded.",
+  "requiredPairs": 3,
+  "scenarios": {
+    "diff-large:1": { "aaPairs": [], "candidateVsBaselinePairs": [] },
+    "theme-switch:diff-large:1": { "aaPairs": [], "candidateVsBaselinePairs": [] }
+  },
+  "metrics": [
+    "TaskDuration seconds",
+    "ScriptDuration seconds",
+    "LayoutDuration plus RecalcStyleDuration seconds",
+    "host-probe allRows p95 milliseconds",
+    "host-probe perCommit p95 milliseconds",
+    "host-probe long-task count and total milliseconds",
+    "host-probe CLS",
+    "post-GC JSHeapUsedSize MB",
+    "post-GC Nodes"
+  ],
+  "verdict": "not evaluated; no A/A threshold or candidate comparison exists"
+}

@@ -1,0 +1,7 @@
+{"kind": "meta", "name": "images-repeat-p0", "description": "TEMP P0 probe: the same local screenshot shown in several replies plus one Read row.", "scenario": "Same image path mounted by several components at once."}
+{"t": 0, "item": {"type": "user_message", "text": "Show me the screenshot of the broken header."}, "mode": "append"}
+{"t": 200, "item": {"type": "tool_call", "callId": "toolu_img0001", "name": "Read", "detail": {"type": "read", "filePath": "/tmp/bc-perf-p0p1/project/shot.png"}, "status": "running", "error": null}, "mode": "replace"}
+{"t": 500, "item": {"type": "tool_call", "callId": "toolu_img0001", "name": "Read", "detail": {"type": "read", "filePath": "/tmp/bc-perf-p0p1/project/shot.png"}, "status": "completed", "error": null}, "mode": "replace"}
+{"t": 700, "item": {"type": "assistant_message", "text": "Here it is:\n\n![header](/tmp/bc-perf-p0p1/project/shot.png)\n\nThe header overlaps the toolbar.\n\n"}, "mode": "append"}
+{"t": 1500, "item": {"type": "assistant_message", "text": "For comparison, before and after the fix:\n\n![before](/tmp/bc-perf-p0p1/project/shot.png)\n\n![after](/tmp/bc-perf-p0p1/project/shot2.png)\n\n"}, "mode": "append"}
+{"t": 2500, "item": {"type": "assistant_message", "text": "And once more, the original:\n\n![original](/tmp/bc-perf-p0p1/project/shot.png)\n"}, "mode": "append"}

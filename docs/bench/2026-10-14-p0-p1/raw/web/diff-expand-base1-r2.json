@@ -1,0 +1,100 @@
+{
+  "scenario": "diff-expand",
+  "mode": "base1",
+  "rep": 2,
+  "slot": 2,
+  "agentId": "a4517992-b101-4f9d-beec-3298c8d4b35c",
+  "plugin": "/tmp/bc-perf-p0p1/base",
+  "pluginIsCandidate": false,
+  "daemon": {
+    "home": "/Users/luopeihuan/.paseo-bench-p0p1",
+    "port": 6871
+  },
+  "chrome": "155.0.8059.40",
+  "streamMs": 0,
+  "machine": {
+    "uptimeBefore": "14:17  up 13 days, 5 hrs, 6 users, load averages: 31.79 36.58 33.15",
+    "uptimeAfter": "14:18  up 13 days,  5:01, 6 users, load averages: 33.98 36.66 33.29"
+  },
+  "probe": {
+    "label": "diff-expand-base1-r2",
+    "platform": "web",
+    "elapsedMs": 14369.099999904633,
+    "rows": {
+      "plugin": 64,
+      "native": 10
+    },
+    "kinds": {
+      "tool": {
+        "commits": 49,
+        "mounts": 2,
+        "n": 49,
+        "p50": 0.20000004768371582,
+        "p95": 23.700000166893005,
+        "max": 36.09999990463257,
+        "sum": 292.80000042915344
+      },
+      "user": {
+        "commits": 10,
+        "mounts": 4,
+        "n": 10,
+        "p50": 0.30000007152557373,
+        "p95": 1,
+        "max": 1,
+        "sum": 3.700000286102295
+      },
+      "assistant": {
+        "commits": 15,
+        "mounts": 6,
+        "n": 15,
+        "p50": 0.2999999523162842,
+        "p95": 1.600000023841858,
+        "max": 1.600000023841858,
+        "sum": 7.099999785423279
+      }
+    },
+    "allRows": {
+      "n": 74,
+      "p50": 0.2999999523162842,
+      "p95": 20.799999833106995,
+      "max": 36.09999990463257,
+      "sum": 303.600000500679
+    },
+    "perCommit": {
+      "n": 49,
+      "p50": 0.2999999523162842,
+      "p95": 23.700000166893005,
+      "max": 36.09999990463257,
+      "sum": 303.600000500679
+    },
+    "frames": {
+      "count": 804,
+      "dropped": 58,
+      "droppedRatio": 0.06728538283062645,
+      "longestMs": 233.40000000000146
+    },
+    "longTasks": {
+      "count": 3,
+      "totalMs": 394
+    },
+    "layoutShift": 0.04067413194444444,
+    "heapMB": 400.2042922973633
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.689086,
+      "ScriptDuration": 0.728576,
+      "LayoutDuration": 0.119613,
+      "RecalcStyleDuration": 0.198319,
+      "LayoutCount": 69,
+      "RecalcStyleCount": 176
+    },
+    "nodes": 40471,
+    "jsHeapUsedMB": 121.69976806640625,
+    "beforeGc": {
+      "nodes": 42631,
+      "jsHeapUsedMB": 353.99047088623047
+    }
+  },
+  "pageErrors": []
+}

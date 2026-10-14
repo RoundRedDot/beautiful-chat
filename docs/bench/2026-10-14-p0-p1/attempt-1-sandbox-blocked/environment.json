@@ -1,0 +1,95 @@
+{
+  "capturedAtUtc": "2026-10-14T05:54:22Z",
+  "workspace": {
+    "path": "/Users/luopeihuan/workspace/rrd/beautiful-chat/.worktrees/perf-p0-p1",
+    "branch": "perf/p0-p1",
+    "head": "8425dd0592345ec6a94e228004bfa820b5d3c9e3",
+    "candidateClientDiffSha256": "78018b57b87a21b56d24d1f1605eb64360ee486165338368549e8865fd3fa632",
+    "phaseAClientAndTestFilesChangedDuringPhaseB": false
+  },
+  "hostArtifact": {
+    "path": "/tmp/bcnp-web-dist",
+    "fileCount": 39,
+    "reportedSize": "21M",
+    "treeManifestSha256": "9564cd1fee1b590fcd3031fb789a4a750b8b29875980720f9ba2db4961084f23",
+    "metadata": { "version": 0, "bundler": "metro", "fileMetadata": {} },
+    "sourceGitSha": null,
+    "hostProbeRuntimeVerified": false
+  },
+  "machine": {
+    "os": "macOS 27.0.1",
+    "arch": "arm64",
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "chromeBinaryVersion": "Google Chrome 155.0.8059.40",
+    "uptimeObservations": [
+      "13:40, 6 users, load averages 45.16 50.36 37.98",
+      "13:53, 6 users, load averages 12.87 17.53 25.16"
+    ]
+  },
+  "privateDaemon": {
+    "home": "/Users/luopeihuan/.paseo-bench-p0p1",
+    "port": 6871,
+    "version": "0.11.2",
+    "pluginsEnabled": true,
+    "corsAllowedOrigins": ["http://127.0.0.1:8092"],
+    "serverId": "srv_H8a0tVO5r4Lp",
+    "startedAt": "2026-10-14T05:49:03.946Z",
+    "finalState": "stopped; temporary plugin registrations removed; private home retained"
+  },
+  "pluginArtifacts": {
+    "baseline": "8425dd0592345ec6a94e228004bfa820b5d3c9e3",
+    "candidate": "8425dd0 plus uncommitted client diff sha256 78018b57b87a21b56d24d1f1605eb64360ee486165338368549e8865fd3fa632",
+    "bcBenchSource": "/Users/luopeihuan/workspace/rrd/beautiful-chat/.worktrees/perf-p0-p1/tools/bench-provider",
+    "bcBenchFixtureRootAfterSetup": "/Users/luopeihuan/workspace/rrd/beautiful-chat/.worktrees/perf-p0-p1/test/fixtures/streams",
+    "baselinePluginInstall": "running",
+    "candidatePluginReload": "running",
+    "providerInstall": "running"
+  },
+  "blocked": {
+    "web": {
+      "port": 8092,
+      "portWasFreeByListenerCheck": true,
+      "serverListenExitCode": 1,
+      "serverError": "listen EPERM: operation not permitted 127.0.0.1:8092",
+      "chromeStarted": false,
+      "aaRuns": 0,
+      "candidateRuns": 0,
+      "functionalQa": "not run"
+    },
+    "ios": {
+      "simulator": "bc-native-ab / 39E91CB0-E8F7-43A8-8F32-E1ECDDAC6A5F",
+      "simctl": "CoreSimulatorService connection invalid; unable to enumerate available/booted devices",
+      "idleStateVerified": false,
+      "appLaunched": false,
+      "metro8081OwnerCwd": "/Users/luopeihuan/workspace/rrd/paseo/packages/app",
+      "metro8081Reused": false,
+      "metroStarted": false
+    },
+    "android": {
+      "allowedSerial": "emulator-5554",
+      "adbInventory": "host adb server failed before listing devices: could not install *smartsocket* listener: Operation not permitted",
+      "serialSpecificCommands": 0,
+      "deviceCommands": 0,
+      "functionalQa": "not run"
+    }
+  },
+  "nodeV8SpreadFact": {
+    "expressionShape": "Math.max(...Array.from({ length: 500000 }, (_, i) => i + 1))",
+    "outcome": "RangeError: Maximum call stack size exceeded",
+    "scope": "Node.js v24.18.0 / V8 13.6.233.17-node.50 only; no Hermes inference"
+  },
+  "cleanup": {
+    "privateDaemon": "stopped",
+    "privateDaemonPortListener": false,
+    "webServerStarted": false,
+    "chromeStarted": false,
+    "metroStarted": false,
+    "tempExtraLongFixtureCreated": false,
+    "providerGeneratedFixturePathRemoved": true,
+    "temporaryBaselineArchiveRemoved": true,
+    "simulatorHostEntriesAdded": false,
+    "emulatorHostEntriesAdded": false
+  },
+  "procedureDeviation": "The initial adb devices -l inventory attempt was not scoped with -s emulator-5554. It failed at host adb-server startup before returning a device list and no serial-specific/device command was issued. No further adb call was made."
+}
