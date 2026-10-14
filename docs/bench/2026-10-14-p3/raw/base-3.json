@@ -1,0 +1,35 @@
+{
+  "label": "p3base",
+  "dir": "/tmp/bc-perf-p0p1/p3base",
+  "fixture": "images-repeat-p0",
+  "imageBytes": 2107488,
+  "note": "shot.png appears 4x in markdown + 1 Read row; shot2.png 1x",
+  "results": [
+    {
+      "rep": 1,
+      "agentId": "967d4986-f2f2-40df-9e56-2197e83051c5",
+      "live": {
+        "imageRpc": {
+          "count": 7,
+          "duplicatesInFlight": 2
+        },
+        "highlightRpc": 0
+      },
+      "historyLoad": {
+        "imageRpc": {
+          "count": 4,
+          "duplicatesInFlight": 2
+        },
+        "highlightRpc": 0
+      },
+      "afterExpandingReadRow": {
+        "imageRpc": {
+          "count": 4,
+          "duplicatesInFlight": 2
+        },
+        "highlightRpc": 0
+      },
+      "renderedImages900px": 4
+    }
+  ]
+}

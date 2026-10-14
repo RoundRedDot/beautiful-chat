@@ -1,0 +1,3 @@
+{"kind": "meta", "name": "images-missing-p3", "description": "TEMP P3 check: a missing image referenced twice plus one existing image.", "scenario": "Shared failure of an in-flight image read."}
+{"t": 0, "item": {"type": "user_message", "text": "Show the screenshots."}, "mode": "append"}
+{"t": 100, "item": {"type": "assistant_message", "text": "Missing screenshot:\n\n![a](/tmp/bc-perf-p0p1/project/missing-shot.png)\n\nAgain:\n\n![b](/tmp/bc-perf-p0p1/project/missing-shot.png)\n\nExisting:\n\n![c](/tmp/bc-perf-p0p1/project/shot2.png)\n"}, "mode": "append"}
