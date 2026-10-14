@@ -1,0 +1,29 @@
+{
+  "command": "npm test -- --reporter=dot test/unit/markdown-lex-budget.test.ts",
+  "exitCode": 1,
+  "testFiles": 1,
+  "tests": 7,
+  "failed": 3,
+  "passed": 4,
+  "redTests": [
+    {
+      "name": "re-lexes evicted Markdown with identical tokens for each block construct",
+      "evidence": "token equality held, but expected six fresh completed misses and observed zero because the old LRU retained all six entries"
+    },
+    {
+      "name": "evicts oldest completed entries until a later insertion is within budget",
+      "evidence": "expected the evicted older source to miss; it remained a hit"
+    },
+    {
+      "name": "remounts correctly after eviction and performs a fresh lex",
+      "evidence": "expected a fresh token array after eviction; old implementation returned the cached array"
+    }
+  ],
+  "passedBeforeImplementation": [
+    "keeps the newest entry when that entry alone is over budget",
+    "keeps concurrent streaming tails separate from the weighted completed LRU",
+    "retains the 500-entry cap in addition to the source-length budget",
+    "does not increase misses across render passes or stream completion"
+  ],
+  "note": "The Phase 2 policy test file was removed after the policy was reverted at the failed go/no-go gate. Probe tests remain in test/unit/markdown-lex-perf.test.ts."
+}

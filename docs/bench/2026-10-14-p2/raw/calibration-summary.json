@@ -1,0 +1,72 @@
+{
+  "workloads": {
+    "history-100": {
+      "runs": [
+        {
+          "sourceChars": 55764,
+          "cacheOnlyRetainedBytes": 428048,
+          "ratio": 7.6761
+        },
+        {
+          "sourceChars": 55764,
+          "cacheOnlyRetainedBytes": 423752,
+          "ratio": 7.599
+        },
+        {
+          "sourceChars": 55764,
+          "cacheOnlyRetainedBytes": 428080,
+          "ratio": 7.6766
+        }
+      ],
+      "medianRatio": 7.6761
+    },
+    "markdown-long": {
+      "runs": [
+        {
+          "sourceChars": 20571,
+          "cacheOnlyRetainedBytes": 389032,
+          "ratio": 18.9117
+        },
+        {
+          "sourceChars": 20571,
+          "cacheOnlyRetainedBytes": 389032,
+          "ratio": 18.9117
+        },
+        {
+          "sourceChars": 20571,
+          "cacheOnlyRetainedBytes": 331048,
+          "ratio": 16.0929
+        }
+      ],
+      "medianRatio": 18.9117
+    },
+    "multi-session": {
+      "runs": [
+        {
+          "sourceChars": 588708,
+          "cacheOnlyRetainedBytes": 1629728,
+          "ratio": 2.7683
+        },
+        {
+          "sourceChars": 588708,
+          "cacheOnlyRetainedBytes": 1635528,
+          "ratio": 2.7782
+        },
+        {
+          "sourceChars": 588708,
+          "cacheOnlyRetainedBytes": 1635528,
+          "ratio": 2.7782
+        }
+      ],
+      "medianRatio": 2.7782
+    }
+  },
+  "selected": {
+    "coefficientPerSourceChar": 7.6761,
+    "budgetSourceCharEquivalent": 350000,
+    "budgetWeightUnits": 2686635,
+    "oversizeThresholdSourceCharP90": 2087,
+    "oversizeThresholdWeightUnits": 16020.02,
+    "oversizeSlots": 2
+  }
+}

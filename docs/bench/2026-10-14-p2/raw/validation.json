@@ -1,0 +1,21 @@
+{
+  "baselineRef": "c8ed5c7efd0bd29ea65ad560312e81e1ccad927d",
+  "node": "v24.18.0",
+  "npmCi": {
+    "exitCode": 0,
+    "packagesAdded": 413
+  },
+  "baseline": {
+    "typecheck": { "exitCode": 0 },
+    "unitTests": { "command": "npm test -- --reporter=dot", "exitCode": 0, "testFiles": 91, "tests": 1110 },
+    "hermes": { "exitCode": 0, "compiledBytes": 842321, "registeredTransformers": 6, "registeredRenderers": 6, "settingsScreensPerHost": 1 },
+    "bundle": { "exitCode": 0, "bytes": 842214, "gzipBytes": 194447 }
+  },
+  "afterDebugCounter": {
+    "focusedUnitTest": { "command": "npx vitest run test/unit/markdown-lex-perf.test.ts --reporter=dot", "exitCode": 0, "testFiles": 1, "tests": 2 },
+    "typecheck": { "exitCode": 0 },
+    "hermes": { "exitCode": 0, "compiledBytes": 842376, "registeredTransformers": 6, "registeredRenderers": 6, "settingsScreensPerHost": 1 },
+    "bundle": { "exitCode": 0, "bytes": 842269, "gzipBytes": 194480 }
+  },
+  "diffCheck": { "command": "git -c core.fsmonitor=false diff --check", "exitCode": 0 }
+}

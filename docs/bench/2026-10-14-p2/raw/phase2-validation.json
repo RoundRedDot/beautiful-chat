@@ -1,0 +1,60 @@
+{
+  "candidateA_before_rollback": {
+    "npm_run_typecheck": {
+      "exitCode": 2,
+      "note": "five noUncheckedIndexedAccess errors in new budget-test array indexing; fixed with non-null assertions before rollback"
+    },
+    "npm_test_reporter_dot": {
+      "exitCode": 0,
+      "testFilesPassed": 93,
+      "testsPassed": 1119
+    },
+    "npm_run_check_hermes": {
+      "exitCode": 0,
+      "compiledBytes": 842571
+    },
+    "bundle_size": {
+      "exitCode": 0,
+      "bytes": 842464,
+      "gzipBytes": 194553
+    }
+  },
+  "final_after_policy_rollback": {
+    "npm_run_typecheck": {
+      "exitCode": 0
+    },
+    "npm_test_reporter_dot": {
+      "exitCode": 0,
+      "testFilesPassed": 92,
+      "testsPassed": 1112
+    },
+    "npm_run_check_hermes": {
+      "exitCode": 0,
+      "compiledBytes": 842376
+    },
+    "bundle_size": {
+      "exitCode": 0,
+      "bytes": 842269,
+      "gzipBytes": 194480
+    }
+  },
+  "phase1_baseline_at_c8ed5c7": {
+    "npm_run_typecheck": {
+      "exitCode": 0
+    },
+    "npm_test_reporter_dot": {
+      "exitCode": 0,
+      "testFilesPassed": 91,
+      "testsPassed": 1110
+    },
+    "npm_run_check_hermes": {
+      "exitCode": 0,
+      "compiledBytes": 842321
+    },
+    "bundle_size": {
+      "exitCode": 0,
+      "bytes": 842214,
+      "gzipBytes": 194447
+    }
+  }
+}
