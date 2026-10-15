@@ -2,15 +2,13 @@
 
 问题：装上本仓库的 better-paseo 之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。2026-10-13 又把 Beautiful Chat `42b61d8` 放进同一次会话。
 
-场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。下面 §3–§5 是 2026-10-12 的记录（当时的插件是 `c00be20` 到 `1ec3458` 一带）。**当前数字在 §9**（2026-10-14，rrd-mac-studio，Web 和 iOS 都是三方）。§8 是 2026-10-13 的 Web 三方，插件 `2146289`，跑在负载很高的 M5 Pro 上，秒数不能和 §9 对读。
+场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。下面 §3–§5 是 2026-10-12 的记录（当时的插件是 `c00be20` 到 `1ec3458` 一带）。**当前数字在 §10**（2026-10-15，rrd-mac-studio，Web 和 iOS 四版本复测）。§9 是 2026-10-14 的三方历史记录；§8 是 2026-10-13 的 Web 三方，插件 `2146289`，跑在负载很高的 M5 Pro 上，秒数不能和 §10 对读。
 
 ## 结论
 
-2026-10-14 在 rrd-mac-studio（Apple M5 Max，1 分钟负载大约 0.8–1.7）上的三方复测在 §9。机器和早前几轮的 M5 Pro 笔记本不同，秒数不能和 §3–§8 对读，只比较这一轮内部的三种模式。
+2026-10-15 的四版本复测见 §10。Web 行渲染总量对比不开插件有 9 个场景更低、2 个更高；对比 Beautiful Chat，11 个都更低。iOS 对比不开插件有 5 个更低、2 个持平、4 个更高；对比 Beautiful Chat，11 个都更低。整段 Web Task 时间另有一处回退：100 轮历史 Better Paseo 为 0.854 秒，对不开插件的 0.745 秒高 15%；两边都不到半秒的大 diff 记为持平。
 
-Web：11 个场景里 10 个主线程时间短于不开插件（14–38%）。大 diff 整段 0.41 秒对 0.31 秒，两边都不到半秒，记为持平。11 个都短于 Beautiful Chat（12–91%）。先回收再读的 JS 堆，长回复少 40.8MB，其余场景和不开插件相差 −1.4 到 +4.0MB。Beautiful Chat 在大 diff、100 轮历史、读 20 个文件上是 213.6–242.6MB。
-
-iOS 这一轮三方都用宿主探针。早前那张卡片内部探针的表不能在 Beautiful Chat 上重测。行渲染总量上，相对不开插件 5 个更短（15–64%）、2 个持平（大 diff、100 轮历史）、4 个更长（18–63%）。相对 Beautiful Chat，11 个都更短（12–99%）。`history-100` 的单次提交 p95 不能比：不开插件把 50 次行渲染打进 5 次提交，Beautiful Chat 把 182 次打进 125 次提交，本仓库把 90 次打进 17 次提交。比的是渲染总量，200.1 / 230.6 / 202.9 ms。
+iOS 的 `history-100` 有部分样本与另外两台模拟器并行，四模式总行渲染相对干净串行范围整体上移约 3%。iOS 的大 diff 和大段终端对比上一版 Better Paseo 分别为 33.2 → 46.2 ms（2 次/模式）和 34.1 → 45.1 ms（6 次/模式）；绝对增量约 13 ms 和 11 ms，样本有限，详见 §10。行渲染总量以 `allRows.sum` 为准；per-commit p95 是批次诊断，不当作总工作量。
 
 下面几条是 10 月 12 日、还没有 Beautiful Chat 这一列时的记录。10 月 13 日的 Web 三方表留在 §8，插件当时是 `2146289`。
 
@@ -587,3 +585,100 @@ node docs/bench/native-vs-fork/tools/report.mjs \
 ```
 
 README 的三张图由 `node docs/perf/readme-charts.mjs` 从这两个目录生成。iOS 图的第三条是 Beautiful Chat，11 个场景画的都是行渲染总量。
+
+## 10. 2026-10-15：四版本复测（Web + iOS）
+
+本节是当前版本。模式顺序均为 no plugin / Beautiful Chat / Better Paseo baseline / Better Paseo latest。README 只显示 no plugin、Beautiful Chat 和 Better Paseo latest；这里保留旧 Better Paseo 对照，以便评估本周改动。
+
+### 10.1 构建身份
+
+| 模式 | 产品 / 源码 | Source SHA | Tree SHA / note | 身份标记 |
+| --- | --- | --- | --- | --- |
+| no plugin | Paseo 0.11.2，插件关闭 | `75953250959979b8f088bbca8dbd6ee61d0151b1` | 仅有 host-probe 测量补丁 | plugin disabled、无插件 marker |
+| upstream | Beautiful Chat | `42b61d8301b5400a67821bbbfcf99fa8b681dc37` | `72795ef6b9493dc2ee5d21fc7c759a9b6b558e55` | `#beautiful-chat-frosted` |
+| baseline | Better Paseo（旧对照） | `9f270c6aa66f119da5300762493b5dd5f1bb0cc0` | `eb49d0b08969496c7cf98f79751368a794ca1d0d` | fork marker / imageRpc |
+| latest | Better Paseo | `37bfb60c004ea45d4723e101b7ed80996dd4987b` | `79603885a219818605706b9f88b34074fbba395e` | fork marker / imageRpc |
+
+Paseo 的 host-probe 仅用于测量，补丁 SHA-256 为 `f87e89efb9ab9d8259645f9af5b291daeca9598676e617c11b4ba1570fff48b9`。Web 使用带探针的生产构建（SHA-256 `9dd7eab4521434bcf3f8dbfa6539df64c8d8513dbab667a00a3fd60d5e75b599`），Chrome 155.0.8059.40，1280×900。iOS 使用 iOS 18.6 模拟器和开发版，每次回放前冷启动。
+
+### 10.2 方法与身份核验
+
+同一套宿主行探针包住原生与插件时间线中的每一行。Web 11 个 fixture × 4 种模式 × 3 次，共 132 次；模式顺序轮换，每次回放后读取 CDP 数据，读内存前强制 GC。iOS 也是 11 个 fixture × 4 种模式：多数每格 2 次，`history-100` 和 `shell-log-large` 每格 6 次，共 120 次，每次运行前冷启动。iOS 执行有部分 A/B/C 三模拟器阶段重叠；只有 `history-100` 的 r4–r6 明确归为并行负载暴露，其他场景依各自执行记录解释。
+
+Web 的 132/132 次 marker/插件状态检查通过，0 JSON 页面错误、0 个 REDO / FAILED / pageerror 日志行。iOS 的 `ios-identity.mjs --check-file` 通过 120/120；native、upstream、baseline、latest 各 30 个 dump 均核对了 host-probe rows、插件状态和 realpath。Web 与 iOS 原始报告分别列出每份样本和身份；工作室到本地复制的 iOS JSON SHA-256 也逐项匹配。
+
+### 10.3 Web：整段回放 Task 与总行渲染
+
+每格为中位数。Task 是整段回放的主线程时间；render total 是 `allRows.sum`，用来表示总行渲染工作量。两者不是同一指标。
+
+| Fixture | Task (s), native / upstream / baseline / latest | Row render total (ms), native / upstream / baseline / latest |
+| --- | --- | --- |
+| codeblock-streaming | 4.106 / 3.510 / 2.639 / 2.601 | 1,284.0 / 1,304.1 / 365.5 / 280.5 |
+| diff-large | 0.424 / 1.887 / 0.359 / 0.347 | 33.6 / 562.9 / 18.3 / 21.0 |
+| history-100 | 0.745 / 7.019 / 0.761 / 0.854 | 155.7 / 4,454.5 / 170.3 / 218.9 |
+| markdown-long | 9.332 / 8.576 / 5.790 / 5.744 | 2,044.0 / 3,241.1 / 491.7 / 457.6 |
+| mixed-turn | 1.718 / 3.873 / 1.285 / 1.263 | 220.7 / 577.0 / 91.9 / 97.8 |
+| reads-20 | 1.184 / 3.451 / 1.106 / 1.042 | 148.1 / 957.1 / 103.8 / 109.6 |
+| reasoning-long-prose | 3.109 / 4.175 / 2.019 / 1.985 | 550.5 / 1,031.4 / 147.9 / 154.0 |
+| reasoning-long-sections | 2.695 / 3.777 / 1.701 / 1.688 | 496.2 / 1,342.8 / 130.6 / 135.1 |
+| shell-log-large | 1.106 / 2.505 / 0.737 / 0.716 | 38.5 / 266.9 / 19.5 / 19.5 |
+| table-streaming | 3.104 / 2.172 / 1.920 / 1.958 | 1,134.0 / 416.8 / 264.6 / 263.9 |
+| tool-expanded-streaming | 2.062 / 4.485 / 1.539 / 1.577 | 60.3 / 932.2 / 105.4 / 109.1 |
+
+Per-commit p95 is batch-size dependent. The detailed raw report flags scenarios where commit counts or rows per commit differ materially; those p95 values are not substituted for total work. The READMEs show `allRows.sum` for the render comparison.
+
+### 10.4 iOS：总行渲染（allRows.sum）
+
+iOS 每次冷启动后回放。中位数，毫秒，模式顺序仍为 native / upstream / baseline / latest。
+
+| Fixture | Runs per mode | Total row render (ms) | Row p95 (ms) | Per-commit p95 (ms) |
+| --- | --- | --- | --- | --- |
+| codeblock-streaming | 2 | 2,264.5 / 4,503.2 / 920.7 / 709.6 | 17.04 / 18.78 / 5.56 / 4.37 | 17.80 / 18.81 / 5.61 / 4.37 |
+| diff-large | 2 | 58.2 / 5,562.7 / 33.2 / 46.2 | 8.45 / 1,697.70 / 5.56 / 5.27 | 13.22 / 2,910.84 / 6.24 / 5.49 |
+| history-100 | 6 | 191.9 / 224.6 / 195.1 / 202.1 | 7.37 / 3.25 / 7.33 / 7.68 | 61.40 / 4.04 / 58.79 / 63.06 |
+| markdown-long | 2 | 5,076.6 / 13,397.1 / 1,860.1 / 1,510.0 | 9.40 / 36.67 / 5.55 / 4.89 | 50.57 / 36.67 / 5.58 / 4.93 |
+| mixed-turn | 2 | 282.9 / 624.8 / 220.2 / 247.2 | 7.11 / 10.46 / 4.36 / 4.53 | 13.15 / 21.98 / 6.88 / 7.80 |
+| reads-20 | 2 | 276.1 / 2,622.2 / 297.5 / 305.8 | 4.93 / 86.27 / 3.82 / 3.63 | 9.93 / 173.19 / 6.70 / 6.72 |
+| reasoning-long-prose | 2 | 262.4 / 1,465.5 / 314.6 / 321.3 | 3.43 / 7.56 / 1.91 / 2.19 | 3.46 / 7.66 / 3.10 / 3.13 |
+| reasoning-long-sections | 2 | 244.5 / 2,438.8 / 270.3 / 283.5 | 3.52 / 14.53 / 2.03 / 2.54 | 3.57 / 14.57 / 2.87 / 3.08 |
+| shell-log-large | 6 | 48.1 / 362.8 / 34.1 / 45.1 | 7.24 / 107.64 / 3.94 / 3.64 | 10.76 / 219.53 / 10.86 / 4.22 |
+| table-streaming | 2 | 972.1 / 1,164.0 / 541.6 / 563.0 | 12.25 / 8.00 / 6.35 / 6.30 | 12.56 / 8.08 / 6.35 / 6.30 |
+| tool-expanded-streaming | 2 | 165.8 / 3,032.6 / 251.9 / 256.6 | 4.65 / 55.73 / 3.59 / 3.55 | 4.36 / 55.86 / 3.59 / 3.57 |
+
+The primary comparison is total row-render work. Row p95 describes individual-row cost; per-commit p95 sums row work in each commit and changes with batching. Neither p95 is a substitute for the total.
+
+### 10.5 iOS 并行模拟器负载说明
+
+`history-100` 的 r1–r3 在 B/C 准备前由 A 串行完成；r4 与 B/C 的非测量 smoke 重叠，r5 在 B/C 测量 worker 加入前 9 秒启动并随后重叠，r6 与它们并行。对比干净串行 r1–r3，并行暴露组的总行渲染中位数如下：
+
+| Mode | Clean sequential median (range, ms) | Parallel-load exposure median (ms) | Shift |
+| --- | ---: | ---: | ---: |
+| native | 191.75 (190.77–192.10) | 197.17 | +2.8% |
+| upstream | 216.83 (214.22–226.61) | 227.23 | +4.8% |
+| baseline | 193.32 (191.74–196.93) | 198.94 | +2.9% |
+| latest | 198.35 (196.08–202.23) | 204.64 | +3.2% |
+
+这是总量的小幅一致上移，不是所有行 p95 或 per-commit p95 都同幅变化。如果需要不受并行负载影响的 iOS `history-100` 中位数，应在单台模拟器上串行补测并轮换模式顺序。
+
+### 10.6 Web history-100：本周变化的归因状态
+
+在最新批次中，Better Paseo latest 对 baseline 的 Task 为 0.854 s 对 0.761 s（+12.26%），总行渲染为 218.9 对 170.3 ms（+28.54%），中位 commit 数为 151 对 133（多 18）。rows/commit 为 36.41 对 36.50，基本相同：多出的总行工作伴随更多提交出现，但这本身不能确定原因。
+
+更早的 `raw/web-2026-10-15/` 中 latest 指向 `7182232`：baseline Task 为 0.823 s、latest 为 0.804 s（差 2.3%，按规则持平）；row-render total 是 191.3 对 177.9 ms（latest 少 7.0%）；commit 数为 134 对 133。baseline 是同一份代码，两次 Task 中位数从 0.823 s 变到 0.761 s，约低 7.5%，这是需要保留的运行间波动背景。
+
+检查了 `test/fixtures/streams/history-100.jsonl` 和 `test/fixtures/streams/generate.mts` 的 `history100()`：110 轮中的 Read 调用生成 `.ts` 文件，其他调用是 Bash、Edit、Grep；fixture 中没有图片事件、图像路径或共享/重复图片读取。bench provider 的 setup 默认把这个目录写入构建配置，`replay()` 原样转发工具调用；`BC_BENCH_FIXTURES` 可以覆盖目录，但本轮报告没有记录该变量或 fixture 哈希，因此无法把实测输入逐字节绑定到检出的 fixture。`34d7785` 的修复只对同一图片读取的后续消费者逐帧交付，在检出的 fixture 上没有直接触发条件。归因结论是**尚无法解释**：额外 18 次提交伴随 +29% 总行工作量，但把它归因于 image CLS fix 没有证据支持，间接影响也未被本次基准隔离验证。
+
+### 10.7 iOS：latest 对 baseline 的两处实测回退
+
+| Fixture | Runs per mode | Baseline → latest total row render | Delta |
+| --- | ---: | ---: | ---: |
+| diff-large | 2 | 33.2 → 46.2 ms | +13.0 ms（+39.0%） |
+| shell-log-large | 6 | 34.1 → 45.1 ms | +11.0 ms（+32.0%） |
+
+这些都是本轮测得的回退，绝对增量分别约 13 ms 和 11 ms；diff-large 每模式只有 2 个样本，shell-log-large 每模式 6 个。现有证据不能确定原因，不在这里推断。
+
+### 10.8 图表、原始数据与独立前后对照
+
+README 图表由 `node docs/perf/readme-charts.mjs` 生成，脚本读取 `raw/web-2026-10-15b/` 和 `raw/ios-2026-10-15b/`；原始汇总、样本和执行记录分别见 [Web 报告](raw/web-2026-10-15b/report-web-2026-10-15b.txt) 与 [iOS 报告](raw/ios-2026-10-15b/report-ios-2026-10-15b.txt)。较早、latest 为 `7182232` 的 Web 批次留在 [raw/web-2026-10-15/](raw/web-2026-10-15/) 作为记录。
+
+P1 + P3 clean before/after 是独立实验，A/A 噪声校准后 Web 154 个指标组合有 6 gain、4 loss、144 within noise；iOS 22 个组合有 1 gain、1 loss、20 within noise。方法、身份和数据在 [before-after-2026-10-15](../before-after-2026-10-15/README.md)。
