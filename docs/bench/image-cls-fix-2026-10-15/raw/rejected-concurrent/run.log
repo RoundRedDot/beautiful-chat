@@ -1,0 +1,38 @@
+image_ab_start=2026-10-15T08:28:00Z
+load=16:28  up 6 days,  5:17, 2 users, load averages: 2.53 3.02 3.22
+PLUGIN                STATUS      ENABLED   SOURCE                                    REVISION          DIRECTORY                                 ERROR                                   
+better-paseo          running     yes       /tmp/bc-v4/active                         -                 /tmp/bc-v4/active                                                                 
+chrome 155.0.8059.40 server srv_5Vv4ADxVpl4t port 6871
+starting images-repeat-after-r1
+images-repeat-after-r1: history-cls=0.5749784136454265 history-p95=37.799999952316284 heap=129.64910888671875 live-cls=0.5134237293667263 live-task=572ms history-task=967ms
+starting images-repeat-fixed-r1
+images-repeat-fixed-r1: history-cls=0.25687582168579104 history-p95=16.5 heap=132.4491958618164 live-cls=0.19688647380405003 live-task=591ms history-task=984ms
+starting images-repeat-before-r1
+images-repeat-before-r1: history-cls=0.25687582168579104 history-p95=17 heap=137.77156829833984 live-cls=0.3829710410647922 live-task=547ms history-task=1016ms
+starting images-repeat-fixed-r2
+images-repeat-fixed-r2: history-cls=0.25687582168579104 history-p95=17.600000023841858 heap=132.47496795654297 live-cls=0.19688647380405003 live-task=567ms history-task=1021ms
+starting images-repeat-before-r2
+images-repeat-before-r2: history-cls=0.25687582168579104 history-p95=16.5 heap=137.75852584838867 live-cls=0.24907864901224774 live-task=567ms history-task=995ms
+starting images-repeat-after-r2
+images-repeat-after-r2: history-cls=0.5749784136454265 history-p95=37.89999997615814 heap=132.38654708862305 live-cls=0.416353952492608 live-task=616ms history-task=972ms
+starting images-repeat-before-r3
+images-repeat-before-r3: history-cls=0.25687582168579104 history-p95=16.399999976158142 heap=137.82715225219727 live-cls=0.24907864901224774 live-task=629ms history-task=940ms
+starting images-repeat-after-r3
+images-repeat-after-r3: history-cls=0.5749784136454265 history-p95=37.39999997615814 heap=129.72746658325195 live-cls=0.35341885214911567 live-task=377ms history-task=971ms
+starting images-repeat-fixed-r3
+images-repeat-fixed-r3: history-cls=0.25687582168579104 history-p95=19.799999952316284 heap=132.43972396850586 live-cls=0.05462880295647516 live-task=493ms history-task=1350ms
+starting images-repeat-after-r4
+images-repeat-after-r4: history-cls=0.5749784136454265 history-p95=38.89999997615814 heap=129.82602310180664 live-cls=0.5279040370517307 live-task=548ms history-task=928ms
+starting images-repeat-fixed-r4
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForTimeout: Target page, context or browser has been closed
+    at open (/private/tmp/bc-v4/image-tools/web-image-ab.mjs:78:75)
+    at async run (/private/tmp/bc-v4/image-tools/web-image-ab.mjs:89:3)
+    at async file:///private/tmp/bc-v4/image-tools/web-image-ab.mjs:212:5 {
+  log: []
+}
+
+Node.js v24.15.0

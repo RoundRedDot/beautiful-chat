@@ -1,0 +1,467 @@
+{
+  "scenario": "images-repeat-p0",
+  "mode": "after",
+  "rep": 3,
+  "identity": {
+    "agentId": "16f82d23-62ef-4279-997e-3ac5552bb84e",
+    "mode": "after",
+    "pluginPath": "/private/tmp/bc-v4/image-probes/after",
+    "pluginStatus": "running",
+    "pluginEnabled": true,
+    "host": true,
+    "imageRpc": true,
+    "imageTrace": true,
+    "forkMarker": true
+  },
+  "probeRun": true,
+  "timed": false,
+  "live": {
+    "imageRpc": {
+      "count": 5,
+      "duplicatesInFlight": 0
+    },
+    "traceEvents": [
+      {
+        "t": 5626.700000047684,
+        "event": "commit",
+        "id": 1,
+        "loaded": false
+      },
+      {
+        "t": 6112.299999952316,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5,
+        "loaded": false
+      },
+      {
+        "t": 6114.399999976158,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 6134,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 6134.100000023842,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5
+      },
+      {
+        "t": 6162.399999976158,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5,
+        "loaded": true
+      },
+      {
+        "t": 6928.399999976158,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 8,
+        "loaded": false
+      },
+      {
+        "t": 6928.399999976158,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 9,
+        "loaded": false
+      },
+      {
+        "t": 6929.5,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 6929.5,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 6947.899999976158,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 6947.899999976158,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 9
+      },
+      {
+        "t": 6976.200000047684,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 9,
+        "loaded": true
+      },
+      {
+        "t": 7002.700000047684,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 7002.700000047684,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 8
+      },
+      {
+        "t": 7022.5,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 8,
+        "loaded": true
+      },
+      {
+        "t": 7936.600000023842,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 13,
+        "loaded": false
+      },
+      {
+        "t": 7936.700000047684,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 14,
+        "loaded": false
+      },
+      {
+        "t": 7936.700000047684,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 15,
+        "loaded": false
+      },
+      {
+        "t": 7936.700000047684,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 16,
+        "loaded": false
+      },
+      {
+        "t": 7937.700000047684,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 7937.700000047684,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 7975.5,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 7975.5,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 15
+      },
+      {
+        "t": 7995.700000047684,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 15,
+        "loaded": true
+      },
+      {
+        "t": 8007.100000023842,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 8007.100000023842,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 13
+      },
+      {
+        "t": 8007.100000023842,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 14
+      },
+      {
+        "t": 8007.100000023842,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 16
+      },
+      {
+        "t": 8047.100000023842,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 13,
+        "loaded": true
+      },
+      {
+        "t": 8047.5,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 14,
+        "loaded": true
+      },
+      {
+        "t": 8047.899999976158,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 16,
+        "loaded": true
+      }
+    ],
+    "host": {
+      "label": "live-probe",
+      "platform": "web",
+      "elapsedMs": 11969.300000071526,
+      "rows": {
+        "plugin": 44,
+        "native": 16
+      },
+      "kinds": {
+        "user": {
+          "commits": 10,
+          "mounts": 2,
+          "n": 10,
+          "p50": 0.09999990463256836,
+          "p95": 3.799999952316284,
+          "max": 3.799999952316284,
+          "sum": 4.699999928474426
+        },
+        "assistant": {
+          "commits": 38,
+          "mounts": 6,
+          "n": 38,
+          "p50": 0.10000002384185791,
+          "p95": 17.399999976158142,
+          "max": 32.39999997615814,
+          "sum": 115.09999978542328
+        },
+        "tool": {
+          "commits": 12,
+          "mounts": 1,
+          "n": 12,
+          "p50": 0.10000002384185791,
+          "p95": 3.4000000953674316,
+          "max": 3.4000000953674316,
+          "sum": 6.800000429153442
+        }
+      },
+      "allRows": {
+        "n": 60,
+        "p50": 0.10000002384185791,
+        "p95": 11.899999976158142,
+        "max": 32.39999997615814,
+        "sum": 126.60000014305115
+      },
+      "perCommit": {
+        "n": 37,
+        "p50": 0.20000004768371582,
+        "p95": 17.399999976158142,
+        "max": 32.39999997615814,
+        "sum": 126.60000014305115
+      },
+      "frames": {
+        "count": 706,
+        "dropped": 12,
+        "droppedRatio": 0.016713091922005572,
+        "longestMs": 83.40000000000003
+      },
+      "longTasks": {
+        "count": 3,
+        "totalMs": 199
+      },
+      "layoutShift": 0.7943613040076363,
+      "heapMB": 174.15955924987793
+    }
+  },
+  "historyLoad": {
+    "imageRpc": {
+      "count": 2,
+      "duplicatesInFlight": 0
+    },
+    "traceEvents": [
+      {
+        "t": 466.10000002384186,
+        "event": "commit",
+        "id": 1,
+        "loaded": false
+      },
+      {
+        "t": 466.10000002384186,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 2,
+        "loaded": false
+      },
+      {
+        "t": 466.10000002384186,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 3,
+        "loaded": false
+      },
+      {
+        "t": 466.10000002384186,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 4,
+        "loaded": false
+      },
+      {
+        "t": 466.10000002384186,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5,
+        "loaded": false
+      },
+      {
+        "t": 467.10000002384186,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 467.10000002384186,
+        "event": "rpc-start",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 528,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png"
+      },
+      {
+        "t": 528,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 4
+      },
+      {
+        "t": 551.5,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot2.png",
+        "id": 4,
+        "loaded": true
+      },
+      {
+        "t": 566.4000000953674,
+        "event": "rpc-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png"
+      },
+      {
+        "t": 566.4000000953674,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 2
+      },
+      {
+        "t": 566.5,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 3
+      },
+      {
+        "t": 566.5,
+        "event": "consumer-resolve",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5
+      },
+      {
+        "t": 611.8000000715256,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 2,
+        "loaded": true
+      },
+      {
+        "t": 612.1000000238419,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 3,
+        "loaded": true
+      },
+      {
+        "t": 612.4000000953674,
+        "event": "commit",
+        "path": "/tmp/bc-perf-p0p1/project/shot.png",
+        "id": 5,
+        "loaded": true
+      }
+    ],
+    "host": {
+      "label": "history-probe",
+      "platform": "web",
+      "elapsedMs": 6947.199999928474,
+      "rows": {
+        "plugin": 21,
+        "native": 35
+      },
+      "kinds": {
+        "user": {
+          "commits": 10,
+          "mounts": 2,
+          "n": 10,
+          "p50": 0.09999990463256836,
+          "p95": 3.799999952316284,
+          "max": 3.799999952316284,
+          "sum": 4.8999998569488525
+        },
+        "assistant": {
+          "commits": 38,
+          "mounts": 13,
+          "n": 38,
+          "p50": 0.10000002384185791,
+          "p95": 16,
+          "max": 35.799999952316284,
+          "sum": 75.59999978542328
+        },
+        "tool": {
+          "commits": 8,
+          "mounts": 2,
+          "n": 8,
+          "p50": 0.10000002384185791,
+          "p95": 3.600000023841858,
+          "max": 3.600000023841858,
+          "sum": 4.800000071525574
+        }
+      },
+      "allRows": {
+        "n": 56,
+        "p50": 0.10000002384185791,
+        "p95": 5,
+        "max": 35.799999952316284,
+        "sum": 85.2999997138977
+      },
+      "perCommit": {
+        "n": 16,
+        "p50": 0.10000002384185791,
+        "p95": 35.799999952316284,
+        "max": 35.799999952316284,
+        "sum": 85.2999997138977
+      },
+      "frames": {
+        "count": 404,
+        "dropped": 13,
+        "droppedRatio": 0.03117505995203837,
+        "longestMs": 83.39999999999998
+      },
+      "longTasks": {
+        "count": 4,
+        "totalMs": 269
+      },
+      "layoutShift": 0.5749784136454265,
+      "heapMB": 311.50131130218506
+    },
+    "renderedImages900px": 4,
+    "missingErrors": null,
+    "postSettlementReads": []
+  }
+}

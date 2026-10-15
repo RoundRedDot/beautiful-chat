@@ -1,0 +1,110 @@
+{
+  "scenario": "images-missing-p3",
+  "mode": "before",
+  "rep": 7,
+  "slot": 3,
+  "captureSources": false,
+  "agentId": "a392f598-f769-48c3-b571-c3e7f5266d50",
+  "plugin": "/tmp/bc-v4/image-before",
+  "identity": {
+    "host": true,
+    "imageRpc": true,
+    "pluginPath": "/private/tmp/bc-v4/image-before",
+    "pluginStatus": "running",
+    "pluginEnabled": true
+  },
+  "daemon": {
+    "home": "/Users/rrd/.paseo-bench-p0p1",
+    "port": 6871
+  },
+  "chrome": "155.0.8059.40",
+  "details": {
+    "setupMs": 4605,
+    "historyLoad": {
+      "trace": {
+        "rendered": 1,
+        "errors": [
+          "ENOENT: no such file or directory, stat '/tmp/bc-perf-p0p1/project/missing-shot.png'Again:/tmp/bc-perf-p0p1/project/missing-shot.pngENOENT: no such file or directory, stat '/tmp/bc-perf-p0p1/project/missing-shot.png'Existing:/tmp/bc-perf-p0p1/project/shot2.png900 × 7802.0 MBCopy17:13Stream replayDrop files here"
+        ]
+      },
+      "windowMs": 7180,
+      "probe": {
+        "label": "images-missing-p3-before-r7-history",
+        "platform": "web",
+        "elapsedMs": 6940.300000071526,
+        "rows": {
+          "plugin": 14,
+          "native": 28
+        },
+        "kinds": {
+          "user": {
+            "commits": 10,
+            "mounts": 2,
+            "n": 10,
+            "p50": 0,
+            "p95": 3.8000000715255737,
+            "max": 3.8000000715255737,
+            "sum": 4.899999976158142
+          },
+          "assistant": {
+            "commits": 32,
+            "mounts": 11,
+            "n": 32,
+            "p50": 0.19999992847442627,
+            "p95": 5,
+            "max": 16.100000023841858,
+            "sum": 40.60000002384186
+          }
+        },
+        "allRows": {
+          "n": 42,
+          "p50": 0.10000002384185791,
+          "p95": 4.300000071525574,
+          "max": 16.100000023841858,
+          "sum": 45.5
+        },
+        "perCommit": {
+          "n": 11,
+          "p50": 0.3999999761581421,
+          "p95": 21.00000011920929,
+          "max": 21.00000011920929,
+          "sum": 45.5
+        },
+        "frames": {
+          "count": 406,
+          "dropped": 10,
+          "droppedRatio": 0.02403846153846154,
+          "longestMs": 83.19999999999999
+        },
+        "longTasks": {
+          "count": 3,
+          "totalMs": 218
+        },
+        "layoutShift": 0.2547134084913466,
+        "heapMB": 267.7752799987793
+      },
+      "cdp": {
+        "delta": {
+          "TaskDuration": 0.513629,
+          "ScriptDuration": 0.336468,
+          "LayoutDuration": 0.003689,
+          "RecalcStyleDuration": 0.029595,
+          "LayoutCount": 34,
+          "RecalcStyleCount": 68
+        },
+        "metricWindow": "current document through 7s settle",
+        "nodes": 1494,
+        "jsHeapUsedMB": 116.17256546020508,
+        "beforeGc": {
+          "nodes": 3399,
+          "jsHeapUsedMB": 210.14154434204102
+        }
+      }
+    }
+  },
+  "machine": {
+    "uptimeBefore": "17:12  up 6 days,  6:02, 2 users, load averages: 1.29 1.38 1.61",
+    "uptimeAfter": "17:13  up 6 days,  6:02, 2 users, load averages: 1.55 1.41 1.61"
+  },
+  "pageErrors": []
+}
