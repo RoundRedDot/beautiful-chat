@@ -668,6 +668,8 @@ The primary comparison is total row-render work. Row p95 describes individual-ro
 
 检查了 `test/fixtures/streams/history-100.jsonl` 和 `test/fixtures/streams/generate.mts` 的 `history100()`：110 轮中的 Read 调用生成 `.ts` 文件，其他调用是 Bash、Edit、Grep；fixture 中没有图片事件、图像路径或共享/重复图片读取。bench provider 的 setup 默认把这个目录写入构建配置，`replay()` 原样转发工具调用；`BC_BENCH_FIXTURES` 可以覆盖目录，但本轮报告没有记录该变量或 fixture 哈希，因此无法把实测输入逐字节绑定到检出的 fixture。`34d7785` 的修复只对同一图片读取的后续消费者逐帧交付，在检出的 fixture 上没有直接触发条件。归因结论是**尚无法解释**：额外 18 次提交伴随 +29% 总行工作量，但把它归因于 image CLS fix 没有证据支持，间接影响也未被本次基准隔离验证。
 
+`7182232..37bfb60` 之间客户端最大的新增是每轮回复的信息栏（`1fd2d5b`、`187c072`、`d626bf6`；`client/state/turn-footers.ts` 等），`history-100` 的 100 个已完成轮次各挂一个。它是下一轮的头号嫌疑，但本轮没有测量，归因与对照实验见 [下一轮优化方案](../../plans/2026-10-15-performance-optimization-next.md) 的 O1。
+
 ### 10.7 iOS：latest 对 baseline 的两处实测回退
 
 | Fixture | Runs per mode | Baseline → latest total row render | Delta |
