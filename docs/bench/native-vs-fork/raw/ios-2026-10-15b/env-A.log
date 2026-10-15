@@ -1,0 +1,367 @@
+worker_start env=A pid=42983 time=2026-10-15T13:53:29Z load=1.48,2.56,7.15
+unit_start unit=f03-r03-history-100 fixture=history-100 speed=max rep=3 env=A start=2026-10-15T13:53:29Z load=1.48,2.56,7.15 modes=upstream,baseline,latest,native
+run_start unit=f03-r03-history-100 env=A mode=upstream time=2026-10-15T13:53:29Z load=1.48,2.56,7.15
+Using workspace wks_371455993c88a092
+ios-upstream-history-100-r3: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r3: dumped (stream 1s, agent 6e472d69-18bf-4274-be69-770432fd4ed7, identity plugin rows without imageRpc)
+run_end unit=f03-r03-history-100 env=A mode=upstream time=2026-10-15T13:54:40Z load=2.06,2.54,6.78
+run_start unit=f03-r03-history-100 env=A mode=baseline time=2026-10-15T13:54:40Z load=2.06,2.54,6.78
+Using workspace wks_371455993c88a092
+ios-baseline-history-100-r3: dumped (stream 1s, agent f877f0cc-f024-4214-a48d-1c908c4ca48a, identity imageRpc)
+post_file_identity_failed unit=f03-r03-history-100 env=A mode=baseline file=/tmp/bc-v5/raw/ios/ios-baseline-history-100-r3.json
+worker_start env=A pid=44216 time=2026-10-15T13:57:06Z load=1.24,2.24,6.01
+unit_start unit=f03-r03-history-100 fixture=history-100 speed=max rep=3 env=A start=2026-10-15T13:57:06Z load=1.24,2.24,6.01 modes=upstream,baseline,latest,native
+preserve_existing unit=f03-r03-history-100 mode=upstream file=/tmp/bc-v5/raw/ios/ios-upstream-history-100-r3.json
+preserve_existing unit=f03-r03-history-100 mode=baseline file=/tmp/bc-v5/raw/ios/ios-baseline-history-100-r3.json
+run_start unit=f03-r03-history-100 env=A mode=latest time=2026-10-15T13:57:06Z load=1.24,2.24,6.01
+Using workspace wks_371455993c88a092
+ios-latest-history-100-r3: dumped (stream 0s, agent 240f90fb-5b77-487f-b4b7-c291a2450ed5, identity imageRpc)
+run_end unit=f03-r03-history-100 env=A mode=latest time=2026-10-15T13:58:17Z load=2.10,2.21,5.70
+run_start unit=f03-r03-history-100 env=A mode=native time=2026-10-15T13:58:17Z load=2.10,2.21,5.70
+Using workspace wks_371455993c88a092
+ios-native-history-100-r3: dumped (stream 1s, agent 69201bf1-d525-4023-a1f5-a1c921ac41ac, identity no plugin marker)
+run_end unit=f03-r03-history-100 env=A mode=native time=2026-10-15T13:59:45Z load=2.15,2.08,5.29
+unit_done unit=f03-r03-history-100 env=A end=2026-10-15T13:59:45Z load=2.15,2.08,5.29
+worker_done env=A time=2026-10-15T13:59:45Z load=2.15,2.08,5.29
+worker_start env=A pid=50774 time=2026-10-15T14:07:49Z load=2.71,4.19,5.60
+load_gate_pass unit=f03-r04-history-100 env=A time=2026-10-15T14:07:49Z load=2.71,4.19,5.60
+unit_start unit=f03-r04-history-100 fixture=history-100 speed=max rep=4 env=A start=2026-10-15T14:07:49Z load=2.71,4.19,5.60 modes=baseline,latest,native,upstream
+run_start unit=f03-r04-history-100 env=A mode=baseline time=2026-10-15T14:07:49Z load=2.71,4.19,5.60
+Using workspace wks_371455993c88a092
+ios-baseline-history-100-r4: dumped (stream 1s, agent 69a457e2-3bcf-4061-a93d-f811b595f9cc, identity imageRpc)
+run_end unit=f03-r04-history-100 env=A mode=baseline time=2026-10-15T14:09:01Z load=2.94,3.93,5.38
+run_start unit=f03-r04-history-100 env=A mode=latest time=2026-10-15T14:09:01Z load=2.94,3.93,5.38
+Using workspace wks_371455993c88a092
+ios-latest-history-100-r4: dumped (stream 1s, agent 71eac459-6a6f-4a96-ae89-2f9719735ac6, identity imageRpc)
+run_end unit=f03-r04-history-100 env=A mode=latest time=2026-10-15T14:10:12Z load=2.80,3.64,5.15
+run_start unit=f03-r04-history-100 env=A mode=native time=2026-10-15T14:10:12Z load=2.80,3.64,5.15
+Using workspace wks_371455993c88a092
+ios-native-history-100-r4: dumped (stream 1s, agent ee261901-57ea-405a-ab28-f730b4cad3c6, identity no plugin marker)
+run_end unit=f03-r04-history-100 env=A mode=native time=2026-10-15T14:11:40Z load=2.15,3.31,4.88
+run_start unit=f03-r04-history-100 env=A mode=upstream time=2026-10-15T14:11:40Z load=2.15,3.31,4.88
+Using workspace wks_371455993c88a092
+ios-upstream-history-100-r4: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r4: dumped (stream 1s, agent 63036bc9-de00-4ce7-b44a-f577297bdfcc, identity plugin rows without imageRpc)
+run_end unit=f03-r04-history-100 env=A mode=upstream time=2026-10-15T14:12:51Z load=2.38,3.12,4.67
+unit_done unit=f03-r04-history-100 env=A end=2026-10-15T14:12:51Z load=2.38,3.12,4.67
+load_gate_pass unit=f03-r05-history-100 env=A time=2026-10-15T14:12:51Z load=2.38,3.12,4.67
+unit_start unit=f03-r05-history-100 fixture=history-100 speed=max rep=5 env=A start=2026-10-15T14:12:51Z load=2.38,3.12,4.67 modes=latest,native,upstream,baseline
+run_start unit=f03-r05-history-100 env=A mode=latest time=2026-10-15T14:12:51Z load=2.38,3.12,4.67
+Using workspace wks_371455993c88a092
+ios-latest-history-100-r5: dumped (stream 1s, agent 93273936-8ed2-4e21-a152-3e2887cfbdd8, identity imageRpc)
+run_end unit=f03-r05-history-100 env=A mode=latest time=2026-10-15T14:14:02Z load=1.84,2.85,4.45
+run_start unit=f03-r05-history-100 env=A mode=native time=2026-10-15T14:14:02Z load=1.84,2.85,4.45
+Using workspace wks_371455993c88a092
+ios-native-history-100-r5: dumped (stream 0s, agent 19d495b5-0d3c-45aa-82f8-768e016c226e, identity no plugin marker)
+run_end unit=f03-r05-history-100 env=A mode=native time=2026-10-15T14:15:29Z load=2.95,2.93,4.33
+run_start unit=f03-r05-history-100 env=A mode=upstream time=2026-10-15T14:15:29Z load=2.95,2.93,4.33
+Using workspace wks_371455993c88a092
+ios-upstream-history-100-r5: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r5: dumped (stream 0s, agent cd25ad67-1bf8-4a94-8b67-8711c9927fc0, identity plugin rows without imageRpc)
+run_end unit=f03-r05-history-100 env=A mode=upstream time=2026-10-15T14:16:40Z load=3.00,2.91,4.20
+run_start unit=f03-r05-history-100 env=A mode=baseline time=2026-10-15T14:16:40Z load=3.00,2.91,4.20
+Using workspace wks_371455993c88a092
+ios-baseline-history-100-r5: dumped (stream 1s, agent 152c6628-3815-47b4-81c5-5ec2acfc2c79, identity imageRpc)
+run_end unit=f03-r05-history-100 env=A mode=baseline time=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+unit_done unit=f03-r05-history-100 env=A end=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+load_gate_pass unit=f07-r02-reasoning-long-prose env=A time=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+load_gate_pass unit=f08-r02-reasoning-long-sections env=A time=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+load_gate_pass unit=f09-r02-shell-log-large env=A time=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+unit_start unit=f09-r02-shell-log-large fixture=shell-log-large speed=1 rep=2 env=A start=2026-10-15T14:17:51Z load=1.95,2.65,4.00 modes=baseline,latest,native,upstream
+run_start unit=f09-r02-shell-log-large env=A mode=baseline time=2026-10-15T14:17:51Z load=1.95,2.65,4.00
+Using workspace wks_371455993c88a092
+ios-baseline-shell-log-large-r2: dumped (stream 11s, agent 6f0eb7ae-6a21-4f18-88f3-091c47cdd31b, identity imageRpc)
+run_end unit=f09-r02-shell-log-large env=A mode=baseline time=2026-10-15T14:19:11Z load=3.08,2.79,3.93
+run_start unit=f09-r02-shell-log-large env=A mode=latest time=2026-10-15T14:19:11Z load=3.08,2.79,3.93
+Using workspace wks_371455993c88a092
+ios-latest-shell-log-large-r2: dumped (stream 11s, agent 99e5d1f9-eeef-456f-bcbe-9087f1763c3e, identity imageRpc)
+run_end unit=f09-r02-shell-log-large env=A mode=latest time=2026-10-15T14:20:31Z load=2.33,2.61,3.75
+run_start unit=f09-r02-shell-log-large env=A mode=native time=2026-10-15T14:20:31Z load=2.33,2.61,3.75
+Using workspace wks_371455993c88a092
+ios-native-shell-log-large-r2: dumped (stream 11s, agent a626da38-a09b-45c3-bccc-b80dc2253399, identity no plugin marker)
+run_end unit=f09-r02-shell-log-large env=A mode=native time=2026-10-15T14:22:09Z load=1.84,2.36,3.53
+run_start unit=f09-r02-shell-log-large env=A mode=upstream time=2026-10-15T14:22:09Z load=1.84,2.36,3.53
+Using workspace wks_371455993c88a092
+ios-upstream-shell-log-large-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r2: dumped (stream 11s, agent 243cadbf-14ed-4b18-a92c-a7c813f37ff6, identity plugin rows without imageRpc)
+run_end unit=f09-r02-shell-log-large env=A mode=upstream time=2026-10-15T14:23:30Z load=2.13,2.31,3.40
+unit_done unit=f09-r02-shell-log-large env=A end=2026-10-15T14:23:30Z load=2.13,2.31,3.40
+load_gate_pass unit=f09-r03-shell-log-large env=A time=2026-10-15T14:23:30Z load=2.13,2.31,3.40
+load_gate_pass unit=f09-r04-shell-log-large env=A time=2026-10-15T14:23:31Z load=2.13,2.31,3.40
+load_gate_pass unit=f09-r05-shell-log-large env=A time=2026-10-15T14:23:31Z load=2.13,2.31,3.40
+unit_start unit=f09-r05-shell-log-large fixture=shell-log-large speed=1 rep=5 env=A start=2026-10-15T14:23:31Z load=2.13,2.31,3.40 modes=upstream,baseline,latest,native
+run_start unit=f09-r05-shell-log-large env=A mode=upstream time=2026-10-15T14:23:31Z load=2.13,2.31,3.40
+Using workspace wks_371455993c88a092
+ios-upstream-shell-log-large-r5: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r5: dumped (stream 11s, agent f2a8c74f-de5a-41e4-8038-7b68bd7a140b, identity plugin rows without imageRpc)
+run_end unit=f09-r05-shell-log-large env=A mode=upstream time=2026-10-15T14:24:50Z load=1.85,2.23,3.28
+run_start unit=f09-r05-shell-log-large env=A mode=baseline time=2026-10-15T14:24:50Z load=1.85,2.23,3.28
+Using workspace wks_371455993c88a092
+ios-baseline-shell-log-large-r5: dumped (stream 11s, agent 620dcb5b-e39d-4c3e-9d7f-5fae8866bffe, identity imageRpc)
+run_end unit=f09-r05-shell-log-large env=A mode=baseline time=2026-10-15T14:26:11Z load=2.95,2.52,3.29
+run_start unit=f09-r05-shell-log-large env=A mode=latest time=2026-10-15T14:26:11Z load=2.95,2.52,3.29
+Using workspace wks_371455993c88a092
+ios-latest-shell-log-large-r5: dumped (stream 11s, agent 775f09b6-6c91-4652-a9b4-c6b9a9cfe7c3, identity imageRpc)
+run_end unit=f09-r05-shell-log-large env=A mode=latest time=2026-10-15T14:27:32Z load=2.60,2.53,3.22
+run_start unit=f09-r05-shell-log-large env=A mode=native time=2026-10-15T14:27:32Z load=2.60,2.53,3.22
+Using workspace wks_371455993c88a092
+ios-native-shell-log-large-r5: dumped (stream 11s, agent 2be93070-b065-426e-964a-995b00a31f56, identity no plugin marker)
+run_end unit=f09-r05-shell-log-large env=A mode=native time=2026-10-15T14:29:10Z load=2.99,2.60,3.17
+unit_done unit=f09-r05-shell-log-large env=A end=2026-10-15T14:29:10Z load=2.99,2.60,3.17
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:10Z load=2.99,2.60,3.17
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:10Z load=2.99,2.60,3.17
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:12Z load=2.75,2.56,3.15
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:12Z load=2.75,2.56,3.15
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:14Z load=2.75,2.56,3.15
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:14Z load=2.75,2.56,3.15
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:16Z load=2.75,2.56,3.15
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:16Z load=2.75,2.56,3.15
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:18Z load=2.53,2.52,3.13
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:18Z load=2.53,2.52,3.13
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:20Z load=2.53,2.52,3.13
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:20Z load=2.53,2.52,3.13
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:22Z load=2.33,2.48,3.11
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:22Z load=2.33,2.48,3.11
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:24Z load=2.33,2.48,3.11
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:24Z load=2.33,2.48,3.11
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:26Z load=2.14,2.43,3.10
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:26Z load=2.14,2.43,3.10
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:28Z load=2.14,2.43,3.10
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:28Z load=2.14,2.43,3.10
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:30Z load=2.14,2.43,3.10
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:30Z load=2.14,2.43,3.10
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:32Z load=2.05,2.41,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:32Z load=2.05,2.41,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:34Z load=2.05,2.41,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:34Z load=2.05,2.41,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:36Z load=2.13,2.42,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:36Z load=2.13,2.42,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:38Z load=2.13,2.42,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:38Z load=2.13,2.42,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:41Z load=2.13,2.42,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:41Z load=2.13,2.42,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:43Z load=1.96,2.38,3.06
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:43Z load=1.96,2.38,3.06
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:45Z load=1.96,2.38,3.06
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:45Z load=1.96,2.38,3.06
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:47Z load=2.36,2.46,3.09
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:47Z load=2.36,2.46,3.09
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:49Z load=2.36,2.46,3.09
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:49Z load=2.36,2.46,3.09
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:51Z load=2.36,2.46,3.09
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:51Z load=2.36,2.46,3.09
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:53Z load=2.25,2.43,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:53Z load=2.25,2.43,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:55Z load=2.25,2.43,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:55Z load=2.25,2.43,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:57Z load=2.31,2.44,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:57Z load=2.31,2.44,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:29:59Z load=2.31,2.44,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:29:59Z load=2.31,2.44,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:01Z load=2.31,2.44,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:01Z load=2.31,2.44,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:03Z load=2.37,2.45,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:03Z load=2.37,2.45,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:05Z load=2.37,2.45,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:05Z load=2.37,2.45,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:07Z load=2.58,2.49,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:07Z load=2.58,2.49,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:09Z load=2.58,2.49,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:09Z load=2.58,2.49,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:11Z load=2.53,2.48,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:11Z load=2.53,2.48,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:13Z load=2.53,2.48,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:13Z load=2.53,2.48,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:15Z load=2.53,2.48,3.08
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:15Z load=2.53,2.48,3.08
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:17Z load=2.41,2.46,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:17Z load=2.41,2.46,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:19Z load=2.41,2.46,3.07
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:19Z load=2.41,2.46,3.07
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:21Z load=2.29,2.43,3.05
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:21Z load=2.29,2.43,3.05
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:23Z load=2.29,2.43,3.05
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:23Z load=2.29,2.43,3.05
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:25Z load=2.29,2.43,3.05
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:25Z load=2.29,2.43,3.05
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:28Z load=2.11,2.39,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:28Z load=2.11,2.39,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:30Z load=2.11,2.39,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:30Z load=2.11,2.39,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:32Z load=2.26,2.42,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:32Z load=2.26,2.42,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:34Z load=2.26,2.42,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:34Z load=2.26,2.42,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:36Z load=2.26,2.42,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:36Z load=2.26,2.42,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:38Z load=2.24,2.41,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:38Z load=2.24,2.41,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:40Z load=2.24,2.41,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:40Z load=2.24,2.41,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:42Z load=2.38,2.44,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:42Z load=2.38,2.44,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:44Z load=2.38,2.44,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:44Z load=2.38,2.44,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:46Z load=2.38,2.44,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:46Z load=2.38,2.44,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:48Z load=2.59,2.48,3.05
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:48Z load=2.59,2.48,3.05
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:50Z load=2.59,2.48,3.05
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:50Z load=2.59,2.48,3.05
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:52Z load=2.46,2.46,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:52Z load=2.46,2.46,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:54Z load=2.46,2.46,3.04
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:54Z load=2.46,2.46,3.04
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:56Z load=2.43,2.45,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:56Z load=2.43,2.45,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:30:58Z load=2.43,2.45,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:30:58Z load=2.43,2.45,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:00Z load=2.43,2.45,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:00Z load=2.43,2.45,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:02Z load=2.39,2.44,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:02Z load=2.39,2.44,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:04Z load=2.39,2.44,3.03
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:04Z load=2.39,2.44,3.03
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:06Z load=2.28,2.42,3.01
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:06Z load=2.28,2.42,3.01
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:08Z load=2.28,2.42,3.01
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:08Z load=2.28,2.42,3.01
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:10Z load=2.28,2.42,3.01
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:10Z load=2.28,2.42,3.01
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:12Z load=2.18,2.39,3.00
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:12Z load=2.18,2.39,3.00
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:14Z load=2.18,2.39,3.00
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:15Z load=2.18,2.39,3.00
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:17Z load=2.08,2.37,2.99
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:17Z load=2.08,2.37,2.99
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:19Z load=2.08,2.37,2.99
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:19Z load=2.08,2.37,2.99
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:21Z load=2.08,2.37,2.99
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:21Z load=2.08,2.37,2.99
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:23Z load=2.08,2.36,2.98
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:23Z load=2.08,2.36,2.98
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:25Z load=2.08,2.36,2.98
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:25Z load=2.08,2.36,2.98
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:27Z load=2.15,2.37,2.98
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:27Z load=2.15,2.37,2.98
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:29Z load=2.15,2.37,2.98
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:29Z load=2.15,2.37,2.98
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:31Z load=2.15,2.37,2.98
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:31Z load=2.15,2.37,2.98
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:33Z load=2.06,2.35,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:33Z load=2.06,2.35,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:35Z load=2.06,2.35,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:35Z load=2.06,2.35,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:37Z load=1.97,2.33,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:37Z load=1.97,2.33,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:39Z load=1.97,2.33,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:39Z load=1.97,2.33,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:41Z load=1.97,2.33,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:41Z load=1.97,2.33,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:43Z load=2.13,2.36,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:43Z load=2.13,2.36,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:45Z load=2.13,2.36,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:45Z load=2.13,2.36,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:47Z load=2.20,2.37,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:47Z load=2.20,2.37,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:49Z load=2.20,2.37,2.97
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:49Z load=2.20,2.37,2.97
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:51Z load=2.19,2.36,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:51Z load=2.19,2.36,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:53Z load=2.19,2.36,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:53Z load=2.19,2.36,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:55Z load=2.19,2.36,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:55Z load=2.19,2.36,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:57Z load=2.25,2.37,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:57Z load=2.25,2.37,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:31:59Z load=2.25,2.37,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:31:59Z load=2.25,2.37,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:01Z load=2.31,2.38,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:01Z load=2.31,2.38,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:03Z load=2.31,2.38,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:04Z load=2.31,2.38,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:06Z load=2.31,2.38,2.96
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:06Z load=2.31,2.38,2.96
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:08Z load=2.21,2.36,2.95
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:08Z load=2.21,2.36,2.95
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:10Z load=2.21,2.36,2.95
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:10Z load=2.21,2.36,2.95
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:12Z load=2.19,2.35,2.94
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:12Z load=2.19,2.35,2.94
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:14Z load=2.19,2.35,2.94
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:14Z load=2.19,2.35,2.94
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:16Z load=2.19,2.35,2.94
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:16Z load=2.19,2.35,2.94
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:18Z load=2.09,2.33,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:18Z load=2.09,2.33,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:20Z load=2.09,2.33,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:20Z load=2.09,2.33,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:22Z load=2.17,2.34,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:22Z load=2.17,2.34,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:24Z load=2.17,2.34,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:24Z load=2.17,2.34,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:26Z load=2.17,2.34,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:26Z load=2.17,2.34,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:28Z load=2.07,2.32,2.92
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:28Z load=2.07,2.32,2.92
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:30Z load=2.07,2.32,2.92
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:30Z load=2.07,2.32,2.92
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:32Z load=2.31,2.36,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:32Z load=2.31,2.36,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:34Z load=2.31,2.36,2.93
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:34Z load=2.31,2.36,2.93
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:36Z load=2.12,2.32,2.91
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:36Z load=2.12,2.32,2.91
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:38Z load=2.12,2.32,2.91
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:38Z load=2.12,2.32,2.91
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:40Z load=2.12,2.32,2.91
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:40Z load=2.12,2.32,2.91
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:42Z load=1.95,2.28,2.90
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:42Z load=1.95,2.28,2.90
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:44Z load=1.95,2.28,2.90
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:44Z load=1.95,2.28,2.90
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:46Z load=1.79,2.24,2.88
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:46Z load=1.79,2.24,2.88
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:48Z load=1.79,2.24,2.88
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:49Z load=1.79,2.24,2.88
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:51Z load=1.79,2.24,2.88
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:51Z load=1.79,2.24,2.88
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:53Z load=1.73,2.22,2.87
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:53Z load=1.73,2.22,2.87
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:55Z load=1.73,2.22,2.87
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:55Z load=1.73,2.22,2.87
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:57Z load=1.75,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:57Z load=1.75,2.22,2.86
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:32:59Z load=1.75,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:32:59Z load=1.75,2.22,2.86
+load_gate_pass unit=f10-r02-table-streaming env=A time=2026-10-15T14:33:01Z load=1.75,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:01Z load=1.75,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:03Z load=1.77,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:05Z load=1.77,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:07Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:09Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:11Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:13Z load=1.89,2.23,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:15Z load=1.89,2.23,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:17Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:19Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:21Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:23Z load=1.68,2.17,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:25Z load=1.68,2.17,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:27Z load=1.87,2.20,2.83
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:29Z load=1.87,2.20,2.83
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:31Z load=1.80,2.18,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:33Z load=1.80,2.18,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:35Z load=1.80,2.18,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:37Z load=1.73,2.16,2.81
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:39Z load=1.73,2.16,2.81
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:42Z load=1.67,2.14,2.80
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:44Z load=1.67,2.14,2.80
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:46Z load=1.67,2.14,2.80
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:48Z load=1.54,2.10,2.78
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:50Z load=1.54,2.10,2.78
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:52Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:54Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:56Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=A time=2026-10-15T14:33:58Z load=1.78,2.13,2.78
+worker_done env=A time=2026-10-15T14:34:00Z load=1.78,2.13,2.78

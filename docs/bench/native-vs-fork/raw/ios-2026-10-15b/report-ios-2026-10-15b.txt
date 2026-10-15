@@ -1,0 +1,137 @@
+# iOS 2026-10-15b 结果
+JSON 样本 120；预期 120；缺失 0；多余 0；各模式：native 30、upstream 30、baseline 30、latest 30。
+每份 dump 的身份和插件链接均单独核验；详见验证说明。
+
+## 样本数量
+| 场景 | native | upstream | baseline | latest |
+| --- | ---: | ---: | ---: | ---: |
+| codeblock-streaming | 2 | 2 | 2 | 2 |
+| diff-large | 2 | 2 | 2 | 2 |
+| history-100 | 6 | 6 | 6 | 6 |
+| markdown-long | 2 | 2 | 2 | 2 |
+| mixed-turn | 2 | 2 | 2 | 2 |
+| reads-20 | 2 | 2 | 2 | 2 |
+| reasoning-long-prose | 2 | 2 | 2 | 2 |
+| reasoning-long-sections | 2 | 2 | 2 | 2 |
+| shell-log-large | 6 | 6 | 6 | 6 |
+| table-streaming | 2 | 2 | 2 | 2 |
+| tool-expanded-streaming | 2 | 2 | 2 | 2 |
+
+## 各场景中位数（ms）
+| 场景 | 指标 | native | upstream | baseline | latest |
+| --- | --- | ---: | ---: | ---: | ---: |
+| codeblock-streaming | 总行渲染 | 2264.5 | 4503.2 | 920.7 | 709.6 |
+| codeblock-streaming | 行 p95 | 17.04 | 18.78 | 5.56 | 4.37 |
+| codeblock-streaming | 单次提交 p95 | 17.80 | 18.81 | 5.61 | 4.37 |
+| diff-large | 总行渲染 | 58.2 | 5562.7 | 33.2 | 46.2 |
+| diff-large | 行 p95 | 8.45 | 1697.70 | 5.56 | 5.27 |
+| diff-large | 单次提交 p95 | 13.22 | 2910.84 | 6.24 | 5.49 |
+| history-100 | 总行渲染 | 191.9 | 224.6 | 195.1 | 202.1 |
+| history-100 | 行 p95 | 7.37 | 3.25 | 7.33 | 7.68 |
+| history-100 | 单次提交 p95 | 61.40 | 4.04 | 58.79 | 63.06 |
+| markdown-long | 总行渲染 | 5076.6 | 13397.1 | 1860.1 | 1510.0 |
+| markdown-long | 行 p95 | 9.40 | 36.67 | 5.55 | 4.89 |
+| markdown-long | 单次提交 p95 | 50.57 | 36.67 | 5.58 | 4.93 |
+| mixed-turn | 总行渲染 | 282.9 | 624.8 | 220.2 | 247.2 |
+| mixed-turn | 行 p95 | 7.11 | 10.46 | 4.36 | 4.53 |
+| mixed-turn | 单次提交 p95 | 13.15 | 21.98 | 6.88 | 7.80 |
+| reads-20 | 总行渲染 | 276.1 | 2622.2 | 297.5 | 305.8 |
+| reads-20 | 行 p95 | 4.93 | 86.27 | 3.82 | 3.63 |
+| reads-20 | 单次提交 p95 | 9.93 | 173.19 | 6.70 | 6.72 |
+| reasoning-long-prose | 总行渲染 | 262.4 | 1465.5 | 314.6 | 321.3 |
+| reasoning-long-prose | 行 p95 | 3.43 | 7.56 | 1.91 | 2.19 |
+| reasoning-long-prose | 单次提交 p95 | 3.46 | 7.66 | 3.10 | 3.13 |
+| reasoning-long-sections | 总行渲染 | 244.5 | 2438.8 | 270.3 | 283.5 |
+| reasoning-long-sections | 行 p95 | 3.52 | 14.53 | 2.03 | 2.54 |
+| reasoning-long-sections | 单次提交 p95 | 3.57 | 14.57 | 2.87 | 3.08 |
+| shell-log-large | 总行渲染 | 48.1 | 362.8 | 34.1 | 45.1 |
+| shell-log-large | 行 p95 | 7.24 | 107.64 | 3.94 | 3.64 |
+| shell-log-large | 单次提交 p95 | 10.76 | 219.53 | 10.86 | 4.22 |
+| table-streaming | 总行渲染 | 972.1 | 1164.0 | 541.6 | 563.0 |
+| table-streaming | 行 p95 | 12.25 | 8.00 | 6.35 | 6.30 |
+| table-streaming | 单次提交 p95 | 12.56 | 8.08 | 6.35 | 6.30 |
+| tool-expanded-streaming | 总行渲染 | 165.8 | 3032.6 | 251.9 | 256.6 |
+| tool-expanded-streaming | 行 p95 | 4.65 | 55.73 | 3.59 | 3.55 |
+| tool-expanded-streaming | 单次提交 p95 | 4.36 | 55.86 | 3.59 | 3.57 |
+
+## latest 与各比较模式的差值
+差值为 latest 中位数减比较模式中位数；百分比使用未舍入中位数。iOS 绝对百分比低于 10% 判为持平。
+| 场景 | 指标 | vs upstream | vs native | vs baseline |
+| --- | --- | --- | --- | --- |
+| codeblock-streaming | 总行渲染 | -3793.59 (-84.2%; latest 更低) | -1554.84 (-68.7%; latest 更低) | -211.11 (-22.9%; latest 更低) |
+| codeblock-streaming | 行 p95 | -14.41 (-76.7%; latest 更低) | -12.67 (-74.4%; latest 更低) | -1.20 (-21.5%; latest 更低) |
+| codeblock-streaming | 单次提交 p95 | -14.44 (-76.8%; latest 更低) | -13.43 (-75.5%; latest 更低) | -1.24 (-22.2%; latest 更低) |
+| diff-large | 总行渲染 | -5516.50 (-99.2%; latest 更低) | -12.01 (-20.6%; latest 更低) | +12.98 (+39.0%; latest 更高) |
+| diff-large | 行 p95 | -1692.43 (-99.7%; latest 更低) | -3.18 (-37.7%; latest 更低) | -0.30 (-5.3%; 持平（差异 <10%）) |
+| diff-large | 单次提交 p95 | -2905.35 (-99.8%; latest 更低) | -7.73 (-58.5%; latest 更低) | -0.75 (-12.0%; latest 更低) |
+| history-100 | 总行渲染 | -22.55 (-10.0%; latest 更低) | +10.15 (+5.3%; 持平（差异 <10%）) | +6.95 (+3.6%; 持平（差异 <10%）) |
+| history-100 | 行 p95 | +4.44 (+136.6%; latest 更高) | +0.31 (+4.2%; 持平（差异 <10%）) | +0.35 (+4.8%; 持平（差异 <10%）) |
+| history-100 | 单次提交 p95 | +59.02 (+1462.6%; latest 更高) | +1.66 (+2.7%; 持平（差异 <10%）) | +4.26 (+7.3%; 持平（差异 <10%）) |
+| markdown-long | 总行渲染 | -11887.11 (-88.7%; latest 更低) | -3566.63 (-70.3%; latest 更低) | -350.07 (-18.8%; latest 更低) |
+| markdown-long | 行 p95 | -31.79 (-86.7%; latest 更低) | -4.51 (-48.0%; latest 更低) | -0.66 (-12.0%; latest 更低) |
+| markdown-long | 单次提交 p95 | -31.75 (-86.6%; latest 更低) | -45.64 (-90.3%; latest 更低) | -0.65 (-11.7%; latest 更低) |
+| mixed-turn | 总行渲染 | -377.57 (-60.4%; latest 更低) | -35.69 (-12.6%; latest 更低) | +27.06 (+12.3%; latest 更高) |
+| mixed-turn | 行 p95 | -5.92 (-56.7%; latest 更低) | -2.58 (-36.3%; latest 更低) | +0.17 (+4.0%; 持平（差异 <10%）) |
+| mixed-turn | 单次提交 p95 | -14.17 (-64.5%; latest 更低) | -5.35 (-40.7%; latest 更低) | +0.92 (+13.4%; latest 更高) |
+| reads-20 | 总行渲染 | -2316.36 (-88.3%; latest 更低) | +29.65 (+10.7%; latest 更高) | +8.30 (+2.8%; 持平（差异 <10%）) |
+| reads-20 | 行 p95 | -82.64 (-95.8%; latest 更低) | -1.29 (-26.3%; latest 更低) | -0.19 (-5.0%; 持平（差异 <10%）) |
+| reads-20 | 单次提交 p95 | -166.47 (-96.1%; latest 更低) | -3.20 (-32.3%; latest 更低) | +0.02 (+0.4%; 持平（差异 <10%）) |
+| reasoning-long-prose | 总行渲染 | -1144.24 (-78.1%; latest 更低) | +58.86 (+22.4%; latest 更高) | +6.64 (+2.1%; 持平（差异 <10%）) |
+| reasoning-long-prose | 行 p95 | -5.38 (-71.1%; latest 更低) | -1.25 (-36.4%; latest 更低) | +0.27 (+14.2%; latest 更高) |
+| reasoning-long-prose | 单次提交 p95 | -4.53 (-59.2%; latest 更低) | -0.33 (-9.6%; 持平（差异 <10%）) | +0.03 (+1.0%; 持平（差异 <10%）) |
+| reasoning-long-sections | 总行渲染 | -2155.32 (-88.4%; latest 更低) | +38.98 (+15.9%; latest 更高) | +13.26 (+4.9%; 持平（差异 <10%）) |
+| reasoning-long-sections | 行 p95 | -11.99 (-82.5%; latest 更低) | -0.98 (-27.9%; latest 更低) | +0.51 (+25.2%; latest 更高) |
+| reasoning-long-sections | 单次提交 p95 | -11.49 (-78.9%; latest 更低) | -0.49 (-13.8%; latest 更低) | +0.20 (+7.1%; 持平（差异 <10%）) |
+| shell-log-large | 总行渲染 | -317.77 (-87.6%; latest 更低) | -3.01 (-6.3%; 持平（差异 <10%）) | +10.92 (+32.0%; latest 更高) |
+| shell-log-large | 行 p95 | -103.99 (-96.6%; latest 更低) | -3.60 (-49.7%; latest 更低) | -0.29 (-7.5%; 持平（差异 <10%）) |
+| shell-log-large | 单次提交 p95 | -215.31 (-98.1%; latest 更低) | -6.54 (-60.8%; latest 更低) | -6.64 (-61.2%; latest 更低) |
+| table-streaming | 总行渲染 | -600.99 (-51.6%; latest 更低) | -409.06 (-42.1%; latest 更低) | +21.47 (+4.0%; 持平（差异 <10%）) |
+| table-streaming | 行 p95 | -1.70 (-21.2%; latest 更低) | -5.95 (-48.6%; latest 更低) | -0.05 (-0.8%; 持平（差异 <10%）) |
+| table-streaming | 单次提交 p95 | -1.77 (-22.0%; latest 更低) | -6.26 (-49.8%; latest 更低) | -0.05 (-0.8%; 持平（差异 <10%）) |
+| tool-expanded-streaming | 总行渲染 | -2776.04 (-91.5%; latest 更低) | +90.79 (+54.8%; latest 更高) | +4.70 (+1.9%; 持平（差异 <10%）) |
+| tool-expanded-streaming | 行 p95 | -52.18 (-93.6%; latest 更低) | -1.10 (-23.7%; latest 更低) | -0.04 (-1.1%; 持平（差异 <10%）) |
+| tool-expanded-streaming | 单次提交 p95 | -52.30 (-93.6%; latest 更低) | -0.79 (-18.2%; latest 更低) | -0.03 (-0.7%; 持平（差异 <10%）) |
+
+## 批次与 p95 解读
+行 p95 表示单行渲染耗时分布；单次提交 p95 表示每个 React 提交内所有行耗时之和的 p95；总行渲染是整次运行的行耗时总和。三者的聚合范围不同。
+以下配对列出两种聚合指标的变化百分比；当数值方向或 10% 判定不同，应同时查看累计总量和单次提交 p95。
+- diff-large：latest 对比 baseline 的总行渲染为 +39.0%，单次提交 p95 为 -12.0%。
+- history-100：latest 对比 upstream 的总行渲染为 -10.0%，单次提交 p95 为 +1462.6%。
+- reads-20：latest 对比 native 的总行渲染为 +10.7%，单次提交 p95 为 -32.3%。
+- reasoning-long-prose：latest 对比 native 的总行渲染为 +22.4%，单次提交 p95 为 -9.6%。
+- reasoning-long-sections：latest 对比 native 的总行渲染为 +15.9%，单次提交 p95 为 -13.8%。
+- shell-log-large：latest 对比 native 的总行渲染为 -6.3%，单次提交 p95 为 -60.8%。
+- shell-log-large：latest 对比 baseline 的总行渲染为 +32.0%，单次提交 p95 为 -61.2%。
+- table-streaming：latest 对比 baseline 的总行渲染为 +4.0%，单次提交 p95 为 -0.8%。
+- tool-expanded-streaming：latest 对比 native 的总行渲染为 +54.8%，单次提交 p95 为 -18.2%。
+- tool-expanded-streaming：latest 对比 baseline 的总行渲染为 +1.9%，单次提交 p95 为 -0.7%。
+
+## history-100 串行与并行负载暴露对照
+执行记录的分类：r1–r3 在 B/C 准备前由 A 串行完成。r4 与 B/C 的非测量 smoke 重叠，因此按并行负载暴露计（见 parallel-execution.log）；r5 比 B/C 测量 worker 早 9 秒启动，之后与它们并行；r6 在 B/C 加入后运行。此表比较干净串行 r1–r3 与并行负载暴露 r4–r6。“在串行范围内”表示暴露样本中位数是否落在干净串行样本的最小值至最大值之间。
+| 模式 | 指标 | 干净串行中位数（最小–最大） | 并行负载暴露中位数 | Δ% | 在串行范围内 |
+| --- | --- | ---: | ---: | ---: | --- |
+| native | 总行渲染 | 191.75 (190.77–192.10) | 197.17 | +2.8% | 否 |
+| native | 行 p95 | 7.21 (6.85–7.38) | 7.38 | +2.3% | 是 |
+| native | 单次提交 p95 | 60.32 (58.37–65.53) | 61.83 | +2.5% | 是 |
+| upstream | 总行渲染 | 216.83 (214.22–226.61) | 227.23 | +4.8% | 否 |
+| upstream | 行 p95 | 3.19 (3.07–3.30) | 3.37 | +5.6% | 否 |
+| upstream | 单次提交 p95 | 3.11 (2.89–4.20) | 4.13 | +32.8% | 是 |
+| baseline | 总行渲染 | 193.32 (191.74–196.93) | 198.94 | +2.9% | 否 |
+| baseline | 行 p95 | 7.10 (6.36–7.56) | 7.89 | +11.1% | 否 |
+| baseline | 单次提交 p95 | 58.03 (57.75–58.03) | 63.21 | +8.9% | 否 |
+| latest | 总行渲染 | 198.35 (196.08–202.23) | 204.64 | +3.2% | 否 |
+| latest | 行 p95 | 7.53 (7.41–7.92) | 7.77 | +3.1% | 是 |
+| latest | 单次提交 p95 | 62.72 (61.94–63.82) | 63.40 | +1.1% | 是 |
+
+## 其他场景的重复次数限制
+仅有串行 r1 和并行 r2 的场景每个阶段只有一个样本，无法把差异与运行间波动区分。codeblock-streaming 和若干已完成场景没有并行阶段的重复样本。
+
+## 验证与身份细节
+
+- 完整矩阵：120/120 JSON，每模式 30 条；场景/重复编号齐全，无额外 JSON。队列 13 个不同单元全部完成，失败 0。
+- `ios-identity.mjs --check-file` 通过 120/120。每个文件均有 `identity.status=match` 和 host probe，并包含总行渲染、行 p95、单次提交 p95。
+- `upstream` 30/30：运行路径 `/private/tmp/bc-v4/upstream`，无 fork marker 且 plugin rows 大于 0。`baseline` 30/30：运行路径 `/private/tmp/bc-v4/baseline`，带 fork marker。`latest` 30/30：运行路径 `/private/tmp/bc-v5/latest`，带 fork marker。`native` 30/30：插件 disabled、无插件 marker、只有 native rows；因切换模式时插件保持 disabled，记录中的 symlink 路径会随前一模式变化。
+- Studio 到 worktree 的 SHA-256 对比 120/120 一致。每单元 load/起止时间和原始 runner 日志保存在 dump 旁。
+- A 首次运行 `history-100 r3` 时出现一次 checker 误报：外部 checker 传入 `baseline`，而 `ios-identity.mjs` 对两个 Better Paseo 版本都应使用 `fork`。baseline 原始身份戳含 `imageRpc`；续跑单元用 `preserve_existing` 保留已保存的 upstream/baseline 文件，并以 `--expect fork` 独立复核；之后只采集 latest 和 native。随后修正了 worker 的模式映射；最终没有失败单元标记。
+- B/C 的 smoke r118/r119 八个身份检查全部通过，文件留在正式 raw 目录之外。更早的 smoke r116/r117 未产生正式 dump，已排除。A 的 `history-100 r4` 与这些非测量 smoke 操作重叠，因此在负载对照中归为并行负载暴露。
+- 初始 68 份串行 dump 的原始 iOS batch 与 resume 日志保存在本目录；旧日志没有逐单元 load 快照。`execution.tsv` 记录了之后所有队列单元的 env/起止时间/load。

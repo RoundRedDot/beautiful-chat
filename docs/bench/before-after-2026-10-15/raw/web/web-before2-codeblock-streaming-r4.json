@@ -1,0 +1,90 @@
+{
+  "fixture": "codeblock-streaming",
+  "speed": "1",
+  "mode": "before2",
+  "reducedMotion": false,
+  "rep": 4,
+  "agentId": "abe91503-0879-473a-990a-5fec0eb197d1",
+  "streamMs": 15813,
+  "identity": {
+    "imageRpc": true,
+    "upstream": false,
+    "host": true,
+    "mode": "before2",
+    "pluginPath": "/private/tmp/bc-ba/before2",
+    "pluginStatus": "running",
+    "pluginEnabled": true
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "codeblock-streaming",
+    "platform": "web",
+    "elapsedMs": 19817.5,
+    "rows": {
+      "plugin": 458,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 0.6000000238418579
+      },
+      "assistant": {
+        "commits": 458,
+        "mounts": 2,
+        "n": 458,
+        "p50": 0.30000001192092896,
+        "p95": 2,
+        "max": 6.400000035762787,
+        "sum": 368.2999992966652
+      }
+    },
+    "allRows": {
+      "n": 465,
+      "p50": 0.20000004768371582,
+      "p95": 2,
+      "max": 6.400000035762787,
+      "sum": 368.89999932050705
+    },
+    "perCommit": {
+      "n": 456,
+      "p50": 0.30000001192092896,
+      "p95": 2,
+      "max": 6.400000035762787,
+      "sum": 368.89999932050705
+    },
+    "frames": {
+      "count": 1188,
+      "dropped": 1,
+      "droppedRatio": 0.0008410428931875525,
+      "longestMs": 33.29999999999927
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.011232688628302678,
+    "heapMB": 176.0170783996582
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.735601,
+      "ScriptDuration": 1.7268569999999999,
+      "LayoutDuration": 0.09026,
+      "RecalcStyleDuration": 0.134992,
+      "LayoutCount": 291,
+      "RecalcStyleCount": 1127
+    },
+    "nodes": 2564,
+    "jsHeapUsedMB": 116.33086395263672,
+    "beforeGc": {
+      "nodes": 3813,
+      "jsHeapUsedMB": 132.7018051147461
+    }
+  }
+}

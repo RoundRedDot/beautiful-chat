@@ -1,0 +1,237 @@
+2026-10-15T12:32:24+08:00
+2026-10-15T04:32:24Z
+12:32  up 6 days,  1:22, 2 users, load averages: 3.36 5.02 4.00
+uptime: 12:32  up 6 days,  1:22, 2 users, load averages: 3.36 5.02 4.00
+schedule rep=1 fixture=codeblock-streaming speed=1 order=before2,after,before
+ios-before2-codeblock-streaming-r1: skip existing
+Using workspace wks_371455993c88a092
+ios-after-codeblock-streaming-r1: dumped (stream 16s, agent b5b00aba-42fc-4e77-99c9-626a9fa6af9a, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-codeblock-streaming-r1: dumped (stream 17s, agent b9d205d1-fe9e-443a-a095-cd9dc09687fa, identity imageRpc)
+schedule rep=1 fixture=diff-large speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-diff-large-r1: dumped (stream 3s, agent 545147e0-2cb4-4776-8980-040718724fa4, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-diff-large-r1: dumped (stream 3s, agent 856b24d2-8a3b-48b9-b0e5-e0102c3b206f, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-diff-large-r1: dumped (stream 2s, agent a70a73a1-2cfe-44b6-a521-f1b18852b8a5, identity imageRpc)
+schedule rep=1 fixture=history-100 speed=max order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-history-100-r1: dumped (stream 1s, agent 9e187f4d-0ead-49f6-b8bf-302a16c898d1, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-history-100-r1: dumped (stream 1s, agent 90a6350f-433d-4221-b2bb-f57785da3d65, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-history-100-r1: dumped (stream 1s, agent becae7d8-68dc-4c73-90a3-19bac530895a, identity imageRpc)
+schedule rep=1 fixture=markdown-long speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-markdown-long-r1: dumped (stream 39s, agent fc4a71db-532a-4aab-b3db-ceb22af0bf0c, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-markdown-long-r1: dumped (stream 39s, agent 77db9ce9-58d0-4690-b71d-e24fab41cab0, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-markdown-long-r1: dumped (stream 39s, agent 2fbb52dc-93c1-4e75-9a5e-f2c6404d523e, identity imageRpc)
+schedule rep=1 fixture=mixed-turn speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-mixed-turn-r1: dumped (stream 12s, agent f6f2586a-197f-477c-8564-430ab174fc55, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-mixed-turn-r1: dumped (stream 12s, agent 6e3a527d-5e0d-4435-938c-99422225e93d, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-mixed-turn-r1: dumped (stream 13s, agent c5a166b3-28c2-417f-9974-a1e95d417914, identity imageRpc)
+schedule rep=1 fixture=reads-20 speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-reads-20-r1: dumped (stream 6s, agent d6fa8d26-12c5-432b-a16d-9f7849e0e5be, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reads-20-r1: dumped (stream 7s, agent 7c3f56ae-420a-4aa5-a738-b8f735399077, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reads-20-r1: dumped (stream 7s, agent 1e511433-8322-4515-a396-1c7252d41b62, identity imageRpc)
+schedule rep=1 fixture=reasoning-long-prose speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-prose-r1: dumped (stream 16s, agent 3eac560d-12f1-4238-8184-93a70d12b90c, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-prose-r1: dumped (stream 17s, agent 18def3d8-1a68-47d1-9ea8-d019cb21a1df, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-prose-r1: dumped (stream 17s, agent 6a1f7add-1fee-4817-b5fc-ff0b3a1ce1a9, identity imageRpc)
+schedule rep=1 fixture=reasoning-long-sections speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-sections-r1: dumped (stream 14s, agent 5d8da2a0-ce2c-425c-b85a-a6d75883b9a7, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-sections-r1: dumped (stream 15s, agent d4d6a015-2288-478f-9117-bad0f6250750, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-sections-r1: dumped (stream 15s, agent e6e4dc92-9aba-4659-b660-8ac42fc02774, identity imageRpc)
+schedule rep=1 fixture=shell-log-large speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-shell-log-large-r1: dumped (stream 11s, agent 50881135-0a25-41ae-9fb7-da2d2d4e18a2, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-shell-log-large-r1: dumped (stream 11s, agent 0d262d67-1927-4d64-a78f-3c2bcda7c171, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-shell-log-large-r1: dumped (stream 11s, agent d73bad48-f31c-4aac-b1a3-7a875b20ca08, identity imageRpc)
+schedule rep=1 fixture=table-streaming speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-table-streaming-r1: dumped (stream 14s, agent ab60b17a-32d3-43d0-a798-e89af84acfad, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-table-streaming-r1: dumped (stream 14s, agent 47bdd91e-abca-4565-ba21-d1b0f22a9b81, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-table-streaming-r1: dumped (stream 14s, agent 91c2344f-5e0f-43de-b94a-c723b3ce4060, identity imageRpc)
+schedule rep=1 fixture=tool-expanded-streaming speed=4 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-tool-expanded-streaming-r1: dumped (stream 16s, agent f67d51cf-b8d4-4c59-8f51-3e58bef89965, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-tool-expanded-streaming-r1: dumped (stream 16s, agent 0176962b-36d9-4886-9003-d578c49417cb, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-tool-expanded-streaming-r1: dumped (stream 16s, agent d55f089c-5e84-4e8c-92ed-4d2619d5fb3b, identity imageRpc)
+schedule rep=2 fixture=codeblock-streaming speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-codeblock-streaming-r2: dumped (stream 16s, agent 4e9a7a2b-dbaf-45af-8c65-fb99b83277e2, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-codeblock-streaming-r2: dumped (stream 16s, agent 59e22533-e193-4b96-9176-d71cca7aceaa, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-codeblock-streaming-r2: dumped (stream 16s, agent 568d539d-faa6-470d-a6f1-963578215ac2, identity imageRpc)
+schedule rep=2 fixture=diff-large speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-diff-large-r2: dumped (stream 3s, agent 42212b43-ea57-493d-b03e-9df96c7f9bbf, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-diff-large-r2: dumped (stream 3s, agent 9089a90f-ad4d-493c-8f07-ec510f1a09ae, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-diff-large-r2: dumped (stream 3s, agent 340cd89d-b220-4d3e-84a8-dd1a517703bc, identity imageRpc)
+schedule rep=2 fixture=history-100 speed=max order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-history-100-r2: dumped (stream 1s, agent 161ec95c-14c9-4e38-ba93-1ce45bf34c4b, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-history-100-r2: dumped (stream 1s, agent 450039a3-d64c-4cbc-828a-130a62c624a4, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-history-100-r2: dumped (stream 1s, agent 7160d992-1738-4aee-8d8a-3b3b648c193b, identity imageRpc)
+schedule rep=2 fixture=markdown-long speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-markdown-long-r2: dumped (stream 39s, agent 7655bf19-f6bf-4dde-a509-401b2f5309ba, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-markdown-long-r2: dumped (stream 39s, agent 96a91141-cb55-464c-bad3-b8a89688d086, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-markdown-long-r2: dumped (stream 39s, agent c49f27e1-e3b3-4ae6-83fb-9b01cc3563e4, identity imageRpc)
+schedule rep=2 fixture=mixed-turn speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-mixed-turn-r2: dumped (stream 12s, agent ee5c0944-f5a4-4781-a79d-97d2d5255bb7, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-mixed-turn-r2: dumped (stream 12s, agent 6a64b33f-bee7-49f9-837c-3912af9596b2, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-mixed-turn-r2: dumped (stream 13s, agent f8778321-3b66-4ff0-862b-5221bda2f1cd, identity imageRpc)
+schedule rep=2 fixture=reads-20 speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-reads-20-r2: dumped (stream 7s, agent c296d8c9-d05c-46d2-8fc2-da55508bc619, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reads-20-r2: dumped (stream 7s, agent 0d23b512-3d92-4ff2-8e8a-7810ff97f68a, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reads-20-r2: dumped (stream 6s, agent 0b0cc97a-0e69-4d64-99fe-2d09f3cb089b, identity imageRpc)
+schedule rep=2 fixture=reasoning-long-prose speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-prose-r2: dumped (stream 16s, agent d7bdc301-3bf7-4c7e-8f1a-d223ccb96dc9, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-prose-r2: dumped (stream 17s, agent 50221298-881d-46b7-a8c6-6bfca5c0ee30, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-prose-r2: dumped (stream 17s, agent 47a03c5c-9211-4be6-8cdf-4760111df742, identity imageRpc)
+schedule rep=2 fixture=reasoning-long-sections speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-sections-r2: dumped (stream 14s, agent 2182e7b3-121e-4084-a017-85175750c501, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-sections-r2: dumped (stream 14s, agent b409d905-d289-4182-b7d0-1576f7d7c192, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-sections-r2: dumped (stream 14s, agent 2440fba0-d010-4793-aef7-bac1ad5f737d, identity imageRpc)
+schedule rep=2 fixture=shell-log-large speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-shell-log-large-r2: dumped (stream 11s, agent e5982450-e7c7-4433-b16e-537d82366b32, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-shell-log-large-r2: dumped (stream 11s, agent ecf82c72-0aa0-40a9-ae8e-49faf96905f3, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-shell-log-large-r2: dumped (stream 11s, agent 8097d2cd-31c7-48e8-9cac-9fd77f03ce94, identity imageRpc)
+schedule rep=2 fixture=table-streaming speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-table-streaming-r2: dumped (stream 15s, agent 19c54caa-e65f-4040-93d5-449d42b85058, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-table-streaming-r2: dumped (stream 14s, agent fbbb1a74-836c-4279-8428-3b2188e0b148, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-table-streaming-r2: dumped (stream 14s, agent d54aac68-e975-4af7-bc93-9f1e5f0a6fd2, identity imageRpc)
+schedule rep=2 fixture=tool-expanded-streaming speed=4 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-tool-expanded-streaming-r2: dumped (stream 16s, agent aca98a97-cf6d-40d8-a985-49c3032f7dd6, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-tool-expanded-streaming-r2: dumped (stream 16s, agent 7d564164-1dff-423c-8f32-9d336d9f85fe, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-tool-expanded-streaming-r2: dumped (stream 16s, agent aed8c27e-81ab-4e5d-9acb-67d76e3e9169, identity imageRpc)
+schedule rep=3 fixture=codeblock-streaming speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-codeblock-streaming-r3: dumped (stream 16s, agent 9c50bc14-fd93-41e8-85c2-dc72bd05c472, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-codeblock-streaming-r3: dumped (stream 16s, agent 3d7fa39e-9206-41ae-9bb2-feb64d4490c5, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-codeblock-streaming-r3: dumped (stream 16s, agent 12558b1e-3255-4b01-a82d-b79cb78d541d, identity imageRpc)
+schedule rep=3 fixture=diff-large speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-diff-large-r3: dumped (stream 3s, agent a50ea8c9-bf9d-42d7-8938-3a17b8ce956d, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-diff-large-r3: dumped (stream 3s, agent e3964979-ec67-461e-a9dc-1af970362adb, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-diff-large-r3: dumped (stream 2s, agent 209bc909-f346-4f12-95fc-e083986a4c6f, identity imageRpc)
+schedule rep=3 fixture=history-100 speed=max order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-history-100-r3: dumped (stream 1s, agent b6639206-867e-4a71-81d3-f5f48dcaf0df, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-history-100-r3: dumped (stream 1s, agent 17d8c005-8223-4ac3-aba5-1c5e25b67743, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-history-100-r3: dumped (stream 0s, agent e5a05bf0-8b27-48ba-bf2b-4640dc243407, identity imageRpc)
+schedule rep=3 fixture=markdown-long speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-markdown-long-r3: dumped (stream 39s, agent 91dc96e1-3df5-4165-9693-7f6393dce000, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-markdown-long-r3: dumped (stream 39s, agent 0028b979-55b8-430f-9811-3ed272dea94a, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-markdown-long-r3: dumped (stream 39s, agent 0f245521-804f-4937-b089-5bb6b3500b0d, identity imageRpc)
+schedule rep=3 fixture=mixed-turn speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-mixed-turn-r3: dumped (stream 12s, agent da427d29-6a91-4736-91c7-4de1aef7bba9, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-mixed-turn-r3: dumped (stream 12s, agent 66df9d83-6646-484c-bd08-5d0b4f32a752, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-mixed-turn-r3: dumped (stream 12s, agent 5b66e699-f0a5-48f6-b2e7-fbe62e0872de, identity imageRpc)
+schedule rep=3 fixture=reads-20 speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-reads-20-r3: dumped (stream 7s, agent e0284209-2355-4837-883c-02e6556afae9, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reads-20-r3: dumped (stream 6s, agent 85819257-a23a-4397-a691-62c8c941ed12, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reads-20-r3: dumped (stream 7s, agent a0dc99e3-c3f1-49b3-a2a7-846b908d3d83, identity imageRpc)
+schedule rep=3 fixture=reasoning-long-prose speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-prose-r3: dumped (stream 17s, agent dfc69286-4691-4fed-86d2-48bb0f58ff3a, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-prose-r3: dumped (stream 17s, agent 86798cca-519d-4c24-9f8f-1dd2a035c0c3, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-prose-r3: dumped (stream 16s, agent 27712ab4-00d0-4939-8f35-02e346ecdece, identity imageRpc)
+schedule rep=3 fixture=reasoning-long-sections speed=1 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-reasoning-long-sections-r3: dumped (stream 14s, agent baec7a3f-531d-4fc0-a420-4e7e876c76c6, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-reasoning-long-sections-r3: dumped (stream 14s, agent 0aa6b8ce-b78e-4bff-a30a-f54227af39ed, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-reasoning-long-sections-r3: dumped (stream 14s, agent c91fd121-7519-4ce8-b5c3-47c1bacbb514, identity imageRpc)
+schedule rep=3 fixture=shell-log-large speed=1 order=after,before,before2
+Using workspace wks_371455993c88a092
+ios-after-shell-log-large-r3: dumped (stream 11s, agent a04e0740-5cd8-4448-8d78-3b7878d55590, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-shell-log-large-r3: dumped (stream 11s, agent 7df32d74-0f1b-41b9-9d73-291e653c66d7, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-shell-log-large-r3: dumped (stream 11s, agent 1c640fde-1944-4edd-b1b7-a244856427c1, identity imageRpc)
+schedule rep=3 fixture=table-streaming speed=1 order=before,before2,after
+Using workspace wks_371455993c88a092
+ios-before-table-streaming-r3: dumped (stream 14s, agent 044e055d-b1aa-49bb-b573-4848ceffe577, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before2-table-streaming-r3: dumped (stream 14s, agent 0656af16-cc01-49f9-80d0-5ab98ae88030, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-table-streaming-r3: dumped (stream 14s, agent a625f377-70e2-4b4a-abd6-064de4337499, identity imageRpc)
+schedule rep=3 fixture=tool-expanded-streaming speed=4 order=before2,after,before
+Using workspace wks_371455993c88a092
+ios-before2-tool-expanded-streaming-r3: dumped (stream 16s, agent 4f4af0e8-f26e-4259-86fa-016bc0e1c27c, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-after-tool-expanded-streaming-r3: dumped (stream 15s, agent a47b9c06-8109-47a0-85b0-1c5c16131b4c, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-before-tool-expanded-streaming-r3: dumped (stream 16s, agent 81b30c7a-d1f9-49ba-a442-8d38126780aa, identity imageRpc)
+2026-10-15T14:48:42+08:00
+2026-10-15T06:48:42Z
+14:48  up 6 days,  3:38, 2 users, load averages: 2.55 2.27 2.41

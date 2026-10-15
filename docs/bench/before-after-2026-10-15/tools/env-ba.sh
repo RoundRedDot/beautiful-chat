@@ -1,0 +1,21 @@
+#!/bin/zsh
+export BC_BENCH_HOME="$HOME/.paseo-bench-p0p1"
+export BC_BENCH_PORT=6871
+export BC_PASEO_BIN=/tmp/bc-perf-p0p1/paseo-cli/node_modules/.bin/paseo
+export BC_PROFILE=/tmp/bc-ba/web-profile
+export BC_ORIGIN=http://127.0.0.1:8092
+export BC_PROJECT=/tmp/bc-perf-p0p1/project
+export BC_PLUGIN_LINK=/tmp/bc-ba/bench-active
+export BC_BEFORE_DIR=/tmp/bc-ba/before
+export BC_BEFORE2_DIR=/tmp/bc-ba/before2
+export BC_AFTER_DIR=/tmp/bc-ba/after
+export BC_SIM_UDID=4497FFF9-93D1-4713-B55B-A9988BC2209E
+export BC_BUNDLE_ID=sh.paseo.debug
+export BC_URL_SCHEME=paseo
+export BC_DEV_SCHEME=paseo
+export BC_CWD=/tmp/bc-perf-p0p1/project
+export BC_WORKSPACE_ID=wks_371455993c88a092
+export METRO_PORT=8085
+export BC_SERVE_SIM=/tmp/bc-ios/paseo/node_modules/.bin/serve-sim
+export BC_SERVE_SIM_PORT=3160
+export BC_DISMISS_OPEN_ALERT=1

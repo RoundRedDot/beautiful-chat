@@ -1,0 +1,89 @@
+{
+  "fixture": "codeblock-streaming",
+  "speed": "1",
+  "mode": "upstream",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "9bdb193c-cbf2-4a7d-bce3-6b35e520ce9f",
+  "streamMs": 15815,
+  "identity": {
+    "fork": false,
+    "upstream": true,
+    "host": true,
+    "pluginLinkRealpath": "/private/tmp/bc-v4/upstream",
+    "pluginEnabled": true,
+    "pluginStatus": "running"
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "codeblock-streaming",
+    "platform": "web",
+    "elapsedMs": 19818.699999928474,
+    "rows": {
+      "plugin": 457,
+      "native": 0
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.3999999761581421,
+        "p95": 1.100000023841858,
+        "max": 1.100000023841858,
+        "sum": 3.4000000953674316
+      },
+      "assistant": {
+        "commits": 450,
+        "mounts": 2,
+        "n": 450,
+        "p50": 3,
+        "p95": 5.5,
+        "max": 6.799999952316284,
+        "sum": 1300.700000166893
+      }
+    },
+    "allRows": {
+      "n": 457,
+      "p50": 3,
+      "p95": 5.5,
+      "max": 6.799999952316284,
+      "sum": 1304.1000002622604
+    },
+    "perCommit": {
+      "n": 448,
+      "p50": 3,
+      "p95": 5.5,
+      "max": 6.799999952316284,
+      "sum": 1304.1000002622604
+    },
+    "frames": {
+      "count": 1187,
+      "dropped": 3,
+      "droppedRatio": 0.0025210084033613447,
+      "longestMs": 33.39999999999782
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.12507870008680552,
+    "heapMB": 170.51349544525146
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 3.5265290000000005,
+      "ScriptDuration": 2.624641,
+      "LayoutDuration": 0.098715,
+      "RecalcStyleDuration": 0.123557,
+      "LayoutCount": 554,
+      "RecalcStyleCount": 1537
+    },
+    "nodes": 4022,
+    "jsHeapUsedMB": 118.06532669067383,
+    "beforeGc": {
+      "nodes": 4354,
+      "jsHeapUsedMB": 127.20405960083008
+    }
+  }
+}

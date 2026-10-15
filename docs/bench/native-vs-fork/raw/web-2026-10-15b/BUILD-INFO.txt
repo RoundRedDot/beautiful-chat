@@ -1,0 +1,17 @@
+Native-vs-fork four-version Web run
+Date: 2026-10-15
+Latest under test: 37bfb60c004ea45d4723e101b7ed80996dd4987b
+
+Build identities
+- native: Better Paseo disabled; Paseo v0.11.2 host timeline draws rows.
+- upstream: Beautiful Chat 42b61d8301b5400a67821bbbfcf99fa8b681dc37; tree 72795ef6b9493dc2ee5d21fc7c759a9b6b558e55.
+- baseline: Better Paseo 9f270c6aa66f119da5300762493b5dd5f1bb0cc0; tree eb49d0b08969496c7cf98f79751368a794ca1d0d.
+- latest: Better Paseo 37bfb60c004ea45d4723e101b7ed80996dd4987b; tree 79603885a219818605706b9f88b34074fbba395e.
+- Host: Paseo 0.11.2 commit 75953250959979b8f088bbca8dbd6ee61d0151b1 with local host-probe changes in packages/app/metro.config.cjs, packages/app/src/agent-stream/view.tsx, packages/app/src/debug/host-perf.ts; combined probe patch SHA-256 f87e89efb9ab9d8259645f9af5b291daeca9598676e617c11b4ba1570fff48b9.
+
+Build / run notes
+- Each plugin build was installed with npm ci --include=dev. Latest was freshly archived and installed for this run. Upstream and baseline were reused from the prior round after tracked-file manifest verification.
+- Web export probe SHA-256: 9dd7eab4521434bcf3f8dbfa6539df64c8d8513dbab667a00a3fd60d5e75b599.
+- Studio: Apple M5 Max, 18 cores, 64 GB RAM, macOS 27.0.1; Node 24.15.0; Chrome 155.0.8059.40; 1280x900, zh-CN.
+- Protocol: 11 README fixtures, native/upstream/baseline/latest rotating, 3 runs per cell; reload per run; forced GC before heap and DOM reads. Raw came from Studio /tmp/bc-v5/raw/web.
+- Transfer check: SHA-256 equality for all 132 JSON files and the four retained mixed-turn screenshots.

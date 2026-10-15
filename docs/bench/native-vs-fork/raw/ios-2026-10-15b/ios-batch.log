@@ -1,0 +1,166 @@
+ios_batch_start=2026-10-15T11:42:15Z
+load=19:42  up 6 days,  8:31, 2 users, load averages: 10.92 2.83 1.55
+uptime: 19:42  up 6 days,  8:31, 2 users, load averages: 10.92 2.83 1.55
+schedule rep=1 fixture=codeblock-streaming speed=1 order=upstream,baseline,latest,native
+Using workspace wks_371455993c88a092
+ios-upstream-codeblock-streaming-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-codeblock-streaming-r1: dumped (stream 16s, agent e20c690d-13e9-4f40-b85e-a4982a91a1ae, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-codeblock-streaming-r1: dumped (stream 16s, agent 9606eefc-0556-4b05-a098-a176bcb80f7e, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-codeblock-streaming-r1: dumped (stream 16s, agent e77b8d72-9acf-4f19-b72e-b29c12d1d3b0, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-codeblock-streaming-r1: dumped (stream 16s, agent 85624e35-9568-4bde-86ae-b883ae4267c4, identity no plugin marker)
+schedule rep=1 fixture=diff-large speed=1 order=baseline,latest,native,upstream
+Using workspace wks_371455993c88a092
+ios-baseline-diff-large-r1: dumped (stream 3s, agent f44cad6a-b597-4224-ae4f-e9a1ceea985f, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-diff-large-r1: dumped (stream 2s, agent 4c99e18f-544f-4e1d-9112-2c506143b0b2, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-diff-large-r1: dumped (stream 3s, agent 9c2a2bf1-699a-4719-909a-6cda876a205d, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-diff-large-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-diff-large-r1: dumped (stream 3s, agent d9690178-19a8-48d0-927d-e9396008d540, identity plugin rows without imageRpc)
+schedule rep=1 fixture=history-100 speed=max order=latest,native,upstream,baseline
+Using workspace wks_371455993c88a092
+ios-latest-history-100-r1: dumped (stream 0s, agent b9866f26-00c2-4542-8cf6-87e7c522fd29, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-history-100-r1: dumped (stream 1s, agent 977b90a0-258f-44b0-9ad1-c536618f5dc9, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-history-100-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r1: dumped (stream 1s, agent a4c002fe-4c6a-41a9-a84c-b478bf747f87, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-history-100-r1: dumped (stream 1s, agent 86dac04e-c781-4d6e-87da-baad9d0bdec2, identity imageRpc)
+schedule rep=1 fixture=markdown-long speed=1 order=native,upstream,baseline,latest
+Using workspace wks_371455993c88a092
+ios-native-markdown-long-r1: dumped (stream 39s, agent 83f8ba07-8f1f-48ce-af83-490f4d2ea56b, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-markdown-long-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-markdown-long-r1: dumped (stream 39s, agent b0247ed9-727c-4fab-96d0-6ca5c8f2d3d4, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-markdown-long-r1: dumped (stream 39s, agent b4c7f933-5eb0-42f9-aac6-112fd8dd81b3, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-markdown-long-r1: dumped (stream 39s, agent 926c5a5f-7891-4841-9eac-a43aeb5975a8, identity imageRpc)
+schedule rep=1 fixture=mixed-turn speed=1 order=upstream,baseline,latest,native
+Using workspace wks_371455993c88a092
+ios-upstream-mixed-turn-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-mixed-turn-r1: dumped (stream 12s, agent 20c18a81-9cdd-40b3-bb6b-b33c2349970f, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-mixed-turn-r1: dumped (stream 12s, agent c9bafee5-1df8-442e-9a46-dddbb2e95087, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-mixed-turn-r1: dumped (stream 12s, agent fd3cecd5-220c-46c9-b2ef-ab4b67ce37fd, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-mixed-turn-r1: dumped (stream 12s, agent 5462a673-608b-4053-9fe8-08bac8b61069, identity no plugin marker)
+schedule rep=1 fixture=reads-20 speed=1 order=baseline,latest,native,upstream
+Using workspace wks_371455993c88a092
+ios-baseline-reads-20-r1: dumped (stream 7s, agent edacf3bd-69e7-4c2c-b1aa-40bb3a673c16, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-reads-20-r1: dumped (stream 6s, agent 679e39c2-08fc-4dea-bd1d-6dda52e87f36, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-reads-20-r1: dumped (stream 7s, agent 13001fab-5396-442a-bf96-3b27f6d2fcc3, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-reads-20-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-reads-20-r1: dumped (stream 6s, agent 1a3446aa-3d3f-4af9-8806-d11fa3da8477, identity plugin rows without imageRpc)
+schedule rep=1 fixture=reasoning-long-prose speed=1 order=latest,native,upstream,baseline
+Using workspace wks_371455993c88a092
+ios-latest-reasoning-long-prose-r1: dumped (stream 17s, agent 8e99bcc9-5b3f-40db-9537-93baf47be546, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-reasoning-long-prose-r1: dumped (stream 16s, agent d6748d5a-a88d-4f9b-b35b-d03741647761, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-reasoning-long-prose-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-reasoning-long-prose-r1: dumped (stream 17s, agent 189122f7-11de-4144-aa40-36e55e16101b, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-reasoning-long-prose-r1: dumped (stream 17s, agent 82551892-e092-489d-8954-b94acbaed6d5, identity imageRpc)
+schedule rep=1 fixture=reasoning-long-sections speed=1 order=native,upstream,baseline,latest
+Using workspace wks_371455993c88a092
+ios-native-reasoning-long-sections-r1: dumped (stream 15s, agent 8d6f2655-6af0-4309-bd8e-a3251f96b099, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-reasoning-long-sections-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-reasoning-long-sections-r1: dumped (stream 14s, agent df83c1b4-5288-4a44-99ee-110965b02d0e, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-reasoning-long-sections-r1: dumped (stream 14s, agent 565b37f7-e8e1-4c40-b31e-aa86bbe07e18, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-reasoning-long-sections-r1: dumped (stream 14s, agent 2f3c2f38-4a6b-497e-8632-2e50a7cc12bb, identity imageRpc)
+schedule rep=1 fixture=shell-log-large speed=1 order=upstream,baseline,latest,native
+Using workspace wks_371455993c88a092
+ios-upstream-shell-log-large-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r1: dumped (stream 11s, agent c849988a-7d49-4081-b753-30edf2119ab7, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-shell-log-large-r1: dumped (stream 11s, agent ace5c7cd-15fc-49c4-a5ce-36c6ed83a2e9, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-shell-log-large-r1: dumped (stream 11s, agent b81a373a-cfcf-4ac9-a74b-0d2817b6e187, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-shell-log-large-r1: dumped (stream 11s, agent 4cccdf3d-9f21-4341-b7ed-1b55deb4db09, identity no plugin marker)
+schedule rep=1 fixture=table-streaming speed=1 order=baseline,latest,native,upstream
+Using workspace wks_371455993c88a092
+ios-baseline-table-streaming-r1: dumped (stream 14s, agent 9934345d-b4ca-4291-9b39-095790211474, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-table-streaming-r1: dumped (stream 14s, agent fc11b99a-1d02-441c-b1b8-e2e2e2558fb3, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-table-streaming-r1: dumped (stream 14s, agent 3d9790e1-ed17-459c-87ed-bef7d20e1e5c, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-table-streaming-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-table-streaming-r1: dumped (stream 14s, agent 47abeb01-c8ef-42b3-b46c-f60f81978136, identity plugin rows without imageRpc)
+schedule rep=1 fixture=tool-expanded-streaming speed=4 order=latest,native,upstream,baseline
+Using workspace wks_371455993c88a092
+ios-latest-tool-expanded-streaming-r1: dumped (stream 16s, agent 723218c6-bdfc-4491-af2d-360330a44452, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-tool-expanded-streaming-r1: dumped (stream 16s, agent e0d9c7f7-7452-4732-980c-d7b4ffc042b4, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-tool-expanded-streaming-r1: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-tool-expanded-streaming-r1: dumped (stream 16s, agent 010dfdfe-c2b2-4e46-8f79-f49f1c52c1d6, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-tool-expanded-streaming-r1: dumped (stream 16s, agent 0a13af38-3d08-4883-8d3f-6fcbe7d03dad, identity imageRpc)
+schedule rep=2 fixture=codeblock-streaming speed=1 order=baseline,latest,native,upstream
+Using workspace wks_371455993c88a092
+ios-baseline-codeblock-streaming-r2: dumped (stream 16s, agent d1c85be2-7581-4677-aa2b-3451fd638927, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-codeblock-streaming-r2: dumped (stream 16s, agent c208ad3c-f554-4b3e-81c6-dc6d103d2847, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-codeblock-streaming-r2: dumped (stream 15s, agent d5633f2c-d95f-4db3-b3c4-3ba0ed4feef9, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-codeblock-streaming-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-codeblock-streaming-r2: dumped (stream 16s, agent 0b76d332-0539-400f-b077-6799c71de06a, identity plugin rows without imageRpc)
+schedule rep=2 fixture=diff-large speed=1 order=latest,native,upstream,baseline
+Using workspace wks_371455993c88a092
+ios-latest-diff-large-r2: dumped (stream 3s, agent e629795d-cf6e-47dc-b0db-0438bbca9efa, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-diff-large-r2: dumped (stream 3s, agent d06894fe-4bfe-4782-ba2d-ed384ef1c9e8, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-diff-large-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-diff-large-r2: dumped (stream 3s, agent b702121b-ca8d-4d74-a2f4-dc9ce1798d80, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-diff-large-r2: dumped (stream 3s, agent ae8a936d-c5f6-46e1-b0ad-60bedeb6b285, identity imageRpc)
+schedule rep=2 fixture=history-100 speed=max order=native,upstream,baseline,latest
+Using workspace wks_371455993c88a092
+ios-native-history-100-r2: dumped (stream 1s, agent 57af445c-f42b-4e68-805f-ca9eb7025e09, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-history-100-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r2: dumped (stream 0s, agent 73100b0d-85d8-4c48-92c3-9e5aa76d93be, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-history-100-r2: dumped (stream 1s, agent 5fae5732-e48c-4247-a14a-b1ffbb73d597, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-history-100-r2: dumped (stream 0s, agent bafeea2b-42d3-43f5-82e1-128b8178851a, identity imageRpc)
+schedule rep=2 fixture=markdown-long speed=1 order=upstream,baseline,latest,native
+Using workspace wks_371455993c88a092
+ios-upstream-markdown-long-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-markdown-long-r2: dumped (stream 39s, agent c8a49a11-aea1-4b5a-978c-f66c0fc586cb, identity plugin rows without imageRpc)
+Using workspace wks_371455993c88a092
+ios-baseline-markdown-long-r2: dumped (stream 39s, agent e8824604-a7b2-49b6-abc9-8355ba24f3a5, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-markdown-long-r2: dumped (stream 39s, agent d8a8d624-2bf2-45ce-987b-285d4092e43e, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-markdown-long-r2: dumped (stream 39s, agent 82dee075-49d3-4e00-861e-d58e75cd349e, identity no plugin marker)
+schedule rep=2 fixture=mixed-turn speed=1 order=baseline,latest,native,upstream
+Using workspace wks_371455993c88a092
+ios-baseline-mixed-turn-r2: dumped (stream 12s, agent e78ad8c2-3e29-446a-8b79-f177a3cb83c4, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-latest-mixed-turn-r2: dumped (stream 12s, agent 34e154bf-d46e-4f13-9fc2-fd5977ac44a4, identity imageRpc)
+Using workspace wks_371455993c88a092
+ios-native-mixed-turn-r2: dumped (stream 12s, agent daa188cd-2e09-42fe-a6ef-531c296fd399, identity no plugin marker)
+Using workspace wks_371455993c88a092
+ios-upstream-mixed-turn-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-mixed-turn-r2: dumped (stream 12s, agent 88e1b65e-a5ba-458e-91eb-02cc6efdb7f0, identity plugin rows without imageRpc)
+schedule rep=2 fixture=reads-20 speed=1 order=latest,native,upstream,baseline
+Using workspace wks_371455993c88a092
+ios-latest-reads-20-r2: dumped (stream 7s, agent f271598e-4bbf-4c30-b447-1fa17350ac6d, identity imageRpc)

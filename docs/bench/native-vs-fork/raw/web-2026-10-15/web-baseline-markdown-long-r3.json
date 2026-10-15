@@ -1,0 +1,89 @@
+{
+  "fixture": "markdown-long",
+  "speed": "1",
+  "mode": "baseline",
+  "reducedMotion": false,
+  "rep": 3,
+  "agentId": "77c56a8d-7b53-4c56-b910-d8fefa370025",
+  "streamMs": 38963,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true,
+    "pluginLinkRealpath": "/private/tmp/bc-v4/baseline",
+    "pluginEnabled": true,
+    "pluginStatus": "running"
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "markdown-long",
+    "platform": "web",
+    "elapsedMs": 42967.30000001192,
+    "rows": {
+      "plugin": 800,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.09999996423721313,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 0.800000011920929
+      },
+      "assistant": {
+        "commits": 800,
+        "mounts": 2,
+        "n": 800,
+        "p50": 0.3999999761581421,
+        "p95": 1.5,
+        "max": 8.900000095367432,
+        "sum": 490.2999991774559
+      }
+    },
+    "allRows": {
+      "n": 807,
+      "p50": 0.3999999761581421,
+      "p95": 1.5,
+      "max": 8.900000095367432,
+      "sum": 491.09999918937683
+    },
+    "perCommit": {
+      "n": 798,
+      "p50": 0.40000003576278687,
+      "p95": 1.5,
+      "max": 8.900000095367432,
+      "sum": 491.09999918937683
+    },
+    "frames": {
+      "count": 2575,
+      "dropped": 3,
+      "droppedRatio": 0.0011636927851047323,
+      "longestMs": 33.400000000001455
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 171.50079441070557
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 6.150774999999999,
+      "ScriptDuration": 3.208383,
+      "LayoutDuration": 0.251321,
+      "RecalcStyleDuration": 0.471255,
+      "LayoutCount": 708,
+      "RecalcStyleCount": 2831
+    },
+    "nodes": 3253,
+    "jsHeapUsedMB": 119.13185501098633,
+    "beforeGc": {
+      "nodes": 3253,
+      "jsHeapUsedMB": 128.2691764831543
+    }
+  }
+}

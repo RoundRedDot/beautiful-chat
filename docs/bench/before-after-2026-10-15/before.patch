@@ -1,0 +1,1024 @@
+diff --git a/client/components/syntax-highlight.tsx b/client/components/syntax-highlight.tsx
+index 49ce290..c24f695 100644
+--- a/client/components/syntax-highlight.tsx
++++ b/client/components/syntax-highlight.tsx
+@@ -10,7 +10,6 @@ import { diffLineNumbers } from "./diff-lines";
+ import { selectableSurface, unselectable } from "./selection";
+ import { selectionCodeSurface, selectionSurface } from "./selection-actions";
+ import { useHighlightedLines } from "../highlight";
+-import { perfCount } from "../debug/perf";
+ import { CopyButton } from "../ui/copy-button";
+ import { SelectableSpan } from "../ui/prose-text";
+ import type { HighlightLine, HighlightToken } from "../../shared/highlight-rpc";
+@@ -683,15 +682,7 @@ export function SyntaxHighlightBlock({
+     [tokens, compact, hasHeader, bare],
+   );
+ 
+-  const largestLineNumber = useMemo(() => {
+-    if (numbers === null) return null;
+-    perfCount("code.maxLineNumber");
+-    return maxLineNumber(numbers);
+-  }, [numbers]);
+-  const numberWidth = lineNumberWidth(
+-    numbers === null ? total : largestLineNumber ?? Number.NEGATIVE_INFINITY,
+-    mono.size,
+-  );
++  const numberWidth = lineNumberWidth(numbers ? Math.max(...numbers.map((n) => n ?? 0)) : total, mono.size);
+   // One row, as a stable function of the block's inputs: the chunks below are
+   // memoised on it, so appending rows never re-renders the rows already shown.
+   const row = useCallback(
+@@ -1056,13 +1047,6 @@ export function lineNumberWidth(largest: number, size: number): number {
+   return Math.max(2, digits) * Math.ceil(size * 0.62) + space.sm;
+ }
+ 
+-/** Largest line number in a diff; null rows count as zero. */
+-export function maxLineNumber(numbers: readonly (number | null)[]): number {
+-  let largest = Number.NEGATIVE_INFINITY;
+-  for (const number of numbers) largest = Math.max(largest, number ?? 0);
+-  return largest;
+-}
+-
+ const rowStyles = StyleSheet.create({
+   scrollContent: { flexGrow: 1 },
+   scrollRows: { flexGrow: 1 },
+diff --git a/client/highlight.ts b/client/highlight.ts
+index 6a499f9..b7b6ddf 100644
+--- a/client/highlight.ts
++++ b/client/highlight.ts
+@@ -1,7 +1,7 @@
+-import { useEffect, useMemo, useState } from "react";
++import { useEffect, useState } from "react";
+ import { useRpc } from "@getpaseo/plugin/client";
+ import { highlightRpc, type HighlightLine, type HighlightToken } from "../shared/highlight-rpc";
+-import { perfCount, probeHighlightRpc } from "./debug/perf";
++import { probeHighlightRpc } from "./debug/perf";
+ 
+ export type { HighlightLine, HighlightToken };
+ 
+@@ -203,11 +203,7 @@ function fetchLines(key: string, call: HighlightCall, request: HighlightRequest)
+ export function useHighlightedLines(request: HighlightRequest): HighlightResponse {
+   const call: HighlightCall = useRpc(highlightRpc);
+   const { code, language, filename, dark, diffBodyCode, enabled = true } = request;
+-  const key = useMemo(() => {
+-    if (code.length === 0) return null;
+-    perfCount("highlight.cacheKey");
+-    return cacheKey(request);
+-  }, [code, language, filename, dark, diffBodyCode]);
++  const key = code.length > 0 ? cacheKey(request) : null;
+   // Reading the cache during render, not in an effect, is what removes the
+   // unhighlighted frame on a block that was tokenised once already.
+   const cached = key !== null ? (cache.get(key) ?? null) : null;
+diff --git a/client/image-file.ts b/client/image-file.ts
+index 18e7d9c..1f5a11e 100644
+--- a/client/image-file.ts
++++ b/client/image-file.ts
+@@ -1,16 +1,8 @@
+-import { useCallback, useEffect, useState } from "react";
++import { useEffect, useState } from "react";
+ import { useRpc } from "@getpaseo/plugin/client";
+-import type { output as ZodOutput } from "zod";
+ import { imageRpc } from "../shared/image-rpc";
+ import { probeImageRpc } from "./debug/perf";
+ 
+-type ImageRpcResult = ZodOutput<typeof imageRpc.output>;
+-
+-// This module-level map is connection-local only because Paseo evaluates this
+-// client bundle once per serverId/pluginId; verified for v0.8.0–v0.11.2.
+-const imageReadsInFlight = new Map<string, Promise<ImageRpcResult>>();
+-const newlyStartedImageReads = new WeakSet<Promise<unknown>>();
+-
+ /** What the daemon side could tell the client about one image file. */
+ export interface ImageFile {
+   dataUri: string | null;
+@@ -71,24 +63,7 @@ function endsInImageExtension(path: string): boolean {
+  * card instead of taking the timeline down.
+  */
+ export function useImageFile(path: string | undefined, cwd: string | null): ImageFile | null {
+-  const rpcLoad = useRpc(imageRpc);
+-  const load = useCallback<typeof rpcLoad>(
+-    (input) => {
+-      const key = JSON.stringify([input.cwd, input.path]);
+-      const pending = imageReadsInFlight.get(key);
+-      if (pending) return pending;
+-
+-      const request = rpcLoad(input);
+-      imageReadsInFlight.set(key, request);
+-      newlyStartedImageReads.add(request);
+-      const clear = () => {
+-        if (imageReadsInFlight.get(key) === request) imageReadsInFlight.delete(key);
+-      };
+-      void request.then(clear, clear);
+-      return request;
+-    },
+-    [rpcLoad],
+-  );
++  const load = useRpc(imageRpc);
+   const [file, setFile] = useState<ImageFile | null>(null);
+   const wanted = path !== undefined && isImagePath(path);
+ 
+@@ -122,8 +97,7 @@ export function useImageFile(path: string | undefined, cwd: string | null): Imag
+           error: error instanceof Error ? error.message : String(error),
+         });
+       });
+-    // Count this request only when this consumer started the actual RPC.
+-    if (newlyStartedImageReads.delete(request)) probeImageRpc(requestCwd, path, request);
++    probeImageRpc(requestCwd, path, request);
+     return () => {
+       cancelled = true;
+     };
+diff --git a/test/unit/highlight-cache.test.ts b/test/unit/highlight-cache.test.ts
+deleted file mode 100644
+index 2058255..0000000
+--- a/test/unit/highlight-cache.test.ts
++++ /dev/null
+@@ -1,363 +0,0 @@
+-import React from "react";
+-import TestRenderer, { act, type ReactTestRenderer } from "react-test-renderer";
+-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+-import "./helpers/quiet-renderer";
+-
+-const rpc = vi.hoisted(() => ({ call: vi.fn() }));
+-
+-vi.mock("@getpaseo/plugin/client", () => ({
+-  useRpc: () => rpc.call,
+-}));
+-
+-import {
+-  useHighlightedLines,
+-  type HighlightRequest,
+-  type HighlightResponse,
+-} from "../../client/highlight";
+-import {
+-  disablePerf,
+-  enablePerf,
+-  perfSnapshot,
+-  resetPerf,
+-} from "../../client/debug/perf";
+-
+-(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
+-
+-function answer(text = "daemon-token", language: string | null = "typescript") {
+-  return {
+-    lines: [[{ text, color: "#abcdef" }]],
+-    language,
+-    theme: "dark-plus",
+-  };
+-}
+-
+-function tokenText(response: HighlightResponse): string | null {
+-  return response.lines?.[0]?.[0]?.text ?? null;
+-}
+-
+-function HookProbe({
+-  request,
+-  onRender,
+-}: {
+-  request: HighlightRequest;
+-  onRender(response: HighlightResponse): void;
+-}) {
+-  const response = useHighlightedLines(request);
+-  onRender(response);
+-  return null;
+-}
+-
+-async function mount(
+-  requestValue: HighlightRequest,
+-  onRender: (response: HighlightResponse) => void,
+-): Promise<ReactTestRenderer> {
+-  let renderer!: ReactTestRenderer;
+-  await act(async () => {
+-    renderer = TestRenderer.create(
+-      React.createElement(HookProbe, { request: requestValue, onRender }),
+-    );
+-  });
+-  return renderer;
+-}
+-
+-function request(code: string, fields: Partial<HighlightRequest> = {}): HighlightRequest {
+-  return {
+-    code,
+-    language: "typescript",
+-    filename: "sample.ts",
+-    dark: false,
+-    ...fields,
+-  };
+-}
+-
+-function counter(name: string): number {
+-  return perfSnapshot().counters[name] ?? 0;
+-}
+-
+-function deferred<T>() {
+-  let resolve!: (value: T) => void;
+-  let reject!: (error: unknown) => void;
+-  const promise = new Promise<T>((yes, no) => {
+-    resolve = yes;
+-    reject = no;
+-  });
+-  return { promise, resolve, reject };
+-}
+-
+-beforeEach(() => {
+-  rpc.call.mockReset();
+-  rpc.call.mockImplementation(() => Promise.resolve(answer()));
+-});
+-
+-afterEach(() => {
+-  disablePerf();
+-  resetPerf();
+-});
+-
+-describe("useHighlightedLines cache", () => {
+-  it("reads a completed cache hit during the remount render", async () => {
+-    const pending = deferred<unknown>();
+-    rpc.call.mockReturnValueOnce(pending.promise);
+-    const requestValue = request("cache-hit-unique-source");
+-    const firstRenders: HighlightResponse[] = [];
+-    const first = await mount(requestValue, (value) => firstRenders.push(value));
+-
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    expect(tokenText(firstRenders[0]!)).toBeNull();
+-    await act(async () => {
+-      pending.resolve(answer("cached-token"));
+-    });
+-    expect(tokenText(firstRenders.at(-1)!)).toBe("cached-token");
+-    act(() => first.unmount());
+-
+-    const remountRenders: HighlightResponse[] = [];
+-    const remount = await mount(requestValue, (value) => remountRenders.push(value));
+-    expect(tokenText(remountRenders[0]!)).toBe("cached-token");
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => remount.unmount());
+-  });
+-
+-  it("deduplicates concurrent mounts and gives both the valid RPC response", async () => {
+-    const pending = deferred<unknown>();
+-    rpc.call.mockReturnValueOnce(pending.promise);
+-    const requestValue = request("concurrent-cache-unique-source");
+-    const firstRenders: HighlightResponse[] = [];
+-    const secondRenders: HighlightResponse[] = [];
+-    let renderer!: ReactTestRenderer;
+-
+-    await act(async () => {
+-      renderer = TestRenderer.create(
+-        React.createElement(
+-          React.Fragment,
+-          null,
+-          React.createElement(HookProbe, {
+-            request: requestValue,
+-            onRender: (value: HighlightResponse) => firstRenders.push(value),
+-          }),
+-          React.createElement(HookProbe, {
+-            request: requestValue,
+-            onRender: (value: HighlightResponse) => secondRenders.push(value),
+-          }),
+-        ),
+-      );
+-    });
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-
+-    await act(async () => {
+-      pending.resolve(answer("shared-token"));
+-    });
+-    expect(tokenText(firstRenders.at(-1)!)).toBe("shared-token");
+-    expect(tokenText(secondRenders.at(-1)!)).toBe("shared-token");
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("caches an RPC failure as null and does not retry on remount", async () => {
+-    rpc.call.mockReturnValueOnce(Promise.reject(new Error("daemon unavailable")));
+-    const requestValue = request("failed-cache-unique-source");
+-    const firstRenders: HighlightResponse[] = [];
+-    const first = await mount(requestValue, (value) => firstRenders.push(value));
+-    expect(tokenText(firstRenders.at(-1)!)).toBeNull();
+-    expect(firstRenders.at(-1)!.diffLines).toBeNull();
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => first.unmount());
+-
+-    const remountRenders: HighlightResponse[] = [];
+-    const remount = await mount(requestValue, (value) => remountRenders.push(value));
+-    expect(tokenText(remountRenders[0]!)).toBeNull();
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => remount.unmount());
+-  });
+-
+-  it.each(["plaintext", "text", "txt"])(
+-    "accepts a null language answer for the %s plain hint",
+-    async (language) => {
+-      rpc.call.mockResolvedValueOnce(answer("plain-token", null));
+-      const renders: HighlightResponse[] = [];
+-      const renderer = await mount(
+-        request("plain-hint-" + language + "-unique-source", { language }),
+-        (value) => renders.push(value),
+-      );
+-      expect(tokenText(renders.at(-1)!)).toBe("plain-token");
+-      expect(rpc.call).toHaveBeenCalledTimes(1);
+-      act(() => renderer.unmount());
+-    },
+-  );
+-
+-  it("rejects a null language answer for a non-plain hint", async () => {
+-    rpc.call.mockResolvedValueOnce(answer("must-fall-back", null));
+-    const renders: HighlightResponse[] = [];
+-    const renderer = await mount(
+-      request("non-plain-null-language-unique-source", { language: "typescript" }),
+-      (value) => renders.push(value),
+-    );
+-    expect(tokenText(renders.at(-1)!)).toBeNull();
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("uses cache only when disabled, both on hit and miss", async () => {
+-    const requestValue = request("disabled-cache-unique-source");
+-    const enabledRenders: HighlightResponse[] = [];
+-    const enabled = await mount(requestValue, (value) => enabledRenders.push(value));
+-    expect(tokenText(enabledRenders.at(-1)!)).toBe("daemon-token");
+-    act(() => enabled.unmount());
+-
+-    const disabledRenders: HighlightResponse[] = [];
+-    const disabled = await mount(
+-      { ...requestValue, enabled: false },
+-      (value) => disabledRenders.push(value),
+-    );
+-    expect(tokenText(disabledRenders[0]!)).toBe("daemon-token");
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => disabled.unmount());
+-
+-    const missingRenders: HighlightResponse[] = [];
+-    const missing = await mount(
+-      request("disabled-cache-miss-unique-source", { enabled: false }),
+-      (value) => missingRenders.push(value),
+-    );
+-    expect(tokenText(missingRenders[0]!)).toBeNull();
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => missing.unmount());
+-  });
+-
+-  it("keeps empty code out of the cache and RPC path", async () => {
+-    enablePerf();
+-    resetPerf();
+-    const renders: HighlightResponse[] = [];
+-    const renderer = await mount(request(""), (value) => renders.push(value));
+-    expect(tokenText(renders[0]!)).toBeNull();
+-    expect(rpc.call).not.toHaveBeenCalled();
+-    expect(counter("highlight.cacheKey")).toBe(0);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("keeps an empty diff body equivalent to an absent diff body", async () => {
+-    enablePerf();
+-    resetPerf();
+-    const initial = request("empty-diff-body-unique-source", { diffBodyCode: "" });
+-    const renders: HighlightResponse[] = [];
+-    const renderer = await mount(initial, (value) => renders.push(value));
+-    expect(counter("highlight.cacheKey")).toBe(1);
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(HookProbe, {
+-          request: { ...initial, diffBodyCode: undefined },
+-          onRender: (value: HighlightResponse) => renders.push(value),
+-        }),
+-      );
+-    });
+-    expect(counter("highlight.cacheKey")).toBe(2);
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it.each([
+-    ["same-length code", { code: "same-length-code-A" }, { code: "same-length-code-B" }],
+-    ["theme", { dark: false }, { dark: true }],
+-    ["language", { language: "typescript" }, { language: "python" }],
+-    ["filename", { filename: "first.ts" }, { filename: "other.ts" }],
+-    ["diff body", { diffBodyCode: "old body" }, { diffBodyCode: "new body" }],
+-    ["diff body present versus absent", { diffBodyCode: "present" }, { diffBodyCode: undefined }],
+-  ] as const)(
+-    "misses the prior entry when the %s changes",
+-    async (_name, initialFields, changedFields) => {
+-      enablePerf();
+-      resetPerf();
+-      const base = request("dimension-test-unique-source-" + _name, {
+-        diffBodyCode: "initial body",
+-        ...initialFields,
+-      });
+-      const changed = { ...base, ...changedFields };
+-      const renders: HighlightResponse[] = [];
+-      const renderer = await mount(base, (value) => renders.push(value));
+-      expect(counter("highlight.cacheKey")).toBe(1);
+-
+-      await act(async () => {
+-        renderer.update(
+-          React.createElement(HookProbe, {
+-            request: changed,
+-            onRender: (value: HighlightResponse) => renders.push(value),
+-          }),
+-        );
+-      });
+-      expect(rpc.call).toHaveBeenCalledTimes(2);
+-      expect(counter("highlight.cacheKey")).toBe(2);
+-      act(() => renderer.unmount());
+-    },
+-  );
+-
+-  it("does not recompute the key for stable props or enabled changes", async () => {
+-    enablePerf();
+-    resetPerf();
+-    const initial = request("stable-key-unique-source");
+-    const renders: HighlightResponse[] = [];
+-    const renderer = await mount(initial, (value) => renders.push(value));
+-    expect(counter("highlight.cacheKey")).toBe(1);
+-
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(HookProbe, {
+-          request: { ...initial },
+-          onRender: (value: HighlightResponse) => renders.push(value),
+-        }),
+-      );
+-    });
+-    expect(counter("highlight.cacheKey")).toBe(1);
+-
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(HookProbe, {
+-          request: { ...initial, enabled: false },
+-          onRender: (value: HighlightResponse) => renders.push(value),
+-        }),
+-      );
+-    });
+-    expect(counter("highlight.cacheKey")).toBe(1);
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("does not count key computations while perf probes are disabled", async () => {
+-    disablePerf();
+-    resetPerf();
+-    const initial = request("disabled-probe-unique-source");
+-    const renderer = await mount(initial, () => {});
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(HookProbe, {
+-          request: { ...initial, code: "disabled-probe-changed-source" },
+-          onRender: () => {},
+-        }),
+-      );
+-    });
+-    expect(counter("highlight.cacheKey")).toBe(0);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("does not update state when a request resolves after unmount", async () => {
+-    const pending = deferred<unknown>();
+-    rpc.call.mockReturnValueOnce(pending.promise);
+-    const errors: unknown[][] = [];
+-    const consoleError = vi.spyOn(console, "error").mockImplementation((...args) => {
+-      errors.push(args);
+-    });
+-    const renders: HighlightResponse[] = [];
+-    const renderer = await mount(
+-      request("unmounted-request-unique-source"),
+-      (value) => renders.push(value),
+-    );
+-    expect(rpc.call).toHaveBeenCalledTimes(1);
+-    const rendersBeforeUnmount = renders.length;
+-    act(() => renderer.unmount());
+-
+-    await act(async () => {
+-      pending.resolve(answer("late-token"));
+-    });
+-    expect(renders).toHaveLength(rendersBeforeUnmount);
+-    expect(errors.filter((args) => String(args[0]).includes("act("))).toEqual([]);
+-    consoleError.mockRestore();
+-  });
+-});
+diff --git a/test/unit/image-file.test.ts b/test/unit/image-file.test.ts
+deleted file mode 100644
+index f0afafe..0000000
+--- a/test/unit/image-file.test.ts
++++ /dev/null
+@@ -1,272 +0,0 @@
+-import React from "react";
+-import TestRenderer, { act, type ReactTestRenderer } from "react-test-renderer";
+-import { afterEach, describe, expect, it, vi } from "vitest";
+-import type { ImageFile } from "../../client/image-file";
+-
+-type ImageRpcInput = { cwd: string; path: string };
+-type ImageRpcOutput = {
+-  dataUri: string | null;
+-  mime: string | null;
+-  width: number | null;
+-  height: number | null;
+-  bytes: number | null;
+-  error: string | null;
+-};
+-
+-const { mockLoad } = vi.hoisted(() => ({
+-  mockLoad: vi.fn<(input: ImageRpcInput) => Promise<ImageRpcOutput>>(),
+-}));
+-
+-vi.mock("@getpaseo/plugin/client", async () => {
+-  const React = await import("react");
+-  return {
+-    useRpc: () => React.useCallback((input: ImageRpcInput) => mockLoad(input), []),
+-  };
+-});
+-
+-import { useImageFile } from "../../client/image-file";
+-import { disablePerf, enablePerf, perfSnapshot, resetPerf } from "../../client/debug/perf";
+-import "./helpers/quiet-renderer";
+-
+-(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
+-
+-const firstResult: ImageRpcOutput = {
+-  dataUri: "data:image/png;base64,first",
+-  mime: "image/png",
+-  width: 640,
+-  height: 480,
+-  bytes: 123,
+-  error: null,
+-};
+-const firstFile: ImageFile = {
+-  dataUri: "data:image/png;base64,first",
+-  width: 640,
+-  height: 480,
+-  bytes: 123,
+-  error: null,
+-};
+-const secondResult: ImageRpcOutput = {
+-  dataUri: "data:image/png;base64,second",
+-  mime: "image/png",
+-  width: 320,
+-  height: 240,
+-  bytes: 456,
+-  error: null,
+-};
+-const secondFile: ImageFile = {
+-  dataUri: "data:image/png;base64,second",
+-  width: 320,
+-  height: 240,
+-  bytes: 456,
+-  error: null,
+-};
+-
+-function deferred<T>() {
+-  let resolve!: (value: T) => void;
+-  let reject!: (reason: unknown) => void;
+-  const promise = new Promise<T>((yes, no) => {
+-    resolve = yes;
+-    reject = no;
+-  });
+-  return { promise, resolve, reject };
+-}
+-
+-type ConsumerProps = {
+-  id: string;
+-  path: string | undefined;
+-  cwd: string | null;
+-  onRender?: (file: ImageFile | null) => void;
+-};
+-
+-function HookConsumer({ id, path, cwd, onRender }: ConsumerProps) {
+-  const file = useImageFile(path, cwd);
+-  onRender?.(file);
+-  return React.createElement("consumer", { id, file });
+-}
+-
+-function consumers(items: readonly ConsumerProps[]) {
+-  return React.createElement(
+-    React.Fragment,
+-    null,
+-    ...items.map((item) => React.createElement(HookConsumer, { ...item, key: item.id })),
+-  );
+-}
+-
+-function fileFor(renderer: ReactTestRenderer, id: string): ImageFile | null {
+-  const output = renderer.root.find((node) => (node.type as unknown) === "consumer" && node.props.id === id);
+-  return output.props.file as ImageFile | null;
+-}
+-
+-let renderers = new Set<ReactTestRenderer>();
+-
+-function mount(items: readonly ConsumerProps[]): ReactTestRenderer {
+-  let renderer!: ReactTestRenderer;
+-  act(() => {
+-    renderer = TestRenderer.create(consumers(items));
+-  });
+-  renderers.add(renderer);
+-  return renderer;
+-}
+-
+-function update(renderer: ReactTestRenderer, items: readonly ConsumerProps[]): void {
+-  act(() => renderer.update(consumers(items)));
+-}
+-
+-function unmount(renderer: ReactTestRenderer): void {
+-  act(() => renderer.unmount());
+-  renderers.delete(renderer);
+-}
+-
+-async function flushResolvedReads(): Promise<void> {
+-  await act(async () => {
+-    await Promise.resolve();
+-  });
+-}
+-
+-afterEach(() => {
+-  for (const renderer of renderers) act(() => renderer.unmount());
+-  renderers = new Set();
+-  mockLoad.mockReset();
+-  disablePerf();
+-  resetPerf();
+-});
+-
+-describe("useImageFile", () => {
+-  it("shares one in-flight read between same-key consumers and probes only the real RPC", async () => {
+-    enablePerf();
+-    const pending = deferred<ImageRpcOutput>();
+-    const secondPending = deferred<ImageRpcOutput>();
+-    mockLoad.mockReturnValueOnce(pending.promise).mockReturnValueOnce(secondPending.promise);
+-
+-    const renderer = mount([
+-      { id: "first", path: "shot.png", cwd: "/workspace" },
+-      { id: "second", path: "shot.png", cwd: "/workspace" },
+-    ]);
+-
+-    expect(mockLoad).toHaveBeenCalledTimes(1);
+-    expect(perfSnapshot().imageRpc).toEqual({ count: 1, duplicatesInFlight: 0 });
+-
+-    await act(async () => {
+-      pending.resolve(firstResult);
+-      secondPending.resolve(secondResult);
+-      await Promise.all([pending.promise, secondPending.promise]);
+-    });
+-    expect(fileFor(renderer, "first")).toEqual(firstFile);
+-    expect(fileFor(renderer, "second")).toEqual(firstFile);
+-  });
+-
+-  it("keeps different cwd and path pairs separate, including delimiter collisions", async () => {
+-    const cases: ConsumerProps[] = [
+-      { id: "cwd-a", path: "same.png", cwd: "/workspace/a" },
+-      { id: "cwd-b", path: "same.png", cwd: "/workspace/b" },
+-      { id: "path-a", path: "a.png", cwd: "/workspace" },
+-      { id: "path-b", path: "b.png", cwd: "/workspace" },
+-      // Both pairs become the same string if cwd and path are joined with ':'.
+-      { id: "colon-a", path: "frame.png", cwd: "/workspace:shots" },
+-      { id: "colon-b", path: "shots:frame.png", cwd: "/workspace" },
+-      // Both pairs become the same string if cwd and path are joined with '/'.
+-      { id: "slash-a", path: "shots/frame.png", cwd: "/workspace" },
+-      { id: "slash-b", path: "frame.png", cwd: "/workspace/shots" },
+-    ];
+-    const pending = cases.map(() => deferred<ImageRpcOutput>());
+-    mockLoad.mockImplementation(() => pending[mockLoad.mock.calls.length - 1]!.promise);
+-
+-    mount(cases);
+-
+-    expect(mockLoad).toHaveBeenCalledTimes(cases.length);
+-    await act(async () => {
+-      pending.forEach((request, index) => request.resolve({ ...firstResult, dataUri: `data:image/png;base64,${index}` }));
+-      await Promise.all(pending.map((request) => request.promise));
+-    });
+-  });
+-
+-  it("starts a fresh read for a later mount after the previous read settles", async () => {
+-    mockLoad.mockResolvedValueOnce(firstResult).mockResolvedValueOnce(secondResult);
+-
+-    const first = mount([{ id: "first", path: "shot.png", cwd: "/workspace" }]);
+-    await flushResolvedReads();
+-    expect(fileFor(first, "first")).toEqual(firstFile);
+-    unmount(first);
+-
+-    const second = mount([{ id: "second", path: "shot.png", cwd: "/workspace" }]);
+-    await flushResolvedReads();
+-
+-    expect(mockLoad).toHaveBeenCalledTimes(2);
+-    expect(fileFor(second, "second")).toEqual(secondFile);
+-  });
+-
+-  it("shares a failure and retries on a new mount after it settles", async () => {
+-    const pending = deferred<ImageRpcOutput>();
+-    const failure = new Error("image read failed");
+-    mockLoad
+-      .mockReturnValueOnce(pending.promise)
+-      .mockResolvedValueOnce(secondResult);
+-
+-    const renderer = mount([
+-      { id: "first", path: "shot.png", cwd: "/workspace" },
+-      { id: "second", path: "shot.png", cwd: "/workspace" },
+-    ]);
+-    expect(mockLoad).toHaveBeenCalledTimes(1);
+-
+-    await act(async () => {
+-      pending.reject(failure);
+-      await pending.promise.catch(() => undefined);
+-    });
+-    const failedFile: ImageFile = { dataUri: null, width: null, height: null, bytes: null, error: failure.message };
+-    expect(fileFor(renderer, "first")).toEqual(failedFile);
+-    expect(fileFor(renderer, "second")).toEqual(failedFile);
+-    unmount(renderer);
+-
+-    const retry = mount([{ id: "retry", path: "shot.png", cwd: "/workspace" }]);
+-    await flushResolvedReads();
+-    expect(mockLoad).toHaveBeenCalledTimes(2);
+-    expect(fileFor(retry, "retry")).toEqual(secondFile);
+-  });
+-
+-  it("keeps the shared read alive when one consumer unmounts", async () => {
+-    const pending = deferred<ImageRpcOutput>();
+-    const removedConsumerRender = vi.fn();
+-    mockLoad.mockReturnValueOnce(pending.promise).mockReturnValueOnce(pending.promise);
+-
+-    const renderer = mount([
+-      { id: "removed", path: "shot.png", cwd: "/workspace", onRender: removedConsumerRender },
+-      { id: "remaining", path: "shot.png", cwd: "/workspace" },
+-    ]);
+-    expect(mockLoad).toHaveBeenCalledTimes(1);
+-
+-    update(renderer, [{ id: "remaining", path: "shot.png", cwd: "/workspace" }]);
+-    expect(removedConsumerRender).toHaveBeenCalledTimes(1);
+-
+-    await act(async () => {
+-      pending.resolve(firstResult);
+-      await pending.promise;
+-    });
+-
+-    expect(fileFor(renderer, "remaining")).toEqual(firstFile);
+-    expect(removedConsumerRender).toHaveBeenCalledTimes(1);
+-  });
+-
+-  it("clears the old file on path change and ignores its later result", async () => {
+-    const oldRead = deferred<ImageRpcOutput>();
+-    const newRead = deferred<ImageRpcOutput>();
+-    mockLoad.mockReturnValueOnce(oldRead.promise).mockReturnValueOnce(newRead.promise);
+-
+-    const renderer = mount([{ id: "image", path: "old.png", cwd: "/workspace" }]);
+-    update(renderer, [{ id: "image", path: "new.png", cwd: "/workspace" }]);
+-
+-    expect(mockLoad).toHaveBeenCalledTimes(2);
+-    expect(fileFor(renderer, "image")).toBeNull();
+-
+-    await act(async () => {
+-      oldRead.resolve(firstResult);
+-      await oldRead.promise;
+-    });
+-    expect(fileFor(renderer, "image")).toBeNull();
+-
+-    await act(async () => {
+-      newRead.resolve(secondResult);
+-      await newRead.promise;
+-    });
+-    expect(fileFor(renderer, "image")).toEqual(secondFile);
+-  });
+-});
+diff --git a/test/unit/syntax-highlight-performance.test.ts b/test/unit/syntax-highlight-performance.test.ts
+deleted file mode 100644
+index 742432a..0000000
+--- a/test/unit/syntax-highlight-performance.test.ts
++++ /dev/null
+@@ -1,243 +0,0 @@
+-import React from "react";
+-import TestRenderer, { act, type ReactTestInstance, type ReactTestRenderer } from "react-test-renderer";
+-import { afterEach, describe, expect, it, vi } from "vitest";
+-import "./helpers/quiet-renderer";
+-
+-const rpc = vi.hoisted(() => ({ call: vi.fn() }));
+-const clipboard = vi.hoisted(() => ({ copyText: vi.fn(async (_text: string) => {}) }));
+-
+-vi.mock("react-native", () => import("./helpers/rn-mock"));
+-vi.mock("@getpaseo/plugin/client", () => ({
+-  useRpc: () => rpc.call,
+-}));
+-vi.mock("@getpaseo/plugin/client/react-native", async () => {
+-  const rn = await import("./helpers/rn-mock");
+-  return {
+-    Icon: rn.View,
+-    copyText: clipboard.copyText,
+-    useToast: () => ({ show: vi.fn(), error: vi.fn() }),
+-  };
+-});
+-
+-import { buildThemeTokens } from "../../client/components/theme-tokens";
+-import {
+-  LARGE_BLOCK_LINES,
+-  SyntaxHighlightBlock,
+-  lineNumberWidth,
+-  maxLineNumber,
+-} from "../../client/components/syntax-highlight";
+-import {
+-  disablePerf,
+-  enablePerf,
+-  perfSnapshot,
+-  resetPerf,
+-} from "../../client/debug/perf";
+-
+-(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
+-
+-const tokens = buildThemeTokens({
+-  surface0: "#0f1115",
+-  surface1: "#16191f",
+-  surface2: "#1d2128",
+-  border: "#2a2f37",
+-  foreground: "#e6e8eb",
+-  foregroundMuted: "#9aa1ab",
+-  accent: "#4f8cff",
+-  accentForeground: "#ffffff",
+-  statusSuccess: "#4cb782",
+-  statusWarning: "#d9a53f",
+-  statusDanger: "#e5484d",
+-});
+-
+-function counter(name: string): number {
+-  return perfSnapshot().counters[name] ?? 0;
+-}
+-
+-function styleObject(style: unknown): Record<string, unknown> {
+-  if (!Array.isArray(style)) return (style ?? {}) as Record<string, unknown>;
+-  return Object.assign({}, ...style.map((item) => (item ?? {}) as object));
+-}
+-
+-function lineNumberNodes(renderer: ReactTestRenderer): ReactTestInstance[] {
+-  return renderer.root.findAll(
+-    (node) =>
+-      (node.type as unknown) === "Text" &&
+-      Array.isArray(node.props.style) &&
+-      node.props.style.some(
+-        (part: unknown) =>
+-          typeof part === "object" && part !== null && "textAlign" in part && part.textAlign === "right",
+-      ),
+-  );
+-}
+-
+-function textContent(value: unknown): string {
+-  if (typeof value === "string") return value;
+-  if (Array.isArray(value)) return value.map(textContent).join("");
+-  if (value && typeof value === "object" && "children" in value) {
+-    return textContent((value as { children: unknown }).children);
+-  }
+-  return "";
+-}
+-
+-async function render(
+-  code: string,
+-  props: Partial<React.ComponentProps<typeof SyntaxHighlightBlock>> = {},
+-): Promise<ReactTestRenderer> {
+-  let renderer!: ReactTestRenderer;
+-  await act(async () => {
+-    renderer = TestRenderer.create(
+-      React.createElement(SyntaxHighlightBlock, {
+-        code,
+-        tokens,
+-        ...props,
+-      }),
+-    );
+-  });
+-  return renderer;
+-}
+-
+-afterEach(() => {
+-  disablePerf();
+-  resetPerf();
+-  rpc.call.mockReset();
+-  rpc.call.mockImplementation(() => Promise.resolve(null));
+-  clipboard.copyText.mockClear();
+-});
+-
+-describe("maxLineNumber", () => {
+-  it("matches Math.max null and empty-array gutter semantics", () => {
+-    expect(maxLineNumber([])).toBe(Number.NEGATIVE_INFINITY);
+-    expect(lineNumberWidth(maxLineNumber([]), tokens.typography.mono.size)).toBe(
+-      lineNumberWidth(1, tokens.typography.mono.size),
+-    );
+-    expect(maxLineNumber([null, 4, null, 27])).toBe(27);
+-    expect(maxLineNumber([null, null])).toBe(0);
+-    expect(maxLineNumber([4, 27, 3])).toBe(27);
+-  });
+-
+-  it("handles a numbers array far beyond the visible-row limit", () => {
+-    expect(500_000).toBeGreaterThan(LARGE_BLOCK_LINES);
+-    const numbers: Array<number | null> = Array(500_000).fill(null);
+-    numbers[499_999] = 500_000;
+-    expect(() => maxLineNumber(numbers)).not.toThrow();
+-    expect(maxLineNumber(numbers)).toBe(500_000);
+-  });
+-});
+-
+-describe("SyntaxHighlightBlock line numbers and gutter", () => {
+-  it("keeps the non-diff total path and its line numbers", async () => {
+-    const code = "one\ntwo\nthree";
+-    const renderer = await render(code, { language: "typescript", showLineNumbers: true });
+-    const numbers = lineNumberNodes(renderer);
+-    expect(numbers.map((node) => node.props.children)).toEqual([1, 2, 3]);
+-    expect(numbers.map((node) => styleObject(node.props.style).width)).toEqual([
+-      lineNumberWidth(3, tokens.typography.mono.size),
+-      lineNumberWidth(3, tokens.typography.mono.size),
+-      lineNumberWidth(3, tokens.typography.mono.size),
+-    ]);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("draws null entries blank and sizes the gutter to the largest diff line", async () => {
+-    const code = "@@ -4,2 +8,2 @@\n-old\n+new\n keep\n\\ No newline at end of file";
+-    const renderer = await render(code, { language: "diff", showLineNumbers: true });
+-    const numbers = lineNumberNodes(renderer);
+-    expect(numbers.map((node) => node.props.children)).toEqual(["", 4, 8, 9, ""]);
+-    expect(numbers.map((node) => styleObject(node.props.style).width)).toEqual(
+-      Array(5).fill(lineNumberWidth(9, tokens.typography.mono.size)),
+-    );
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("keeps an all-null diff gutter at the one-digit minimum", async () => {
+-    const renderer = await render("@@ -0,0 +0,0 @@", {
+-      language: "diff",
+-      showLineNumbers: true,
+-    });
+-    const numbers = lineNumberNodes(renderer);
+-    expect(numbers.map((node) => node.props.children)).toEqual([""]);
+-    expect(styleObject(numbers[0]!.props.style).width).toBe(
+-      lineNumberWidth(0, tokens.typography.mono.size),
+-    );
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("copies the complete original code string unchanged", async () => {
+-    const code = "@@ -4,1 +8,1 @@\n-old\n+new";
+-    const renderer = await render(code, { language: "diff", showLineNumbers: true });
+-    const copy = renderer.root.findByProps({ accessibilityLabel: "Copy code" });
+-    await act(async () => {
+-      (copy.props.onPress as () => void)();
+-      await Promise.resolve();
+-    });
+-    expect(clipboard.copyText).toHaveBeenCalledWith(code);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("uses local tokenisation after the highlight request fails", async () => {
+-    rpc.call.mockRejectedValueOnce(new Error("daemon unavailable"));
+-    const code = "const localFallback = 42;";
+-    const renderer = await render(code, { language: "typescript" });
+-    expect(textContent(renderer.toJSON())).toContain(code);
+-    act(() => renderer.unmount());
+-  });
+-});
+-
+-describe("max line number render counter", () => {
+-  it("does not recompute for stable numbers and increments once for new code", async () => {
+-    enablePerf();
+-    resetPerf();
+-    const firstCode = "@@ -1,1 +1,1 @@\n-old";
+-    const renderer = await render(firstCode, {
+-      language: "diff",
+-      showLineNumbers: true,
+-    });
+-    expect(counter("code.maxLineNumber")).toBe(1);
+-
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(SyntaxHighlightBlock, {
+-          code: firstCode,
+-          tokens,
+-          language: "diff",
+-          showLineNumbers: true,
+-        }),
+-      );
+-    });
+-    expect(counter("code.maxLineNumber")).toBe(1);
+-
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(SyntaxHighlightBlock, {
+-          code: "@@ -1,1 +9,1 @@\n-old",
+-          tokens,
+-          language: "diff",
+-          showLineNumbers: true,
+-        }),
+-      );
+-    });
+-    expect(counter("code.maxLineNumber")).toBe(2);
+-    act(() => renderer.unmount());
+-  });
+-
+-  it("records nothing while probes are disabled", async () => {
+-    disablePerf();
+-    resetPerf();
+-    const renderer = await render("@@ -1,1 +1,1 @@\n-old", {
+-      language: "diff",
+-      showLineNumbers: true,
+-    });
+-    await act(async () => {
+-      renderer.update(
+-        React.createElement(SyntaxHighlightBlock, {
+-          code: "@@ -1,1 +3,1 @@\n-old",
+-          tokens,
+-          language: "diff",
+-          showLineNumbers: true,
+-        }),
+-      );
+-    });
+-    expect(counter("code.maxLineNumber")).toBe(0);
+-    act(() => renderer.unmount());
+-  });
+-});

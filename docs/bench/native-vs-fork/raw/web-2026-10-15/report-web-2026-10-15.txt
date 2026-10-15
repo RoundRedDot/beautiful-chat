@@ -1,0 +1,342 @@
+# Web 四版本原始数据汇总
+
+- JSON 样本：132；身份核验通过：132/132。
+- 百分比按未舍入中位数计算。负差表示 latest 数值更低；‘持平’按 README 规则：Web 小于 10%，或整段 Task 回放双方都低于 0.5s；iOS 只用 10% 规则。
+- 三组差值均为 latest − 对照版本；时间指标更低表示该数值更小。
+
+- 日志中的 REDO/FAILED/pageerror 行：0。
+
+## 样本数与身份
+
+| 场景 | 预期/版本 | native | upstream | baseline | latest |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| codeblock-streaming | 3 | 3 | 3 | 3 | 3 |
+| diff-large | 3 | 3 | 3 | 3 | 3 |
+| history-100 | 3 | 3 | 3 | 3 | 3 |
+| markdown-long | 3 | 3 | 3 | 3 | 3 |
+| mixed-turn | 3 | 3 | 3 | 3 | 3 |
+| reads-20 | 3 | 3 | 3 | 3 | 3 |
+| reasoning-long-prose | 3 | 3 | 3 | 3 | 3 |
+| reasoning-long-sections | 3 | 3 | 3 | 3 | 3 |
+| shell-log-large | 3 | 3 | 3 | 3 | 3 |
+| table-streaming | 3 | 3 | 3 | 3 | 3 |
+| tool-expanded-streaming | 3 | 3 | 3 | 3 | 3 |
+
+| 模式 | 记录的插件 realpath | 插件状态 |
+| --- | --- | --- |
+| native | `/private/tmp/bc-v4/baseline, /private/tmp/bc-v4/latest` | disabled |
+| upstream | `/private/tmp/bc-v4/upstream` | running |
+| baseline | `/private/tmp/bc-v4/baseline` | running |
+| latest | `/private/tmp/bc-v4/latest` | running |
+
+## 每场景中位数
+
+| 场景 | 指标 | native | upstream | baseline | latest |
+| --- | --- | ---: | ---: | ---: | ---: |
+| codeblock-streaming | Task (s) | 4.148 | 3.501 | 2.856 | 2.747 |
+| codeblock-streaming | Script (s) | 2.695 | 2.473 | 1.705 | 1.589 |
+| codeblock-streaming | Layout+Style (s) | 0.431 | 0.237 | 0.273 | 0.266 |
+| codeblock-streaming | Row p95 (ms) | 2.80 | 5.30 | 1.90 | 1.50 |
+| codeblock-streaming | Per-commit p95 (ms) | 2.90 | 5.30 | 1.90 | 1.50 |
+| codeblock-streaming | Row render total (ms) | 1,283.4 | 1,228.0 | 354.8 | 286.9 |
+| codeblock-streaming | Long task count | 0 | 0 | 0 | 0 |
+| codeblock-streaming | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| codeblock-streaming | CLS | 0.044 | 0.129 | 0.011 | 0.011 |
+| codeblock-streaming | Post-GC JS heap (MB) | 115.11 | 113.50 | 113.25 | 113.25 |
+| codeblock-streaming | DOM nodes | 2,968 | 2,744 | 3,735 | 2,557 |
+| codeblock-streaming | Dropped frames (%) | 0.17 | 0.17 | 0.25 | 0.17 |
+| codeblock-streaming | Longest frame (ms) | 33.4 | 33.4 | 33.4 | 49.9 |
+| diff-large | Task (s) | 0.480 | 1.946 | 0.348 | 0.375 |
+| diff-large | Script (s) | 0.177 | 1.275 | 0.146 | 0.162 |
+| diff-large | Layout+Style (s) | 0.063 | 0.218 | 0.038 | 0.042 |
+| diff-large | Row p95 (ms) | 2.30 | 0.60 | 2.60 | 2.70 |
+| diff-large | Per-commit p95 (ms) | 2.80 | 0.50 | 2.90 | 2.90 |
+| diff-large | Row render total (ms) | 35.6 | 580.7 | 18.4 | 20.2 |
+| diff-large | Long task count | 0 | 6 | 0 | 0 |
+| diff-large | Long task total (ms) | 0.0 | 991.0 | 0.0 | 0.0 |
+| diff-large | CLS | 0.000 | 0.024 | 0.000 | 0.000 |
+| diff-large | Post-GC JS heap (MB) | 108.17 | 214.31 | 111.90 | 111.40 |
+| diff-large | DOM nodes | 1,455 | 40,723 | 1,416 | 1,416 |
+| diff-large | Dropped frames (%) | 0.50 | 14.43 | 0.00 | 0.50 |
+| diff-large | Longest frame (ms) | 33.4 | 333.2 | 16.8 | 33.3 |
+| history-100 | Task (s) | 0.797 | 7.059 | 0.823 | 0.804 |
+| history-100 | Script (s) | 0.624 | 6.819 | 0.667 | 0.652 |
+| history-100 | Layout+Style (s) | 0.054 | 0.100 | 0.041 | 0.041 |
+| history-100 | Row p95 (ms) | 0.20 | 0.30 | 0.20 | 0.20 |
+| history-100 | Per-commit p95 (ms) | 5.50 | 72.70 | 3.90 | 4.00 |
+| history-100 | Row render total (ms) | 158.0 | 4,517.7 | 191.3 | 177.9 |
+| history-100 | Long task count | 1 | 45 | 1 | 1 |
+| history-100 | Long task total (ms) | 56.0 | 3,348.0 | 61.0 | 62.0 |
+| history-100 | CLS | 0.000 | 0.246 | 0.000 | 0.000 |
+| history-100 | Post-GC JS heap (MB) | 115.60 | 246.22 | 119.53 | 119.41 |
+| history-100 | DOM nodes | 2,189 | 15,302 | 2,215 | 2,215 |
+| history-100 | Dropped frames (%) | 12.59 | 85.81 | 13.31 | 12.28 |
+| history-100 | Longest frame (ms) | 150.0 | 266.7 | 150.0 | 150.0 |
+| markdown-long | Task (s) | 9.400 | 8.925 | 6.151 | 5.618 |
+| markdown-long | Script (s) | 5.470 | 6.541 | 3.208 | 2.917 |
+| markdown-long | Layout+Style (s) | 1.112 | 0.536 | 0.723 | 0.640 |
+| markdown-long | Row p95 (ms) | 2.20 | 7.10 | 1.50 | 1.40 |
+| markdown-long | Per-commit p95 (ms) | 2.80 | 7.10 | 1.50 | 1.40 |
+| markdown-long | Row render total (ms) | 1,973.0 | 3,238.1 | 491.1 | 421.9 |
+| markdown-long | Long task count | 0 | 0 | 0 | 0 |
+| markdown-long | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| markdown-long | CLS | 0.215 | 0.647 | 0.000 | 0.000 |
+| markdown-long | Post-GC JS heap (MB) | 157.87 | 116.38 | 116.64 | 116.72 |
+| markdown-long | DOM nodes | 5,125 | 3,291 | 3,253 | 3,253 |
+| markdown-long | Dropped frames (%) | 0.08 | 0.39 | 0.12 | 0.12 |
+| markdown-long | Longest frame (ms) | 50.0 | 66.7 | 33.4 | 66.6 |
+| mixed-turn | Task (s) | 1.901 | 4.163 | 1.404 | 1.342 |
+| mixed-turn | Script (s) | 0.704 | 2.257 | 0.558 | 0.542 |
+| mixed-turn | Layout+Style (s) | 0.307 | 0.391 | 0.201 | 0.199 |
+| mixed-turn | Row p95 (ms) | 2.40 | 0.30 | 1.60 | 1.50 |
+| mixed-turn | Per-commit p95 (ms) | 3.90 | 1.20 | 2.70 | 2.80 |
+| mixed-turn | Row render total (ms) | 214.4 | 584.4 | 91.9 | 88.5 |
+| mixed-turn | Long task count | 0 | 0 | 0 | 0 |
+| mixed-turn | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| mixed-turn | CLS | 0.005 | 0.093 | 0.027 | 0.027 |
+| mixed-turn | Post-GC JS heap (MB) | 113.18 | 122.87 | 114.55 | 114.72 |
+| mixed-turn | DOM nodes | 1,840 | 4,410 | 1,742 | 1,751 |
+| mixed-turn | Dropped frames (%) | 0.10 | 0.21 | 0.21 | 0.21 |
+| mixed-turn | Longest frame (ms) | 33.3 | 50.0 | 33.3 | 33.4 |
+| reads-20 | Task (s) | 1.269 | 3.442 | 1.169 | 1.067 |
+| reads-20 | Script (s) | 0.595 | 2.349 | 0.564 | 0.572 |
+| reads-20 | Layout+Style (s) | 0.204 | 0.351 | 0.120 | 0.116 |
+| reads-20 | Row p95 (ms) | 2.50 | 0.10 | 1.30 | 1.20 |
+| reads-20 | Per-commit p95 (ms) | 3.90 | 6.20 | 1.80 | 1.80 |
+| reads-20 | Row render total (ms) | 146.1 | 940.5 | 105.0 | 103.9 |
+| reads-20 | Long task count | 0 | 1 | 0 | 0 |
+| reads-20 | Long task total (ms) | 0.0 | 181.0 | 0.0 | 0.0 |
+| reads-20 | CLS | 0.002 | 0.680 | 0.001 | 0.001 |
+| reads-20 | Post-GC JS heap (MB) | 112.49 | 241.81 | 117.00 | 116.62 |
+| reads-20 | DOM nodes | 1,885 | 56,519 | 2,074 | 2,074 |
+| reads-20 | Dropped frames (%) | 0.16 | 2.83 | 0.31 | 0.31 |
+| reads-20 | Longest frame (ms) | 33.3 | 216.7 | 33.4 | 33.3 |
+| reasoning-long-prose | Task (s) | 3.689 | 4.201 | 2.208 | 2.057 |
+| reasoning-long-prose | Script (s) | 2.067 | 2.422 | 1.088 | 1.016 |
+| reasoning-long-prose | Layout+Style (s) | 0.324 | 0.495 | 0.252 | 0.236 |
+| reasoning-long-prose | Row p95 (ms) | 1.20 | 2.10 | 0.80 | 0.80 |
+| reasoning-long-prose | Per-commit p95 (ms) | 1.20 | 2.10 | 0.80 | 0.80 |
+| reasoning-long-prose | Row render total (ms) | 668.3 | 1,034.1 | 151.0 | 141.4 |
+| reasoning-long-prose | Long task count | 0 | 0 | 0 | 0 |
+| reasoning-long-prose | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| reasoning-long-prose | CLS | 0.000 | 0.098 | 0.001 | 0.001 |
+| reasoning-long-prose | Post-GC JS heap (MB) | 110.19 | 113.89 | 113.37 | 113.14 |
+| reasoning-long-prose | DOM nodes | 1,449 | 1,426 | 1,397 | 1,397 |
+| reasoning-long-prose | Dropped frames (%) | 0.08 | 0.08 | 0.08 | 0.16 |
+| reasoning-long-prose | Longest frame (ms) | 33.3 | 33.3 | 33.3 | 33.4 |
+| reasoning-long-sections | Task (s) | 3.060 | 3.909 | 1.759 | 1.566 |
+| reasoning-long-sections | Script (s) | 1.726 | 2.548 | 0.935 | 0.812 |
+| reasoning-long-sections | Layout+Style (s) | 0.266 | 0.362 | 0.193 | 0.166 |
+| reasoning-long-sections | Row p95 (ms) | 1.10 | 2.50 | 0.80 | 0.80 |
+| reasoning-long-sections | Per-commit p95 (ms) | 1.10 | 2.50 | 0.80 | 0.80 |
+| reasoning-long-sections | Row render total (ms) | 556.6 | 1,309.7 | 119.4 | 115.8 |
+| reasoning-long-sections | Long task count | 0 | 0 | 0 | 0 |
+| reasoning-long-sections | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| reasoning-long-sections | CLS | 0.000 | 0.149 | 0.001 | 0.001 |
+| reasoning-long-sections | Post-GC JS heap (MB) | 110.17 | 113.70 | 113.08 | 113.15 |
+| reasoning-long-sections | DOM nodes | 1,449 | 1,426 | 1,399 | 1,399 |
+| reasoning-long-sections | Dropped frames (%) | 0.18 | 0.18 | 0.18 | 0.09 |
+| reasoning-long-sections | Longest frame (ms) | 33.4 | 33.3 | 33.4 | 33.3 |
+| shell-log-large | Task (s) | 1.288 | 2.619 | 0.841 | 0.823 |
+| shell-log-large | Script (s) | 0.225 | 1.209 | 0.204 | 0.199 |
+| shell-log-large | Layout+Style (s) | 0.236 | 0.236 | 0.151 | 0.142 |
+| shell-log-large | Row p95 (ms) | 2.70 | 0.40 | 2.10 | 2.40 |
+| shell-log-large | Per-commit p95 (ms) | 3.30 | 0.40 | 5.80 | 5.70 |
+| shell-log-large | Row render total (ms) | 41.0 | 289.5 | 18.7 | 19.9 |
+| shell-log-large | Long task count | 0 | 2 | 0 | 0 |
+| shell-log-large | Long task total (ms) | 0.0 | 104.0 | 0.0 | 0.0 |
+| shell-log-large | CLS | 0.000 | 0.022 | 0.000 | 0.000 |
+| shell-log-large | Post-GC JS heap (MB) | 109.86 | 126.87 | 112.82 | 113.26 |
+| shell-log-large | DOM nodes | 1,465 | 9,986 | 1,409 | 1,409 |
+| shell-log-large | Dropped frames (%) | 0.34 | 1.01 | 0.11 | 0.22 |
+| shell-log-large | Longest frame (ms) | 33.3 | 66.8 | 33.4 | 33.4 |
+| table-streaming | Task (s) | 3.094 | 2.296 | 1.984 | 1.905 |
+| table-streaming | Script (s) | 2.088 | 1.338 | 1.088 | 1.004 |
+| table-streaming | Layout+Style (s) | 0.270 | 0.232 | 0.217 | 0.199 |
+| table-streaming | Row p95 (ms) | 3.20 | 2.90 | 2.50 | 2.40 |
+| table-streaming | Per-commit p95 (ms) | 3.20 | 2.90 | 2.50 | 2.40 |
+| table-streaming | Row render total (ms) | 1,114.0 | 421.4 | 252.1 | 220.5 |
+| table-streaming | Long task count | 0 | 0 | 0 | 0 |
+| table-streaming | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| table-streaming | CLS | 0.050 | 0.038 | 0.011 | 0.011 |
+| table-streaming | Post-GC JS heap (MB) | 113.62 | 114.13 | 114.54 | 114.55 |
+| table-streaming | DOM nodes | 1,905 | 1,637 | 2,001 | 2,005 |
+| table-streaming | Dropped frames (%) | 0.09 | 0.09 | 0.09 | 0.19 |
+| table-streaming | Longest frame (ms) | 33.3 | 33.3 | 33.4 | 33.4 |
+| tool-expanded-streaming | Task (s) | 2.319 | 4.618 | 1.780 | 1.692 |
+| tool-expanded-streaming | Script (s) | 0.768 | 2.633 | 0.751 | 0.728 |
+| tool-expanded-streaming | Layout+Style (s) | 0.331 | 0.398 | 0.216 | 0.213 |
+| tool-expanded-streaming | Row p95 (ms) | 0.50 | 5.10 | 0.80 | 0.70 |
+| tool-expanded-streaming | Per-commit p95 (ms) | 0.90 | 6.40 | 1.00 | 0.90 |
+| tool-expanded-streaming | Row render total (ms) | 55.7 | 927.4 | 110.7 | 102.6 |
+| tool-expanded-streaming | Long task count | 0 | 0 | 0 | 0 |
+| tool-expanded-streaming | Long task total (ms) | 0.0 | 0.0 | 0.0 | 0.0 |
+| tool-expanded-streaming | CLS | 0.000 | 0.014 | 0.000 | 0.000 |
+| tool-expanded-streaming | Post-GC JS heap (MB) | 112.28 | 124.10 | 115.46 | 115.68 |
+| tool-expanded-streaming | DOM nodes | 1,456 | 6,862 | 1,409 | 1,409 |
+| tool-expanded-streaming | Dropped frames (%) | 0.08 | 2.02 | 0.08 | 0.08 |
+| tool-expanded-streaming | Longest frame (ms) | 33.3 | 33.4 | 33.3 | 33.3 |
+
+## latest 差值与 README even-rule
+
+| 场景 | 指标 | latest − upstream | latest − native | latest − baseline |
+| --- | --- | --- | --- | --- |
+| codeblock-streaming | Task (s) | -0.755 (-21.55%; 更低（>10%）) | -1.401 (-33.78%; 更低（>10%）) | -0.109 (-3.81%; 持平（<10%）) |
+| codeblock-streaming | Script (s) | -0.885 (-35.77%; 更低（>10%）) | -1.106 (-41.04%; 更低（>10%）) | -0.116 (-6.83%; 持平（<10%）) |
+| codeblock-streaming | Layout+Style (s) | +0.029 (+12.45%; 更高（>10%）) | -0.165 (-38.22%; 更低（>10%）) | -0.007 (-2.54%; 持平（<10%）) |
+| codeblock-streaming | Row p95 (ms) | -3.80 (-71.70%; 更低（>10%）) | -1.30 (-46.43%; 更低（>10%）) | -0.40 (-21.05%; 更低（>10%）) |
+| codeblock-streaming | Per-commit p95 (ms) | -3.80 (-71.70%; 更低（>10%）) | -1.40 (-48.28%; 更低（>10%）) | -0.40 (-21.05%; 更低（>10%）) |
+| codeblock-streaming | Row render total (ms) | -941.1 (-76.64%; 更低（>10%）) | -996.5 (-77.65%; 更低（>10%）) | -67.9 (-19.14%; 更低（>10%）) |
+| codeblock-streaming | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| codeblock-streaming | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| codeblock-streaming | CLS | -0.118 (-91.27%; 更低（>10%）) | -0.032 (-74.24%; 更低（>10%）) | -0.000 (-2.06%; 持平（<10%）) |
+| codeblock-streaming | Post-GC JS heap (MB) | -0.25 (-0.22%; 持平（<10%）) | -1.86 (-1.61%; 持平（<10%）) | +0.00 (+0.00%; 持平（<10%）) |
+| codeblock-streaming | DOM nodes | -187 (-6.81%; 持平（<10%）) | -411 (-13.85%; 更低（>10%）) | -1,178 (-31.54%; 更低（>10%）) |
+| codeblock-streaming | Dropped frames (%) | +0.00 (+0.08%; 持平（<10%）) | +0.00 (+0.17%; 持平（<10%）) | -0.08 (-33.28%; 更低（>10%）) |
+| codeblock-streaming | Longest frame (ms) | +16.5 (+49.40%; 更高（>10%）) | +16.5 (+49.40%; 更高（>10%）) | +16.5 (+49.40%; 更高（>10%）) |
+| diff-large | Task (s) | -1.571 (-80.73%; 更低（>10%）) | -0.105 (-21.93%; 持平（整段回放均 <0.5s）) | +0.027 (+7.79%; 持平（整段回放均 <0.5s）) |
+| diff-large | Script (s) | -1.114 (-87.32%; 更低（>10%）) | -0.015 (-8.73%; 持平（<10%）) | +0.015 (+10.49%; 更高（>10%）) |
+| diff-large | Layout+Style (s) | -0.176 (-80.85%; 更低（>10%）) | -0.021 (-33.92%; 更低（>10%）) | +0.004 (+10.66%; 更高（>10%）) |
+| diff-large | Row p95 (ms) | +2.10 (+350.00%; 更高（>10%）) | +0.40 (+17.39%; 更高（>10%）) | +0.10 (+3.85%; 持平（<10%）) |
+| diff-large | Per-commit p95 (ms) | +2.40 (+480.00%; 更高（>10%）) | +0.10 (+3.57%; 持平（<10%）) | +0.00 (+0.00%; 持平（<10%）) |
+| diff-large | Row render total (ms) | -560.5 (-96.52%; 更低（>10%）) | -15.4 (-43.26%; 更低（>10%）) | +1.8 (+9.78%; 持平（<10%）) |
+| diff-large | Long task count | -6 (-100.00%; 更低（>10%）) | +0 (0%; 持平) | +0 (0%; 持平) |
+| diff-large | Long task total (ms) | -991.0 (-100.00%; 更低（>10%）) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| diff-large | CLS | -0.024 (-99.94%; 更低（>10%）) | +0.000 (+0.00%; 持平) | +0.000 (+0.00%; 持平) |
+| diff-large | Post-GC JS heap (MB) | -102.91 (-48.02%; 更低（>10%）) | +3.23 (+2.98%; 持平（<10%）) | -0.50 (-0.45%; 持平（<10%）) |
+| diff-large | DOM nodes | -39,307 (-96.52%; 更低（>10%）) | -39 (-2.68%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| diff-large | Dropped frames (%) | -13.93 (-96.55%; 更低（>10%）) | -0.00 (-0.25%; 持平（<10%）) | +0.50 (n/a; n/a（对照值为 0）) |
+| diff-large | Longest frame (ms) | -299.9 (-90.01%; 更低（>10%）) | -0.1 (-0.30%; 持平（<10%）) | +16.5 (+98.21%; 更高（>10%）) |
+| history-100 | Task (s) | -6.255 (-88.61%; 更低（>10%）) | +0.007 (+0.93%; 持平（<10%）) | -0.019 (-2.28%; 持平（<10%）) |
+| history-100 | Script (s) | -6.166 (-90.43%; 更低（>10%）) | +0.028 (+4.47%; 持平（<10%）) | -0.015 (-2.18%; 持平（<10%）) |
+| history-100 | Layout+Style (s) | -0.059 (-59.23%; 更低（>10%）) | -0.013 (-24.90%; 更低（>10%）) | -0.001 (-1.80%; 持平（<10%）) |
+| history-100 | Row p95 (ms) | -0.10 (-33.33%; 更低（>10%）) | +0.00 (+0.00%; 持平) | +0.00 (+0.00%; 持平) |
+| history-100 | Per-commit p95 (ms) | -68.70 (-94.50%; 更低（>10%）) | -1.50 (-27.27%; 更低（>10%）) | +0.10 (+2.56%; 持平（<10%）) |
+| history-100 | Row render total (ms) | -4,339.8 (-96.06%; 更低（>10%）) | +19.9 (+12.59%; 更高（>10%）) | -13.4 (-7.00%; 持平（<10%）) |
+| history-100 | Long task count | -44 (-97.78%; 更低（>10%）) | +0 (+0.00%; 持平) | +0 (+0.00%; 持平) |
+| history-100 | Long task total (ms) | -3,286.0 (-98.15%; 更低（>10%）) | +6.0 (+10.71%; 更高（>10%）) | +1.0 (+1.64%; 持平（<10%）) |
+| history-100 | CLS | -0.246 (-99.99%; 更低（>10%）) | +0.000 (+0.00%; 持平) | +0.000 (+0.00%; 持平) |
+| history-100 | Post-GC JS heap (MB) | -126.81 (-51.50%; 更低（>10%）) | +3.81 (+3.30%; 持平（<10%）) | -0.12 (-0.10%; 持平（<10%）) |
+| history-100 | DOM nodes | -13,087 (-85.52%; 更低（>10%）) | +26 (+1.19%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| history-100 | Dropped frames (%) | -73.53 (-85.69%; 更低（>10%）) | -0.31 (-2.46%; 持平（<10%）) | -1.03 (-7.73%; 持平（<10%）) |
+| history-100 | Longest frame (ms) | -116.7 (-43.76%; 更低（>10%）) | +0.0 (+0.00%; 持平) | +0.0 (+0.00%; 持平) |
+| markdown-long | Task (s) | -3.307 (-37.05%; 更低（>10%）) | -3.782 (-40.23%; 更低（>10%）) | -0.532 (-8.65%; 持平（<10%）) |
+| markdown-long | Script (s) | -3.624 (-55.40%; 更低（>10%）) | -2.553 (-46.67%; 更低（>10%）) | -0.291 (-9.07%; 持平（<10%）) |
+| markdown-long | Layout+Style (s) | +0.104 (+19.40%; 更高（>10%）) | -0.472 (-42.45%; 更低（>10%）) | -0.083 (-11.43%; 更低（>10%）) |
+| markdown-long | Row p95 (ms) | -5.70 (-80.28%; 更低（>10%）) | -0.80 (-36.36%; 更低（>10%）) | -0.10 (-6.67%; 持平（<10%）) |
+| markdown-long | Per-commit p95 (ms) | -5.70 (-80.28%; 更低（>10%）) | -1.40 (-50.00%; 更低（>10%）) | -0.10 (-6.67%; 持平（<10%）) |
+| markdown-long | Row render total (ms) | -2,816.2 (-86.97%; 更低（>10%）) | -1,551.1 (-78.62%; 更低（>10%）) | -69.2 (-14.09%; 更低（>10%）) |
+| markdown-long | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| markdown-long | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| markdown-long | CLS | -0.647 (-100.00%; 更低（>10%）) | -0.215 (-99.99%; 更低（>10%）) | +0.000 (+0.00%; 持平) |
+| markdown-long | Post-GC JS heap (MB) | +0.34 (+0.30%; 持平（<10%）) | -41.14 (-26.06%; 更低（>10%）) | +0.08 (+0.07%; 持平（<10%）) |
+| markdown-long | DOM nodes | -38 (-1.15%; 持平（<10%）) | -1,872 (-36.53%; 更低（>10%）) | +0 (+0.00%; 持平) |
+| markdown-long | Dropped frames (%) | -0.27 (-70.00%; 更低（>10%）) | +0.04 (+50.00%; 更高（>10%）) | +0.00 (+0.00%; 持平) |
+| markdown-long | Longest frame (ms) | -0.1 (-0.15%; 持平（<10%）) | +16.6 (+33.20%; 更高（>10%）) | +33.2 (+99.40%; 更高（>10%）) |
+| mixed-turn | Task (s) | -2.821 (-67.76%; 更低（>10%）) | -0.559 (-29.41%; 更低（>10%）) | -0.062 (-4.45%; 持平（<10%）) |
+| mixed-turn | Script (s) | -1.716 (-76.00%; 更低（>10%）) | -0.163 (-23.08%; 更低（>10%）) | -0.016 (-2.86%; 持平（<10%）) |
+| mixed-turn | Layout+Style (s) | -0.192 (-49.11%; 更低（>10%）) | -0.108 (-35.28%; 更低（>10%）) | -0.002 (-0.83%; 持平（<10%）) |
+| mixed-turn | Row p95 (ms) | +1.20 (+400.00%; 更高（>10%）) | -0.90 (-37.50%; 更低（>10%）) | -0.10 (-6.25%; 持平（<10%）) |
+| mixed-turn | Per-commit p95 (ms) | +1.60 (+133.33%; 更高（>10%）) | -1.10 (-28.21%; 更低（>10%）) | +0.10 (+3.70%; 持平（<10%）) |
+| mixed-turn | Row render total (ms) | -495.9 (-84.86%; 更低（>10%）) | -125.9 (-58.72%; 更低（>10%）) | -3.4 (-3.70%; 持平（<10%）) |
+| mixed-turn | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| mixed-turn | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| mixed-turn | CLS | -0.066 (-71.30%; 更低（>10%）) | +0.022 (+440.85%; 更高（>10%）) | +0.000 (+0.00%; 持平) |
+| mixed-turn | Post-GC JS heap (MB) | -8.14 (-6.63%; 持平（<10%）) | +1.55 (+1.37%; 持平（<10%）) | +0.17 (+0.15%; 持平（<10%）) |
+| mixed-turn | DOM nodes | -2,659 (-60.29%; 更低（>10%）) | -89 (-4.84%; 持平（<10%）) | +9 (+0.52%; 持平（<10%）) |
+| mixed-turn | Dropped frames (%) | +0.00 (+0.00%; 持平) | +0.10 (+100.00%; 更高（>10%）) | +0.00 (+0.10%; 持平（<10%）) |
+| mixed-turn | Longest frame (ms) | -16.6 (-33.20%; 更低（>10%）) | +0.1 (+0.30%; 持平（<10%）) | +0.1 (+0.30%; 持平（<10%）) |
+| reads-20 | Task (s) | -2.376 (-69.01%; 更低（>10%）) | -0.202 (-15.94%; 更低（>10%）) | -0.102 (-8.76%; 持平（<10%）) |
+| reads-20 | Script (s) | -1.777 (-75.63%; 更低（>10%）) | -0.023 (-3.83%; 持平（<10%）) | +0.008 (+1.44%; 持平（<10%）) |
+| reads-20 | Layout+Style (s) | -0.235 (-66.84%; 更低（>10%）) | -0.087 (-42.87%; 更低（>10%）) | -0.004 (-3.29%; 持平（<10%）) |
+| reads-20 | Row p95 (ms) | +1.10 (+1100.00%; 更高（>10%）) | -1.30 (-52.00%; 更低（>10%）) | -0.10 (-7.69%; 持平（<10%）) |
+| reads-20 | Per-commit p95 (ms) | -4.40 (-70.97%; 更低（>10%）) | -2.10 (-53.85%; 更低（>10%）) | -0.00 (-0.00%; 持平（<10%）) |
+| reads-20 | Row render total (ms) | -836.6 (-88.95%; 更低（>10%）) | -42.2 (-28.88%; 更低（>10%）) | -1.1 (-1.05%; 持平（<10%）) |
+| reads-20 | Long task count | -1 (-100.00%; 更低（>10%）) | +0 (0%; 持平) | +0 (0%; 持平) |
+| reads-20 | Long task total (ms) | -181.0 (-100.00%; 更低（>10%）) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| reads-20 | CLS | -0.679 (-99.89%; 更低（>10%）) | -0.001 (-61.45%; 更低（>10%）) | +0.000 (+0.00%; 持平) |
+| reads-20 | Post-GC JS heap (MB) | -125.19 (-51.77%; 更低（>10%）) | +4.13 (+3.67%; 持平（<10%）) | -0.38 (-0.32%; 持平（<10%）) |
+| reads-20 | DOM nodes | -54,445 (-96.33%; 更低（>10%）) | +189 (+10.03%; 更高（>10%）) | +0 (+0.00%; 持平) |
+| reads-20 | Dropped frames (%) | -2.52 (-88.91%; 更低（>10%）) | +0.16 (+99.69%; 更高（>10%）) | +0.00 (+0.00%; 持平) |
+| reads-20 | Longest frame (ms) | -183.4 (-84.63%; 更低（>10%）) | +0.0 (+0.00%; 持平（<10%）) | -0.1 (-0.30%; 持平（<10%）) |
+| reasoning-long-prose | Task (s) | -2.144 (-51.04%; 更低（>10%）) | -1.633 (-44.25%; 更低（>10%）) | -0.151 (-6.84%; 持平（<10%）) |
+| reasoning-long-prose | Script (s) | -1.407 (-58.07%; 更低（>10%）) | -1.051 (-50.86%; 更低（>10%）) | -0.073 (-6.67%; 持平（<10%）) |
+| reasoning-long-prose | Layout+Style (s) | -0.258 (-52.25%; 更低（>10%）) | -0.087 (-27.03%; 更低（>10%）) | -0.015 (-6.11%; 持平（<10%）) |
+| reasoning-long-prose | Row p95 (ms) | -1.30 (-61.90%; 更低（>10%）) | -0.40 (-33.33%; 更低（>10%）) | +0.00 (+0.00%; 持平) |
+| reasoning-long-prose | Per-commit p95 (ms) | -1.30 (-61.90%; 更低（>10%）) | -0.40 (-33.33%; 更低（>10%）) | +0.00 (+0.00%; 持平) |
+| reasoning-long-prose | Row render total (ms) | -892.7 (-86.33%; 更低（>10%）) | -526.9 (-78.84%; 更低（>10%）) | -9.6 (-6.36%; 持平（<10%）) |
+| reasoning-long-prose | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| reasoning-long-prose | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| reasoning-long-prose | CLS | -0.097 (-99.21%; 更低（>10%）) | +0.001 (+5230.36%; 更高（>10%）) | +0.000 (+0.00%; 持平) |
+| reasoning-long-prose | Post-GC JS heap (MB) | -0.76 (-0.66%; 持平（<10%）) | +2.94 (+2.67%; 持平（<10%）) | -0.24 (-0.21%; 持平（<10%）) |
+| reasoning-long-prose | DOM nodes | -29 (-2.03%; 持平（<10%）) | -52 (-3.59%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| reasoning-long-prose | Dropped frames (%) | +0.08 (+100.32%; 更高（>10%）) | +0.08 (+99.84%; 更高（>10%）) | +0.08 (+100.00%; 更高（>10%）) |
+| reasoning-long-prose | Longest frame (ms) | +0.1 (+0.30%; 持平（<10%）) | +0.1 (+0.30%; 持平（<10%）) | +0.1 (+0.30%; 持平（<10%）) |
+| reasoning-long-sections | Task (s) | -2.344 (-59.95%; 更低（>10%）) | -1.494 (-48.84%; 更低（>10%）) | -0.193 (-11.00%; 更低（>10%）) |
+| reasoning-long-sections | Script (s) | -1.736 (-68.14%; 更低（>10%）) | -0.914 (-52.97%; 更低（>10%）) | -0.123 (-13.14%; 更低（>10%）) |
+| reasoning-long-sections | Layout+Style (s) | -0.195 (-54.05%; 更低（>10%）) | -0.100 (-37.59%; 更低（>10%）) | -0.026 (-13.74%; 更低（>10%）) |
+| reasoning-long-sections | Row p95 (ms) | -1.70 (-68.00%; 更低（>10%）) | -0.30 (-27.27%; 更低（>10%）) | +0.00 (+0.00%; 持平（<10%）) |
+| reasoning-long-sections | Per-commit p95 (ms) | -1.70 (-68.00%; 更低（>10%）) | -0.30 (-27.27%; 更低（>10%）) | +0.00 (+0.00%; 持平) |
+| reasoning-long-sections | Row render total (ms) | -1,193.9 (-91.16%; 更低（>10%）) | -440.8 (-79.20%; 更低（>10%）) | -3.6 (-3.02%; 持平（<10%）) |
+| reasoning-long-sections | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| reasoning-long-sections | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| reasoning-long-sections | CLS | -0.148 (-99.48%; 更低（>10%）) | +0.001 (+5230.36%; 更高（>10%）) | +0.000 (+0.00%; 持平) |
+| reasoning-long-sections | Post-GC JS heap (MB) | -0.55 (-0.48%; 持平（<10%）) | +2.98 (+2.70%; 持平（<10%）) | +0.07 (+0.06%; 持平（<10%）) |
+| reasoning-long-sections | DOM nodes | -27 (-1.89%; 持平（<10%）) | -50 (-3.45%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| reasoning-long-sections | Dropped frames (%) | -0.09 (-49.95%; 更低（>10%）) | -0.09 (-50.09%; 更低（>10%）) | -0.09 (-50.00%; 更低（>10%）) |
+| reasoning-long-sections | Longest frame (ms) | +0.0 (+0.00%; 持平（<10%）) | -0.1 (-0.30%; 持平（<10%）) | -0.1 (-0.30%; 持平（<10%）) |
+| shell-log-large | Task (s) | -1.796 (-68.57%; 更低（>10%）) | -0.465 (-36.11%; 更低（>10%）) | -0.018 (-2.13%; 持平（<10%）) |
+| shell-log-large | Script (s) | -1.010 (-83.53%; 更低（>10%）) | -0.026 (-11.60%; 更低（>10%）) | -0.005 (-2.56%; 持平（<10%）) |
+| shell-log-large | Layout+Style (s) | -0.094 (-39.73%; 更低（>10%）) | -0.093 (-39.53%; 更低（>10%）) | -0.008 (-5.52%; 持平（<10%）) |
+| shell-log-large | Row p95 (ms) | +2.00 (+500.00%; 更高（>10%）) | -0.30 (-11.11%; 更低（>10%）) | +0.30 (+14.29%; 更高（>10%）) |
+| shell-log-large | Per-commit p95 (ms) | +5.30 (+1325.00%; 更高（>10%）) | +2.40 (+72.73%; 更高（>10%）) | -0.10 (-1.72%; 持平（<10%）) |
+| shell-log-large | Row render total (ms) | -269.6 (-93.13%; 更低（>10%）) | -21.1 (-51.46%; 更低（>10%）) | +1.2 (+6.42%; 持平（<10%）) |
+| shell-log-large | Long task count | -2 (-100.00%; 更低（>10%）) | +0 (0%; 持平) | +0 (0%; 持平) |
+| shell-log-large | Long task total (ms) | -104.0 (-100.00%; 更低（>10%）) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| shell-log-large | CLS | -0.022 (-99.93%; 更低（>10%）) | +0.000 (+0.00%; 持平) | +0.000 (+0.00%; 持平) |
+| shell-log-large | Post-GC JS heap (MB) | -13.60 (-10.72%; 更低（>10%）) | +3.40 (+3.09%; 持平（<10%）) | +0.45 (+0.40%; 持平（<10%）) |
+| shell-log-large | DOM nodes | -8,577 (-85.89%; 更低（>10%）) | -56 (-3.82%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| shell-log-large | Dropped frames (%) | -0.78 (-77.78%; 更低（>10%）) | -0.11 (-33.26%; 更低（>10%）) | +0.11 (+100.00%; 更高（>10%）) |
+| shell-log-large | Longest frame (ms) | -33.4 (-50.00%; 更低（>10%）) | +0.1 (+0.30%; 持平（<10%）) | -0.0 (-0.00%; 持平（<10%）) |
+| table-streaming | Task (s) | -0.391 (-17.04%; 更低（>10%）) | -1.190 (-38.45%; 更低（>10%）) | -0.079 (-3.99%; 持平（<10%）) |
+| table-streaming | Script (s) | -0.334 (-24.95%; 更低（>10%）) | -1.083 (-51.88%; 更低（>10%）) | -0.083 (-7.66%; 持平（<10%）) |
+| table-streaming | Layout+Style (s) | -0.033 (-14.32%; 更低（>10%）) | -0.071 (-26.25%; 更低（>10%）) | -0.018 (-8.26%; 持平（<10%）) |
+| table-streaming | Row p95 (ms) | -0.50 (-17.24%; 更低（>10%）) | -0.80 (-25.00%; 更低（>10%）) | -0.10 (-4.00%; 持平（<10%）) |
+| table-streaming | Per-commit p95 (ms) | -0.50 (-17.24%; 更低（>10%）) | -0.80 (-25.00%; 更低（>10%）) | -0.10 (-4.00%; 持平（<10%）) |
+| table-streaming | Row render total (ms) | -200.9 (-47.67%; 更低（>10%）) | -893.5 (-80.21%; 更低（>10%）) | -31.6 (-12.53%; 更低（>10%）) |
+| table-streaming | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| table-streaming | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| table-streaming | CLS | -0.028 (-72.36%; 更低（>10%）) | -0.039 (-78.75%; 更低（>10%）) | +0.000 (+0.00%; 持平) |
+| table-streaming | Post-GC JS heap (MB) | +0.42 (+0.36%; 持平（<10%）) | +0.93 (+0.82%; 持平（<10%）) | +0.01 (+0.01%; 持平（<10%）) |
+| table-streaming | DOM nodes | +368 (+22.48%; 更高（>10%）) | +100 (+5.25%; 持平（<10%）) | +4 (+0.20%; 持平（<10%）) |
+| table-streaming | Dropped frames (%) | +0.09 (+99.63%; 更高（>10%）) | +0.09 (+99.63%; 更高（>10%）) | +0.09 (+100.37%; 更高（>10%）) |
+| table-streaming | Longest frame (ms) | +0.1 (+0.30%; 持平（<10%）) | +0.1 (+0.30%; 持平（<10%）) | +0.0 (+0.00%; 持平（<10%）) |
+| tool-expanded-streaming | Task (s) | -2.926 (-63.36%; 更低（>10%）) | -0.627 (-27.04%; 更低（>10%）) | -0.088 (-4.94%; 持平（<10%）) |
+| tool-expanded-streaming | Script (s) | -1.905 (-72.36%; 更低（>10%）) | -0.040 (-5.26%; 持平（<10%）) | -0.024 (-3.16%; 持平（<10%）) |
+| tool-expanded-streaming | Layout+Style (s) | -0.185 (-46.57%; 更低（>10%）) | -0.119 (-35.84%; 更低（>10%）) | -0.004 (-1.74%; 持平（<10%）) |
+| tool-expanded-streaming | Row p95 (ms) | -4.40 (-86.27%; 更低（>10%）) | +0.20 (+40.00%; 更高（>10%）) | -0.10 (-12.50%; 更低（>10%）) |
+| tool-expanded-streaming | Per-commit p95 (ms) | -5.50 (-85.94%; 更低（>10%）) | +0.00 (+0.00%; 持平) | -0.10 (-10.00%; 持平（<10%）) |
+| tool-expanded-streaming | Row render total (ms) | -824.8 (-88.94%; 更低（>10%）) | +46.9 (+84.20%; 更高（>10%）) | -8.1 (-7.32%; 持平（<10%）) |
+| tool-expanded-streaming | Long task count | +0 (0%; 持平) | +0 (0%; 持平) | +0 (0%; 持平) |
+| tool-expanded-streaming | Long task total (ms) | +0.0 (0%; 持平) | +0.0 (0%; 持平) | +0.0 (0%; 持平) |
+| tool-expanded-streaming | CLS | -0.014 (-99.89%; 更低（>10%）) | +0.000 (+4.17%; 持平（<10%）) | +0.000 (+0.00%; 持平) |
+| tool-expanded-streaming | Post-GC JS heap (MB) | -8.42 (-6.79%; 持平（<10%）) | +3.39 (+3.02%; 持平（<10%）) | +0.22 (+0.19%; 持平（<10%）) |
+| tool-expanded-streaming | DOM nodes | -5,453 (-79.47%; 更低（>10%）) | -47 (-3.23%; 持平（<10%）) | +0 (+0.00%; 持平) |
+| tool-expanded-streaming | Dropped frames (%) | -1.93 (-95.84%; 更低（>10%）) | +0.00 (+0.00%; 持平) | +0.00 (+0.00%; 持平) |
+| tool-expanded-streaming | Longest frame (ms) | -0.1 (-0.30%; 持平（<10%）) | -0.0 (-0.00%; 持平（<10%）) | +0.0 (+0.00%; 持平) |
+
+## 单次提交 p95 的批处理提示
+
+`Row render total` 是 iOS 的记录指标。若 latest 与对照的 per-commit p95 和行渲染总量方向相反，或中位 rows/commit 相差至少 3 倍，则列出该场景。
+
+- diff-large：latest vs upstream；p95 与总量方向相反；rows/commit 1.05 → 2.00。
+- diff-large：latest vs native；p95 与总量方向相反；rows/commit 2.20 → 2.00。
+- history-100：latest vs upstream；rows/commit 相差 ≥3 倍；rows/commit 155.29 → 35.68。
+- history-100：latest vs native；p95 与总量方向相反；rows/commit 33.99 → 35.68。
+- history-100：latest vs baseline；p95 与总量方向相反；rows/commit 36.34 → 35.68。
+- mixed-turn：latest vs upstream；p95 与总量方向相反；rows/commit 相差 ≥3 倍；rows/commit 6.27 → 1.80。
+- mixed-turn：latest vs baseline；p95 与总量方向相反；rows/commit 1.80 → 1.80。
+- reads-20：latest vs upstream；rows/commit 相差 ≥3 倍；rows/commit 15.67 → 1.95。
+- shell-log-large：latest vs upstream；p95 与总量方向相反；rows/commit 1.02 → 2.11。
+- shell-log-large：latest vs native；p95 与总量方向相反；rows/commit 2.14 → 2.11。
+- shell-log-large：latest vs baseline；p95 与总量方向相反；rows/commit 2.06 → 2.11。

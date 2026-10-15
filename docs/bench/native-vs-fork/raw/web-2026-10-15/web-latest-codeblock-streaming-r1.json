@@ -1,0 +1,89 @@
+{
+  "fixture": "codeblock-streaming",
+  "speed": "1",
+  "mode": "latest",
+  "reducedMotion": false,
+  "rep": 1,
+  "agentId": "6045a6ac-97f7-4aac-8e09-d2a3b14c52c7",
+  "streamMs": 15837,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true,
+    "pluginLinkRealpath": "/private/tmp/bc-v4/latest",
+    "pluginEnabled": true,
+    "pluginStatus": "running"
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "codeblock-streaming",
+    "platform": "web",
+    "elapsedMs": 19842.799999952316,
+    "rows": {
+      "plugin": 448,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.09999996423721313,
+        "p95": 0.40000003576278687,
+        "max": 0.40000003576278687,
+        "sum": 0.8999999761581421
+      },
+      "assistant": {
+        "commits": 448,
+        "mounts": 2,
+        "n": 448,
+        "p50": 0.30000001192092896,
+        "p95": 1.5,
+        "max": 5.5,
+        "sum": 285.9999990463257
+      }
+    },
+    "allRows": {
+      "n": 455,
+      "p50": 0.30000001192092896,
+      "p95": 1.5,
+      "max": 5.5,
+      "sum": 286.8999990224838
+    },
+    "perCommit": {
+      "n": 447,
+      "p50": 0.3999999761581421,
+      "p95": 1.5,
+      "max": 5.5,
+      "sum": 286.8999990224838
+    },
+    "frames": {
+      "count": 1188,
+      "dropped": 2,
+      "droppedRatio": 0.0016806722689075631,
+      "longestMs": 50
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.011246122402615015,
+    "heapMB": 162.6525173187256
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.779308,
+      "ScriptDuration": 1.5887179999999999,
+      "LayoutDuration": 0.087549,
+      "RecalcStyleDuration": 0.184686,
+      "LayoutCount": 289,
+      "RecalcStyleCount": 1135
+    },
+    "nodes": 3588,
+    "jsHeapUsedMB": 110.85210418701172,
+    "beforeGc": {
+      "nodes": 3611,
+      "jsHeapUsedMB": 119.36626434326172
+    }
+  }
+}

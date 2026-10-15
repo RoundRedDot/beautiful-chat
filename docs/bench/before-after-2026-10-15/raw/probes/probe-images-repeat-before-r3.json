@@ -1,0 +1,343 @@
+{
+  "scenario": "images-repeat",
+  "mode": "before",
+  "rep": 3,
+  "identity": {
+    "agentId": "df44b075-4c5f-4889-908e-7a4632b38672",
+    "mode": "before",
+    "pluginPath": "/private/tmp/bc-ba/before",
+    "pluginStatus": "running",
+    "pluginEnabled": true,
+    "host": true,
+    "imageRpc": true
+  },
+  "live": {
+    "renders": {
+      "byKind": {
+        "tool_call": 7,
+        "assistant": 7
+      },
+      "byItem": {
+        "tool_call:toolu_img0001": 7,
+        "assistant:assistant#a5fcc4b2": 1,
+        "assistant:assistant#7182a77f": 6
+      }
+    },
+    "commitMs": {
+      "tool_call": {
+        "count": 5,
+        "total": 5.9,
+        "mean": 1.18,
+        "p50": 0.9,
+        "p95": 2.1,
+        "max": 2.1
+      },
+      "assistant": {
+        "count": 7,
+        "total": 14,
+        "mean": 2,
+        "p50": 0.7,
+        "p95": 5.2,
+        "max": 5.2
+      }
+    },
+    "markdown": {
+      "parses": 3,
+      "parseMs": {
+        "count": 3,
+        "total": 1.4,
+        "mean": 0.467,
+        "p50": 0.5,
+        "p95": 0.8,
+        "max": 0.8
+      },
+      "parseChars": {
+        "count": 3,
+        "total": 634,
+        "mean": 211.333,
+        "p50": 231,
+        "p95": 309,
+        "max": 309
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 1,
+      "whileStreaming": 0,
+      "totalPx": 1250,
+      "events": [
+        {
+          "key": "assistant:assistant#7182a77f",
+          "from": 1746,
+          "to": 496,
+          "streaming": false
+        }
+      ]
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "imageRpc": {
+      "count": 7,
+      "duplicatesInFlight": 2
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 1,
+      "mountsTotal": 1,
+      "byName": {}
+    },
+    "frames": {
+      "count": 417,
+      "dropped": 4,
+      "droppedRatio": 0.01,
+      "longestMs": 33.4,
+      "intervalMs": {
+        "count": 417,
+        "total": 7016.3,
+        "mean": 16.826,
+        "p50": 16.7,
+        "p95": 16.8,
+        "max": 33.4
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 9,
+      "total": 0.235,
+      "mean": 0.026,
+      "p50": 0.006,
+      "p95": 0.162,
+      "max": 0.162
+    },
+    "counters": {
+      "md.lexFinalMiss": 8,
+      "md.blockRender": 15
+    }
+  },
+  "historyLoad": {
+    "renders": {
+      "byKind": {
+        "assistant": 4,
+        "tool_call": 2
+      },
+      "byItem": {
+        "assistant:assistant#a5fcc4b2": 2,
+        "tool_call:toolu_img0001": 2,
+        "assistant:assistant#7182a77f": 2
+      }
+    },
+    "commitMs": {
+      "assistant": {
+        "count": 4,
+        "total": 14.1,
+        "mean": 3.525,
+        "p50": 1.1,
+        "p95": 8,
+        "max": 8
+      },
+      "tool_call": {
+        "count": 2,
+        "total": 4.6,
+        "mean": 2.3,
+        "p50": 0.9,
+        "p95": 3.7,
+        "max": 3.7
+      }
+    },
+    "markdown": {
+      "parses": 2,
+      "parseMs": {
+        "count": 2,
+        "total": 3.1,
+        "mean": 1.55,
+        "p50": 0.1,
+        "p95": 3,
+        "max": 3
+      },
+      "parseChars": {
+        "count": 2,
+        "total": 2559,
+        "mean": 1279.5,
+        "p50": 309,
+        "p95": 2250,
+        "max": 2250
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 0,
+      "whileStreaming": 0,
+      "totalPx": 0,
+      "events": []
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "imageRpc": {
+      "count": 4,
+      "duplicatesInFlight": 2
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 0,
+      "mountsTotal": 0,
+      "byName": {}
+    },
+    "frames": {
+      "count": 398,
+      "dropped": 2,
+      "droppedRatio": 0.005,
+      "longestMs": 33.3,
+      "intervalMs": {
+        "count": 398,
+        "total": 6666.4,
+        "mean": 16.75,
+        "p50": 16.7,
+        "p95": 16.7,
+        "max": 33.3
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 2,
+      "total": 0.007,
+      "mean": 0.003,
+      "p50": 0,
+      "p95": 0.007,
+      "max": 0.007
+    },
+    "counters": {
+      "md.lexFinalMiss": 11,
+      "md.blockRender": 11
+    }
+  },
+  "afterExpandingReadRow": {
+    "renders": {
+      "byKind": {
+        "assistant": 4,
+        "tool_call": 5
+      },
+      "byItem": {
+        "assistant:assistant#a5fcc4b2": 2,
+        "tool_call:toolu_img0001": 5,
+        "assistant:assistant#7182a77f": 2
+      }
+    },
+    "commitMs": {
+      "assistant": {
+        "count": 4,
+        "total": 14.1,
+        "mean": 3.525,
+        "p50": 1.1,
+        "p95": 8,
+        "max": 8
+      },
+      "tool_call": {
+        "count": 4,
+        "total": 20.1,
+        "mean": 5.025,
+        "p50": 1.9,
+        "p95": 13.6,
+        "max": 13.6
+      }
+    },
+    "markdown": {
+      "parses": 2,
+      "parseMs": {
+        "count": 2,
+        "total": 3.1,
+        "mean": 1.55,
+        "p50": 0.1,
+        "p95": 3,
+        "max": 3
+      },
+      "parseChars": {
+        "count": 2,
+        "total": 2559,
+        "mean": 1279.5,
+        "p50": 309,
+        "p95": 2250,
+        "max": 2250
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 0,
+      "whileStreaming": 0,
+      "totalPx": 0,
+      "events": []
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "imageRpc": {
+      "count": 5,
+      "duplicatesInFlight": 2
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 0,
+      "mountsTotal": 0,
+      "byName": {}
+    },
+    "frames": {
+      "count": 645,
+      "dropped": 2,
+      "droppedRatio": 0.003,
+      "longestMs": 33.3,
+      "intervalMs": {
+        "count": 645,
+        "total": 10782.9,
+        "mean": 16.718,
+        "p50": 16.7,
+        "p95": 16.7,
+        "max": 33.3
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 2,
+      "total": 0.007,
+      "mean": 0.003,
+      "p50": 0,
+      "p95": 0.007,
+      "max": 0.007
+    },
+    "counters": {
+      "md.lexFinalMiss": 11,
+      "md.blockRender": 11
+    }
+  },
+  "renderedImages900px": 5
+}

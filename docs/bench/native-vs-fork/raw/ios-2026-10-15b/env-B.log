@@ -1,0 +1,106 @@
+worker_start env=B pid=54359 time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+load_gate_pass unit=f03-r05-history-100 env=B time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+load_gate_pass unit=f03-r06-history-100 env=B time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+load_gate_pass unit=f07-r02-reasoning-long-prose env=B time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+unit_start unit=f07-r02-reasoning-long-prose fixture=reasoning-long-prose speed=1 rep=2 env=B start=2026-10-15T14:13:00Z load=2.43,3.12,4.66 modes=native,upstream,baseline,latest
+run_start unit=f07-r02-reasoning-long-prose env=B mode=native time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-reasoning-long-prose-r2: dumped (stream 17s, agent 27d7372a-da14-4788-a2a6-91d7a7bb52be, identity no plugin marker)
+run_end unit=f07-r02-reasoning-long-prose env=B mode=native time=2026-10-15T14:14:35Z load=2.76,2.95,4.43
+run_start unit=f07-r02-reasoning-long-prose env=B mode=upstream time=2026-10-15T14:14:35Z load=2.76,2.95,4.43
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-reasoning-long-prose-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-reasoning-long-prose-r2: dumped (stream 17s, agent 21c603ca-1344-4d35-8ea1-d99ccaab8685, identity plugin rows without imageRpc)
+run_end unit=f07-r02-reasoning-long-prose env=B mode=upstream time=2026-10-15T14:15:52Z load=2.90,2.92,4.28
+run_start unit=f07-r02-reasoning-long-prose env=B mode=baseline time=2026-10-15T14:15:52Z load=2.90,2.92,4.28
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-reasoning-long-prose-r2: dumped (stream 17s, agent e5f6c2a7-7960-4ca5-82d3-ca7145eda948, identity imageRpc)
+run_end unit=f07-r02-reasoning-long-prose env=B mode=baseline time=2026-10-15T14:17:09Z load=2.90,2.89,4.15
+run_start unit=f07-r02-reasoning-long-prose env=B mode=latest time=2026-10-15T14:17:09Z load=2.90,2.89,4.15
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-reasoning-long-prose-r2: dumped (stream 17s, agent cb245c6d-895e-4e20-8886-8f58a9d9771c, identity imageRpc)
+run_end unit=f07-r02-reasoning-long-prose env=B mode=latest time=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+unit_done unit=f07-r02-reasoning-long-prose env=B end=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+load_gate_pass unit=f08-r02-reasoning-long-sections env=B time=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+load_gate_pass unit=f09-r02-shell-log-large env=B time=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+load_gate_pass unit=f09-r03-shell-log-large env=B time=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+unit_start unit=f09-r03-shell-log-large fixture=shell-log-large speed=1 rep=3 env=B start=2026-10-15T14:18:27Z load=2.44,2.70,3.96 modes=latest,native,upstream,baseline
+run_start unit=f09-r03-shell-log-large env=B mode=latest time=2026-10-15T14:18:27Z load=2.44,2.70,3.96
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-shell-log-large-r3: dumped (stream 11s, agent 00f77c76-d86a-45b2-af96-4e05d6b8a572, identity imageRpc)
+run_end unit=f09-r03-shell-log-large env=B mode=latest time=2026-10-15T14:19:38Z load=2.53,2.69,3.86
+run_start unit=f09-r03-shell-log-large env=B mode=native time=2026-10-15T14:19:38Z load=2.53,2.69,3.86
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-shell-log-large-r3: dumped (stream 11s, agent bf39b0a7-2be2-482e-a7ae-6be4b6e5c387, identity no plugin marker)
+run_end unit=f09-r03-shell-log-large env=B mode=native time=2026-10-15T14:21:07Z load=1.73,2.44,3.64
+run_start unit=f09-r03-shell-log-large env=B mode=upstream time=2026-10-15T14:21:07Z load=1.73,2.44,3.64
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-shell-log-large-r3: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r3: dumped (stream 11s, agent 19464855-2d6d-4655-847c-47cc2f14b956, identity plugin rows without imageRpc)
+run_end unit=f09-r03-shell-log-large env=B mode=upstream time=2026-10-15T14:22:19Z load=2.02,2.38,3.52
+run_start unit=f09-r03-shell-log-large env=B mode=baseline time=2026-10-15T14:22:19Z load=2.02,2.38,3.52
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-shell-log-large-r3: dumped (stream 11s, agent d824ff8b-28cf-444e-8818-97cbe2f815cb, identity imageRpc)
+run_end unit=f09-r03-shell-log-large env=B mode=baseline time=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+unit_done unit=f09-r03-shell-log-large env=B end=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+load_gate_pass unit=f09-r04-shell-log-large env=B time=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+load_gate_pass unit=f09-r05-shell-log-large env=B time=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+load_gate_pass unit=f09-r06-shell-log-large env=B time=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+unit_start unit=f09-r06-shell-log-large fixture=shell-log-large speed=1 rep=6 env=B start=2026-10-15T14:23:31Z load=2.36,2.36,3.41 modes=baseline,latest,native,upstream
+run_start unit=f09-r06-shell-log-large env=B mode=baseline time=2026-10-15T14:23:31Z load=2.36,2.36,3.41
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-shell-log-large-r6: dumped (stream 11s, agent a592b371-010d-4afa-8114-3e2df0240312, identity imageRpc)
+run_end unit=f09-r06-shell-log-large env=B mode=baseline time=2026-10-15T14:24:42Z load=1.83,2.24,3.29
+run_start unit=f09-r06-shell-log-large env=B mode=latest time=2026-10-15T14:24:42Z load=1.83,2.24,3.29
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-shell-log-large-r6: dumped (stream 11s, agent d0c2a254-db13-4511-b3b0-b7b901b34a62, identity imageRpc)
+run_end unit=f09-r06-shell-log-large env=B mode=latest time=2026-10-15T14:25:54Z load=3.21,2.54,3.31
+run_start unit=f09-r06-shell-log-large env=B mode=native time=2026-10-15T14:25:54Z load=3.21,2.54,3.31
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-shell-log-large-r6: dumped (stream 11s, agent a2002265-a648-49e9-9f2a-4fc14a9c1ffb, identity no plugin marker)
+run_end unit=f09-r06-shell-log-large env=B mode=native time=2026-10-15T14:27:23Z load=2.54,2.52,3.22
+run_start unit=f09-r06-shell-log-large env=B mode=upstream time=2026-10-15T14:27:23Z load=2.54,2.52,3.22
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-shell-log-large-r6: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r6: dumped (stream 11s, agent ecb02e3f-6856-45c1-aabc-556d4d50c892, identity plugin rows without imageRpc)
+run_end unit=f09-r06-shell-log-large env=B mode=upstream time=2026-10-15T14:28:35Z load=2.46,2.48,3.15
+unit_done unit=f09-r06-shell-log-large env=B end=2026-10-15T14:28:35Z load=2.46,2.48,3.15
+load_gate_pass unit=f09-r05-shell-log-large env=B time=2026-10-15T14:28:36Z load=2.46,2.48,3.15
+load_gate_pass unit=f10-r02-table-streaming env=B time=2026-10-15T14:28:36Z load=2.46,2.48,3.15
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=B time=2026-10-15T14:28:36Z load=2.46,2.48,3.15
+unit_start unit=f11-r02-tool-expanded-streaming fixture=tool-expanded-streaming speed=4 rep=2 env=B start=2026-10-15T14:28:36Z load=2.46,2.48,3.15 modes=native,upstream,baseline,latest
+run_start unit=f11-r02-tool-expanded-streaming env=B mode=native time=2026-10-15T14:28:36Z load=2.46,2.48,3.15
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-tool-expanded-streaming-r2: dumped (stream 16s, agent db253282-cc8a-4098-a642-8fd628b73628, identity no plugin marker)
+run_end unit=f11-r02-tool-expanded-streaming env=B mode=native time=2026-10-15T14:30:10Z load=2.58,2.49,3.08
+run_start unit=f11-r02-tool-expanded-streaming env=B mode=upstream time=2026-10-15T14:30:10Z load=2.58,2.49,3.08
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-tool-expanded-streaming-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-tool-expanded-streaming-r2: dumped (stream 16s, agent 0509f356-57e4-4848-9169-2db059eef164, identity plugin rows without imageRpc)
+run_end unit=f11-r02-tool-expanded-streaming env=B mode=upstream time=2026-10-15T14:31:26Z load=2.08,2.36,2.98
+run_start unit=f11-r02-tool-expanded-streaming env=B mode=baseline time=2026-10-15T14:31:26Z load=2.08,2.36,2.98
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-tool-expanded-streaming-r2: dumped (stream 16s, agent a2b7e5dd-20ed-49a6-981d-2bd608b72588, identity imageRpc)
+run_end unit=f11-r02-tool-expanded-streaming env=B mode=baseline time=2026-10-15T14:32:43Z load=1.95,2.28,2.90
+run_start unit=f11-r02-tool-expanded-streaming env=B mode=latest time=2026-10-15T14:32:43Z load=1.95,2.28,2.90
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-b)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-tool-expanded-streaming-r2: dumped (stream 16s, agent ef080abd-9d65-4972-9767-ede1ccafe015, identity imageRpc)
+run_end unit=f11-r02-tool-expanded-streaming env=B mode=latest time=2026-10-15T14:34:00Z load=1.78,2.13,2.78
+unit_done unit=f11-r02-tool-expanded-streaming env=B end=2026-10-15T14:34:00Z load=1.78,2.13,2.78
+worker_done env=B time=2026-10-15T14:34:00Z load=1.78,2.13,2.78

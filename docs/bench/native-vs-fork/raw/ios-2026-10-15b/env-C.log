@@ -1,0 +1,134 @@
+worker_start env=C pid=54360 time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+load_gate_pass unit=f03-r05-history-100 env=C time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+load_gate_pass unit=f03-r06-history-100 env=C time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+unit_start unit=f03-r06-history-100 fixture=history-100 speed=max rep=6 env=C start=2026-10-15T14:13:00Z load=2.43,3.12,4.66 modes=native,upstream,baseline,latest
+run_start unit=f03-r06-history-100 env=C mode=native time=2026-10-15T14:13:00Z load=2.43,3.12,4.66
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-history-100-r6: dumped (stream 1s, agent d5282163-d4dc-40e0-a61d-9ecb3a95bdfd, identity no plugin marker)
+run_end unit=f03-r06-history-100 env=C mode=native time=2026-10-15T14:14:19Z load=1.86,2.81,4.41
+run_start unit=f03-r06-history-100 env=C mode=upstream time=2026-10-15T14:14:19Z load=1.86,2.81,4.41
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-history-100-r6: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-history-100-r6: dumped (stream 1s, agent 293d7417-037c-4dba-a70c-bbb3002d771c, identity plugin rows without imageRpc)
+run_end unit=f03-r06-history-100 env=C mode=upstream time=2026-10-15T14:15:21Z load=2.95,2.93,4.34
+run_start unit=f03-r06-history-100 env=C mode=baseline time=2026-10-15T14:15:21Z load=2.95,2.93,4.34
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-history-100-r6: dumped (stream 1s, agent c0895dbb-d661-48af-a0e3-69fe516b97a7, identity imageRpc)
+run_end unit=f03-r06-history-100 env=C mode=baseline time=2026-10-15T14:16:23Z load=2.35,2.79,4.18
+run_start unit=f03-r06-history-100 env=C mode=latest time=2026-10-15T14:16:23Z load=2.35,2.79,4.18
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-history-100-r6: dumped (stream 1s, agent 87ed665d-f364-4e86-a3cc-f60dd47abc33, identity imageRpc)
+run_end unit=f03-r06-history-100 env=C mode=latest time=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+unit_done unit=f03-r06-history-100 env=C end=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+load_gate_pass unit=f03-r05-history-100 env=C time=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+load_gate_pass unit=f07-r02-reasoning-long-prose env=C time=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+load_gate_pass unit=f08-r02-reasoning-long-sections env=C time=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+unit_start unit=f08-r02-reasoning-long-sections fixture=reasoning-long-sections speed=1 rep=2 env=C start=2026-10-15T14:17:24Z load=2.70,2.84,4.11 modes=upstream,baseline,latest,native
+run_start unit=f08-r02-reasoning-long-sections env=C mode=upstream time=2026-10-15T14:17:24Z load=2.70,2.84,4.11
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-reasoning-long-sections-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-reasoning-long-sections-r2: dumped (stream 14s, agent ba515a8d-fd0a-4fda-a996-f7fec43216b6, identity plugin rows without imageRpc)
+run_end unit=f08-r02-reasoning-long-sections env=C mode=upstream time=2026-10-15T14:18:39Z load=2.45,2.69,3.94
+run_start unit=f08-r02-reasoning-long-sections env=C mode=baseline time=2026-10-15T14:18:39Z load=2.45,2.69,3.94
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-reasoning-long-sections-r2: dumped (stream 14s, agent 61d72243-4dcc-4750-8b8d-efbc326432c8, identity imageRpc)
+run_end unit=f08-r02-reasoning-long-sections env=C mode=baseline time=2026-10-15T14:19:55Z load=2.35,2.64,3.82
+run_start unit=f08-r02-reasoning-long-sections env=C mode=latest time=2026-10-15T14:19:55Z load=2.35,2.64,3.82
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-reasoning-long-sections-r2: dumped (stream 14s, agent bd219db6-7ad3-4b4b-a5ac-ce0e60717a13, identity imageRpc)
+run_end unit=f08-r02-reasoning-long-sections env=C mode=latest time=2026-10-15T14:21:10Z load=1.73,2.44,3.64
+run_start unit=f08-r02-reasoning-long-sections env=C mode=native time=2026-10-15T14:21:10Z load=1.73,2.44,3.64
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-reasoning-long-sections-r2: dumped (stream 14s, agent bded50a6-66c1-4ea1-83dd-306a453270fa, identity no plugin marker)
+run_end unit=f08-r02-reasoning-long-sections env=C mode=native time=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+unit_done unit=f08-r02-reasoning-long-sections env=C end=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+load_gate_pass unit=f09-r02-shell-log-large env=C time=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+load_gate_pass unit=f09-r03-shell-log-large env=C time=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+load_gate_pass unit=f09-r04-shell-log-large env=C time=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+unit_start unit=f09-r04-shell-log-large fixture=shell-log-large speed=1 rep=4 env=C start=2026-10-15T14:22:42Z load=1.78,2.30,3.46 modes=native,upstream,baseline,latest
+run_start unit=f09-r04-shell-log-large env=C mode=native time=2026-10-15T14:22:42Z load=1.78,2.30,3.46
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-shell-log-large-r4: dumped (stream 11s, agent 43d08f19-29b3-43e0-b7c0-1e0027143b3d, identity no plugin marker)
+run_end unit=f09-r04-shell-log-large env=C mode=native time=2026-10-15T14:24:11Z load=2.24,2.34,3.37
+run_start unit=f09-r04-shell-log-large env=C mode=upstream time=2026-10-15T14:24:11Z load=2.24,2.34,3.37
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-shell-log-large-r4: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-shell-log-large-r4: dumped (stream 11s, agent 131524d3-9976-4752-9a6b-86362b700271, identity plugin rows without imageRpc)
+run_end unit=f09-r04-shell-log-large env=C mode=upstream time=2026-10-15T14:25:23Z load=2.18,2.28,3.25
+run_start unit=f09-r04-shell-log-large env=C mode=baseline time=2026-10-15T14:25:23Z load=2.18,2.28,3.25
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-shell-log-large-r4: dumped (stream 11s, agent 999e8779-d438-4928-8832-4b758b4ad23d, identity imageRpc)
+run_end unit=f09-r04-shell-log-large env=C mode=baseline time=2026-10-15T14:26:35Z load=2.68,2.48,3.25
+run_start unit=f09-r04-shell-log-large env=C mode=latest time=2026-10-15T14:26:35Z load=2.68,2.48,3.25
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-shell-log-large-r4: dumped (stream 11s, agent 31fc9762-e4c4-4946-88ff-7974a07a75f7, identity imageRpc)
+run_end unit=f09-r04-shell-log-large env=C mode=latest time=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+unit_done unit=f09-r04-shell-log-large env=C end=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+load_gate_pass unit=f09-r05-shell-log-large env=C time=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+load_gate_pass unit=f09-r06-shell-log-large env=C time=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+load_gate_pass unit=f10-r02-table-streaming env=C time=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+unit_start unit=f10-r02-table-streaming fixture=table-streaming speed=1 rep=2 env=C start=2026-10-15T14:27:47Z load=2.39,2.49,3.19 modes=latest,native,upstream,baseline
+run_start unit=f10-r02-table-streaming env=C mode=latest time=2026-10-15T14:27:47Z load=2.39,2.49,3.19
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-latest-table-streaming-r2: dumped (stream 14s, agent 60d3ba76-ffcd-4377-86d1-8f1bca936527, identity imageRpc)
+run_end unit=f10-r02-table-streaming env=C mode=latest time=2026-10-15T14:29:00Z load=2.89,2.57,3.17
+run_start unit=f10-r02-table-streaming env=C mode=native time=2026-10-15T14:29:00Z load=2.89,2.57,3.17
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-native-table-streaming-r2: dumped (stream 14s, agent dc7d7715-36e8-4f8b-9ebd-e37cafde04a7, identity no plugin marker)
+run_end unit=f10-r02-table-streaming env=C mode=native time=2026-10-15T14:30:32Z load=2.26,2.42,3.04
+run_start unit=f10-r02-table-streaming env=C mode=upstream time=2026-10-15T14:30:32Z load=2.26,2.42,3.04
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-upstream-table-streaming-r2: no DOM marker before the run; the dump must show plugin rows
+ios-upstream-table-streaming-r2: dumped (stream 14s, agent 6c6abd24-b87b-4104-b58c-d9f9b4ff62df, identity plugin rows without imageRpc)
+run_end unit=f10-r02-table-streaming env=C mode=upstream time=2026-10-15T14:31:48Z load=2.20,2.37,2.97
+run_start unit=f10-r02-table-streaming env=C mode=baseline time=2026-10-15T14:31:48Z load=2.20,2.37,2.97
+Using workspace wks_371455993c88a092
+{"target":"sh.paseo.debug (bc-perf-ios-c)","result":"{\"ok\":true,\"scheduled\":true}"}
+ios-baseline-table-streaming-r2: dumped (stream 14s, agent aeddeacf-7b8a-428b-8d52-494f5d2b99aa, identity imageRpc)
+run_end unit=f10-r02-table-streaming env=C mode=baseline time=2026-10-15T14:33:02Z load=1.77,2.22,2.86
+unit_done unit=f10-r02-table-streaming env=C end=2026-10-15T14:33:02Z load=1.77,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:02Z load=1.77,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:04Z load=1.77,2.22,2.86
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:07Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:09Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:11Z load=1.71,2.20,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:13Z load=1.89,2.23,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:15Z load=1.89,2.23,2.85
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:17Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:19Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:21Z load=1.74,2.19,2.84
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:23Z load=1.68,2.17,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:25Z load=1.68,2.17,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:27Z load=1.87,2.20,2.83
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:29Z load=1.87,2.20,2.83
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:31Z load=1.87,2.20,2.83
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:33Z load=1.80,2.18,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:35Z load=1.80,2.18,2.82
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:37Z load=1.73,2.16,2.81
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:39Z load=1.73,2.16,2.81
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:41Z load=1.73,2.16,2.81
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:43Z load=1.67,2.14,2.80
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:45Z load=1.67,2.14,2.80
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:47Z load=1.54,2.10,2.78
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:49Z load=1.54,2.10,2.78
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:51Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:53Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:55Z load=1.50,2.08,2.77
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:57Z load=1.78,2.13,2.78
+load_gate_pass unit=f11-r02-tool-expanded-streaming env=C time=2026-10-15T14:33:59Z load=1.78,2.13,2.78
+worker_done env=C time=2026-10-15T14:34:01Z load=1.71,2.11,2.77

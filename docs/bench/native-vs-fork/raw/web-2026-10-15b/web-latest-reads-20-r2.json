@@ -1,0 +1,107 @@
+{
+  "fixture": "reads-20",
+  "speed": "1",
+  "mode": "latest",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "6c7164eb-0a77-4208-b224-db4cbed1ad48",
+  "streamMs": 6601,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true,
+    "pluginLinkRealpath": "/private/tmp/bc-v5/latest",
+    "pluginEnabled": true,
+    "pluginStatus": "running"
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "reads-20",
+    "platform": "web",
+    "elapsedMs": 10605.200000047684,
+    "rows": {
+      "plugin": 319,
+      "native": 6
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.20000004768371582,
+        "p95": 0.7999999523162842,
+        "max": 0.7999999523162842,
+        "sum": 1.4000000953674316
+      },
+      "assistant": {
+        "commits": 39,
+        "mounts": 4,
+        "n": 39,
+        "p50": 0.09999990463256836,
+        "p95": 2.0000001192092896,
+        "max": 2.700000047683716,
+        "sum": 18.200000405311584
+      },
+      "reasoning": {
+        "commits": 11,
+        "mounts": 2,
+        "n": 11,
+        "p50": 0.40000009536743164,
+        "p95": 2.299999952316284,
+        "max": 2.299999952316284,
+        "sum": 8.699999928474426
+      },
+      "tool": {
+        "commits": 269,
+        "mounts": 24,
+        "n": 269,
+        "p50": 0.10000002384185791,
+        "p95": 1.2000000476837158,
+        "max": 3.6999999284744263,
+        "sum": 81.29999995231628
+      }
+    },
+    "allRows": {
+      "n": 325,
+      "p50": 0.10000002384185791,
+      "p95": 1.2999999523162842,
+      "max": 3.6999999284744263,
+      "sum": 109.60000038146973
+    },
+    "perCommit": {
+      "n": 172,
+      "p50": 0.40000009536743164,
+      "p95": 1.7000000476837158,
+      "max": 5.299999952316284,
+      "sum": 109.60000038146973
+    },
+    "frames": {
+      "count": 633,
+      "dropped": 3,
+      "droppedRatio": 0.0047169811320754715,
+      "longestMs": 33.399999999999636
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.0007773437499999998,
+    "heapMB": 171.67668056488037
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 1.0359180000000001,
+      "ScriptDuration": 0.603463,
+      "LayoutDuration": 0.025849,
+      "RecalcStyleDuration": 0.073383,
+      "LayoutCount": 122,
+      "RecalcStyleCount": 477
+    },
+    "nodes": 2111,
+    "jsHeapUsedMB": 117.95018768310547,
+    "beforeGc": {
+      "nodes": 2444,
+      "jsHeapUsedMB": 127.51071166992188
+    }
+  }
+}

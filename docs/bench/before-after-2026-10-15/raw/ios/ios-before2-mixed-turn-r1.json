@@ -1,0 +1,142 @@
+{
+  "label": "ios-before2-mixed-turn-r1",
+  "platform": "ios",
+  "elapsedMs": 17751.251541018486,
+  "rows": {
+    "plugin": 184,
+    "native": 5
+  },
+  "kinds": {
+    "assistant": {
+      "commits": 55,
+      "mounts": 6,
+      "n": 55,
+      "p50": 0.28170812129974365,
+      "p95": 4.506087481975555,
+      "max": 7.270214736461639,
+      "sum": 53.89260584115982
+    },
+    "user": {
+      "commits": 5,
+      "mounts": 1,
+      "n": 5,
+      "p50": 0.4527939558029175,
+      "p95": 4.849955260753632,
+      "max": 4.849955260753632,
+      "sum": 6.144581198692322
+    },
+    "reasoning": {
+      "commits": 42,
+      "mounts": 6,
+      "n": 42,
+      "p50": 0.8423230648040771,
+      "p95": 3.5633280277252197,
+      "max": 10.455994307994843,
+      "sum": 52.06875628232956
+    },
+    "todo": {
+      "commits": 19,
+      "mounts": 4,
+      "n": 19,
+      "p50": 0.1782103180885315,
+      "p95": 10.331299722194672,
+      "max": 10.331299722194672,
+      "sum": 41.04371124505997
+    },
+    "tool": {
+      "commits": 68,
+      "mounts": 7,
+      "n": 68,
+      "p50": 0.7765401601791382,
+      "p95": 3.800541877746582,
+      "max": 9.54070895910263,
+      "sum": 78.71856772899628
+    }
+  },
+  "allRows": {
+    "n": 189,
+    "p50": 0.5690391659736633,
+    "p95": 4.849955260753632,
+    "max": 10.455994307994843,
+    "sum": 231.86822229623795
+  },
+  "perCommit": {
+    "n": 107,
+    "p50": 1.2195820212364197,
+    "p95": 7.701921164989471,
+    "max": 17.878331065177917,
+    "sum": 231.86822229623795
+  },
+  "frames": {
+    "count": 1020,
+    "dropped": 65,
+    "droppedRatio": 0.059907834101382486,
+    "longestMs": 157.05833303928375
+  },
+  "longTasks": null,
+  "layoutShift": null,
+  "heapMB": null,
+  "identity": {
+    "status": "match",
+    "fork": true,
+    "upstream": false,
+    "host": true,
+    "probesEnabled": false,
+    "documentMissing": true,
+    "contexts": 2,
+    "rows": {
+      "plugin": 184,
+      "native": 5
+    },
+    "reason": "imageRpc",
+    "readings": [
+      {
+        "fork": true,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "probesEnabled": false,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": true,
+        "upstream": false,
+        "host": true,
+        "documentMissing": true,
+        "snapError": null,
+        "probesEnabled": false,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "probesEnabled": null,
+        "contextId": null,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      },
+      {
+        "fork": false,
+        "upstream": false,
+        "host": false,
+        "documentMissing": true,
+        "snapError": null,
+        "probesEnabled": null,
+        "contextId": 1,
+        "title": "sh.paseo.debug (bc-perf-ios)"
+      }
+    ],
+    "mode": "before2",
+    "pluginPath": "/private/tmp/bc-ba/before2"
+  },
+  "streamS": 13,
+  "agentId": "c5a166b3-28c2-417f-9974-a1e95d417914",
+  "fixture": "mixed-turn",
+  "mode": "before2",
+  "rep": 1
+}

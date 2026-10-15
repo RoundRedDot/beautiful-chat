@@ -1,0 +1,89 @@
+{
+  "fixture": "markdown-long",
+  "speed": "1",
+  "mode": "baseline",
+  "reducedMotion": false,
+  "rep": 2,
+  "agentId": "bfa8174e-8e63-4666-ba5e-6785025453b0",
+  "streamMs": 38954,
+  "identity": {
+    "fork": true,
+    "upstream": false,
+    "host": true,
+    "pluginLinkRealpath": "/private/tmp/bc-v4/baseline",
+    "pluginEnabled": true,
+    "pluginStatus": "running"
+  },
+  "pageErrors": [],
+  "probe": {
+    "label": "markdown-long",
+    "platform": "web",
+    "elapsedMs": 42958.30000001192,
+    "rows": {
+      "plugin": 804,
+      "native": 7
+    },
+    "kinds": {
+      "user": {
+        "commits": 7,
+        "mounts": 1,
+        "n": 7,
+        "p50": 0.10000002384185791,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 1.0000000596046448
+      },
+      "assistant": {
+        "commits": 804,
+        "mounts": 2,
+        "n": 804,
+        "p50": 0.3999999761581421,
+        "p95": 1.5,
+        "max": 9.699999988079071,
+        "sum": 498.0999991297722
+      }
+    },
+    "allRows": {
+      "n": 811,
+      "p50": 0.3999999761581421,
+      "p95": 1.5,
+      "max": 9.699999988079071,
+      "sum": 499.09999918937683
+    },
+    "perCommit": {
+      "n": 802,
+      "p50": 0.40000003576278687,
+      "p95": 1.5,
+      "max": 9.699999988079071,
+      "sum": 499.09999918937683
+    },
+    "frames": {
+      "count": 2575,
+      "dropped": 3,
+      "droppedRatio": 0.0011636927851047323,
+      "longestMs": 33.400000000001455
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.000014583333333333335,
+    "heapMB": 189.23572063446045
+  },
+  "cdp": {
+    "delta": {
+      "TaskDuration": 6.165852,
+      "ScriptDuration": 3.226318,
+      "LayoutDuration": 0.263947,
+      "RecalcStyleDuration": 0.478557,
+      "LayoutCount": 705,
+      "RecalcStyleCount": 2825
+    },
+    "nodes": 3253,
+    "jsHeapUsedMB": 116.6380729675293,
+    "beforeGc": {
+      "nodes": 5189,
+      "jsHeapUsedMB": 145.9851951599121
+    }
+  }
+}
