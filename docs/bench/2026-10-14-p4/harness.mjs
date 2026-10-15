@@ -21,7 +21,7 @@ export const extensions = declaration('EXTENSIONS');
 export const paths = [...source.matchAll(/import\("(@shikijs\/langs\/[^"]+)"\)/g)].map(m => m[1]);
 export const ids = paths.map(p => p.split('/').at(-1).replace('dockerfile', 'docker'));
 const require = createRequire(path.join(root, 'package.json'));
-export async function serverBundle({ observe = true } = {}) {
+export async function serverBundle({ observe = true, tokenizeTimeLimit } = {}) {
   const realCore = require.resolve('@shikijs/core');
   const buildEngine = ast.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === 'buildEngine');
   if (!buildEngine?.body) throw new Error('buildEngine body not found');
@@ -31,6 +31,9 @@ export async function serverBundle({ observe = true } = {}) {
     'const p4Started = performance.now(); try {' +
     source.slice(body.getStart(ast) + 1, body.end - 1) +
     '} finally { globalThis.__p4BuildEngineMs = performance.now() - p4Started; }' + source.slice(body.end - 1);
+  const tokenizeCall = tokenizeTimeLimit === undefined
+    ? 'tokenize(...args)'
+    : `tokenize(args[0], { ...args[1], tokenizeTimeLimit: ${JSON.stringify(tokenizeTimeLimit)} })`;
   const result = await build({
     entryPoints: [path.join(root, 'index.server.ts')], bundle: true, format: 'cjs',
     platform: 'node', target: 'es2022', write: false,
@@ -49,7 +52,7 @@ export async function serverBundle({ observe = true } = {}) {
             const tokenize = h.codeToTokens;
             h.codeToTokens = (...args) => {
               const t = performance.now();
-              try { return tokenize(...args); }
+              try { return ${tokenizeCall}; }
               finally { globalThis.__p4.tokenMs.push(performance.now() - t); }
             };
             return h;

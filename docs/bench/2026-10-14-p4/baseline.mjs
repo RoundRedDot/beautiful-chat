@@ -2,7 +2,8 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { aliases, extensions, paths, root, serverBundle, loadServer } from './harness.mjs';
 import { inputs } from './cases.mjs';
-const handler = loadServer(await serverBundle());
+// Disable Shiki's load-sensitive line timeout so this golden compares grammar output.
+const handler = loadServer(await serverBundle({ tokenizeTimeLimit: 0 }));
 // Markdown must be the FIRST highlight in a fresh engine: freezes fenced output before other requests.
 const cases = inputs();
 cases.sort((a, b) => Number(b.name === 'markdown-true') - Number(a.name === 'markdown-true'));
