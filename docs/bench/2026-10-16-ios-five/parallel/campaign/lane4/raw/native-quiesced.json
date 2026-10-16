@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-16T07:28:41.861Z",
+  "lane": 4,
+  "udid": "753E3F5E-D496-4B73-BA9B-E2A0C498BAB0",
+  "reason": "native collection complete; avoid idle native client during Web tests",
+  "metro": [
+    {
+      "pid": 14382,
+      "ppid": 14248,
+      "command": "/opt/homebrew/Cellar/node/26.11.1/bin/node /private/tmp/bc-ios-five-parallel-20261016/lane4/host/node_modules/jest-worker/build/workers/processChild.js"
+    },
+    {
+      "pid": 14381,
+      "ppid": 14248,
+      "command": "/opt/homebrew/Cellar/node/26.11.1/bin/node /private/tmp/bc-ios-five-parallel-20261016/lane4/host/node_modules/jest-worker/build/workers/processChild.js"
+    },
+    {
+      "pid": 14248,
+      "ppid": 14191,
+      "command": "node /private/tmp/bc-ios-five-parallel-20261016/lane4/host/node_modules/.bin/expo start --dev-client --port 8184 --max-workers 2"
+    },
+    {
+      "pid": 14191,
+      "ppid": 1,
+      "command": "npm exec expo start --dev-client --port 8184 --max-workers 2        "
+    }
+  ]
+}

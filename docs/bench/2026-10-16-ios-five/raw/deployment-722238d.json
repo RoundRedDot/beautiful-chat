@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-16T06:29:45.797Z",
+  "revision": "722238de2fcc1ade46d542a7a540868932d9dc89",
+  "parent": "7f01b2d95c87cb6879adf701571de3778a167060",
+  "target": {
+    "host": "luoph-mbp",
+    "home": "/Users/luopeihuan/.paseo",
+    "port": 6767
+  },
+  "plugin": {
+    "id": "better-paseo",
+    "path": "/Users/luopeihuan/.paseo/plugins/better-paseo/e9718879-9726-4258-86d4-93181c6ac1b9/checkout",
+    "enabled": true,
+    "status": "running",
+    "name": "Better Paseo",
+    "installation": {
+      "identity": {
+        "kind": "git",
+        "remote": "https://github.com/RoundRedDot/better-paseo.git",
+        "pluginPath": "."
+      },
+      "currentRevision": "722238de2fcc1ade46d542a7a540868932d9dc89"
+    },
+    "source": "git",
+    "remote": "https://github.com/RoundRedDot/better-paseo.git",
+    "commit": "722238de2fcc1ade46d542a7a540868932d9dc89"
+  },
+  "files": [
+    {
+      "path": "client/live-renderers.tsx",
+      "sha256": "f00a9cf9941ba1516cfec82bce52ff8d105d8e91b260776b9d2bd34ef37502cd"
+    },
+    {
+      "path": "client/timeline-order.ts",
+      "sha256": "e894e6f054dcf33f95834e6c5f38c71a9cb25b2d69c310e658ec25419dc0e314"
+    }
+  ],
+  "validation": {
+    "fullSuite": {
+      "passed": 2128,
+      "failed": 4,
+      "total": 2132,
+      "knownBaselineFailures": "p4-highlight-equivalence: markdown-true, html-true, markdown-false, html-false; reproduced on unchanged 7f01b2d"
+    },
+    "typecheck": "passed",
+    "hermes": "compile and stock/sticky registration passed",
+    "fixedStudioPerformance": "pending",
+    "iPhone15ProRelease": "not verified"
+  }
+}

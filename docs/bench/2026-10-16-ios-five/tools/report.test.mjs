@@ -1,0 +1,10 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {classify,median,summarize} from './report.mjs';
+const fixture='diff-large';
+function matrix(){return ['native','c4','fixed-a','fixed-b'].flatMap(mode=>Array.from({length:5},(_,i)=>({fixture,mode,rep:i+1,completed:true,errors:[],displayErrors:[],loadStart:1,loadEnd:1,comparisonEligible:true,fixtureHash:'a'.repeat(64),sourceSha:mode==='c4'?'c4c9f3f57c43a72b2b8fccc91030eb19df6e500d':null,sourceIdentity:mode.startsWith('fixed')?{patchSha256:'b'.repeat(64)}:null,seen:{host:true,fork:mode!=='native'},probe:{allRows:{sum:100+i},perCommit:{n:10},rows:{native:mode==='native'?10:0,plugin:mode==='native'?0:10}}})));}
+test('unrounded iOS threshold has no Web duration exception',()=>{assert.equal(classify(50,54.999),'even');assert.equal(classify(50,55),'higher');assert.equal(classify(50,44),'lower');assert.equal(classify(100,90),'lower');assert.equal(classify(100,90.001),'even');assert.equal(median([5,1,4,2,3]),3);});
+test('complete matrix retains all ranges and pairs',()=>{const r=summarize(matrix(),[fixture]);assert.deepEqual(r.failures,[]);assert.equal(r.collected,20);assert.equal(r.comparisons[0].aa.length,5);assert.equal(r.comparisons[0].maxAaMs,0);assert.deepEqual(r.comparisons[0].fixed,{n:10,median:102,min:100,max:104});});
+test('one display error makes its comparison diagnostic',()=>{const rows=matrix();rows[13].displayErrors=['duplicate key'];assert.equal(summarize(rows,[fixture]).comparisons[0].verdict,'diagnostic');});
+test('missing repetitions and changed source fail the audit',()=>{const rows=matrix().slice(1);rows[12].sourceIdentity.patchSha256='c'.repeat(64);const r=summarize(rows,[fixture]);assert(r.failures.some(f=>f.includes('five unique')));assert(r.failures.some(f=>f.includes('mixed fixed')));});
+test('end-load excursions are retained; start-load excursions fail',()=>{const rows=matrix();rows[0].loadEnd=5;let r=summarize(rows,[fixture]);assert.deepEqual(r.failures,[]);assert.deepEqual(r.groups[0].loadEndOverGate,[1]);rows[0].loadStart=5;r=summarize(rows,[fixture]);assert(r.failures.some(f=>f.includes('load')));});

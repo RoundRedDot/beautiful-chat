@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-16T06:40:12.058Z",
+  "authorization": "User explicitly requested up to four parallel isolated groups because host load was low.",
+  "group1": {
+    "root": "/tmp/bc-history-complete-20261016",
+    "daemon": 6871,
+    "metro": 8085,
+    "simulator": "4497FFF9-93D1-4713-B55B-A9988BC2209E",
+    "completedAtTransition": [
+      "incident-baseline-1",
+      "incident-baseline-2",
+      "incident-baseline-3",
+      "incident-baseline-4",
+      "incident-candidate-1-1",
+      "incident-candidate-1-2",
+      "incident-candidate-2-1",
+      "incident-candidate-2-2",
+      "incident-candidate-3-1",
+      "incident-candidate-3-2",
+      "incident-candidate-4-1",
+      "incident-candidate-4-2",
+      "incident-candidate-5-1",
+      "incident-native-1",
+      "incident-native-2",
+      "incident-native-3",
+      "incident-native-4"
+    ]
+  },
+  "additionalGroups": {
+    "root": "/tmp/bc-ios-five-parallel-20261016",
+    "lanes": [
+      2,
+      3,
+      4
+    ],
+    "daemons": [
+      6882,
+      6883,
+      6884
+    ],
+    "metros": [
+      8182,
+      8183,
+      8184
+    ],
+    "owner": "61d312f8-5770-4618-9746-e0d8ffe5d2f1"
+  },
+  "interpretation": "All history records remain immutable. Runs after this timestamp may overlap preparation or timed work from three additional isolated lanes. Do not present mixed serial/concurrent history totals as a uniform serial performance comparison. Fixed-patch core uses a separate concurrent batch."
+}

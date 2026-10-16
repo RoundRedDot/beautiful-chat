@@ -1,0 +1,450 @@
+{
+  "at": "2026-10-16T07:15:39.669Z",
+  "note": "Per-kind medians need not sum to total medians; observational decomposition, not a causal ablation.",
+  "groups": [
+    {
+      "fixture": "diff-large",
+      "mode": "native",
+      "kinds": {
+        "user": {
+          "sumMedian": 3.7651296854019165,
+          "commitsMedian": 5
+        },
+        "assistant": {
+          "sumMedian": 30.231504321098328,
+          "commitsMedian": 17
+        },
+        "tool": {
+          "sumMedian": 12.781499028205872,
+          "commitsMedian": 4
+        }
+      },
+      "rendererCalls": {}
+    },
+    {
+      "fixture": "diff-large",
+      "mode": "parent",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 24.943681836128235,
+          "commitsMedian": 24
+        },
+        "user": {
+          "sumMedian": 3.6466190814971924,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 25.181177139282227,
+          "commitsMedian": 10
+        }
+      },
+      "rendererCalls": {
+        "assistant": 9,
+        "tool_call": 6
+      }
+    },
+    {
+      "fixture": "diff-large",
+      "mode": "fixed-a",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 25.749512672424316,
+          "commitsMedian": 24
+        },
+        "user": {
+          "sumMedian": 5.488336086273193,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 23.17520546913147,
+          "commitsMedian": 9
+        }
+      },
+      "rendererCalls": {
+        "assistant": 9,
+        "tool_call": 4
+      }
+    },
+    {
+      "fixture": "diff-large",
+      "mode": "fixed-b",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 29.48890972137451,
+          "commitsMedian": 24
+        },
+        "user": {
+          "sumMedian": 3.654376268386841,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 25.03641951084137,
+          "commitsMedian": 9
+        }
+      },
+      "rendererCalls": {
+        "assistant": 9,
+        "tool_call": 4
+      }
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "native",
+      "kinds": {
+        "user": {
+          "sumMedian": 3.7296254634857178,
+          "commitsMedian": 5
+        },
+        "assistant": {
+          "sumMedian": 68.8207356929779,
+          "commitsMedian": 54
+        },
+        "reasoning": {
+          "sumMedian": 18.31677234172821,
+          "commitsMedian": 9
+        },
+        "tool": {
+          "sumMedian": 185.79475843906403,
+          "commitsMedian": 131
+        }
+      },
+      "rendererCalls": {}
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "parent",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 45.35484981536865,
+          "commitsMedian": 40
+        },
+        "user": {
+          "sumMedian": 3.7489572763442993,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 17.63731551170349,
+          "commitsMedian": 9
+        },
+        "tool": {
+          "sumMedian": 267.6000474691391,
+          "commitsMedian": 233
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 7,
+        "assistant": 24,
+        "tool_call": 139
+      }
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "fixed-a",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 45.50199222564697,
+          "commitsMedian": 40
+        },
+        "user": {
+          "sumMedian": 3.6672879457473755,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 10.5757497549057,
+          "commitsMedian": 9
+        },
+        "tool": {
+          "sumMedian": 206.95111346244812,
+          "commitsMedian": 211
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 7,
+        "assistant": 24,
+        "tool_call": 93
+      }
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "fixed-b",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 45.16962647438049,
+          "commitsMedian": 40
+        },
+        "user": {
+          "sumMedian": 3.6307456493377686,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 10.701252102851868,
+          "commitsMedian": 9
+        },
+        "tool": {
+          "sumMedian": 217.7879582643509,
+          "commitsMedian": 211
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 7,
+        "assistant": 24,
+        "tool_call": 93
+      }
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "native",
+      "kinds": {
+        "user": {
+          "sumMedian": 3.8228341341018677,
+          "commitsMedian": 5
+        },
+        "assistant": {
+          "sumMedian": 16.71178436279297,
+          "commitsMedian": 14
+        },
+        "reasoning": {
+          "sumMedian": 228.71825540065765,
+          "commitsMedian": 298
+        }
+      },
+      "rendererCalls": {}
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "parent",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 25.745033264160156,
+          "commitsMedian": 18
+        },
+        "user": {
+          "sumMedian": 3.5448765754699707,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 299.765483379364,
+          "commitsMedian": 296
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 295,
+        "assistant": 7
+      }
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "fixed-a",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 23.59635579586029,
+          "commitsMedian": 17
+        },
+        "user": {
+          "sumMedian": 3.642829179763794,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 223.11320531368256,
+          "commitsMedian": 298
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 297,
+        "assistant": 7
+      }
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "fixed-b",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 25.96700692176819,
+          "commitsMedian": 17
+        },
+        "user": {
+          "sumMedian": 3.8217931985855103,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 218.76209020614624,
+          "commitsMedian": 298
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 297,
+        "assistant": 7
+      }
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "native",
+      "kinds": {
+        "user": {
+          "sumMedian": 3.66945219039917,
+          "commitsMedian": 5
+        },
+        "assistant": {
+          "sumMedian": 16.005781650543213,
+          "commitsMedian": 10
+        },
+        "reasoning": {
+          "sumMedian": 216.3086634874344,
+          "commitsMedian": 270
+        }
+      },
+      "rendererCalls": {}
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "parent",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 19.809072375297546,
+          "commitsMedian": 14
+        },
+        "user": {
+          "sumMedian": 3.7185007333755493,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 269.3172631263733,
+          "commitsMedian": 268
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 267,
+        "assistant": 3
+      }
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "fixed-a",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 21.670095562934875,
+          "commitsMedian": 15
+        },
+        "user": {
+          "sumMedian": 3.629961848258972,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 192.18398809432983,
+          "commitsMedian": 268
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 267,
+        "assistant": 3
+      }
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "fixed-b",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 22.54828703403473,
+          "commitsMedian": 14
+        },
+        "user": {
+          "sumMedian": 3.7149657011032104,
+          "commitsMedian": 5
+        },
+        "reasoning": {
+          "sumMedian": 187.77110195159912,
+          "commitsMedian": 266
+        }
+      },
+      "rendererCalls": {
+        "reasoning": 265,
+        "assistant": 3
+      }
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "native",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 25.648958563804626,
+          "commitsMedian": 13
+        },
+        "user": {
+          "sumMedian": 3.435913920402527,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 128.07146036624908,
+          "commitsMedian": 98
+        }
+      },
+      "rendererCalls": {}
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "parent",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 21.515885710716248,
+          "commitsMedian": 19
+        },
+        "user": {
+          "sumMedian": 5.277006030082703,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 229.3534553050995,
+          "commitsMedian": 197
+        }
+      },
+      "rendererCalls": {
+        "assistant": 5,
+        "tool_call": 194
+      }
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "fixed-a",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 26.28876781463623,
+          "commitsMedian": 19
+        },
+        "tool": {
+          "sumMedian": 160.97369813919067,
+          "commitsMedian": 101
+        },
+        "user": {
+          "sumMedian": 3.679969549179077,
+          "commitsMedian": 5
+        }
+      },
+      "rendererCalls": {
+        "tool_call": 98,
+        "assistant": 5
+      }
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "fixed-b",
+      "kinds": {
+        "assistant": {
+          "sumMedian": 22.773295879364014,
+          "commitsMedian": 19
+        },
+        "user": {
+          "sumMedian": 3.718045473098755,
+          "commitsMedian": 5
+        },
+        "tool": {
+          "sumMedian": 153.39256632328033,
+          "commitsMedian": 100
+        }
+      },
+      "rendererCalls": {
+        "assistant": 5,
+        "tool_call": 97
+      }
+    }
+  ]
+}

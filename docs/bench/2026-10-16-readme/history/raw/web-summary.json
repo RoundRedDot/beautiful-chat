@@ -1,0 +1,397 @@
+{
+  "expected": 40,
+  "collected": 40,
+  "failures": [],
+  "groups": [
+    {
+      "scenario": "incident",
+      "mode": "candidate",
+      "n": 10,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 527.75,
+          "min": 522.2000000476837,
+          "max": 578.2000000476837
+        },
+        "openRowsMs": {
+          "median": 43.899999499320984,
+          "min": 41.49999988079071,
+          "max": 54.49999988079071
+        },
+        "openTimerGapMs": {
+          "median": 159.8499999642372,
+          "min": 150.70000004768372,
+          "max": 170.29999995231628
+        },
+        "openRafGapMs": {
+          "median": 133.3,
+          "min": 116.59999999999997,
+          "max": 133.39999999999998
+        },
+        "olderRowsMs": {
+          "median": 12.949999690055847,
+          "min": 9.899999976158142,
+          "max": 18.90000033378601
+        },
+        "olderTimerGapMs": {
+          "median": 53.15000003576279,
+          "min": 40.10000002384186,
+          "max": 64.29999995231628
+        },
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "incident",
+      "mode": "baseline",
+      "n": 5,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 1081.2000000476837,
+          "min": 1041.8999999761581,
+          "max": 1113.6000000238419
+        },
+        "openRowsMs": {
+          "median": 2030.5000044107437,
+          "min": 1972.0000001192093,
+          "max": 2053.900001525879
+        },
+        "openTimerGapMs": {
+          "median": 699.2999999523163,
+          "min": 683.8999999761581,
+          "max": 722.5
+        },
+        "openRafGapMs": {
+          "median": 666.6,
+          "min": 633.4,
+          "max": 683.4000000000001
+        },
+        "olderRowsMs": {
+          "median": 532.9999989271164,
+          "min": 523.8999985456467,
+          "max": 545.2000007629395
+        },
+        "olderTimerGapMs": {
+          "median": 274.39999997615814,
+          "min": 273.2999999523163,
+          "max": 305.60000002384186
+        },
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "incident",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 572.4000000953674,
+          "min": 559.2000000476837,
+          "max": 668.3999999761581
+        },
+        "openRowsMs": {
+          "median": 87.7999997138977,
+          "min": 85.00000047683716,
+          "max": 92.79999947547913
+        },
+        "openTimerGapMs": {
+          "median": 228.90000009536743,
+          "min": 212.10000002384186,
+          "max": 249.5
+        },
+        "openRafGapMs": {
+          "median": 183.30000000000007,
+          "min": 183.29999999999995,
+          "max": 216.60000000000002
+        },
+        "olderRowsMs": {
+          "median": 22.49999988079071,
+          "min": 16.799999833106995,
+          "max": 23.49999988079071
+        },
+        "olderTimerGapMs": {
+          "median": 59.5,
+          "min": 48.10000002384186,
+          "max": 67.5
+        },
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "n": 10,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 527,
+          "min": 519.5999999046326,
+          "max": 534
+        },
+        "openRowsMs": {
+          "median": 44.30000025033951,
+          "min": 41.69999980926514,
+          "max": 47.99999988079071
+        },
+        "openTimerGapMs": {
+          "median": 158.19999998807907,
+          "min": 141.80000007152557,
+          "max": 161.60000002384186
+        },
+        "openRafGapMs": {
+          "median": 116.69999999999999,
+          "min": 116.5,
+          "max": 133.30000000000007
+        },
+        "olderRowsMs": {
+          "median": 13.75,
+          "min": 12.700000286102295,
+          "max": 14.300000190734863
+        },
+        "olderTimerGapMs": {
+          "median": 53.550000071525574,
+          "min": 42,
+          "max": 61.699999928474426
+        },
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "n": 5,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 1068.1000000238419,
+          "min": 1053.5,
+          "max": 1322.1000000238419
+        },
+        "openRowsMs": {
+          "median": 2079.0999867916107,
+          "min": 1990.8000046014786,
+          "max": 2125.5000005960464
+        },
+        "openTimerGapMs": {
+          "median": 698.2000000476837,
+          "min": 688.1000000238419,
+          "max": 952.7000000476837
+        },
+        "openRafGapMs": {
+          "median": 649.9000000000001,
+          "min": 633.3,
+          "max": 650
+        },
+        "olderRowsMs": {
+          "median": 540.0999978780746,
+          "min": 521.1000031232834,
+          "max": 546.7999985218048
+        },
+        "olderTimerGapMs": {
+          "median": 294.40000009536743,
+          "min": 286.89999997615814,
+          "max": 330.39999997615814
+        },
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "multi-turn",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "loadEndOverGate": [],
+      "metrics": {
+        "openReadyMs": {
+          "median": 587,
+          "min": 562.5,
+          "max": 606.8000000715256
+        },
+        "openRowsMs": {
+          "median": 88.30000042915344,
+          "min": 85.39999985694885,
+          "max": 90.00000011920929
+        },
+        "openTimerGapMs": {
+          "median": 230.89999997615814,
+          "min": 217,
+          "max": 253.5
+        },
+        "openRafGapMs": {
+          "median": 200.00000000000006,
+          "min": 183.40000000000003,
+          "max": 216.70000000000005
+        },
+        "olderRowsMs": {
+          "median": 23.200000047683716,
+          "min": 15.700000286102295,
+          "max": 25.00000011920929
+        },
+        "olderTimerGapMs": {
+          "median": 52.39999997615814,
+          "min": 39.199999928474426,
+          "max": 57.40000009536743
+        },
+        "remountRowsMs": null
+      }
+    }
+  ],
+  "aa": [
+    {
+      "scenario": "incident",
+      "pairs": [
+        {
+          "rep": 1,
+          "deltas": {
+            "openReadyMs": 3.5,
+            "openRowsMs": 13,
+            "openTimerGapMs": 9.699999928474426,
+            "openRafGapMs": 0,
+            "olderRowsMs": 0.39999985694885254,
+            "olderTimerGapMs": 4.5,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 2,
+          "deltas": {
+            "openReadyMs": 53.800000071525574,
+            "openRowsMs": 1.79999840259552,
+            "openTimerGapMs": 10.5,
+            "openRafGapMs": 0.0999999999999659,
+            "olderRowsMs": 0.20000040531158447,
+            "olderTimerGapMs": 7.100000023841858,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 3,
+          "deltas": {
+            "openReadyMs": 2.799999952316284,
+            "openRowsMs": 0.8999994993209839,
+            "openTimerGapMs": 1.2000000476837158,
+            "openRafGapMs": 0.0999999999999659,
+            "olderRowsMs": 3.0999999046325684,
+            "olderTimerGapMs": 1.5,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 4,
+          "deltas": {
+            "openReadyMs": 1.2000001668930054,
+            "openRowsMs": 2.2999991178512573,
+            "openTimerGapMs": 4.199999928474426,
+            "openRafGapMs": 16.69999999999999,
+            "olderRowsMs": 6.200000882148743,
+            "olderTimerGapMs": 11.699999928474426,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 5,
+          "deltas": {
+            "openReadyMs": 0.7000000476837158,
+            "openRowsMs": 5.500000357627869,
+            "openTimerGapMs": 0.6999999284744263,
+            "openRafGapMs": 16.700000000000102,
+            "olderRowsMs": 2.4999998807907104,
+            "olderTimerGapMs": 14.399999976158142,
+            "remountRowsMs": null
+          }
+        }
+      ],
+      "maxAbsoluteDelta": {
+        "openReadyMs": 53.800000071525574,
+        "openRowsMs": 13,
+        "openTimerGapMs": 10.5,
+        "openRafGapMs": 16.700000000000102,
+        "olderRowsMs": 6.200000882148743,
+        "olderTimerGapMs": 14.399999976158142,
+        "remountRowsMs": null
+      }
+    },
+    {
+      "scenario": "multi-turn",
+      "pairs": [
+        {
+          "rep": 1,
+          "deltas": {
+            "openReadyMs": 14.400000095367432,
+            "openRowsMs": 1.5999993085861206,
+            "openTimerGapMs": 7.599999904632568,
+            "openRafGapMs": 5.684341886080802e-14,
+            "olderRowsMs": 0.8999998569488525,
+            "olderTimerGapMs": 11.400000095367432,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 2,
+          "deltas": {
+            "openReadyMs": 5.099999904632568,
+            "openRowsMs": 0.39999985694885254,
+            "openTimerGapMs": 1.100000023841858,
+            "openRafGapMs": 16.69999999999999,
+            "olderRowsMs": 1.100000262260437,
+            "olderTimerGapMs": 8.200000166893005,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 3,
+          "deltas": {
+            "openReadyMs": 1,
+            "openRowsMs": 0.6000005006790161,
+            "openTimerGapMs": 1,
+            "openRafGapMs": 16.599999999999966,
+            "olderRowsMs": 0.5999999046325684,
+            "olderTimerGapMs": 6.5,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 4,
+          "deltas": {
+            "openReadyMs": 2.399999976158142,
+            "openRowsMs": 3.1999995708465576,
+            "openTimerGapMs": 1.7999999523162842,
+            "openRafGapMs": 16.800000000000068,
+            "olderRowsMs": 0.29999983310699463,
+            "olderTimerGapMs": 19.699999928474426,
+            "remountRowsMs": null
+          }
+        },
+        {
+          "rep": 5,
+          "deltas": {
+            "openReadyMs": 0.7999999523162842,
+            "openRowsMs": 3.9000004529953003,
+            "openTimerGapMs": 6.200000047683716,
+            "openRafGapMs": 16.599999999999966,
+            "olderRowsMs": 1.0999999046325684,
+            "olderTimerGapMs": 12.100000023841858,
+            "remountRowsMs": null
+          }
+        }
+      ],
+      "maxAbsoluteDelta": {
+        "openReadyMs": 14.400000095367432,
+        "openRowsMs": 3.9000004529953003,
+        "openTimerGapMs": 7.599999904632568,
+        "openRafGapMs": 16.800000000000068,
+        "olderRowsMs": 1.100000262260437,
+        "olderTimerGapMs": 19.699999928474426,
+        "remountRowsMs": null
+      }
+    }
+  ]
+}

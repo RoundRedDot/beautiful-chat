@@ -1,0 +1,31 @@
+node:internal/errors:999
+  const err = new Error(message);
+              ^
+
+Error: Command failed: /tmp/bc-perf-p0p1/paseo-cli/node_modules/.bin/paseo --home /Users/rrd/.paseo-bench-ios-five-lane4 archive d1b9398a-1bdd-47ea-81ff-05d43a92d469
+Error: Agent d1b9398 is currently running
+Use --force to archive a running agent (it will interrupt the active run), or stop it first with: paseo agent stop. Use paseo agent delete to hard-delete it.
+
+    at genericNodeError (node:internal/errors:999:15)
+    at wrappedFn (node:internal/errors:544:14)
+    at checkExecSyncError (node:child_process:988:11)
+    at execFileSync (node:child_process:1024:15)
+    at sh (file:///private/tmp/bc-ios-five-parallel-20261016/tools/resources.mjs:4:29)
+    at paseo (file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:13:24)
+    at smoke (file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:65:142)
+    at async file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:89:21 {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    '',
+    'Error: Agent d1b9398 is currently running\n' +
+      'Use --force to archive a running agent (it will interrupt the active run), or stop it first with: paseo agent stop. Use paseo agent delete to hard-delete it.\n'
+  ],
+  pid: 16709,
+  stdout: '',
+  stderr: 'Error: Agent d1b9398 is currently running\n' +
+    'Use --force to archive a running agent (it will interrupt the active run), or stop it first with: paseo agent stop. Use paseo agent delete to hard-delete it.\n'
+}
+
+Node.js v26.11.1

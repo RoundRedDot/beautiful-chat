@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-10-16T07:29:59.663Z",
+  "source": "Worker coordination update at 2026-10-16 07:29 UTC, final raw-artifact review pending",
+  "formalCompleted": 160,
+  "formalExpected": 220,
+  "iosRisk": {
+    "completed": 60,
+    "auditFailures": 0,
+    "endResourceExcursions": 0,
+    "sourceParent": "7f01b2d95c87cb6879adf701571de3778a167060",
+    "sourceFixed": "722238de2fcc1ade46d542a7a540868932d9dc89",
+    "reportedFixedVsParentMedianPercent": {
+      "mixed-turn": -11.84,
+      "history-100": -8.69,
+      "shell-log-large": -6.72,
+      "table-streaming": -5.55,
+      "codeblock-streaming": 1.53,
+      "markdown-long": 0.55
+    }
+  },
+  "webRisk": {
+    "expected": 60,
+    "stage": "independent exports then smoke, not formal sampling yet"
+  },
+  "limits": [
+    "No >10% new iOS risk median regression observed in this batch; not proof of absence",
+    "Core native gaps for diff and default log remain",
+    "Core fixed A/A differences exceed 10% in 8/25 pairs",
+    "Native simulator evidence does not establish iPhone15Pro Release acceptance"
+  ]
+}

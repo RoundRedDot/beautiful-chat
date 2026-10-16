@@ -1,0 +1,11 @@
+node:internal/modules/run_main:111
+    triggerUncaughtException(
+    ^
+
+Error: runtime endpoint mismatch {"hosts":[{"serverId":"srv_do9WvlP9TQ80","connections":[{"type":"directTcp","endpoint":"localhost:6883"}]}],"serverId":"srv_do9WvlP9TQ80","status":"online","endpoint":"localhost:6883","hostPerf":true,"plugin":true}
+    at open (file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:52:212)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async smoke (file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:59:222)
+    at async file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:89:21
+
+Node.js v26.11.1

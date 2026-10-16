@@ -1,0 +1,80 @@
+{
+  "environment": {
+    "executionRegime": "concurrent-max4",
+    "lane": 4,
+    "root": "/tmp/bc-ios-five-parallel-20261016/lane4",
+    "home": "/Users/rrd/.paseo-bench-ios-five-lane4",
+    "port": 8184,
+    "daemonPort": 6884,
+    "server": "srv_yFwbkDXTWCSL",
+    "udid": "753E3F5E-D496-4B73-BA9B-E2A0C498BAB0",
+    "workspace": "wks_97b7a328a28622fc",
+    "version": "0.11.2",
+    "build": "11002999",
+    "hostSha": "75953250959979b8f088bbca8dbd6ee61d0151b1",
+    "hostPatchSha256": "8f060246a58a7a814f6e4d0ca4c49dc31a93f476775fe9d513d13b1205645b15",
+    "hostProbeSha256": "e8daaa53907e6186241b6f19e71981e9f48221bcab2ba7cb63566f3f45293fe1",
+    "hardware": {
+      "hostname": "rrd-mac-studio",
+      "cpu": "Apple M5 Max",
+      "memory": "68719476736",
+      "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+      "node": "v26.11.1"
+    },
+    "sources": {
+      "parent": {
+        "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+        "tree": "50d7edd55c3675a71b00dd18b5269b9c9a7a99d0",
+        "files": 3092,
+        "manifestSha256": "0df3bac4e3e04418d03eaea45fcac4e3ed56e1a9f7738c3a320f968584477732"
+      },
+      "fixed": {
+        "sourceSha": "722238de2fcc1ade46d542a7a540868932d9dc89",
+        "tree": "2f0186ea924bd8958eff95eeb3b1dfe8ae7a6c22",
+        "files": 3092,
+        "manifestSha256": "74fee9338cc9056be080feb0c0035a78f43c90574477d103eef54d4b6ee6dd3e"
+      }
+    }
+  },
+  "startedAt": "2026-10-16T06:48:23.367Z",
+  "identity": [
+    {
+      "id": "bc-bench",
+      "enabled": true,
+      "status": "running",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane4/provider"
+    },
+    {
+      "id": "better-paseo",
+      "enabled": true,
+      "status": "running",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane4/active"
+    }
+  ],
+  "runtime": {
+    "hosts": [
+      {
+        "serverId": "srv_yFwbkDXTWCSL",
+        "connections": [
+          {
+            "type": "directTcp",
+            "endpoint": "localhost:6884"
+          }
+        ]
+      }
+    ],
+    "serverId": "srv_yFwbkDXTWCSL",
+    "status": "online",
+    "endpoint": "localhost:6884",
+    "hostPerf": true,
+    "plugin": true
+  },
+  "before": {
+    "streaming": false,
+    "expanded": false,
+    "raw": "Let me think about what changes when a fenced block closes. The reasoning block truncates a frozen prefix of the message before the next commit. The timeline reducer coalesces the unfinished paragraph during scroll. The scroll anchor recomputes the pending text node when the viewport is pinned to the bottom. The virtualized list memoizes the unfinished paragraph once the window closes. The reasoning block reuses the tool output string on every frame. The layout pass defers the pending text node once the window closes. The scroll anchor flushes the fenced code block during scroll. The virtualized list truncates the fenced code block under memory pressure. The reasoning block memoizes the last visible row before the next commit.\n\nOkay, so the message is streaming and the user is pinned to the bottom. The layout pass recomputes the pending text node under memory pressure. The tool-call card invalidates the last visible row on every frame. The websocket session reuses every incoming delta without touching the DOM. The syntax highlighter coalesces the unfinished paragraph only when the text actually changed. I'm not sure that's the whole story, though. The scroll anchor reuses the last visible row during scroll. The stream buffer flushes a stale selection range after the first paint.\n\nHmm, wait. That doesn't quite explain the jump. The stream buffer truncates the tool output string when the viewport is pinned to the bottom. The layout pass truncates the last visible row before the next commit. The syntax highlighter collapses the pending tool state once the window closes. The diff renderer invalidates each table row on every frame. The scroll anchor defers each table row without touching the DOM. The tool-call card recomputes the pending tool state after the first paint. The syntax highlighter re-renders the fenced code block only when the text actually changed. The syntax highlighter flushes the tool output string after the first paint. I'm not sure that's the whole story, though. The websocket session measures every incoming delta while the message is still streaming. The timeline reducer reuses every incoming delta without touching the DOM. The message cache coalesces the offscreen items under memory pressure. The websocket session collapses the last visible row after the first paint.\n\nActually, let me reconsider the order of events. The layout pass re-renders each table row after the first paint. The layout pass batches the tool output string while the message is still streaming. The markdown parser recomputes the offscreen items when the viewport is pinned to the bottom. The syntax highlighter memoizes each table row after the first paint. The timeline reducer reuses each table row during scroll. The stream buffer flushes the fenced code block without touching the DOM. The timeline reducer coalesces the fenced code block on every frame. The stream buffer collapses the pending text node under memory pressure. The markdown parser collapses the fenced code block before the next commit. The layout pass re-renders the last visible row while the message is still streaming. The scroll anchor invalidates the pending text node after the first paint. The syntax highlighter defers a stale selection range on every frame.\n\nRight, and there's another thing to rule out. The websocket session batches a frozen prefix of the message while the message is still streaming. The virtualized list measures the tool output string while the message is still streaming. The syntax highlighter batches a stale selection range when the viewport is pinned to the bottom. The scroll anchor invalidates the pending text node under memory pressure. The stream buffer invalidates the pending text node after the first paint. The stream buffer coalesces the tool output string on every frame. The timeline reducer batches each table row before the next commit. The message cache re-renders the pending text node after the first paint.\n\nSo the question becomes whether the height is known before paint. The stream buffer batches every incoming delta after the first paint. The syntax highlighter recomputes the pending text node when the viewport is pinned to the bottom. The tool-call card truncates a frozen prefix of the message only when the text actually changed. The diff renderer recomputes the last visible row while the message is still streaming. The layout pass memoizes each table row under memory pressure. The markdown parser invalidates each table row after the first paint. The syntax highlighter defers each table row without touching the DOM. I'm not sure that's the whole story, though. The reasoning block batches the last visible row on every frame. The tool-call card collapses a stale selection range under memory pressure. The websocket session coalesces the pending text node before the next commit. The scroll anchor reuses every incoming delta while the message is still streaming.\n\nLet me think about what changes when a fenced block closes. The websocket session recomputes each table row before the next commit. The diff renderer reuses the unfinished paragraph once the window closes. The markdown parser measures every incoming delta under memory pressure. The scroll anchor truncates the pending tool state while the message is still streaming. The syntax highlighter batches a frozen prefix of the message after the first paint. The message cache coalesces the pending tool state once the window closes. I'm not sure that's the whole story, though. The stream buffer reuses the offscreen items under memory pressure. The layout pass recomputes a stale selection range during scroll. The tool-call card reuses the last visible row during scroll.\n\nOkay, so the message is streaming and the user is pinned to the bottom. The message cache collapses the cached token list on every frame. The reasoning block recomputes each table row when the viewport is pinned to the bottom. The timeline reducer re-renders the cached token list after the first paint. The reasoning block reuses the pending text node without touching the DOM. The markdown parser defers a frozen prefix of the message once the window closes. The stream buffer collapses the pending tool state once the window closes.\n\nHmm, wait. That doesn't quite explain the jump. The timeline reducer coalesces the cached token list only when the text actually changed. The scroll anchor coalesces each table row before the next commit. The timeline reducer truncates the cached token list only when the text actually changed. The layout pass invalidates each table row on every frame. The markdown parser coalesces each table row only when the text actually changed. The layout pass re-renders the last visible row while the message is still streaming. The virtualized list reuses the pending text node once the window closes. The syntax highlighter truncates every incoming delta only when the text actually changed. I'm not sure that's the whole story, though. The diff renderer recomputes the tool output string on every frame. The diff renderer truncates a stale selection range when the viewport is pinned to the bottom.\n\nActually, let me reconsider the order of events. The virtualized list truncates a stale selection range once the window closes. The diff renderer collapses the unfinished paragraph after the first paint. The message cache reuses the pending text node on every frame. The markdown parser defers the last visible row only when the text actually changed. The stream buffer invalidates the last visible row without touching the DOM. The scroll anchor measures every incoming delta on every frame. The timeline reducer coalesces the fenced code block before the next commit. The scroll anchor invalidates a frozen prefix of the message under memory pressure. I'm not sure that's the whole story, though. The message cache batches a frozen prefix of the message once the window closes. The syntax highlighter defers the pending tool state after the first paint. The diff renderer reuses the last visible row under memory pressure.\n\nRight, and there's another thing to rule out. The markdown parser measures the pending text node only when the text actually changed. The diff renderer flushes every incoming delta while the message is still streaming. The message cache coalesces the fenced code block without touching the DOM. The message cache measures the pending text node while the message is still streaming. The diff renderer invalidates the unfinished paragraph while the message is still streaming. I'm not sure that's the whole story, though. The scroll anchor memoizes the fenced code block during scroll. The reasoning block measures the cached token list during scroll. The timeline reducer collapses the fenced code block while the message is still streaming. The diff renderer truncates every incoming delta after the first paint.",
+    "bodyChars": 8878
+  },
+  "error": "Error: stream/default disclosure mismatch\n    at smoke (file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:61:131)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///private/tmp/bc-ios-five-parallel-20261016/tools/runner.mjs:89:21",
+  "endedAt": "2026-10-16T06:49:03.760Z"
+}

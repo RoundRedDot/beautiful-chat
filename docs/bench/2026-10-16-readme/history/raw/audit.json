@@ -1,0 +1,3022 @@
+{
+  "expected": 50,
+  "found": 50,
+  "failures": [],
+  "displayAudit": "complete",
+  "displayErrorLines": 9,
+  "baselineDiagnosticOnly": true,
+  "comparisonEligible": 40,
+  "samples": [
+    {
+      "label": "incident-candidate-1-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-1-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 3.81,
+      "loadEnd": 2.7,
+      "openRequests": [
+        {
+          "agentId": "e29f61ca-23fb-40f0-821f-9b34bcdc3a2e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 191.12970900535583,
+          "elapsedMs": 267.80629098415375,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "ea3a3a71-3e0c-47ec-868d-29554d5a3c57",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "ea3a3a71-3e0c-47ec-868d-29554d5a3c57",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "e29f61ca-23fb-40f0-821f-9b34bcdc3a2e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "ea3a3a71-3e0c-47ec-868d-29554d5a3c57",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 470.7178339958191,
+          "elapsedMs": 98.06887495517731,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "ea3a3a71-3e0c-47ec-868d-29554d5a3c57:3:742",
+      "olderAfter": "ea3a3a71-3e0c-47ec-868d-29554d5a3c57:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-candidate-1-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-1-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.64,
+      "loadEnd": 3.21,
+      "openRequests": [
+        {
+          "agentId": "d22a1b9a-0f68-4898-99b0-d48bd2f25ff4",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 210.62216711044312,
+          "elapsedMs": 265.7730829715729,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "910b2801-bcd2-49da-bc06-d71777fb4606",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "910b2801-bcd2-49da-bc06-d71777fb4606",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "d22a1b9a-0f68-4898-99b0-d48bd2f25ff4",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "910b2801-bcd2-49da-bc06-d71777fb4606",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 488.1802090406418,
+          "elapsedMs": 104.9658750295639,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "910b2801-bcd2-49da-bc06-d71777fb4606:3:742",
+      "olderAfter": "910b2801-bcd2-49da-bc06-d71777fb4606:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-before-1",
+      "mode": "before",
+      "gate": {
+        "label": "incident-before-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 3.52,
+      "loadEnd": 2.57,
+      "openRequests": [
+        {
+          "agentId": "8010f691-dc8d-403c-8e0c-260cb0e6a7e1",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.396124958992,
+          "elapsedMs": 657.940083026886,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "05bc4eb3-041a-46ab-ab9b-e5210e6e4845",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "05bc4eb3-041a-46ab-ab9b-e5210e6e4845",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "8010f691-dc8d-403c-8e0c-260cb0e6a7e1",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "05bc4eb3-041a-46ab-ab9b-e5210e6e4845",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 868.940791964531,
+          "elapsedMs": 407.79066598415375,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "05bc4eb3-041a-46ab-ab9b-e5210e6e4845:3:742",
+      "olderAfter": "05bc4eb3-041a-46ab-ab9b-e5210e6e4845:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-baseline-1",
+      "mode": "baseline",
+      "gate": {
+        "label": "incident-baseline-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123477161_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123477161_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123477161_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123477161_meqoar_1/0 "
+      ],
+      "loadStart": 2.68,
+      "loadEnd": 2.76,
+      "openRequests": [
+        {
+          "agentId": "784defd4-618c-481c-845d-79166c2a8811",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.28633296489716,
+          "elapsedMs": 432.7118330001831,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "e446e7ee-ef56-47a0-8332-72affc2f9eca",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "e446e7ee-ef56-47a0-8332-72affc2f9eca",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "784defd4-618c-481c-845d-79166c2a8811",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "e446e7ee-ef56-47a0-8332-72affc2f9eca",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 642.7766660451889,
+          "elapsedMs": 211.45204198360443,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "e446e7ee-ef56-47a0-8332-72affc2f9eca:3:0",
+      "olderAfter": "e446e7ee-ef56-47a0-8332-72affc2f9eca:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-native-1",
+      "mode": "native",
+      "gate": {
+        "label": "incident-native-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.94,
+      "loadEnd": 2.15,
+      "openRequests": [
+        {
+          "agentId": "f89c8564-e692-4ba1-9a52-b57a09bd84b9",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.5486249923706,
+          "elapsedMs": 322.41474997997284,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "7be4bd39-4b0e-4ebf-b9fa-449affbbe7eb",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "7be4bd39-4b0e-4ebf-b9fa-449affbbe7eb",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "f89c8564-e692-4ba1-9a52-b57a09bd84b9",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "7be4bd39-4b0e-4ebf-b9fa-449affbbe7eb",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 532.4003329277039,
+          "elapsedMs": 78.28949999809265,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "7be4bd39-4b0e-4ebf-b9fa-449affbbe7eb:3:742",
+      "olderAfter": "7be4bd39-4b0e-4ebf-b9fa-449affbbe7eb:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-candidate-2-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-2-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.88,
+      "loadEnd": 1.77,
+      "openRequests": [
+        {
+          "agentId": "f3baf686-803c-4923-956c-67019a8bf175",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.2036670446396,
+          "elapsedMs": 269.7011250257492,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "f6b929a2-480f-481e-986f-416d65d43bf4",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "f6b929a2-480f-481e-986f-416d65d43bf4",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "f3baf686-803c-4923-956c-67019a8bf175",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "f6b929a2-480f-481e-986f-416d65d43bf4",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 487.38558399677277,
+          "elapsedMs": 96.75362503528595,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "f6b929a2-480f-481e-986f-416d65d43bf4:3:742",
+      "olderAfter": "f6b929a2-480f-481e-986f-416d65d43bf4:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-candidate-2-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-2-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.79,
+      "loadEnd": 1.84,
+      "openRequests": [
+        {
+          "agentId": "5a740c5a-f6c1-4691-b923-4ef603389d90",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 210.12045907974243,
+          "elapsedMs": 270.0616250038147,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "2cf76d7a-d3b6-490b-8ad5-b6db4da116e3",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "2cf76d7a-d3b6-490b-8ad5-b6db4da116e3",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "5a740c5a-f6c1-4691-b923-4ef603389d90",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "2cf76d7a-d3b6-490b-8ad5-b6db4da116e3",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 492.66475009918213,
+          "elapsedMs": 97.89112496376038,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "2cf76d7a-d3b6-490b-8ad5-b6db4da116e3:3:742",
+      "olderAfter": "2cf76d7a-d3b6-490b-8ad5-b6db4da116e3:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-before-2",
+      "mode": "before",
+      "gate": {
+        "label": "incident-before-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.65,
+      "loadEnd": 1.78,
+      "openRequests": [
+        {
+          "agentId": "72e848f2-410d-471f-b2a9-ef4ee38897a3",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 218.07391691207886,
+          "elapsedMs": 659.9784580469131,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "7437913c-3659-4bf0-aa67-9cf8ffdbcd75",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "7437913c-3659-4bf0-aa67-9cf8ffdbcd75",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "72e848f2-410d-471f-b2a9-ef4ee38897a3",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "7437913c-3659-4bf0-aa67-9cf8ffdbcd75",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 883.3099999427795,
+          "elapsedMs": 407.0314999818802,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "7437913c-3659-4bf0-aa67-9cf8ffdbcd75:3:742",
+      "olderAfter": "7437913c-3659-4bf0-aa67-9cf8ffdbcd75:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-baseline-2",
+      "mode": "baseline",
+      "gate": {
+        "label": "incident-baseline-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123598041_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123598041_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123598041_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123598041_meqoar_1/0 ",
+        " ERROR  Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. .$beautiful-chat/thought_1792123598041_meqoar_1/0 "
+      ],
+      "loadStart": 1.99,
+      "loadEnd": 1.7,
+      "openRequests": [
+        {
+          "agentId": "363aea4f-16f0-4739-a39e-9cbca9993443",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.11650002002716,
+          "elapsedMs": 431.41425001621246,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "27aa76aa-3e77-458a-8fa5-732d68257c25",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "27aa76aa-3e77-458a-8fa5-732d68257c25",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "363aea4f-16f0-4739-a39e-9cbca9993443",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "27aa76aa-3e77-458a-8fa5-732d68257c25",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 640.6929160356522,
+          "elapsedMs": 211.50020897388458,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "27aa76aa-3e77-458a-8fa5-732d68257c25:3:0",
+      "olderAfter": "27aa76aa-3e77-458a-8fa5-732d68257c25:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-native-2",
+      "mode": "native",
+      "gate": {
+        "label": "incident-native-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.15,
+      "loadEnd": 1.73,
+      "openRequests": [
+        {
+          "agentId": "895cf698-0ecf-46f9-811c-8b8d634f4ab2",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.30883407592773,
+          "elapsedMs": 323.2624160051346,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "d988086a-ac0f-4ba4-9633-f76c7cf100b5",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "d988086a-ac0f-4ba4-9633-f76c7cf100b5",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "895cf698-0ecf-46f9-811c-8b8d634f4ab2",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "d988086a-ac0f-4ba4-9633-f76c7cf100b5",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 533.3094999790192,
+          "elapsedMs": 78.3527500629425,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "d988086a-ac0f-4ba4-9633-f76c7cf100b5:3:742",
+      "olderAfter": "d988086a-ac0f-4ba4-9633-f76c7cf100b5:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-candidate-3-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-3-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.77,
+      "loadEnd": 2.51,
+      "openRequests": [
+        {
+          "agentId": "1071a56b-f606-4d0e-a6b5-9759ca8d9699",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.40212500095367,
+          "elapsedMs": 267.9497500658035,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "57fe2dd5-6e56-49e7-9ae3-1ec89444bc3c",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "57fe2dd5-6e56-49e7-9ae3-1ec89444bc3c",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "1071a56b-f606-4d0e-a6b5-9759ca8d9699",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "57fe2dd5-6e56-49e7-9ae3-1ec89444bc3c",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 486.96025002002716,
+          "elapsedMs": 98.06704199314117,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "57fe2dd5-6e56-49e7-9ae3-1ec89444bc3c:3:742",
+      "olderAfter": "57fe2dd5-6e56-49e7-9ae3-1ec89444bc3c:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-candidate-3-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-3-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.55,
+      "loadEnd": 3.95,
+      "openRequests": [
+        {
+          "agentId": "29906d84-5493-4ded-b813-4ba6e078ecf9",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.54908299446106,
+          "elapsedMs": 267.5092500448227,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "a9e6b93e-fb0e-46ba-80c2-eb5a39a44499",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "a9e6b93e-fb0e-46ba-80c2-eb5a39a44499",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "29906d84-5493-4ded-b813-4ba6e078ecf9",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "a9e6b93e-fb0e-46ba-80c2-eb5a39a44499",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 486.82800006866455,
+          "elapsedMs": 97.12000000476837,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "a9e6b93e-fb0e-46ba-80c2-eb5a39a44499:3:742",
+      "olderAfter": "a9e6b93e-fb0e-46ba-80c2-eb5a39a44499:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-before-3",
+      "mode": "before",
+      "gate": {
+        "label": "incident-before-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 3.96,
+      "loadEnd": 3.81,
+      "openRequests": [
+        {
+          "agentId": "fc6371fe-2147-49e0-bf11-46520df2df0c",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.94550001621246,
+          "elapsedMs": 655.9691249132156,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "5be7de55-9815-45ae-9de3-80f2cf5abcff",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "5be7de55-9815-45ae-9de3-80f2cf5abcff",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "fc6371fe-2147-49e0-bf11-46520df2df0c",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "5be7de55-9815-45ae-9de3-80f2cf5abcff",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 869.2753750085831,
+          "elapsedMs": 422.4929999113083,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "5be7de55-9815-45ae-9de3-80f2cf5abcff:3:742",
+      "olderAfter": "5be7de55-9815-45ae-9de3-80f2cf5abcff:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-baseline-3",
+      "mode": "baseline",
+      "gate": {
+        "label": "incident-baseline-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 3.58,
+      "loadEnd": 2.87,
+      "openRequests": [
+        {
+          "agentId": "05857821-85fc-4a59-b1b6-f98ddd04b71f",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 204.04275000095367,
+          "elapsedMs": 427.24112498760223,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "25abdd70-aabd-4174-9f44-15f29ea0505b",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "25abdd70-aabd-4174-9f44-15f29ea0505b",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "05857821-85fc-4a59-b1b6-f98ddd04b71f",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "25abdd70-aabd-4174-9f44-15f29ea0505b",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 635.1310000419617,
+          "elapsedMs": 212.3460829257965,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "25abdd70-aabd-4174-9f44-15f29ea0505b:3:0",
+      "olderAfter": "25abdd70-aabd-4174-9f44-15f29ea0505b:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-native-3",
+      "mode": "native",
+      "gate": {
+        "label": "incident-native-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.87,
+      "loadEnd": 2.41,
+      "openRequests": [
+        {
+          "agentId": "be1e1a78-fd4d-4027-b39d-98895f3d5c20",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.77616703510284,
+          "elapsedMs": 321.74608290195465,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "fdbd6835-279c-4c0a-ad4f-2c9150bae8b1",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "fdbd6835-279c-4c0a-ad4f-2c9150bae8b1",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "be1e1a78-fd4d-4027-b39d-98895f3d5c20",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "fdbd6835-279c-4c0a-ad4f-2c9150bae8b1",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 531.7661249637604,
+          "elapsedMs": 80.5150420665741,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "fdbd6835-279c-4c0a-ad4f-2c9150bae8b1:3:742",
+      "olderAfter": "fdbd6835-279c-4c0a-ad4f-2c9150bae8b1:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-candidate-4-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-4-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.44,
+      "loadEnd": 1.91,
+      "openRequests": [
+        {
+          "agentId": "b79e8bb4-f26b-418a-b474-f175266ec84e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.68658304214478,
+          "elapsedMs": 264.10166692733765,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "4dcc76d1-65c7-4576-bac4-f001f1b7ad17",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "4dcc76d1-65c7-4576-bac4-f001f1b7ad17",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "b79e8bb4-f26b-418a-b474-f175266ec84e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "4dcc76d1-65c7-4576-bac4-f001f1b7ad17",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 484.3107080459595,
+          "elapsedMs": 96.91299998760223,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "4dcc76d1-65c7-4576-bac4-f001f1b7ad17:3:742",
+      "olderAfter": "4dcc76d1-65c7-4576-bac4-f001f1b7ad17:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-candidate-4-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-4-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.84,
+      "loadEnd": 2.29,
+      "openRequests": [
+        {
+          "agentId": "49335938-1464-4787-83c1-44a17757e86d",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 204.802708029747,
+          "elapsedMs": 275.01866698265076,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "ed3fcc2b-0cc3-40c7-960d-b79093dc313f",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "ed3fcc2b-0cc3-40c7-960d-b79093dc313f",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "49335938-1464-4787-83c1-44a17757e86d",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "ed3fcc2b-0cc3-40c7-960d-b79093dc313f",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 492.17004203796387,
+          "elapsedMs": 100.09991598129272,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "ed3fcc2b-0cc3-40c7-960d-b79093dc313f:3:742",
+      "olderAfter": "ed3fcc2b-0cc3-40c7-960d-b79093dc313f:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-before-4",
+      "mode": "before",
+      "gate": {
+        "label": "incident-before-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.62,
+      "loadEnd": 2.56,
+      "openRequests": [
+        {
+          "agentId": "e6a1eae9-0f16-4cab-971a-8dcd65e0e132",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 199.13933300971985,
+          "elapsedMs": 655.8819580078125,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "867018a8-ad0e-4768-9d99-e5c6f36988ec",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "867018a8-ad0e-4768-9d99-e5c6f36988ec",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "e6a1eae9-0f16-4cab-971a-8dcd65e0e132",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "867018a8-ad0e-4768-9d99-e5c6f36988ec",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 860.9543750286102,
+          "elapsedMs": 411.22179102897644,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "867018a8-ad0e-4768-9d99-e5c6f36988ec:3:742",
+      "olderAfter": "867018a8-ad0e-4768-9d99-e5c6f36988ec:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-baseline-4",
+      "mode": "baseline",
+      "gate": {
+        "label": "incident-baseline-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 2.82,
+      "loadEnd": 2.77,
+      "openRequests": [
+        {
+          "agentId": "e3c12709-418c-42d0-9e7d-40fac0e0bef5",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 190.26749992370605,
+          "elapsedMs": 427.14137506484985,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "590b59a5-3abd-4c55-b999-2c5db27c38d6",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "590b59a5-3abd-4c55-b999-2c5db27c38d6",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "e3c12709-418c-42d0-9e7d-40fac0e0bef5",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "590b59a5-3abd-4c55-b999-2c5db27c38d6",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 621.1049579381943,
+          "elapsedMs": 218.8683340549469,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "590b59a5-3abd-4c55-b999-2c5db27c38d6:3:0",
+      "olderAfter": "590b59a5-3abd-4c55-b999-2c5db27c38d6:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-native-4",
+      "mode": "native",
+      "gate": {
+        "label": "incident-native-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.41,
+      "loadEnd": 2.89,
+      "openRequests": [
+        {
+          "agentId": "b1e9e43b-4795-441a-8977-0c5c15e1f5d3",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.21841597557068,
+          "elapsedMs": 321.35866701602936,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "93bed927-c78e-4b4e-825e-011208eacfa1",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "93bed927-c78e-4b4e-825e-011208eacfa1",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "b1e9e43b-4795-441a-8977-0c5c15e1f5d3",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "93bed927-c78e-4b4e-825e-011208eacfa1",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 533.1183329820633,
+          "elapsedMs": 78.57266700267792,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "93bed927-c78e-4b4e-825e-011208eacfa1:3:742",
+      "olderAfter": "93bed927-c78e-4b4e-825e-011208eacfa1:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-candidate-5-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-5-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.27,
+      "loadEnd": 2.42,
+      "openRequests": [
+        {
+          "agentId": "2adbf0f3-8757-49cd-8fcd-258c795180d7",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.31483399868011,
+          "elapsedMs": 267.9374580383301,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "f428d9c4-a366-4fd6-a5bc-116a2ec9610a",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "f428d9c4-a366-4fd6-a5bc-116a2ec9610a",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "2adbf0f3-8757-49cd-8fcd-258c795180d7",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "f428d9c4-a366-4fd6-a5bc-116a2ec9610a",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 489.0514169931412,
+          "elapsedMs": 98.45579195022583,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "f428d9c4-a366-4fd6-a5bc-116a2ec9610a:3:742",
+      "olderAfter": "f428d9c4-a366-4fd6-a5bc-116a2ec9610a:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-candidate-5-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "incident-candidate-5-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.31,
+      "loadEnd": 2.69,
+      "openRequests": [
+        {
+          "agentId": "bf97e92f-8c96-4eb3-85c6-4690127cc751",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.18641698360443,
+          "elapsedMs": 265.5216670036316,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "a2fa0b36-ba1e-4740-b514-8b552a5484b0",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "a2fa0b36-ba1e-4740-b514-8b552a5484b0",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "bf97e92f-8c96-4eb3-85c6-4690127cc751",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "a2fa0b36-ba1e-4740-b514-8b552a5484b0",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 485.78829193115234,
+          "elapsedMs": 98.87920808792114,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "a2fa0b36-ba1e-4740-b514-8b552a5484b0:3:742",
+      "olderAfter": "a2fa0b36-ba1e-4740-b514-8b552a5484b0:3:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "incident-before-5",
+      "mode": "before",
+      "gate": {
+        "label": "incident-before-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.55,
+      "loadEnd": 2.41,
+      "openRequests": [
+        {
+          "agentId": "758b79f3-f7a9-4ced-946f-a6fbb9b5600a",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.09908401966095,
+          "elapsedMs": 657.4145410060883,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "d090340c-c440-48e9-88f4-c69787e7eca0",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "d090340c-c440-48e9-88f4-c69787e7eca0",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "758b79f3-f7a9-4ced-946f-a6fbb9b5600a",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "d090340c-c440-48e9-88f4-c69787e7eca0",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 871.3758749961853,
+          "elapsedMs": 410.7273750305176,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "d090340c-c440-48e9-88f4-c69787e7eca0:3:742",
+      "olderAfter": "d090340c-c440-48e9-88f4-c69787e7eca0:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-baseline-5",
+      "mode": "baseline",
+      "gate": {
+        "label": "incident-baseline-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 2.46,
+      "loadEnd": 2.53,
+      "openRequests": [
+        {
+          "agentId": "a57655f4-f9d7-4537-a1f8-83d31368075d",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 209.07362496852875,
+          "elapsedMs": 434.64566600322723,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "0d5960be-3c52-44c0-ab10-beb5b5709f5e",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "0d5960be-3c52-44c0-ab10-beb5b5709f5e",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "a57655f4-f9d7-4537-a1f8-83d31368075d",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "0d5960be-3c52-44c0-ab10-beb5b5709f5e",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 646.039332985878,
+          "elapsedMs": 210.1334170103073,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "0d5960be-3c52-44c0-ab10-beb5b5709f5e:3:0",
+      "olderAfter": "0d5960be-3c52-44c0-ab10-beb5b5709f5e:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "incident-native-5",
+      "mode": "native",
+      "gate": {
+        "label": "incident-native-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.53,
+      "loadEnd": 2.92,
+      "openRequests": [
+        {
+          "agentId": "bab1cc4b-ef51-4c9e-9acd-23d8a113a02d",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.7474160194397,
+          "elapsedMs": 324.5650839805603,
+          "returned": 808,
+          "payloadChars": 1231923,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "1a3edf27-4c11-412d-9e19-a520c52f54fe",
+            "seq": 3
+          },
+          "endCursor": {
+            "epoch": "1a3edf27-4c11-412d-9e19-a520c52f54fe",
+            "seq": 1208
+          },
+          "error": null
+        },
+        {
+          "agentId": "bab1cc4b-ef51-4c9e-9acd-23d8a113a02d",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "1a3edf27-4c11-412d-9e19-a520c52f54fe",
+              "seq": 1208
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 534.4397079944611,
+          "elapsedMs": 78.70537495613098,
+          "returned": 0,
+          "payloadChars": 1796,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "1a3edf27-4c11-412d-9e19-a520c52f54fe:3:742",
+      "olderAfter": "1a3edf27-4c11-412d-9e19-a520c52f54fe:3:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-candidate-1-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-1-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.79,
+      "loadEnd": 2.14,
+      "openRequests": [
+        {
+          "agentId": "69d08896-af0c-41b3-a745-1789a1b006ef",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.70470798015594,
+          "elapsedMs": 264.7832499742508,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "8c123e2b-282b-436b-ba6c-053e3974c25a",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "8c123e2b-282b-436b-ba6c-053e3974c25a",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "69d08896-af0c-41b3-a745-1789a1b006ef",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "8c123e2b-282b-436b-ba6c-053e3974c25a",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 482.5960409641266,
+          "elapsedMs": 97.46637499332428,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "8c123e2b-282b-436b-ba6c-053e3974c25a:25:742",
+      "olderAfter": "8c123e2b-282b-436b-ba6c-053e3974c25a:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-candidate-1-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-1-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.04,
+      "loadEnd": 1.82,
+      "openRequests": [
+        {
+          "agentId": "c397374b-1074-4a62-9ed6-9d4adec7851c",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 209.13145899772644,
+          "elapsedMs": 265.8686250448227,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "68253398-4e5d-4bad-824b-1792e9485420",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "68253398-4e5d-4bad-824b-1792e9485420",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "c397374b-1074-4a62-9ed6-9d4adec7851c",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "68253398-4e5d-4bad-824b-1792e9485420",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 487.2210839986801,
+          "elapsedMs": 98.76416599750519,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "68253398-4e5d-4bad-824b-1792e9485420:25:742",
+      "olderAfter": "68253398-4e5d-4bad-824b-1792e9485420:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-before-1",
+      "mode": "before",
+      "gate": {
+        "label": "multi-turn-before-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 1.77,
+      "loadEnd": 1.85,
+      "openRequests": [
+        {
+          "agentId": "a2a35c43-b898-46ea-8730-205d02a7de66",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.97779202461243,
+          "elapsedMs": 656.8209999799728,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "da748f6e-a382-4f9a-a374-bbfcdaf2cc4d",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "da748f6e-a382-4f9a-a374-bbfcdaf2cc4d",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "a2a35c43-b898-46ea-8730-205d02a7de66",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "da748f6e-a382-4f9a-a374-bbfcdaf2cc4d",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 867.7695419788361,
+          "elapsedMs": 411.2477079629898,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "da748f6e-a382-4f9a-a374-bbfcdaf2cc4d:25:742",
+      "olderAfter": "da748f6e-a382-4f9a-a374-bbfcdaf2cc4d:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-baseline-1",
+      "mode": "baseline",
+      "gate": {
+        "label": "multi-turn-baseline-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 1.87,
+      "loadEnd": 2.63,
+      "openRequests": [
+        {
+          "agentId": "69911b27-13a1-44a1-83ee-0c0048ca578e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.79524993896484,
+          "elapsedMs": 425.03279197216034,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "6cacb037-ee3b-40d1-9fd4-ba97d3ba4704",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "6cacb037-ee3b-40d1-9fd4-ba97d3ba4704",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "69911b27-13a1-44a1-83ee-0c0048ca578e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "6cacb037-ee3b-40d1-9fd4-ba97d3ba4704",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 637.4259589910507,
+          "elapsedMs": 213.5153329372406,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "6cacb037-ee3b-40d1-9fd4-ba97d3ba4704:25:0",
+      "olderAfter": "6cacb037-ee3b-40d1-9fd4-ba97d3ba4704:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-native-1",
+      "mode": "native",
+      "gate": {
+        "label": "multi-turn-native-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.68,
+      "loadEnd": 2.12,
+      "openRequests": [
+        {
+          "agentId": "5c18b270-dd7e-4c78-bab5-f68b20c2d801",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 203.97979199886322,
+          "elapsedMs": 323.4294159412384,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "51b68c97-9ad2-4aab-bf8c-e7b2d7d4458d",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "51b68c97-9ad2-4aab-bf8c-e7b2d7d4458d",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "5c18b270-dd7e-4c78-bab5-f68b20c2d801",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "51b68c97-9ad2-4aab-bf8c-e7b2d7d4458d",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 529.7771669626236,
+          "elapsedMs": 78.20441603660583,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "51b68c97-9ad2-4aab-bf8c-e7b2d7d4458d:25:742",
+      "olderAfter": "51b68c97-9ad2-4aab-bf8c-e7b2d7d4458d:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-candidate-2-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-2-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.24,
+      "loadEnd": 1.93,
+      "openRequests": [
+        {
+          "agentId": "71f8f618-75f6-4160-8e1a-c262656f524e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 204.91791689395905,
+          "elapsedMs": 264.0674580335617,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "2dc5478a-5d3e-44c3-b966-1c945bcf6e03",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "2dc5478a-5d3e-44c3-b966-1c945bcf6e03",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "71f8f618-75f6-4160-8e1a-c262656f524e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "2dc5478a-5d3e-44c3-b966-1c945bcf6e03",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 481.02329194545746,
+          "elapsedMs": 106.32791697978973,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "2dc5478a-5d3e-44c3-b966-1c945bcf6e03:25:742",
+      "olderAfter": "2dc5478a-5d3e-44c3-b966-1c945bcf6e03:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-candidate-2-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-2-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.16,
+      "loadEnd": 2.49,
+      "openRequests": [
+        {
+          "agentId": "bdabd092-d0c5-47f8-9e5b-711c6113873b",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.86320805549622,
+          "elapsedMs": 264.6845829486847,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "578c855d-b9f2-43d0-a567-4856d93a09c7",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "578c855d-b9f2-43d0-a567-4856d93a09c7",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "bdabd092-d0c5-47f8-9e5b-711c6113873b",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "578c855d-b9f2-43d0-a567-4856d93a09c7",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 486.39662504196167,
+          "elapsedMs": 98.55658292770386,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "578c855d-b9f2-43d0-a567-4856d93a09c7:25:742",
+      "olderAfter": "578c855d-b9f2-43d0-a567-4856d93a09c7:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-before-2",
+      "mode": "before",
+      "gate": {
+        "label": "multi-turn-before-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.64,
+      "loadEnd": 2.47,
+      "openRequests": [
+        {
+          "agentId": "ccbf76f9-7965-4976-abc4-5302e41a2eaf",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.68216598033905,
+          "elapsedMs": 655.1596250534058,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "20c6ebba-4363-4957-8159-b40706d40099",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "20c6ebba-4363-4957-8159-b40706d40099",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "ccbf76f9-7965-4976-abc4-5302e41a2eaf",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "20c6ebba-4363-4957-8159-b40706d40099",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 868.7773330211639,
+          "elapsedMs": 321.16679203510284,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "20c6ebba-4363-4957-8159-b40706d40099:25:742",
+      "olderAfter": "20c6ebba-4363-4957-8159-b40706d40099:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-baseline-2",
+      "mode": "baseline",
+      "gate": {
+        "label": "multi-turn-baseline-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 2.09,
+      "loadEnd": 2.76,
+      "openRequests": [
+        {
+          "agentId": "3bf8427e-b4c1-461f-a9b1-083a2167ce27",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.7511670589447,
+          "elapsedMs": 433.7680410146713,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "117662c6-d44c-46f5-ae52-d641ed873968",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "117662c6-d44c-46f5-ae52-d641ed873968",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "3bf8427e-b4c1-461f-a9b1-083a2167ce27",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "117662c6-d44c-46f5-ae52-d641ed873968",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 644.9786670207977,
+          "elapsedMs": 212.87233304977417,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "117662c6-d44c-46f5-ae52-d641ed873968:25:0",
+      "olderAfter": "117662c6-d44c-46f5-ae52-d641ed873968:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-native-2",
+      "mode": "native",
+      "gate": {
+        "label": "multi-turn-native-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.02,
+      "loadEnd": 2.01,
+      "openRequests": [
+        {
+          "agentId": "9fc0c306-708d-4299-a1e8-7689cc4ed2cf",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.05520904064178,
+          "elapsedMs": 320.01345801353455,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "1d495265-b3ef-4289-bcc3-de53f12aadab",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "1d495265-b3ef-4289-bcc3-de53f12aadab",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "9fc0c306-708d-4299-a1e8-7689cc4ed2cf",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "1d495265-b3ef-4289-bcc3-de53f12aadab",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 529.2593340873718,
+          "elapsedMs": 78.45454096794128,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "1d495265-b3ef-4289-bcc3-de53f12aadab:25:742",
+      "olderAfter": "1d495265-b3ef-4289-bcc3-de53f12aadab:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-candidate-3-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-3-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.92,
+      "loadEnd": 2.56,
+      "openRequests": [
+        {
+          "agentId": "9a48d86b-656a-417e-933a-39ea368a9822",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 201.8353750705719,
+          "elapsedMs": 263.76349997520447,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "25e5c96b-7d14-42b1-aeb8-1d4fd8ae57ab",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "25e5c96b-7d14-42b1-aeb8-1d4fd8ae57ab",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "9a48d86b-656a-417e-933a-39ea368a9822",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "25e5c96b-7d14-42b1-aeb8-1d4fd8ae57ab",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 477.44687509536743,
+          "elapsedMs": 98.7279999256134,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "25e5c96b-7d14-42b1-aeb8-1d4fd8ae57ab:25:742",
+      "olderAfter": "25e5c96b-7d14-42b1-aeb8-1d4fd8ae57ab:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-candidate-3-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-3-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.7,
+      "loadEnd": 3.23,
+      "openRequests": [
+        {
+          "agentId": "231cffdd-9608-4d16-af16-17b662895e28",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.83008301258087,
+          "elapsedMs": 264.23679196834564,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "726a8c9a-3613-4e6b-9ddd-032a5d2a8824",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "726a8c9a-3613-4e6b-9ddd-032a5d2a8824",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "231cffdd-9608-4d16-af16-17b662895e28",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "726a8c9a-3613-4e6b-9ddd-032a5d2a8824",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 483.9204170703888,
+          "elapsedMs": 103.30937492847443,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "726a8c9a-3613-4e6b-9ddd-032a5d2a8824:25:742",
+      "olderAfter": "726a8c9a-3613-4e6b-9ddd-032a5d2a8824:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-before-3",
+      "mode": "before",
+      "gate": {
+        "label": "multi-turn-before-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 3.55,
+      "loadEnd": 2.7,
+      "openRequests": [
+        {
+          "agentId": "7be6dbea-5a55-4406-8edb-5fc5b5d15da3",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 209.6227079629898,
+          "elapsedMs": 672.6784590482712,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "a07adb86-286d-4530-85d6-ff8e3f02066b",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "a07adb86-286d-4530-85d6-ff8e3f02066b",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "7be6dbea-5a55-4406-8edb-5fc5b5d15da3",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "a07adb86-286d-4530-85d6-ff8e3f02066b",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 887.5676670074463,
+          "elapsedMs": 411.51954102516174,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "a07adb86-286d-4530-85d6-ff8e3f02066b:25:742",
+      "olderAfter": "a07adb86-286d-4530-85d6-ff8e3f02066b:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-baseline-3",
+      "mode": "baseline",
+      "gate": {
+        "label": "multi-turn-baseline-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 2.52,
+      "loadEnd": 2.89,
+      "openRequests": [
+        {
+          "agentId": "0724a4ff-cbb8-49cf-b874-8c1a983b1ce6",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.45625007152557,
+          "elapsedMs": 426.5818339586258,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "fbac334a-bc96-4a6d-b440-2dff86e9c310",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "fbac334a-bc96-4a6d-b440-2dff86e9c310",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "0724a4ff-cbb8-49cf-b874-8c1a983b1ce6",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "fbac334a-bc96-4a6d-b440-2dff86e9c310",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 637.1287090778351,
+          "elapsedMs": 226.1424160003662,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "fbac334a-bc96-4a6d-b440-2dff86e9c310:25:0",
+      "olderAfter": "fbac334a-bc96-4a6d-b440-2dff86e9c310:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-native-3",
+      "mode": "native",
+      "gate": {
+        "label": "multi-turn-native-3",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.98,
+      "loadEnd": 2.3,
+      "openRequests": [
+        {
+          "agentId": "8bbb34f6-19f8-4731-a6ab-539e703a172b",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.72154104709625,
+          "elapsedMs": 322.9163339138031,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "fda867b5-9348-4ef6-8574-c6a01a996875",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "fda867b5-9348-4ef6-8574-c6a01a996875",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "8bbb34f6-19f8-4731-a6ab-539e703a172b",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "fda867b5-9348-4ef6-8574-c6a01a996875",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 532.1296249628067,
+          "elapsedMs": 77.73012506961823,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "fda867b5-9348-4ef6-8574-c6a01a996875:25:742",
+      "olderAfter": "fda867b5-9348-4ef6-8574-c6a01a996875:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-candidate-4-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-4-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.72,
+      "loadEnd": 2.53,
+      "openRequests": [
+        {
+          "agentId": "50ba7959-a693-41d0-861d-f44198bd2e4e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 208.81445801258087,
+          "elapsedMs": 269.4018750190735,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "78f01d7f-6e89-403c-bfd7-23983bda7c76",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "78f01d7f-6e89-403c-bfd7-23983bda7c76",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "50ba7959-a693-41d0-861d-f44198bd2e4e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "78f01d7f-6e89-403c-bfd7-23983bda7c76",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 490.1467080116272,
+          "elapsedMs": 102.77724993228912,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "78f01d7f-6e89-403c-bfd7-23983bda7c76:25:742",
+      "olderAfter": "78f01d7f-6e89-403c-bfd7-23983bda7c76:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-candidate-4-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-4-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.37,
+      "loadEnd": 2.43,
+      "openRequests": [
+        {
+          "agentId": "618e0bd6-498c-46cb-b15c-d0307fba9b2f",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.06120800971985,
+          "elapsedMs": 266.20754194259644,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "11a167ca-30f1-42aa-945f-1bce22788d94",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "11a167ca-30f1-42aa-945f-1bce22788d94",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "618e0bd6-498c-46cb-b15c-d0307fba9b2f",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "11a167ca-30f1-42aa-945f-1bce22788d94",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 485.18241691589355,
+          "elapsedMs": 98.8602499961853,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "11a167ca-30f1-42aa-945f-1bce22788d94:25:742",
+      "olderAfter": "11a167ca-30f1-42aa-945f-1bce22788d94:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-before-4",
+      "mode": "before",
+      "gate": {
+        "label": "multi-turn-before-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.48,
+      "loadEnd": 2.68,
+      "openRequests": [
+        {
+          "agentId": "8cabf5ac-84b8-4fed-9a28-378e0a793257",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 206.86562502384186,
+          "elapsedMs": 656.9141670465469,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "bfc054e3-e26a-45e4-9510-22569346ba62",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "bfc054e3-e26a-45e4-9510-22569346ba62",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "8cabf5ac-84b8-4fed-9a28-378e0a793257",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "bfc054e3-e26a-45e4-9510-22569346ba62",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 869.5078749656677,
+          "elapsedMs": 412.36237502098083,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "bfc054e3-e26a-45e4-9510-22569346ba62:25:742",
+      "olderAfter": "bfc054e3-e26a-45e4-9510-22569346ba62:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-baseline-4",
+      "mode": "baseline",
+      "gate": {
+        "label": "multi-turn-baseline-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 1.82,
+      "loadEnd": 2.66,
+      "openRequests": [
+        {
+          "agentId": "90dab8e1-adcd-4ae0-83ec-987d9679cd00",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 201.20958399772644,
+          "elapsedMs": 428.0387500524521,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "63b7ffd5-503d-4da4-8714-a48a510bc93c",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "63b7ffd5-503d-4da4-8714-a48a510bc93c",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "90dab8e1-adcd-4ae0-83ec-987d9679cd00",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "63b7ffd5-503d-4da4-8714-a48a510bc93c",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 633.4100000858307,
+          "elapsedMs": 211.60199999809265,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "63b7ffd5-503d-4da4-8714-a48a510bc93c:25:0",
+      "olderAfter": "63b7ffd5-503d-4da4-8714-a48a510bc93c:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-native-4",
+      "mode": "native",
+      "gate": {
+        "label": "multi-turn-native-4",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.18,
+      "loadEnd": 1.89,
+      "openRequests": [
+        {
+          "agentId": "98a8e820-f775-4497-9997-3880f2a99ae5",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.7392909526825,
+          "elapsedMs": 321.05766701698303,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "7ad18072-a61b-47a4-a6ed-8f0f994c6bd8",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "7ad18072-a61b-47a4-a6ed-8f0f994c6bd8",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "98a8e820-f775-4497-9997-3880f2a99ae5",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "7ad18072-a61b-47a4-a6ed-8f0f994c6bd8",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 529.0009999275208,
+          "elapsedMs": 81.82979106903076,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "7ad18072-a61b-47a4-a6ed-8f0f994c6bd8:25:742",
+      "olderAfter": "7ad18072-a61b-47a4-a6ed-8f0f994c6bd8:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-candidate-5-1",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-5-1",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.44,
+      "loadEnd": 2.12,
+      "openRequests": [
+        {
+          "agentId": "0bc8bc0a-1e84-4afe-bd50-5f2f9d9205eb",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 201.3072909116745,
+          "elapsedMs": 267.03837502002716,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "89333a05-8c35-47b1-8ac7-76937b782b90",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "89333a05-8c35-47b1-8ac7-76937b782b90",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "0bc8bc0a-1e84-4afe-bd50-5f2f9d9205eb",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "89333a05-8c35-47b1-8ac7-76937b782b90",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 480.7181659936905,
+          "elapsedMs": 99.39616692066193,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "89333a05-8c35-47b1-8ac7-76937b782b90:25:742",
+      "olderAfter": "89333a05-8c35-47b1-8ac7-76937b782b90:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-candidate-5-2",
+      "mode": "candidate",
+      "gate": {
+        "label": "multi-turn-candidate-5-2",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.55,
+      "loadEnd": 3,
+      "openRequests": [
+        {
+          "agentId": "6f020e0a-5b34-434a-bf17-dcd3d458bb1b",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 204.92799997329712,
+          "elapsedMs": 263.8932499885559,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "20832230-e117-4ebc-9ddc-e826c07cb8b9",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "20832230-e117-4ebc-9ddc-e826c07cb8b9",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "6f020e0a-5b34-434a-bf17-dcd3d458bb1b",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "20832230-e117-4ebc-9ddc-e826c07cb8b9",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 481.01870799064636,
+          "elapsedMs": 99.78858292102814,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "20832230-e117-4ebc-9ddc-e826c07cb8b9:25:742",
+      "olderAfter": "20832230-e117-4ebc-9ddc-e826c07cb8b9:25:676",
+      "remountApplicable": true
+    },
+    {
+      "label": "multi-turn-before-5",
+      "mode": "before",
+      "gate": {
+        "label": "multi-turn-before-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.83,
+      "loadEnd": 2.6,
+      "openRequests": [
+        {
+          "agentId": "0e9ef4f4-6110-450f-a895-0e0fca126450",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 207.70758390426636,
+          "elapsedMs": 656.1670000553131,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "caf302dd-78fa-49b1-8eb0-c8cfb22573c5",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "caf302dd-78fa-49b1-8eb0-c8cfb22573c5",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "0e9ef4f4-6110-450f-a895-0e0fca126450",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "caf302dd-78fa-49b1-8eb0-c8cfb22573c5",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 867.8579589128494,
+          "elapsedMs": 410.61879098415375,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "caf302dd-78fa-49b1-8eb0-c8cfb22573c5:25:742",
+      "olderAfter": "caf302dd-78fa-49b1-8eb0-c8cfb22573c5:25:676",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-baseline-5",
+      "mode": "baseline",
+      "gate": {
+        "label": "multi-turn-baseline-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": false,
+      "displayErrors": [],
+      "loadStart": 2.65,
+      "loadEnd": 2.76,
+      "openRequests": [
+        {
+          "agentId": "7dbbe7d7-3604-430b-9231-b0d0af749b2e",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 195.38670802116394,
+          "elapsedMs": 429.0031670331955,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "a167f723-7b9b-4ab9-87f3-5fcc6a396166",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "a167f723-7b9b-4ab9-87f3-5fcc6a396166",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "7dbbe7d7-3604-430b-9231-b0d0af749b2e",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "a167f723-7b9b-4ab9-87f3-5fcc6a396166",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 626.4825830459595,
+          "elapsedMs": 208.72762501239777,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "a167f723-7b9b-4ab9-87f3-5fcc6a396166:25:0",
+      "olderAfter": "a167f723-7b9b-4ab9-87f3-5fcc6a396166:1:0",
+      "remountApplicable": false
+    },
+    {
+      "label": "multi-turn-native-5",
+      "mode": "native",
+      "gate": {
+        "label": "multi-turn-native-5",
+        "passed": true,
+        "failures": []
+      },
+      "comparisonEligible": true,
+      "displayErrors": [],
+      "loadStart": 2.85,
+      "loadEnd": 2.16,
+      "openRequests": [
+        {
+          "agentId": "8fc94c18-3a17-4667-b2d5-86567ad884fc",
+          "request": {
+            "direction": "tail",
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 205.12429106235504,
+          "elapsedMs": 319.46829199790955,
+          "returned": 808,
+          "payloadChars": 1233055,
+          "hasOlder": true,
+          "startCursor": {
+            "epoch": "4d06fe3f-0b7b-470b-881d-50ba5b3d8d57",
+            "seq": 25
+          },
+          "endCursor": {
+            "epoch": "4d06fe3f-0b7b-470b-881d-50ba5b3d8d57",
+            "seq": 1230
+          },
+          "error": null
+        },
+        {
+          "agentId": "8fc94c18-3a17-4667-b2d5-86567ad884fc",
+          "request": {
+            "direction": "after",
+            "cursor": {
+              "epoch": "4d06fe3f-0b7b-470b-881d-50ba5b3d8d57",
+              "seq": 1230
+            },
+            "limit": 40,
+            "projection": "projected"
+          },
+          "startedMs": 528.2446250915527,
+          "elapsedMs": 79.92641592025757,
+          "returned": 0,
+          "payloadChars": 1798,
+          "hasOlder": true,
+          "startCursor": null,
+          "endCursor": null,
+          "error": null
+        }
+      ],
+      "olderBefore": "4d06fe3f-0b7b-470b-881d-50ba5b3d8d57:25:742",
+      "olderAfter": "4d06fe3f-0b7b-470b-881d-50ba5b3d8d57:25:676",
+      "remountApplicable": false
+    }
+  ]
+}

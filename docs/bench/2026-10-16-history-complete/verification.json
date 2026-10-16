@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-16T07:16:28.308Z",
+  "collection": {
+    "total": 80,
+    "validRowWorkCells": 36,
+    "failures": [],
+    "displayErrorLines": 0,
+    "sourceAudit": [
+      {
+        "mode": "candidate",
+        "sha": "c4c9f3f57c43a72b2b8fccc91030eb19df6e500d",
+        "files": 3092,
+        "mismatches": 0
+      },
+      {
+        "mode": "upstream",
+        "sha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+        "files": 87,
+        "mismatches": 0
+      },
+      {
+        "mode": "registered-upstream",
+        "sha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+        "files": 87,
+        "mismatches": 0
+      }
+    ]
+  },
+  "functional": {
+    "candidateSamples": 40,
+    "exactCopyGates": 80,
+    "expectedCharacters": 59427,
+    "allSessionUnmountReturn": true,
+    "allOlderReveal": true
+  },
+  "executionRegimes": {
+    "legacyLoadGate": 60,
+    "concurrentResourceGate": 20
+  },
+  "sourceArchiveSha256": "c2fa9acbd06bd4e4056412a1d135becbb685bd166a7aed7a0cab05ef7c3437ae",
+  "packedFilesVerified": 210,
+  "localHarness": {
+    "passed": 11,
+    "failed": 0,
+    "logSha256": "fbdabcad1179641840739729abb265ba1da4282752bc9660666ae491b13bbe35"
+  },
+  "documentation": {
+    "numericCells": 36,
+    "bilingualImageLinksVerified": true,
+    "generationIdempotent": true,
+    "chartsRenderedAndReviewed": 4,
+    "diffCheck": "passed"
+  },
+  "cleanup": {
+    "at": "2026-10-16T07:12:05.972Z",
+    "ownedPorts": {
+      "ports": [
+        6871,
+        8085,
+        8092
+      ],
+      "listeners": [],
+      "checkedAt": "2026-10-16T07:12:24.108Z"
+    },
+    "protectedSim": "Booted",
+    "protectedAvds": 2,
+    "ownedSim": "Shutdown"
+  },
+  "limits": [
+    "Mixed iOS concurrency is descriptive, not uniform controlled speedup",
+    "Candidate c4 history is separate from deployed722238d core/risk matrix",
+    "iPhone15Pro Release hardware acceptance open"
+  ]
+}

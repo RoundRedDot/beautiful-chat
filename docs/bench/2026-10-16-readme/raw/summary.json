@@ -1,0 +1,2053 @@
+{
+  "expected": 330,
+  "collected": 330,
+  "failures": [],
+  "groups": [
+    {
+      "platform": "web",
+      "fixture": "codeblock-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1274.799999833107,
+          "min": 1253.0999970436096,
+          "max": 1282.8999984264374
+        },
+        "commits": {
+          "median": 800,
+          "min": 774,
+          "max": 834
+        },
+        "task": {
+          "median": 3.9840459999999998,
+          "min": 3.7922420000000003,
+          "max": 4.070170999999999
+        },
+        "heap": {
+          "median": 117.37688446044922,
+          "min": 113.57068252563477,
+          "max": 121.2188949584961
+        },
+        "nodes": {
+          "median": 3052,
+          "min": 3052,
+          "max": 3052
+        },
+        "cls": {
+          "median": 0.04773400149875218,
+          "min": 0.041295244852701814,
+          "max": 0.05360162366231283
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "codeblock-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1295.5000021457672,
+          "min": 1252.1000000238419,
+          "max": 1315
+        },
+        "commits": {
+          "median": 453,
+          "min": 451,
+          "max": 455
+        },
+        "task": {
+          "median": 3.416528,
+          "min": 3.375781,
+          "max": 3.4858469999999997
+        },
+        "heap": {
+          "median": 116.77415466308594,
+          "min": 111.72912979125977,
+          "max": 119.81671524047852
+        },
+        "nodes": {
+          "median": 2781,
+          "min": 2781,
+          "max": 2781
+        },
+        "cls": {
+          "median": 0.1335726372612847,
+          "min": 0.12699677734374995,
+          "max": 0.13657028401692714
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "codeblock-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 297.10000109672546,
+          "min": 294.8999983072281,
+          "max": 301.0000002384186
+        },
+        "commits": {
+          "median": 454,
+          "min": 452,
+          "max": 457
+        },
+        "task": {
+          "median": 2.576585,
+          "min": 2.5458740000000004,
+          "max": 2.6122889999999996
+        },
+        "heap": {
+          "median": 116.10886764526367,
+          "min": 113.10472869873047,
+          "max": 120.39401626586914
+        },
+        "nodes": {
+          "median": 2692,
+          "min": 2692,
+          "max": 3870
+        },
+        "cls": {
+          "median": 0.011550253041585284,
+          "min": 0.011214303504096135,
+          "max": 0.012116598637898759
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "diff-large",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 35.99999964237213,
+          "min": 28.600000143051147,
+          "max": 41.60000002384186
+        },
+        "commits": {
+          "median": 21,
+          "min": 15,
+          "max": 22
+        },
+        "task": {
+          "median": 0.426225,
+          "min": 0.41301999999999994,
+          "max": 0.438466
+        },
+        "heap": {
+          "median": 111.10697937011719,
+          "min": 106.27540588378906,
+          "max": 114.05118560791016
+        },
+        "nodes": {
+          "median": 1539,
+          "min": 1539,
+          "max": 1539
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "diff-large",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 581.6999992132187,
+          "min": 568.5000023841858,
+          "max": 663.5
+        },
+        "commits": {
+          "median": 321,
+          "min": 317,
+          "max": 321
+        },
+        "task": {
+          "median": 1.8939830000000002,
+          "min": 1.886386,
+          "max": 2.012219
+        },
+        "heap": {
+          "median": 215.79689025878906,
+          "min": 212.40966796875,
+          "max": 219.83684539794922
+        },
+        "nodes": {
+          "median": 40803,
+          "min": 40803,
+          "max": 40803
+        },
+        "cls": {
+          "median": 0.024003285047743055,
+          "min": 0.005070201280381944,
+          "max": 0.024003285047743055
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "diff-large",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 21.40000009536743,
+          "min": 20,
+          "max": 21.9000004529953
+        },
+        "commits": {
+          "median": 27,
+          "min": 26,
+          "max": 29
+        },
+        "task": {
+          "median": 0.35122000000000003,
+          "min": 0.34088199999999996,
+          "max": 0.392694
+        },
+        "heap": {
+          "median": 114.11347961425781,
+          "min": 111.16167831420898,
+          "max": 119.366943359375
+        },
+        "nodes": {
+          "median": 1551,
+          "min": 1551,
+          "max": 1551
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "history-100",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 157.80000007152557,
+          "min": 138.30000007152557,
+          "max": 174.09999978542328
+        },
+        "commits": {
+          "median": 126,
+          "min": 124,
+          "max": 127
+        },
+        "task": {
+          "median": 0.736898,
+          "min": 0.6775100000000001,
+          "max": 0.8108469999999999
+        },
+        "heap": {
+          "median": 117.89306259155273,
+          "min": 113.51790237426758,
+          "max": 121.82731628417969
+        },
+        "nodes": {
+          "median": 2255,
+          "min": 2255,
+          "max": 2291
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "history-100",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 4468.499998450279,
+          "min": 4375.000007510185,
+          "max": 4506.699996948242
+        },
+        "commits": {
+          "median": 178,
+          "min": 177,
+          "max": 190
+        },
+        "task": {
+          "median": 4.379621,
+          "min": 4.363453,
+          "max": 4.393935
+        },
+        "heap": {
+          "median": 241.5067367553711,
+          "min": 237.06267547607422,
+          "max": 246.66179275512695
+        },
+        "nodes": {
+          "median": 15524,
+          "min": 15524,
+          "max": 15650
+        },
+        "cls": {
+          "median": 0.30951982040405274,
+          "min": 0.15139766320122613,
+          "max": 0.5177539059956868
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "history-100",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 214.9000004529953,
+          "min": 207.89999949932098,
+          "max": 223.60000050067902
+        },
+        "commits": {
+          "median": 166,
+          "min": 161,
+          "max": 173
+        },
+        "task": {
+          "median": 0.864446,
+          "min": 0.8258749999999999,
+          "max": 0.8791680000000001
+        },
+        "heap": {
+          "median": 122.25093078613281,
+          "min": 119.01234436035156,
+          "max": 126.28788375854492
+        },
+        "nodes": {
+          "median": 2313,
+          "min": 2313,
+          "max": 2313
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.0003485730489095052
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "markdown-long",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2040.8999996185303,
+          "min": 2018.4999989271164,
+          "max": 2090.999999642372
+        },
+        "commits": {
+          "median": 1457,
+          "min": 1413,
+          "max": 1473
+        },
+        "task": {
+          "median": 9.032625,
+          "min": 8.948815,
+          "max": 9.175075000000001
+        },
+        "heap": {
+          "median": 159.26586532592773,
+          "min": 155.73894882202148,
+          "max": 163.43261337280273
+        },
+        "nodes": {
+          "median": 5209,
+          "min": 5209,
+          "max": 5209
+        },
+        "cls": {
+          "median": 0.1715508246527777,
+          "min": 0.15057925347222226,
+          "max": 0.21012895982530375
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "markdown-long",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 3239.600001811981,
+          "min": 3210.3999993801117,
+          "max": 3283.799997329712
+        },
+        "commits": {
+          "median": 799,
+          "min": 795,
+          "max": 805
+        },
+        "task": {
+          "median": 8.531272,
+          "min": 8.486066,
+          "max": 8.560550000000001
+        },
+        "heap": {
+          "median": 118.23309326171875,
+          "min": 116.24536895751953,
+          "max": 122.01745986938477
+        },
+        "nodes": {
+          "median": 3371,
+          "min": 3371,
+          "max": 3371
+        },
+        "cls": {
+          "median": 0.6463519964853932,
+          "min": 0.644951452340021,
+          "max": 0.6498724449581579
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "markdown-long",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 499.79999577999115,
+          "min": 488.1000026464462,
+          "max": 504.59999883174896
+        },
+        "commits": {
+          "median": 803,
+          "min": 799,
+          "max": 814
+        },
+        "task": {
+          "median": 5.67918,
+          "min": 5.612797,
+          "max": 5.781937
+        },
+        "heap": {
+          "median": 125.24292373657227,
+          "min": 121.83296203613281,
+          "max": 129.6057014465332
+        },
+        "nodes": {
+          "median": 6049,
+          "min": 4173,
+          "max": 6049
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "mixed-turn",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 210.30000007152557,
+          "min": 207.99999964237213,
+          "max": 214.0999984741211
+        },
+        "commits": {
+          "median": 161,
+          "min": 156,
+          "max": 166
+        },
+        "task": {
+          "median": 1.672192,
+          "min": 1.6519910000000002,
+          "max": 1.7134779999999998
+        },
+        "heap": {
+          "median": 114.77408981323242,
+          "min": 111.14631271362305,
+          "max": 118.52866744995117
+        },
+        "nodes": {
+          "median": 1924,
+          "min": 1924,
+          "max": 1924
+        },
+        "cls": {
+          "median": 0.004936051432291667,
+          "min": 0.004815934244791667,
+          "max": 0.04154234890407986
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "mixed-turn",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 571.8000007867813,
+          "min": 559.1999983787537,
+          "max": 572.80000269413
+        },
+        "commits": {
+          "median": 988,
+          "min": 986,
+          "max": 990
+        },
+        "task": {
+          "median": 3.7848,
+          "min": 3.7070290000000004,
+          "max": 3.835212
+        },
+        "heap": {
+          "median": 124.51134872436523,
+          "min": 121.09035110473633,
+          "max": 128.88311386108398
+        },
+        "nodes": {
+          "median": 4490,
+          "min": 4490,
+          "max": 4490
+        },
+        "cls": {
+          "median": 0.09281357362535263,
+          "min": 0.09123398378160263,
+          "max": 0.09281357362535263
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "mixed-turn",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 97.00000047683716,
+          "min": 95.1000006198883,
+          "max": 101.2000002861023
+        },
+        "commits": {
+          "median": 130,
+          "min": 128,
+          "max": 131
+        },
+        "task": {
+          "median": 1.271953,
+          "min": 1.251046,
+          "max": 1.279109
+        },
+        "heap": {
+          "median": 117.73379135131836,
+          "min": 113.84565734863281,
+          "max": 121.50203323364258
+        },
+        "nodes": {
+          "median": 1886,
+          "min": 1886,
+          "max": 1886
+        },
+        "cls": {
+          "median": 0.0266484375,
+          "min": 0.0266484375,
+          "max": 0.0266484375
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reads-20",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 140.80000054836273,
+          "min": 136.90000009536743,
+          "max": 141.5000001192093
+        },
+        "commits": {
+          "median": 114,
+          "min": 112,
+          "max": 121
+        },
+        "task": {
+          "median": 1.148096,
+          "min": 1.1179290000000002,
+          "max": 1.213651
+        },
+        "heap": {
+          "median": 114.05812454223633,
+          "min": 110.49053573608398,
+          "max": 118.13143539428711
+        },
+        "nodes": {
+          "median": 1969,
+          "min": 1969,
+          "max": 1969
+        },
+        "cls": {
+          "median": 0.0019631510416666664,
+          "min": 0.00014804687500000004,
+          "max": 0.0020165364583333333
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reads-20",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 966.1000019311905,
+          "min": 957.4999989271164,
+          "max": 980.3999991416931
+        },
+        "commits": {
+          "median": 694,
+          "min": 691,
+          "max": 696
+        },
+        "task": {
+          "median": 3.3960529999999998,
+          "min": 3.387818,
+          "max": 3.416034
+        },
+        "heap": {
+          "median": 244.26231384277344,
+          "min": 239.50481033325195,
+          "max": 247.6780014038086
+        },
+        "nodes": {
+          "median": 56599,
+          "min": 56599,
+          "max": 56599
+        },
+        "cls": {
+          "median": 0.29914488169352227,
+          "min": 0.29719016168382445,
+          "max": 0.678561927541097
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reads-20",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 110.0999995470047,
+          "min": 107.30000078678131,
+          "max": 112.99999964237213
+        },
+        "commits": {
+          "median": 199,
+          "min": 198,
+          "max": 205
+        },
+        "task": {
+          "median": 1.0072770000000002,
+          "min": 0.9949370000000001,
+          "max": 1.033789
+        },
+        "heap": {
+          "median": 119.31529235839844,
+          "min": 116.37534713745117,
+          "max": 123.79551696777344
+        },
+        "nodes": {
+          "median": 2209,
+          "min": 2209,
+          "max": 2217
+        },
+        "cls": {
+          "median": 0.0007773437499999998,
+          "min": 0.0007773437499999998,
+          "max": 0.0007773437499999998
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-prose",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 532.6000027656555,
+          "min": 519.2000008821487,
+          "max": 553.1999996900558
+        },
+        "commits": {
+          "median": 821,
+          "min": 814,
+          "max": 835
+        },
+        "task": {
+          "median": 2.964563,
+          "min": 2.851758,
+          "max": 3.017473
+        },
+        "heap": {
+          "median": 112.31792068481445,
+          "min": 108.03717803955078,
+          "max": 115.45438003540039
+        },
+        "nodes": {
+          "median": 1533,
+          "min": 1533,
+          "max": 1533
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.0008554036458333332
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-prose",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1016.2000039815903,
+          "min": 1008.6999983787537,
+          "max": 1108.2999967336655
+        },
+        "commits": {
+          "median": 972,
+          "min": 971,
+          "max": 973
+        },
+        "task": {
+          "median": 3.973092,
+          "min": 3.9380949999999997,
+          "max": 4.284345
+        },
+        "heap": {
+          "median": 115.64244842529297,
+          "min": 111.2043685913086,
+          "max": 119.47460174560547
+        },
+        "nodes": {
+          "median": 1506,
+          "min": 1506,
+          "max": 1506
+        },
+        "cls": {
+          "median": 0.09846784358554421,
+          "min": 0.09568383833567305,
+          "max": 0.10020787075890443
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-prose",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 157.90000081062317,
+          "min": 152.6000016927719,
+          "max": 164.30000185966492
+        },
+        "commits": {
+          "median": 312,
+          "min": 306,
+          "max": 315
+        },
+        "task": {
+          "median": 1.9464890000000001,
+          "min": 1.900404,
+          "max": 1.972191
+        },
+        "heap": {
+          "median": 115.4448127746582,
+          "min": 112.07956314086914,
+          "max": 119.76823425292969
+        },
+        "nodes": {
+          "median": 1532,
+          "min": 1532,
+          "max": 1532
+        },
+        "cls": {
+          "median": 0.0007773437499999998,
+          "min": 0.0007773437499999998,
+          "max": 0.0011416961669921872
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-sections",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 487.3999981880188,
+          "min": 467.49999725818634,
+          "max": 494.4000017642975
+        },
+        "commits": {
+          "median": 748,
+          "min": 735,
+          "max": 756
+        },
+        "task": {
+          "median": 2.61968,
+          "min": 2.516492,
+          "max": 2.6904410000000003
+        },
+        "heap": {
+          "median": 111.34366607666016,
+          "min": 108.42555236816406,
+          "max": 115.78670120239258
+        },
+        "nodes": {
+          "median": 1533,
+          "min": 1533,
+          "max": 1533
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-sections",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1309.8999985456467,
+          "min": 1292.499998807907,
+          "max": 1342.200001835823
+        },
+        "commits": {
+          "median": 862,
+          "min": 860,
+          "max": 862
+        },
+        "task": {
+          "median": 3.6578609999999996,
+          "min": 3.5992290000000002,
+          "max": 3.7711909999999995
+        },
+        "heap": {
+          "median": 115.79756927490234,
+          "min": 111.3896255493164,
+          "max": 119.02619552612305
+        },
+        "nodes": {
+          "median": 1506,
+          "min": 1506,
+          "max": 1970
+        },
+        "cls": {
+          "median": 0.1459481839285956,
+          "min": 0.14446959838867185,
+          "max": 0.1512261568493313
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "reasoning-long-sections",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 138.8000007867813,
+          "min": 133.9999998807907,
+          "max": 141.10000097751617
+        },
+        "commits": {
+          "median": 277,
+          "min": 274,
+          "max": 278
+        },
+        "task": {
+          "median": 1.6531209999999998,
+          "min": 1.5675720000000002,
+          "max": 1.6961240000000002
+        },
+        "heap": {
+          "median": 115.36751556396484,
+          "min": 111.48821258544922,
+          "max": 119.6456527709961
+        },
+        "nodes": {
+          "median": 1534,
+          "min": 1534,
+          "max": 1534
+        },
+        "cls": {
+          "median": 0.0007773437499999998,
+          "min": 0.0007773437499999998,
+          "max": 0.0007773437499999998
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "shell-log-large",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 36.200000047683716,
+          "min": 28.5,
+          "max": 39.10000014305115
+        },
+        "commits": {
+          "median": 19,
+          "min": 17,
+          "max": 20
+        },
+        "task": {
+          "median": 1.05373,
+          "min": 0.9869920000000001,
+          "max": 1.082953
+        },
+        "heap": {
+          "median": 111.48213958740234,
+          "min": 108.12545776367188,
+          "max": 115.15563201904297
+        },
+        "nodes": {
+          "median": 1549,
+          "min": 1540,
+          "max": 1549
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "shell-log-large",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 263,
+          "min": 262.40000319480896,
+          "max": 270.8000019788742
+        },
+        "commits": {
+          "median": 861,
+          "min": 861,
+          "max": 862
+        },
+        "task": {
+          "median": 2.3763259999999997,
+          "min": 2.335228,
+          "max": 2.4120489999999997
+        },
+        "heap": {
+          "median": 128.2523536682129,
+          "min": 124.56044006347656,
+          "max": 132.1962890625
+        },
+        "nodes": {
+          "median": 10066,
+          "min": 10066,
+          "max": 10066
+        },
+        "cls": {
+          "median": 0.005080075412326389,
+          "min": 0.005080075412326389,
+          "max": 0.02157411295572917
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "shell-log-large",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 20.700000047683716,
+          "min": 17.899999737739563,
+          "max": 20.99999988079071
+        },
+        "commits": {
+          "median": 25,
+          "min": 24,
+          "max": 25
+        },
+        "task": {
+          "median": 0.7358450000000001,
+          "min": 0.7179110000000001,
+          "max": 0.754915
+        },
+        "heap": {
+          "median": 115.76165390014648,
+          "min": 111.43623733520508,
+          "max": 119.68957138061523
+        },
+        "nodes": {
+          "median": 1544,
+          "min": 1544,
+          "max": 1544
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.00037893575032552085
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "table-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1129.700001835823,
+          "min": 1092.5000004768372,
+          "max": 1165.700002670288
+        },
+        "commits": {
+          "median": 598,
+          "min": 595,
+          "max": 618
+        },
+        "task": {
+          "median": 3.039871,
+          "min": 2.9664740000000003,
+          "max": 3.085715
+        },
+        "heap": {
+          "median": 114.89280319213867,
+          "min": 111.60979080200195,
+          "max": 119.04349517822266
+        },
+        "nodes": {
+          "median": 1989,
+          "min": 1989,
+          "max": 1989
+        },
+        "cls": {
+          "median": 0.047769767337375216,
+          "min": 0.04163419808281793,
+          "max": 0.05068928231133353
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "table-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 413.59999775886536,
+          "min": 395.00000059604645,
+          "max": 429.50000059604645
+        },
+        "commits": {
+          "median": 240,
+          "min": 236,
+          "max": 240
+        },
+        "task": {
+          "median": 2.018371,
+          "min": 1.9850499999999998,
+          "max": 2.108301
+        },
+        "heap": {
+          "median": 116.19852828979492,
+          "min": 112.20032501220703,
+          "max": 119.8663444519043
+        },
+        "nodes": {
+          "median": 1717,
+          "min": 1717,
+          "max": 1717
+        },
+        "cls": {
+          "median": 0.03974546078575982,
+          "min": 0.03812665924496121,
+          "max": 0.03974546078575982
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "table-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 256.2999995946884,
+          "min": 255.70000040531158,
+          "max": 257.9999998807907
+        },
+        "commits": {
+          "median": 246,
+          "min": 244,
+          "max": 248
+        },
+        "task": {
+          "median": 1.851655,
+          "min": 1.835414,
+          "max": 1.871854
+        },
+        "heap": {
+          "median": 117.19646835327148,
+          "min": 114.01974868774414,
+          "max": 121.07832336425781
+        },
+        "nodes": {
+          "median": 1833,
+          "min": 1833,
+          "max": 1833
+        },
+        "cls": {
+          "median": 0.010534277258978948,
+          "min": 0.010534277258978948,
+          "max": 0.010534277258978948
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "tool-expanded-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 58.69999969005585,
+          "min": 57.0999995470047,
+          "max": 62.700000405311584
+        },
+        "commits": {
+          "median": 104,
+          "min": 104,
+          "max": 104
+        },
+        "task": {
+          "median": 1.9613490000000002,
+          "min": 1.930941,
+          "max": 2.0088030000000003
+        },
+        "heap": {
+          "median": 113.92522430419922,
+          "min": 110.11117172241211,
+          "max": 117.8510971069336
+        },
+        "nodes": {
+          "median": 1549,
+          "min": 1540,
+          "max": 1549
+        },
+        "cls": {
+          "median": 0.000014583333333333335,
+          "min": 0.000014583333333333335,
+          "max": 0.000014583333333333335
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "tool-expanded-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 920.3000013828278,
+          "min": 889.4000030755997,
+          "max": 943.5999987125397
+        },
+        "commits": {
+          "median": 1250,
+          "min": 1249,
+          "max": 1256
+        },
+        "task": {
+          "median": 4.338521,
+          "min": 4.305546,
+          "max": 4.403268000000001
+        },
+        "heap": {
+          "median": 125.40737915039062,
+          "min": 121.78313827514648,
+          "max": 129.27150344848633
+        },
+        "nodes": {
+          "median": 6942,
+          "min": 6942,
+          "max": 6942
+        },
+        "cls": {
+          "median": 0.014096714952256943,
+          "min": 0.005100670030381944,
+          "max": 0.014096714952256943
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "fixture": "tool-expanded-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 108.79999899864197,
+          "min": 104.99999916553497,
+          "max": 112.89999961853027
+        },
+        "commits": {
+          "median": 208,
+          "min": 208,
+          "max": 209
+        },
+        "task": {
+          "median": 1.524277,
+          "min": 1.5092240000000001,
+          "max": 1.5528750000000002
+        },
+        "heap": {
+          "median": 119.98399353027344,
+          "min": 116.12471008300781,
+          "max": 123.83202743530273
+        },
+        "nodes": {
+          "median": 1544,
+          "min": 1544,
+          "max": 1550
+        },
+        "cls": {
+          "median": 0.000015190972222222225,
+          "min": 0.000015190972222222225,
+          "max": 0.000015190972222222225
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "codeblock-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2227.5277280807495,
+          "min": 2209.427446961403,
+          "max": 2277.410630941391
+        },
+        "commits": {
+          "median": 427,
+          "min": 425,
+          "max": 432
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "codeblock-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 4536.261268377304,
+          "min": 4516.904443979263,
+          "max": 4546.1634702682495
+        },
+        "commits": {
+          "median": 440,
+          "min": 438,
+          "max": 440
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "codeblock-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 753.4660207033157,
+          "min": 734.4998676776886,
+          "max": 766.6338864564896
+        },
+        "commits": {
+          "median": 473,
+          "min": 470,
+          "max": 475
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "diff-large",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 52.91153311729431,
+          "min": 48.75177276134491,
+          "max": 57.427613258361816
+        },
+        "commits": {
+          "median": 12,
+          "min": 10,
+          "max": 12
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "diff-large",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2878.80277299881,
+          "min": 2828.575206041336,
+          "max": 3778.4610360860825
+        },
+        "commits": {
+          "median": 13,
+          "min": 11,
+          "max": 17
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "diff-large",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 62.83634436130524,
+          "min": 57.25008523464203,
+          "max": 71.21977746486664
+        },
+        "commits": {
+          "median": 25,
+          "min": 24,
+          "max": 25
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "history-100",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 207.11212182044983,
+          "min": 186.26247572898865,
+          "max": 257.4917241334915
+        },
+        "commits": {
+          "median": 6,
+          "min": 6,
+          "max": 6
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "history-100",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 226.3461754322052,
+          "min": 216.1262559890747,
+          "max": 235.95771265029907
+        },
+        "commits": {
+          "median": 124,
+          "min": 123,
+          "max": 127
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "history-100",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 213.03827440738678,
+          "min": 208.44346058368683,
+          "max": 213.812917470932
+        },
+        "commits": {
+          "median": 19,
+          "min": 18,
+          "max": 19
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "markdown-long",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 4971.22433423996,
+          "min": 4730.932760119438,
+          "max": 5466.659539937973
+        },
+        "commits": {
+          "median": 705,
+          "min": 697,
+          "max": 707
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "markdown-long",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 13421.210989832878,
+          "min": 13316.972223997116,
+          "max": 13477.101383924484
+        },
+        "commits": {
+          "median": 712,
+          "min": 710,
+          "max": 716
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "markdown-long",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1537.8255125284195,
+          "min": 1458.253108739853,
+          "max": 1568.0092220306396
+        },
+        "commits": {
+          "median": 812,
+          "min": 808,
+          "max": 814
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "mixed-turn",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 329.64074766635895,
+          "min": 310.09361696243286,
+          "max": 353.819837808609
+        },
+        "commits": {
+          "median": 82,
+          "min": 80,
+          "max": 82
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "mixed-turn",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 664.8403843641281,
+          "min": 621.6028108596802,
+          "max": 671.224582195282
+        },
+        "commits": {
+          "median": 128,
+          "min": 126,
+          "max": 131
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "mixed-turn",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 308.04429709911346,
+          "min": 298.95347011089325,
+          "max": 315.9901965856552
+        },
+        "commits": {
+          "median": 122,
+          "min": 120,
+          "max": 123
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reads-20",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 285.979762673378,
+          "min": 280.48366606235504,
+          "max": 305.95013904571533
+        },
+        "commits": {
+          "median": 83,
+          "min": 82,
+          "max": 84
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reads-20",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2722.854932785034,
+          "min": 2654.148688316345,
+          "max": 2877.2630244493484
+        },
+        "commits": {
+          "median": 81,
+          "min": 66,
+          "max": 82
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reads-20",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 341.8064968585968,
+          "min": 333.68946528434753,
+          "max": 366.4583568572998
+        },
+        "commits": {
+          "median": 140,
+          "min": 140,
+          "max": 142
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-prose",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 286.5514694452286,
+          "min": 273.1401484012604,
+          "max": 303.5301899909973
+        },
+        "commits": {
+          "median": 304,
+          "min": 302,
+          "max": 308
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-prose",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1504.176391005516,
+          "min": 1464.9827432632446,
+          "max": 1508.42653632164
+        },
+        "commits": {
+          "median": 321,
+          "min": 319,
+          "max": 323
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-prose",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 386.6947395801544,
+          "min": 370.11024391651154,
+          "max": 390.4301666021347
+        },
+        "commits": {
+          "median": 312,
+          "min": 306,
+          "max": 313
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-sections",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 263.4635201692581,
+          "min": 245.36816334724426,
+          "max": 267.55474960803986
+        },
+        "commits": {
+          "median": 270,
+          "min": 268,
+          "max": 272
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-sections",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2419.353410243988,
+          "min": 2402.490028500557,
+          "max": 2450.978935956955
+        },
+        "commits": {
+          "median": 290,
+          "min": 288,
+          "max": 296
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "reasoning-long-sections",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 327.67904555797577,
+          "min": 316.5713222026825,
+          "max": 337.14671516418457
+        },
+        "commits": {
+          "median": 276,
+          "min": 274,
+          "max": 280
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "shell-log-large",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 53.78500974178314,
+          "min": 49.88842332363129,
+          "max": 55.74577569961548
+        },
+        "commits": {
+          "median": 12,
+          "min": 12,
+          "max": 12
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "shell-log-large",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 349.5107476711273,
+          "min": 338.15101957321167,
+          "max": 359.57396948337555
+        },
+        "commits": {
+          "median": 14,
+          "min": 14,
+          "max": 14
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "shell-log-large",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 57.00184941291809,
+          "min": 51.71466565132141,
+          "max": 61.127846121788025
+        },
+        "commits": {
+          "median": 24,
+          "min": 24,
+          "max": 24
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "table-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 968.1255989074707,
+          "min": 950.2700191736221,
+          "max": 1011.138439655304
+        },
+        "commits": {
+          "median": 230,
+          "min": 228,
+          "max": 230
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "table-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1128.4476163387299,
+          "min": 1094.2775892019272,
+          "max": 1162.961020231247
+        },
+        "commits": {
+          "median": 238,
+          "min": 236,
+          "max": 240
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "table-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 584.5715190172195,
+          "min": 574.5681812763214,
+          "max": 595.8385788202286
+        },
+        "commits": {
+          "median": 264,
+          "min": 261,
+          "max": 265
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "tool-expanded-streaming",
+      "mode": "native",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 194.456960439682,
+          "min": 174.6341334581375,
+          "max": 209.32567048072815
+        },
+        "commits": {
+          "median": 100,
+          "min": 100,
+          "max": 100
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "tool-expanded-streaming",
+      "mode": "upstream",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 3051.2953526973724,
+          "min": 3024.962145924568,
+          "max": 3080.087005138397
+        },
+        "commits": {
+          "median": 191,
+          "min": 189,
+          "max": 191
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "fixture": "tool-expanded-streaming",
+      "mode": "fork",
+      "n": 5,
+      "diagnosticOnly": false,
+      "displayErrors": [],
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 310.93723952770233,
+          "min": 298.9406577348709,
+          "max": 330.78338038921356
+        },
+        "commits": {
+          "median": 204,
+          "min": 204,
+          "max": 204
+        }
+      }
+    }
+  ]
+}

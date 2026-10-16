@@ -1,0 +1,1689 @@
+{
+  "expected": 80,
+  "collected": 80,
+  "failures": [],
+  "groups": [
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "open",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 45.350000739097595,
+          "min": 43.299999594688416,
+          "max": 56.399999380111694
+        },
+        "ready": {
+          "median": 570.4499999880791,
+          "min": 525.5,
+          "max": 657
+        },
+        "timer": {
+          "median": 159.55000001192093,
+          "min": 138.59999990463257,
+          "max": 169.70000004768372
+        },
+        "raf": {
+          "median": 133.34999999999997,
+          "min": 116.59999999999997,
+          "max": 150.10000000000002
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "older",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 12.500000059604645,
+          "min": 9.100000023841858,
+          "max": 18.199999928474426
+        },
+        "ready": {
+          "median": 61.75,
+          "min": 7,
+          "max": 127.60000002384186
+        },
+        "timer": {
+          "median": 56.750000059604645,
+          "min": 38.39999997615814,
+          "max": 63.299999952316284
+        },
+        "raf": {
+          "median": 25.05000000000109,
+          "min": 16.799999999999272,
+          "max": 100
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "sessionRemount",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 64.10000014305115,
+          "min": 57.299999594688416,
+          "max": 73.30000102519989
+        },
+        "ready": {
+          "median": 209.04999995231628,
+          "min": 188,
+          "max": 223.10000002384186
+        },
+        "timer": {
+          "median": 208.94999992847443,
+          "min": 187.79999995231628,
+          "max": 222.89999997615814
+        },
+        "raf": {
+          "median": 200,
+          "min": 166.6999999999989,
+          "max": 200.10000000000036
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 1995.099997639656,
+          "min": 1966.000001192093,
+          "max": 2040.799996495247
+        },
+        "ready": {
+          "median": 1075,
+          "min": 1065.2000000476837,
+          "max": 1129
+        },
+        "timer": {
+          "median": 700.7999999523163,
+          "min": 692.8999999761581,
+          "max": 724.1000000238419
+        },
+        "raf": {
+          "median": 666.7,
+          "min": 650,
+          "max": 683.4
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 527.8000003099442,
+          "min": 512.0000013113022,
+          "max": 541.1000000238419
+        },
+        "ready": {
+          "median": 90.19999992847443,
+          "min": 64.69999992847443,
+          "max": 141.39999997615814
+        },
+        "timer": {
+          "median": 288.5,
+          "min": 273.2000000476837,
+          "max": 313.2000000476837
+        },
+        "raf": {
+          "median": 283.1999999999989,
+          "min": 250,
+          "max": 299.90000000000146
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2164.799997806549,
+          "min": 2119.1999963521957,
+          "max": 2231.0999987125397
+        },
+        "ready": {
+          "median": 1030.3000000715256,
+          "min": 966.2000000476837,
+          "max": 1090
+        },
+        "timer": {
+          "median": 1029.6000000238419,
+          "min": 965.6000000238419,
+          "max": 1089.1000000238419
+        },
+        "raf": {
+          "median": 999.8999999999996,
+          "min": 950,
+          "max": 1066.5
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 89.30000007152557,
+          "min": 85.00000023841858,
+          "max": 92.39999973773956
+        },
+        "ready": {
+          "median": 649.0999999046326,
+          "min": 614.2000000476837,
+          "max": 678.3999999761581
+        },
+        "timer": {
+          "median": 222.5,
+          "min": 212.29999995231628,
+          "max": 231.19999992847443
+        },
+        "raf": {
+          "median": 199.99999999999994,
+          "min": 183.29999999999995,
+          "max": 216.7
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 15.899999737739563,
+          "min": 15.49999988079071,
+          "max": 16.600000143051147
+        },
+        "ready": {
+          "median": 52.60000002384186,
+          "min": 7.300000071525574,
+          "max": 124.89999997615814
+        },
+        "timer": {
+          "median": 54.799999952316284,
+          "min": 52.5,
+          "max": 58.60000002384186
+        },
+        "raf": {
+          "median": 33.29999999999927,
+          "min": 16.80000000000109,
+          "max": 50
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 157.4000004529953,
+          "min": 155.40000009536743,
+          "max": 164.09999978542328
+        },
+        "ready": {
+          "median": 349.5,
+          "min": 337.59999990463257,
+          "max": 362.6999999284744
+        },
+        "timer": {
+          "median": 349.2999999523163,
+          "min": 337.5,
+          "max": 362.5
+        },
+        "raf": {
+          "median": 333.2999999999993,
+          "min": 333.2000000000007,
+          "max": 333.39999999999964
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "open",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 46.60000014305115,
+          "min": 41.299999475479126,
+          "max": 49.10000026226044
+        },
+        "ready": {
+          "median": 618,
+          "min": 532.9000000953674,
+          "max": 668.4000000953674
+        },
+        "timer": {
+          "median": 150.69999992847443,
+          "min": 138.10000002384186,
+          "max": 166.39999997615814
+        },
+        "raf": {
+          "median": 116.69999999999999,
+          "min": 116.59999999999991,
+          "max": 133.39999999999998
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "older",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 12.700000047683716,
+          "min": 9.200000405311584,
+          "max": 14.199999809265137
+        },
+        "ready": {
+          "median": 85.59999996423721,
+          "min": 14.799999952316284,
+          "max": 123.80000007152557
+        },
+        "timer": {
+          "median": 53.15000003576279,
+          "min": 38.199999928474426,
+          "max": 56.799999952316284
+        },
+        "raf": {
+          "median": 33.29999999999927,
+          "min": 16.80000000000109,
+          "max": 50
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "sessionRemount",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 65.75000029802322,
+          "min": 61.39999973773956,
+          "max": 81.09999907016754
+        },
+        "ready": {
+          "median": 214.89999997615814,
+          "min": 197.60000002384186,
+          "max": 222.5
+        },
+        "timer": {
+          "median": 214.75000005960464,
+          "min": 197.5,
+          "max": 222.40000009536743
+        },
+        "raf": {
+          "median": 200,
+          "min": 183.20000000000073,
+          "max": 216.70000000000073
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2021.9999959468842,
+          "min": 1951.999997496605,
+          "max": 2035.4000006914139
+        },
+        "ready": {
+          "median": 1077.7999999523163,
+          "min": 1063.0999999046326,
+          "max": 1181.8999999761581
+        },
+        "timer": {
+          "median": 692.3999999761581,
+          "min": 656.6999999284744,
+          "max": 695.5999999046326
+        },
+        "raf": {
+          "median": 649.9000000000001,
+          "min": 633.2,
+          "max": 649.9999999999999
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 540.0000009536743,
+          "min": 526.8999997377396,
+          "max": 550.1999979019165
+        },
+        "ready": {
+          "median": 84,
+          "min": 54.199999928474426,
+          "max": 140.39999997615814
+        },
+        "timer": {
+          "median": 282.60000002384186,
+          "min": 279.7999999523163,
+          "max": 324.2999999523163
+        },
+        "raf": {
+          "median": 266.60000000000036,
+          "min": 250.10000000000036,
+          "max": 283.2999999999993
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 2198.199999690056,
+          "min": 2080.700001478195,
+          "max": 2228.8999989032745
+        },
+        "ready": {
+          "median": 998.1999999284744,
+          "min": 975.5,
+          "max": 1058.1000000238419
+        },
+        "timer": {
+          "median": 997.5,
+          "min": 974.8999999761581,
+          "max": 1057.3999999761581
+        },
+        "raf": {
+          "median": 966.6000000000004,
+          "min": 949.9000000000015,
+          "max": 1033.2000000000007
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 85.39999985694885,
+          "min": 84.90000009536743,
+          "max": 87.50000059604645
+        },
+        "ready": {
+          "median": 645.9000000953674,
+          "min": 630.8000000715256,
+          "max": 668.5
+        },
+        "timer": {
+          "median": 216.89999997615814,
+          "min": 215.89999997615814,
+          "max": 224.79999995231628
+        },
+        "raf": {
+          "median": 183.30000000000007,
+          "min": 183.3,
+          "max": 200
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 21.40000009536743,
+          "min": 13.300000190734863,
+          "max": 23.100000143051147
+        },
+        "ready": {
+          "median": 55.10000002384186,
+          "min": 17.800000071525574,
+          "max": 121.60000002384186
+        },
+        "timer": {
+          "median": 52.89999997615814,
+          "min": 47.300000071525574,
+          "max": 64.10000002384186
+        },
+        "raf": {
+          "median": 33.29999999999927,
+          "min": 16.80000000000109,
+          "max": 33.400000000001455
+        }
+      }
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 158.00000035762787,
+          "min": 154.200000166893,
+          "max": 173.50000095367432
+        },
+        "ready": {
+          "median": 335.10000002384186,
+          "min": 333.7999999523163,
+          "max": 350.10000002384186
+        },
+        "timer": {
+          "median": 335,
+          "min": 333.7999999523163,
+          "max": 350
+        },
+        "raf": {
+          "median": 316.6999999999989,
+          "min": 316.59999999999854,
+          "max": 316.8000000000011
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "open",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 61.77233695983887,
+          "min": 60.44220674037933,
+          "max": 64.85851311683655
+        },
+        "ready": {
+          "median": 561.2028544545174,
+          "min": 529.3271670341492,
+          "max": 617.672541975975
+        },
+        "timer": {
+          "median": 353.1720204949379,
+          "min": 349.7934169769287,
+          "max": 396.06374990940094
+        },
+        "raf": {
+          "median": 353.0983960032463,
+          "min": 349.6632500886917,
+          "max": 396.0533330440521
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "older",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 174.0849501490593,
+          "min": 150.23726105690002,
+          "max": 268.40837275981903
+        },
+        "ready": null,
+        "timer": {
+          "median": 135.14356249570847,
+          "min": 121.19316709041595,
+          "max": 151.880833029747
+        },
+        "raf": {
+          "median": 130.1546249985695,
+          "min": 121.19379103183746,
+          "max": 151.8799170255661
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "candidate",
+      "phase": "sessionRemount",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 10,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 99.08600729703903,
+          "min": 97.85079109668732,
+          "max": 111.4231493473053
+        },
+        "ready": {
+          "median": 425.4368755221367,
+          "min": 410.9094580411911,
+          "max": 505.6576249599457
+        },
+        "timer": {
+          "median": 423.3675625324249,
+          "min": 406.96875,
+          "max": 503.9099999666214
+        },
+        "raf": {
+          "median": 54.043250024318695,
+          "min": 26.38354194164276,
+          "max": 501.57254099845886
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 190.8123072385788,
+          "min": 188.63576138019562,
+          "max": 193.70510864257812
+        },
+        "ready": {
+          "median": 695.8011250495911,
+          "min": 685.2494580745697,
+          "max": 716.7660830020905
+        },
+        "timer": {
+          "median": 463.82391703128815,
+          "min": 447.3034579753876,
+          "max": 469.7207500934601
+        },
+        "raf": {
+          "median": 463.8118749856949,
+          "min": 441.8296250104904,
+          "max": 469.59529197216034
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 11.855173587799072,
+          "min": 9.809408187866211,
+          "max": 13.266389966011047
+        },
+        "ready": null,
+        "timer": {
+          "median": 145.76004099845886,
+          "min": 140.0517499446869,
+          "max": 150.74083399772644
+        },
+        "raf": {
+          "median": 145.76525008678436,
+          "min": 140.05195808410645,
+          "max": 150.74674999713898
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "baseline",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 355.92444384098053,
+          "min": 351.9114577770233,
+          "max": 366.2575377225876
+        },
+        "ready": {
+          "median": 726.1768329143524,
+          "min": 717.9909579753876,
+          "max": 739.1632499694824
+        },
+        "timer": {
+          "median": 720.6219589710236,
+          "min": 713.3128340244293,
+          "max": 733.4760830402374
+        },
+        "raf": {
+          "median": 69.9117910861969,
+          "min": 62.822749972343445,
+          "max": 78.55404198169708
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [
+        "incident-native-5"
+      ],
+      "metrics": {
+        "rows": {
+          "median": 137.3251167535782,
+          "min": 135.99880731105804,
+          "max": 147.8522435426712
+        },
+        "ready": {
+          "median": 624.005833029747,
+          "min": 622.3839169740677,
+          "max": 636.7111669778824
+        },
+        "timer": {
+          "median": 415.2190409898758,
+          "min": 414.63762497901917,
+          "max": 438.85954189300537
+        },
+        "raf": {
+          "median": 415.1956660747528,
+          "min": 399.43708300590515,
+          "max": 438.85579097270966
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [
+        "incident-native-5"
+      ],
+      "metrics": {
+        "rows": {
+          "median": 183.31327140331268,
+          "min": 178.27245378494263,
+          "max": 205.70153069496155
+        },
+        "ready": null,
+        "timer": {
+          "median": 114.85645794868469,
+          "min": 99.04545795917511,
+          "max": 117.59654200077057
+        },
+        "raf": {
+          "median": 114.81945788860321,
+          "min": 99.05166697502136,
+          "max": 117.6076670885086
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "mode": "native",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 5,
+        "concurrentResourceGate": 0
+      },
+      "loadEndOverGate": [
+        "incident-native-5"
+      ],
+      "metrics": {
+        "rows": {
+          "median": 251.6376999616623,
+          "min": 247.73848378658295,
+          "max": 301.0242624282837
+        },
+        "ready": {
+          "median": 626.4215420484543,
+          "min": 580.3419159650803,
+          "max": 642.0817909240723
+        },
+        "timer": {
+          "median": 623.9255419969559,
+          "min": 575.8637919425964,
+          "max": 639.7500830888748
+        },
+        "raf": {
+          "median": 33.117583990097046,
+          "min": 18.717833995819092,
+          "max": 45.37920796871185
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "open",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 10
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 68.72262263298035,
+          "min": 61.84048664569855,
+          "max": 73.49125647544861
+        },
+        "ready": {
+          "median": 626.84391695261,
+          "min": 583.3598749637604,
+          "max": 674.2749580144882
+        },
+        "timer": {
+          "median": 403.2919579744339,
+          "min": 376.18845796585083,
+          "max": 434.0717500448227
+        },
+        "raf": {
+          "median": 403.2788745164871,
+          "min": 361.07770895957947,
+          "max": 434.059583067894
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "older",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 10
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 182.49533438682556,
+          "min": 150.7229427099228,
+          "max": 237.02140748500824
+        },
+        "ready": null,
+        "timer": {
+          "median": 137.1699579358101,
+          "min": 127.14950001239777,
+          "max": 146.8764170408249
+        },
+        "raf": {
+          "median": 137.17475008964539,
+          "min": 127.14762496948242,
+          "max": 146.9155000448227
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "candidate",
+      "phase": "sessionRemount",
+      "n": 10,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 10
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 105.28942108154297,
+          "min": 97.8151181936264,
+          "max": 118.16366755962372
+        },
+        "ready": {
+          "median": 471.0004580616951,
+          "min": 424.0933749675751,
+          "max": 575.5642920732498
+        },
+        "timer": {
+          "median": 468.3602289557457,
+          "min": 422.5560829639435,
+          "max": 573.6295000314713
+        },
+        "raf": {
+          "median": 36.12810444831848,
+          "min": 27.773833990097046,
+          "max": 475.5014580488205
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 186.9994695186615,
+          "min": 177.67582607269287,
+          "max": 189.61005580425262
+        },
+        "ready": {
+          "median": 717.776957988739,
+          "min": 678.8556669950485,
+          "max": 724.5087080001831
+        },
+        "timer": {
+          "median": 479.7186670303345,
+          "min": 463.00904190540314,
+          "max": 485.88412499427795
+        },
+        "raf": {
+          "median": 479.71445894241333,
+          "min": 462.9957081079483,
+          "max": 485.87945795059204
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 49.43104958534241,
+          "min": 43.759119391441345,
+          "max": 74.42687547206879
+        },
+        "ready": null,
+        "timer": {
+          "median": 179.59237504005432,
+          "min": 169.02275002002716,
+          "max": 181.916041970253
+        },
+        "raf": {
+          "median": 179.5928750038147,
+          "min": 169.02362501621246,
+          "max": 181.91620910167694
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "baseline",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 398.59948670864105,
+          "min": 381.79285395145416,
+          "max": 415.67923605442047
+        },
+        "ready": {
+          "median": 791.0802500247955,
+          "min": 766.5026249885559,
+          "max": 822.6991670131683
+        },
+        "timer": {
+          "median": 784.0863749980927,
+          "min": 729.7565840482712,
+          "max": 818.7085421085358
+        },
+        "raf": {
+          "median": 85.853875041008,
+          "min": 73.64083302021027,
+          "max": 120.93908298015594
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "open",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 150.02789449691772,
+          "min": 146.37466621398926,
+          "max": 156.22821509838104
+        },
+        "ready": {
+          "median": 661.8124160766602,
+          "min": 637.0633749961853,
+          "max": 689.6094579696655
+        },
+        "timer": {
+          "median": 437.77529096603394,
+          "min": 432.72637498378754,
+          "max": 470.8348330259323
+        },
+        "raf": {
+          "median": 437.75279200077057,
+          "min": 432.7084159851074,
+          "max": 470.8160001039505
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "older",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 191.09953832626343,
+          "min": 189.11422967910767,
+          "max": 221.52730560302734
+        },
+        "ready": null,
+        "timer": {
+          "median": 111.58116698265076,
+          "min": 106.22679209709167,
+          "max": 116.89141607284546
+        },
+        "raf": {
+          "median": 111.58258402347565,
+          "min": 106.2335000038147,
+          "max": 116.89662504196167
+        }
+      }
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "mode": "native",
+      "phase": "sessionRemount",
+      "n": 5,
+      "executionRegimes": {
+        "legacySerialGate": 0,
+        "concurrentResourceGate": 5
+      },
+      "loadEndOverGate": [],
+      "metrics": {
+        "rows": {
+          "median": 290.0310331583023,
+          "min": 251.52440786361694,
+          "max": 294.49232840538025
+        },
+        "ready": {
+          "median": 657.0322079658508,
+          "min": 589.1409169435501,
+          "max": 670.4094170331955
+        },
+        "timer": {
+          "median": 654.5017079114914,
+          "min": 584.5807079076767,
+          "max": 667.4367500543594
+        },
+        "raf": {
+          "median": 31.3926659822464,
+          "min": 23.563416004180908,
+          "max": 50.3168340921402
+        }
+      }
+    }
+  ],
+  "aa": [
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "phase": "open",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -11.299999237060547,
+          "timerDifference": 13.200000047683716
+        },
+        {
+          "rep": 2,
+          "rowDifference": -4.700000643730164,
+          "timerDifference": 7.699999928474426
+        },
+        {
+          "rep": 3,
+          "rowDifference": -2.9000006914138794,
+          "timerDifference": -11
+        },
+        {
+          "rep": 4,
+          "rowDifference": 1.399998664855957,
+          "timerDifference": -27.40000009536743
+        },
+        {
+          "rep": 5,
+          "rowDifference": -1.2000008821487427,
+          "timerDifference": -0.9999998807907104
+        }
+      ],
+      "maxAbsoluteRowDifference": 11.299999237060547
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "phase": "older",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": 0.39999985694885254,
+          "timerDifference": 11.599999904632568
+        },
+        {
+          "rep": 2,
+          "rowDifference": -0.5,
+          "timerDifference": -1.6999998092651367
+        },
+        {
+          "rep": 3,
+          "rowDifference": -8.100000143051147,
+          "timerDifference": -23.40000009536743
+        },
+        {
+          "rep": 4,
+          "rowDifference": 2.0999995470046997,
+          "timerDifference": 13.600000143051147
+        },
+        {
+          "rep": 5,
+          "rowDifference": -3.7999995946884155,
+          "timerDifference": -6.699999928474426
+        }
+      ],
+      "maxAbsoluteRowDifference": 8.100000143051147
+    },
+    {
+      "platform": "web",
+      "scenario": "incident",
+      "phase": "sessionRemount",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -5.900001883506775,
+          "timerDifference": -9.199999809265137
+        },
+        {
+          "rep": 2,
+          "rowDifference": 2.5000005960464478,
+          "timerDifference": 5.5
+        },
+        {
+          "rep": 3,
+          "rowDifference": -1.1999998092651367,
+          "timerDifference": -9.899999976158142
+        },
+        {
+          "rep": 4,
+          "rowDifference": 5.999999642372131,
+          "timerDifference": 16.200000047683716
+        },
+        {
+          "rep": 5,
+          "rowDifference": -7.500001430511475,
+          "timerDifference": -5
+        }
+      ],
+      "maxAbsoluteRowDifference": 7.500001430511475
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "phase": "open",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": 1.0999993085861206,
+          "timerDifference": -20.799999952316284
+        },
+        {
+          "rep": 2,
+          "rowDifference": 6.400000810623169,
+          "timerDifference": 13.800000071525574
+        },
+        {
+          "rep": 3,
+          "rowDifference": -2.2999998331069946,
+          "timerDifference": 10.100000023841858
+        },
+        {
+          "rep": 4,
+          "rowDifference": 0.6999987363815308,
+          "timerDifference": -0.2999999523162842
+        },
+        {
+          "rep": 5,
+          "rowDifference": -3.1000003814697266,
+          "timerDifference": 16.399999856948853
+        }
+      ],
+      "maxAbsoluteRowDifference": 6.400000810623169
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "phase": "older",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": 1.0999999046325684,
+          "timerDifference": 5.799999952316284
+        },
+        {
+          "rep": 2,
+          "rowDifference": 2.099999785423279,
+          "timerDifference": 17.90000009536743
+        },
+        {
+          "rep": 3,
+          "rowDifference": 0.899999737739563,
+          "timerDifference": -1.7999999523162842
+        },
+        {
+          "rep": 4,
+          "rowDifference": -0.19999992847442627,
+          "timerDifference": 0.3999999761581421
+        },
+        {
+          "rep": 5,
+          "rowDifference": 0.9000002145767212,
+          "timerDifference": -3.600000023841858
+        }
+      ],
+      "maxAbsoluteRowDifference": 2.099999785423279
+    },
+    {
+      "platform": "web",
+      "scenario": "multi-turn",
+      "phase": "sessionRemount",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -10.999998927116394,
+          "timerDifference": 4.700000047683716
+        },
+        {
+          "rep": 2,
+          "rowDifference": -4.199999690055847,
+          "timerDifference": 2.1999999284744263
+        },
+        {
+          "rep": 3,
+          "rowDifference": -0.7000010013580322,
+          "timerDifference": -22.5
+        },
+        {
+          "rep": 4,
+          "rowDifference": 4.999998927116394,
+          "timerDifference": 20.799999952316284
+        },
+        {
+          "rep": 5,
+          "rowDifference": 4.8999998569488525,
+          "timerDifference": 7.4999998807907104
+        }
+      ],
+      "maxAbsoluteRowDifference": 10.999998927116394
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "phase": "open",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -4.416306376457214,
+          "timerDifference": -26.530667185783386
+        },
+        {
+          "rep": 2,
+          "rowDifference": 0.07353496551513672,
+          "timerDifference": -34.9143340587616
+        },
+        {
+          "rep": 3,
+          "rowDifference": 0.3644297122955322,
+          "timerDifference": 45.02787494659424
+        },
+        {
+          "rep": 4,
+          "rowDifference": -1.00155508518219,
+          "timerDifference": -0.163457989692688
+        },
+        {
+          "rep": 5,
+          "rowDifference": -1.847055435180664,
+          "timerDifference": -4.839790940284729
+        }
+      ],
+      "maxAbsoluteRowDifference": 4.416306376457214
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "phase": "older",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": 90.80789387226105,
+          "timerDifference": 13.780416011810303
+        },
+        {
+          "rep": 2,
+          "rowDifference": -3.1903414726257324,
+          "timerDifference": 11.123498916625977
+        },
+        {
+          "rep": 3,
+          "rowDifference": 39.2636616230011,
+          "timerDifference": -12.558000087738037
+        },
+        {
+          "rep": 4,
+          "rowDifference": 76.7320407629013,
+          "timerDifference": 0.1390000581741333
+        },
+        {
+          "rep": 5,
+          "rowDifference": -37.91247296333313,
+          "timerDifference": -30.687665939331055
+        }
+      ],
+      "maxAbsoluteRowDifference": 90.80789387226105
+    },
+    {
+      "platform": "ios",
+      "scenario": "incident",
+      "phase": "sessionRemount",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -1.328465223312378,
+          "timerDifference": -86.51691591739655
+        },
+        {
+          "rep": 2,
+          "rowDifference": -12.070534110069275,
+          "timerDifference": 16.407041907310486
+        },
+        {
+          "rep": 3,
+          "rowDifference": -0.05327808856964111,
+          "timerDifference": -0.7044570446014404
+        },
+        {
+          "rep": 4,
+          "rowDifference": -2.4392422437667847,
+          "timerDifference": -27.4093759059906
+        },
+        {
+          "rep": 5,
+          "rowDifference": -5.530818343162537,
+          "timerDifference": 2.422333002090454
+        }
+      ],
+      "maxAbsoluteRowDifference": 12.070534110069275
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "phase": "open",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -8.477928280830383,
+          "timerDifference": -29.17316699028015
+        },
+        {
+          "rep": 2,
+          "rowDifference": -0.6892962455749512,
+          "timerDifference": 11.072416067123413
+        },
+        {
+          "rep": 3,
+          "rowDifference": 4.000825762748718,
+          "timerDifference": 13.977250099182129
+        },
+        {
+          "rep": 4,
+          "rowDifference": 1.0981982946395874,
+          "timerDifference": -1.6762069463729858
+        },
+        {
+          "rep": 5,
+          "rowDifference": 6.174556493759155,
+          "timerDifference": 35.54695796966553
+        }
+      ],
+      "maxAbsoluteRowDifference": 8.477928280830383
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "phase": "older",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -36.827152729034424,
+          "timerDifference": 2.0868340730667114
+        },
+        {
+          "rep": 2,
+          "rowDifference": -14.642709374427795,
+          "timerDifference": -13.12833309173584
+        },
+        {
+          "rep": 3,
+          "rowDifference": 23.53397250175476,
+          "timerDifference": 11.865333080291748
+        },
+        {
+          "rep": 4,
+          "rowDifference": -62.34256327152252,
+          "timerDifference": -5.26370894908905
+        },
+        {
+          "rep": 5,
+          "rowDifference": 22.01721215248108,
+          "timerDifference": 11.778081893920898
+        }
+      ],
+      "maxAbsoluteRowDifference": 62.34256327152252
+    },
+    {
+      "platform": "ios",
+      "scenario": "multi-turn",
+      "phase": "sessionRemount",
+      "pairs": [
+        {
+          "rep": 1,
+          "rowDifference": -20.348549365997314,
+          "timerDifference": -85.41266703605652
+        },
+        {
+          "rep": 2,
+          "rowDifference": -4.099126577377319,
+          "timerDifference": 15.876500964164734
+        },
+        {
+          "rep": 3,
+          "rowDifference": 2.842023015022278,
+          "timerDifference": 38.675333976745605
+        },
+        {
+          "rep": 4,
+          "rowDifference": 8.718448996543884,
+          "timerDifference": 144.42675006389618
+        },
+        {
+          "rep": 5,
+          "rowDifference": 8.778178095817566,
+          "timerDifference": 31.996665954589844
+        }
+      ],
+      "maxAbsoluteRowDifference": 20.348549365997314
+    }
+  ],
+  "displayErrors": [],
+  "executionRegimes": {
+    "legacyLoadGate": 60,
+    "concurrentResourceGate": 20
+  },
+  "concurrencyPreparation": {
+    "recordedAt": "2026-10-16T06:41:13.663Z",
+    "reportedPreparationStartedAt": "2026-10-16T06:39:42.000Z",
+    "source": "Parallel worker reported preparation start via main-session coordination message; not an inferred first timed-sample timestamp.",
+    "previousTransitionRecord": "concurrency-transition.json",
+    "interpretation": "Use the earlier preparation start when identifying potentially affected group1 samples. Preserve original raw bytes. Samples spanning the boundary or started later may overlap lane preparation or concurrent work; final overlap must be checked against lane execution intervals.",
+    "workerPlan": {
+      "lanes": [
+        2,
+        3,
+        4
+      ],
+      "coreSamples": [
+        32,
+        36,
+        32
+      ],
+      "modes": [
+        "native",
+        "parent-7f01b2d",
+        "fixed-a",
+        "fixed-b"
+      ],
+      "assignment": "lane=2+((fixtureIndex+rep-1)%3); all four modes of a fixture/rep stay in the same lane",
+      "executionRegime": "concurrent-max4",
+      "gate": {
+        "pressureLevel": 1,
+        "memoryPressureFreePercentMin": 10,
+        "cpuIdlePercentMin": 15,
+        "load": "record only"
+      },
+      "reportedInitialResources": {
+        "cpuIdlePercent": 91.69,
+        "load": 1.63,
+        "pressureLevel": 1
+      }
+    },
+    "completedHistorySamplesPotentiallyAffected": [
+      {
+        "label": "incident-baseline-5",
+        "startedAt": "2026-10-16T06:40:13.604Z",
+        "recordWrittenAt": "2026-10-16T06:41:13.104Z",
+        "completed": true,
+        "error": false
+      },
+      {
+        "label": "incident-candidate-5-2",
+        "startedAt": "2026-10-16T06:39:28.333Z",
+        "recordWrittenAt": "2026-10-16T06:40:12.203Z",
+        "completed": true,
+        "error": false
+      }
+    ],
+    "completedHistorySamplesBeforePreparation": [
+      "incident-baseline-1",
+      "incident-baseline-2",
+      "incident-baseline-3",
+      "incident-baseline-4",
+      "incident-candidate-1-1",
+      "incident-candidate-1-2",
+      "incident-candidate-2-1",
+      "incident-candidate-2-2",
+      "incident-candidate-3-1",
+      "incident-candidate-3-2",
+      "incident-candidate-4-1",
+      "incident-candidate-4-2",
+      "incident-candidate-5-1",
+      "incident-native-1",
+      "incident-native-2",
+      "incident-native-3",
+      "incident-native-4"
+    ]
+  }
+}

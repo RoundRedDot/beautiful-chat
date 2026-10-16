@@ -1,0 +1,113 @@
+{
+  "platform": "ios",
+  "fixture": "reasoning-long-prose",
+  "mode": "native",
+  "rep": 1,
+  "agentId": "2dc48389-ded8-4f3f-ae02-dd13698f1a78",
+  "identity": [
+    {
+      "id": "beautiful-chat",
+      "path": "/tmp/bc-ios-history/baseline",
+      "enabled": false,
+      "status": "disabled",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-history/baseline"
+        }
+      }
+    },
+    {
+      "id": "better-paseo",
+      "path": "/tmp/bc-m0-o1/active",
+      "enabled": false,
+      "status": "disabled",
+      "name": "Better Paseo",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-m0-o1/active"
+        }
+      }
+    }
+  ],
+  "variant": "baseline",
+  "phase": "calibration",
+  "sourceIdentity": null,
+  "sourceSha": null,
+  "fixtureHash": "dbcaf2c3b34999feb9f4271e7b5817024ac4ea6404bb0a096d5c63ab50f12784",
+  "errors": [],
+  "seen": {
+    "host": true,
+    "fork": false,
+    "upstream": false
+  },
+  "loadStart": 1.56,
+  "startedAt": "2026-10-16T05:42:11.529Z",
+  "probe": {
+    "label": "",
+    "platform": "ios",
+    "elapsedMs": 21774.18591594696,
+    "rows": {
+      "plugin": 0,
+      "native": 317
+    },
+    "kinds": {
+      "user": {
+        "commits": 5,
+        "mounts": 1,
+        "n": 5,
+        "p50": 0.4006246328353882,
+        "p95": 2.177834630012512,
+        "max": 2.177834630012512,
+        "sum": 3.373339891433716
+      },
+      "assistant": {
+        "commits": 14,
+        "mounts": 2,
+        "n": 14,
+        "p50": 0.04533398151397705,
+        "p95": 14.171042680740356,
+        "max": 14.171042680740356,
+        "sum": 25.897157907485962
+      },
+      "reasoning": {
+        "commits": 298,
+        "mounts": 2,
+        "n": 298,
+        "p50": 0.9913748502731323,
+        "p95": 3.360791802406311,
+        "max": 9.636080384254456,
+        "sum": 273.4805417060852
+      }
+    },
+    "allRows": {
+      "n": 317,
+      "p50": 0.3655879497528076,
+      "p95": 3.49075186252594,
+      "max": 14.171042680740356,
+      "sum": 302.7510395050049
+    },
+    "perCommit": {
+      "n": 304,
+      "p50": 1.093124270439148,
+      "p95": 3.360791802406311,
+      "max": 18.429373025894165,
+      "sum": 302.7510395050049
+    },
+    "frames": {
+      "count": 1273,
+      "dropped": 70,
+      "droppedRatio": 0.05212211466865227,
+      "longestMs": 146.47150003910065
+    },
+    "longTasks": null,
+    "layoutShift": null,
+    "heapMB": null
+  },
+  "elapsedMs": 20765,
+  "loadEnd": 2.48,
+  "displayErrors": [],
+  "comparisonEligible": true,
+  "completed": true
+}

@@ -1,8 +1,9 @@
-# Long-history loading benchmark (pending)
+# Long-history loading benchmark
 
-This is a required addition to the next README comparison, separate from the existing
-`history-100` and streaming `markdown-long` scenarios. No comparison has been run for it yet;
-keep the October 15 results and charts unchanged until the new matrix is complete.
+The new comparison is recorded in [2026-10-16 Mac Studio rerun](../2026-10-16-readme/README.md),
+separate from the existing `history-100` and streaming `markdown-long` scenarios.
+The protocol below remains the reference; use the new report for collection status,
+measured proxies, platform-specific remount applicability and evidence limitations.
 
 ## Fixture
 

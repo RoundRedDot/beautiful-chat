@@ -1,0 +1,153 @@
+{
+  "at": "2026-10-16T07:12:05.972Z",
+  "summary": {
+    "collected": 80,
+    "failures": [],
+    "groups": 36
+  },
+  "retainedOriginalHashesVerified": 60,
+  "daemon": {
+    "supervisor": 99104,
+    "listeners": [
+      99106
+    ],
+    "stop": "stopped: /Users/rrd/.paseo-bench-p0p1"
+  },
+  "web": {
+    "pid": 99172,
+    "command": "node /tmp/bc-history-complete-20261016/tools/serve-web.mjs /tmp/bc-readme-20261016/web-dist 8092"
+  },
+  "pluginsRestored": [
+    {
+      "id": "bc-bench",
+      "path": "/tmp/bc-v5/latest/tools/bench-provider",
+      "enabled": true,
+      "status": "running",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-v5/latest/tools/bench-provider"
+        }
+      }
+    },
+    {
+      "id": "beautiful-chat",
+      "path": "/tmp/bc-ios-history/baseline",
+      "enabled": false,
+      "status": "disabled",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-history/baseline"
+        }
+      }
+    },
+    {
+      "id": "better-paseo",
+      "path": "/tmp/bc-m0-o1/active",
+      "enabled": true,
+      "status": "running",
+      "name": "Better Paseo",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-m0-o1/active"
+        }
+      }
+    }
+  ],
+  "activeLink": "/tmp/bc-m0-o1/candidate",
+  "protectedBefore": {
+    "protectedSim": {
+      "dataPath": "/Users/rrd/Library/Developer/CoreSimulator/Devices/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210/data",
+      "dataPathSize": 3064209408,
+      "logPath": "/Users/rrd/Library/Logs/CoreSimulator/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "udid": "046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "lastUsedAt": "2026-10-15T04:34:32Z",
+      "isAvailable": true,
+      "logPathSize": 196608,
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+      "state": "Booted",
+      "name": "Align205-iPhone17Pro"
+    },
+    "protectedAvds": [
+      {
+        "pid": 94521,
+        "ppid": 1,
+        "command": "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37 -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5554"
+      },
+      {
+        "pid": 94889,
+        "ppid": 1,
+        "command": "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37_b -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5556"
+      }
+    ]
+  },
+  "devicesAfter": {
+    "protectedSim": {
+      "dataPath": "/Users/rrd/Library/Developer/CoreSimulator/Devices/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210/data",
+      "dataPathSize": 3064209408,
+      "logPath": "/Users/rrd/Library/Logs/CoreSimulator/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "udid": "046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "lastUsedAt": "2026-10-15T04:34:32Z",
+      "isAvailable": true,
+      "logPathSize": 196608,
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+      "state": "Booted",
+      "name": "Align205-iPhone17Pro"
+    },
+    "protectedAvds": [
+      {
+        "pid": 94521,
+        "ppid": 1,
+        "command": "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37 -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5554"
+      },
+      {
+        "pid": 94889,
+        "ppid": 1,
+        "command": "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37_b -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5556"
+      }
+    ],
+    "ownedSim": {
+      "dataPath": "/Users/rrd/Library/Developer/CoreSimulator/Devices/4497FFF9-93D1-4713-B55B-A9988BC2209E/data",
+      "dataPathSize": 1690849280,
+      "logPath": "/Users/rrd/Library/Logs/CoreSimulator/4497FFF9-93D1-4713-B55B-A9988BC2209E",
+      "udid": "4497FFF9-93D1-4713-B55B-A9988BC2209E",
+      "lastUsedAt": "2026-10-16T06:24:03Z",
+      "isAvailable": true,
+      "logPathSize": 352256,
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro",
+      "state": "Shutdown",
+      "name": "bc-perf-ios"
+    }
+  },
+  "sourceAudit": [
+    {
+      "mode": "candidate",
+      "sha": "c4c9f3f57c43a72b2b8fccc91030eb19df6e500d",
+      "files": 3092,
+      "mismatches": []
+    },
+    {
+      "mode": "upstream",
+      "sha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+      "files": 87,
+      "mismatches": []
+    },
+    {
+      "mode": "registered-upstream",
+      "sha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+      "files": 87,
+      "mismatches": []
+    }
+  ],
+  "ownedPorts": {
+    "ports": [
+      6871,
+      8085,
+      8092
+    ],
+    "listeners": [],
+    "checkedAt": "2026-10-16T07:12:24.108Z"
+  }
+}

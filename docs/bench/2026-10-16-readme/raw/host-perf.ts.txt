@@ -1,0 +1,216 @@
+/**
+ * Bench-only host probe for the native-vs-plugin comparison.
+ *
+ * Every timeline row (native or plugin) is wrapped in a React <Profiler> keyed
+ * by a normalized kind, so both renderers are measured at the same boundary.
+ * A rAF frame meter and, on web, long-task / layout-shift observers run beside
+ * it. Inert unless EXPO_PUBLIC_BC_HOST_PERF=1 was set at bundle time.
+ *
+ * Control: `globalThis.__hostPerf.{reset,snapshot}()`; on native the probe also
+ * polls http://localhost:8099/cmd and posts dumps to /dump.
+ */
+import { Platform } from "react-native";
+import type { ProfilerOnRenderCallback } from "react";
+
+export const HOST_PERF_ENABLED = process.env.EXPO_PUBLIC_BC_HOST_PERF === "1";
+
+const EXPECTED_FRAME_MS = 1000 / 60;
+const CONTROL_URL = "http://localhost:8099";
+
+const KIND_BY_ITEM: Record<string, string> = {
+  user_message: "user",
+  assistant_message: "assistant",
+  thought: "reasoning",
+  tool_call: "tool",
+  todo_list: "todo",
+  "omp-user-message": "user",
+  "omp-assistant": "assistant",
+  "omp-reasoning": "reasoning",
+  "omp-tool-call": "tool",
+  "omp-todo": "todo",
+};
+
+export function hostPerfKind(item: { kind: string; itemKind?: string }): string {
+  const raw = item.kind === "plugin" ? (item.itemKind ?? "plugin") : item.kind;
+  return KIND_BY_ITEM[raw] ?? raw;
+}
+
+interface KindStats {
+  commits: number;
+  mounts: number;
+  durations: number[];
+}
+
+interface State {
+  startedAt: number;
+  kinds: Record<string, KindStats>;
+  pluginRows: number;
+  nativeRows: number;
+  commitTotals: Map<number, number>;
+  frames: number;
+  dropped: number;
+  longestFrame: number;
+  frameTotalMs: number;
+  longTasks: number;
+  longTaskMs: number;
+  layoutShift: number;
+}
+
+function fresh(): State {
+  return {
+    startedAt: now(),
+    kinds: {},
+    pluginRows: 0,
+    nativeRows: 0,
+    commitTotals: new Map(),
+    frames: 0,
+    dropped: 0,
+    longestFrame: 0,
+    frameTotalMs: 0,
+    longTasks: 0,
+    longTaskMs: 0,
+    layoutShift: 0,
+  };
+}
+
+function now(): number {
+  return typeof performance !== "undefined" && typeof performance.now === "function"
+    ? performance.now()
+    : Date.now();
+}
+
+let state: State = fresh();
+
+export const onRowRender: ProfilerOnRenderCallback = (id, phase, actualDuration, _b, _s, commitTime) => {
+  const [kind, source] = id.split("|");
+  let stats = state.kinds[kind];
+  if (!stats) {
+    stats = { commits: 0, mounts: 0, durations: [] };
+    state.kinds[kind] = stats;
+  }
+  stats.commits += 1;
+  if (phase === "mount") stats.mounts += 1;
+  stats.durations.push(actualDuration);
+  if (source === "plugin") state.pluginRows += 1;
+  else state.nativeRows += 1;
+  const key = Math.round(commitTime * 1000);
+  state.commitTotals.set(key, (state.commitTotals.get(key) ?? 0) + actualDuration);
+};
+
+function quantile(sorted: number[], q: number): number {
+  if (sorted.length === 0) return 0;
+  const index = Math.min(sorted.length - 1, Math.max(0, Math.ceil(q * sorted.length) - 1));
+  return sorted[index];
+}
+
+function summarize(values: number[]) {
+  const sorted = [...values].sort((a, b) => a - b);
+  const sum = sorted.reduce((total, value) => total + value, 0);
+  return {
+    n: sorted.length,
+    p50: quantile(sorted, 0.5),
+    p95: quantile(sorted, 0.95),
+    max: sorted.length ? sorted[sorted.length - 1] : 0,
+    sum,
+  };
+}
+
+export function snapshot(label = "") {
+  const kinds: Record<string, unknown> = {};
+  const all: number[] = [];
+  for (const [kind, stats] of Object.entries(state.kinds)) {
+    kinds[kind] = { commits: stats.commits, mounts: stats.mounts, ...summarize(stats.durations) };
+    all.push(...stats.durations);
+  }
+  const heap = (performance as unknown as { memory?: { usedJSHeapSize: number } }).memory;
+  return {
+    label,
+    platform: Platform.OS,
+    elapsedMs: now() - state.startedAt,
+    rows: { plugin: state.pluginRows, native: state.nativeRows },
+    kinds,
+    allRows: summarize(all),
+    perCommit: summarize([...state.commitTotals.values()]),
+    frames: {
+      count: state.frames,
+      dropped: state.dropped,
+      droppedRatio: state.frames ? state.dropped / (state.frames + state.dropped) : 0,
+      longestMs: state.longestFrame,
+    },
+    longTasks: Platform.OS === "web" ? { count: state.longTasks, totalMs: state.longTaskMs } : null,
+    layoutShift: Platform.OS === "web" ? state.layoutShift : null,
+    heapMB: heap ? heap.usedJSHeapSize / 1048576 : null,
+  };
+}
+
+export function reset(): void {
+  state = fresh();
+}
+
+function startMeters(): void {
+  let last = 0;
+  const onFrame = (timestamp: number) => {
+    if (last > 0) {
+      // Same accounting as the plugin's /bc-perf store: >1 s is a suspended page.
+      const delta = timestamp - last;
+      if (delta <= 1000) {
+        state.frames += 1;
+        state.frameTotalMs += delta;
+        if (delta > EXPECTED_FRAME_MS * 1.5) {
+          state.dropped += Math.max(1, Math.round(delta / EXPECTED_FRAME_MS) - 1);
+        }
+        if (delta > state.longestFrame) state.longestFrame = delta;
+      }
+    }
+    last = timestamp;
+    requestAnimationFrame(onFrame);
+  };
+  requestAnimationFrame(onFrame);
+
+  if (typeof PerformanceObserver !== "function") return;
+  const watch = (type: string, record: (entry: PerformanceEntry) => void) => {
+    try {
+      new PerformanceObserver((list) => list.getEntries().forEach(record)).observe({
+        type,
+        buffered: false,
+      } as PerformanceObserverInit);
+    } catch {
+      // Unsupported entry type on this runtime.
+    }
+  };
+  watch("longtask", (entry) => {
+    state.longTasks += 1;
+    state.longTaskMs += entry.duration;
+  });
+  watch("layout-shift", (entry) => {
+    const shift = entry as PerformanceEntry & { value: number; hadRecentInput: boolean };
+    if (!shift.hadRecentInput) state.layoutShift += shift.value;
+  });
+}
+
+function startControlPolling(): void {
+  const poll = async () => {
+    try {
+      const response = await fetch(`${CONTROL_URL}/cmd?platform=${Platform.OS}`);
+      const command = (await response.json()) as { cmd: string; label?: string };
+      if (command.cmd === "reset") reset();
+      if (command.cmd === "dump") {
+        await fetch(`${CONTROL_URL}/dump`, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(snapshot(command.label)),
+        });
+      }
+    } catch {
+      // Control server not running.
+    }
+    setTimeout(poll, 400);
+  };
+  void poll();
+}
+
+if (HOST_PERF_ENABLED) {
+  (globalThis as Record<string, unknown>).__hostPerf = { reset, snapshot };
+  startMeters();
+  if (Platform.OS !== "web") startControlPolling();
+}

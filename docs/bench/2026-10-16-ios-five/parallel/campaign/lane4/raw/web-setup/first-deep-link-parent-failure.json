@@ -1,0 +1,168 @@
+{
+  "platform": "web",
+  "executionRegime": "concurrent-max4",
+  "lane": 4,
+  "phase": "web-smoke",
+  "fixture": "mixed-turn",
+  "mode": "parent",
+  "rep": 0,
+  "environment": {
+    "metroWorkers": 2,
+    "cacheDirectories": [
+      "/tmp/bc-ios-five-parallel-20261016/lane4/tmp",
+      "/tmp/bc-ios-five-parallel-20261016/lane4/expo-home",
+      "/tmp/bc-ios-five-parallel-20261016/lane4/host/.expo"
+    ],
+    "harnessHashes": {
+      "runner.mjs": "ee895ea98ad7ac574e4700ad46dcc25b80c19560bf391b2831ddd37ee8f2556e",
+      "resources.mjs": "7bb06302fde378a0e9b793f24bb66517f01be9e824f30371eb80bb92a5efee46",
+      "ios-evaluate.mjs": "4accb1c4b6475e2fd008912306fc0ed743813ecd3911debb52b9c9c84cbe9aaa",
+      "ios-navigate.mjs": "e002306c465b7a11d039a64de8ba1c97e5ffc6e275b22953a298c91c0cccc728",
+      "initialized-router.mjs": "ae3cf8608f8974c01bfccae9fea2f198f8b01d5e2e6ba9c9bc02940f177b0086",
+      "smoke-ui.mjs": "799dbfa7164a5040cb0e062d84b3af358a1008f2976b093f187f6d3aef3feba9"
+    },
+    "executionRegime": "concurrent-max4",
+    "lane": 4,
+    "root": "/tmp/bc-ios-five-parallel-20261016/lane4",
+    "home": "/Users/rrd/.paseo-bench-ios-five-lane4",
+    "port": 8184,
+    "daemonPort": 6884,
+    "server": "srv_yFwbkDXTWCSL",
+    "udid": "753E3F5E-D496-4B73-BA9B-E2A0C498BAB0",
+    "workspace": "wks_97b7a328a28622fc",
+    "version": "0.11.2",
+    "build": "11002999",
+    "hostSha": "75953250959979b8f088bbca8dbd6ee61d0151b1",
+    "hostPatchSha256": "8f060246a58a7a814f6e4d0ca4c49dc31a93f476775fe9d513d13b1205645b15",
+    "hostProbeSha256": "e8daaa53907e6186241b6f19e71981e9f48221bcab2ba7cb63566f3f45293fe1",
+    "hardware": {
+      "hostname": "rrd-mac-studio",
+      "cpu": "Apple M5 Max",
+      "memory": "68719476736",
+      "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+      "node": "v26.11.1"
+    },
+    "sources": {
+      "parent": {
+        "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+        "tree": "50d7edd55c3675a71b00dd18b5269b9c9a7a99d0",
+        "files": 3092,
+        "manifestSha256": "0df3bac4e3e04418d03eaea45fcac4e3ed56e1a9f7738c3a320f968584477732"
+      },
+      "fixed": {
+        "sourceSha": "722238de2fcc1ade46d542a7a540868932d9dc89",
+        "tree": "2f0186ea924bd8958eff95eeb3b1dfe8ae7a6c22",
+        "files": 3092,
+        "manifestSha256": "74fee9338cc9056be080feb0c0035a78f43c90574477d103eef54d4b6ee6dd3e"
+      }
+    },
+    "webPort": 8284,
+    "webRunnerSha256": "5f98cd498d6d6c41f582edabb9504d6ed4f4eeccc0a6e3be1906321c84dd4653",
+    "webHarnessHashes": {
+      "web-runner.mjs": "5f98cd498d6d6c41f582edabb9504d6ed4f4eeccc0a6e3be1906321c84dd4653",
+      "web-resources.mjs": "fcd4cdb8c522b97296b7b58f6c7311dd709d99a87837697c4318943e7852bae1",
+      "resources.mjs": "7bb06302fde378a0e9b793f24bb66517f01be9e824f30371eb80bb92a5efee46"
+    }
+  },
+  "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+  "fixtureHash": "557d9cac02b42e0471663d005c78621b99117f858ce4c612256fcf1a7bc026d1",
+  "errors": [],
+  "displayErrors": [],
+  "setupStartedAt": "2026-10-16T07:29:40.289Z",
+  "admission": {
+    "admission": {
+      "at": "2026-10-16T07:29:41.132Z",
+      "cpuIdlePct": 46.82,
+      "load": [
+        43.91,
+        22.01,
+        12.42
+      ],
+      "pressureLevel": 1,
+      "memoryFreePct": 73,
+      "vm": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  1693581.\nPages active:                                 617778.\nPages inactive:                               756150.\nPages speculative:                              4050.\nPages throttled:                                   0.\nPages wired down:                             380980.\nPages purgeable:                                2693.\n\"Translation faults\":                     6416876089.\nPages copy-on-write:                       259902094.\nPages zero filled:                        2703462989.\nPages reactivated:                          11548732.\nPages purged:                               12564767.\nFile-backed pages:                            567827.\nAnonymous pages:                              810150.\nPages stored in compressor:                  1419904.\nPages occupied by compressor:                 690063.\nDecompressions:                              4734500.\nCompressions:                               12329838.\nPageins:                                    70660612.\nPageouts:                                       3999.\nSwapins:                                           0.\nSwapouts:                                          0.\nPages tagged:                                 207868.\nPages tagged resident:                        145572.\nPages tagged compressed:                       62296.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 7627.\nPages tag-storage free:                        24637.\nPages tag-storage non-tag pageable:            98712.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    8333824.\nTagged compressions:                          155088.\nTagged decompressions:                         77597.",
+      "concurrentTasks": [
+        {
+          "lane": 1,
+          "label": "multi-turn-native-5",
+          "stage": "idle",
+          "at": "2026-10-16T07:06:44.807Z"
+        },
+        {
+          "lane": 2,
+          "pid": 40284,
+          "phase": "web-smoke",
+          "at": "2026-10-16T07:29:40.291Z",
+          "state": "setup",
+          "label": "lane2-parent-mixed-turn-r0"
+        },
+        {
+          "lane": 3,
+          "pid": 40285,
+          "phase": "web-smoke",
+          "at": "2026-10-16T07:29:40.292Z",
+          "state": "setup",
+          "label": "lane3-parent-mixed-turn-r0"
+        },
+        {
+          "lane": 4,
+          "pid": 40286,
+          "phase": "web-smoke",
+          "at": "2026-10-16T07:29:40.289Z",
+          "state": "setup",
+          "label": "lane4-parent-mixed-turn-r0"
+        }
+      ],
+      "processes": [
+        {
+          "pid": 40284,
+          "ppid": 19658,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/web-runner.mjs 2 --smoke"
+        },
+        {
+          "pid": 40285,
+          "ppid": 19658,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/web-runner.mjs 3 --smoke"
+        },
+        {
+          "pid": 40286,
+          "ppid": 19658,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/web-runner.mjs 4 --smoke"
+        }
+      ],
+      "admitted": true
+    },
+    "waits": []
+  },
+  "identity": [
+    {
+      "id": "bc-bench",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane4/provider",
+      "enabled": true,
+      "status": "running",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-five-parallel-20261016/lane4/provider"
+        }
+      }
+    },
+    {
+      "id": "better-paseo",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane4/active",
+      "enabled": true,
+      "status": "running",
+      "name": "Better Paseo",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-five-parallel-20261016/lane4/active"
+        }
+      }
+    }
+  ],
+  "agentId": "5713462c-90c7-43b0-9b99-ed191daed06f",
+  "error": "page.waitForFunction: Timeout 60000ms exceeded.\n    at run (/private/tmp/bc-ios-five-parallel-20261016/tools/web-runner.mjs:22:244)\n    at async file:///private/tmp/bc-ios-five-parallel-20261016/tools/web-runner.mjs:30:54",
+  "comparisonEligible": false,
+  "finishedAt": "2026-10-16T07:30:45.059Z"
+}

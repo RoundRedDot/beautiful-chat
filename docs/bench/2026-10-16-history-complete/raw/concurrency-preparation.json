@@ -1,0 +1,73 @@
+{
+  "recordedAt": "2026-10-16T06:41:13.663Z",
+  "reportedPreparationStartedAt": "2026-10-16T06:39:42.000Z",
+  "source": "Parallel worker reported preparation start via main-session coordination message; not an inferred first timed-sample timestamp.",
+  "previousTransitionRecord": "concurrency-transition.json",
+  "interpretation": "Use the earlier preparation start when identifying potentially affected group1 samples. Preserve original raw bytes. Samples spanning the boundary or started later may overlap lane preparation or concurrent work; final overlap must be checked against lane execution intervals.",
+  "workerPlan": {
+    "lanes": [
+      2,
+      3,
+      4
+    ],
+    "coreSamples": [
+      32,
+      36,
+      32
+    ],
+    "modes": [
+      "native",
+      "parent-7f01b2d",
+      "fixed-a",
+      "fixed-b"
+    ],
+    "assignment": "lane=2+((fixtureIndex+rep-1)%3); all four modes of a fixture/rep stay in the same lane",
+    "executionRegime": "concurrent-max4",
+    "gate": {
+      "pressureLevel": 1,
+      "memoryPressureFreePercentMin": 10,
+      "cpuIdlePercentMin": 15,
+      "load": "record only"
+    },
+    "reportedInitialResources": {
+      "cpuIdlePercent": 91.69,
+      "load": 1.63,
+      "pressureLevel": 1
+    }
+  },
+  "completedHistorySamplesPotentiallyAffected": [
+    {
+      "label": "incident-baseline-5",
+      "startedAt": "2026-10-16T06:40:13.604Z",
+      "recordWrittenAt": "2026-10-16T06:41:13.104Z",
+      "completed": true,
+      "error": false
+    },
+    {
+      "label": "incident-candidate-5-2",
+      "startedAt": "2026-10-16T06:39:28.333Z",
+      "recordWrittenAt": "2026-10-16T06:40:12.203Z",
+      "completed": true,
+      "error": false
+    }
+  ],
+  "completedHistorySamplesBeforePreparation": [
+    "incident-baseline-1",
+    "incident-baseline-2",
+    "incident-baseline-3",
+    "incident-baseline-4",
+    "incident-candidate-1-1",
+    "incident-candidate-1-2",
+    "incident-candidate-2-1",
+    "incident-candidate-2-2",
+    "incident-candidate-3-1",
+    "incident-candidate-3-2",
+    "incident-candidate-4-1",
+    "incident-candidate-4-2",
+    "incident-candidate-5-1",
+    "incident-native-1",
+    "incident-native-2",
+    "incident-native-3",
+    "incident-native-4"
+  ]
+}

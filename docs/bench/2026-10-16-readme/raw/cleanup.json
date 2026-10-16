@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-16T04:53:04.094Z",
+  "activeLink": "/tmp/bc-m0-o1/candidate",
+  "pluginsRestored": true,
+  "daemonStop": "CLI returned stopped for private home",
+  "webStopped": {
+    "pid": 42080,
+    "cmd": "node /tmp/bc-readme-20261016/tools/serve-web.mjs /tmp/bc-readme-20261016/web-dist 8092"
+  },
+  "simulators": [
+    {
+      "dataPath": "/Users/rrd/Library/Developer/CoreSimulator/Devices/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210/data",
+      "dataPathSize": 3049459712,
+      "logPath": "/Users/rrd/Library/Logs/CoreSimulator/046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "udid": "046DC4D3-2BAF-47DE-A2F5-B9A15D00B210",
+      "lastUsedAt": "2026-10-15T04:34:32Z",
+      "isAvailable": true,
+      "logPathSize": 196608,
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+      "state": "Booted",
+      "name": "Align205-iPhone17Pro"
+    },
+    {
+      "dataPath": "/Users/rrd/Library/Developer/CoreSimulator/Devices/4497FFF9-93D1-4713-B55B-A9988BC2209E/data",
+      "dataPathSize": 1643917312,
+      "logPath": "/Users/rrd/Library/Logs/CoreSimulator/4497FFF9-93D1-4713-B55B-A9988BC2209E",
+      "udid": "4497FFF9-93D1-4713-B55B-A9988BC2209E",
+      "lastUsedAt": "2026-10-16T04:01:42Z",
+      "isAvailable": true,
+      "logPathSize": 331776,
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro",
+      "state": "Shutdown",
+      "name": "bc-perf-ios"
+    }
+  ],
+  "sourceAudit": [
+    {
+      "mode": "candidate",
+      "files": 3092,
+      "mismatches": 0
+    },
+    {
+      "mode": "upstream",
+      "files": 87,
+      "mismatches": 0
+    },
+    {
+      "mode": "registered-upstream",
+      "files": 87,
+      "mismatches": 0
+    }
+  ],
+  "protectedAvds": [
+    "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37 -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5554",
+    "/Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37_b -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5556"
+  ],
+  "ownedPorts": {
+    "ports": [
+      6871,
+      8085,
+      8092
+    ],
+    "listeners": [],
+    "checkedAt": "2026-10-16T04:53:14.124Z"
+  }
+}

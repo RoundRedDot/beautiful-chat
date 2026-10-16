@@ -1,0 +1,80 @@
+{
+  "recordedAt": "2026-10-16T07:15:54.467Z",
+  "source": "Worker coordination update at 2026-10-16 07:15 UTC; pending independent final artifact review",
+  "executionRegime": "concurrent-max4, later actual maximum 3 after group1 cleanup",
+  "core": {
+    "collected": 100,
+    "reportedAuditFailures": 0
+  },
+  "sourceRevisions": {
+    "parent": "7f01b2d95c87cb6879adf701571de3778a167060",
+    "fixed": "722238de2fcc1ade46d542a7a540868932d9dc89"
+  },
+  "metrics": [
+    {
+      "fixture": "diff-large",
+      "rowWorkMedianMs": {
+        "native": 48.60734665393829,
+        "parent": 52.38617265224457,
+        "fixed": 56.118112087249756
+      },
+      "fixedVsNativePercent": 15.451914063083127,
+      "fixedVsParentPercent": 7.123901682566025,
+      "aaOverTenPercentPairs": 2
+    },
+    {
+      "fixture": "reads-20",
+      "rowWorkMedianMs": {
+        "native": 277.95054137706757,
+        "parent": 331.45866775512695,
+        "fixed": 275.745484828949
+      },
+      "fixedVsNativePercent": -0.7933269484541872,
+      "fixedVsParentPercent": -16.808485746807335,
+      "aaOverTenPercentPairs": 2
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "rowWorkMedianMs": {
+        "native": 249.2528738975525,
+        "parent": 324.6124920845032,
+        "fixed": 249.64250195026398
+      },
+      "fixedVsNativePercent": 0.15631837925031977,
+      "fixedVsParentPercent": -23.095226450719274,
+      "aaOverTenPercentPairs": 0
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "rowWorkMedianMs": {
+        "native": 239.52392506599426,
+        "parent": 292.12604534626007,
+        "fixed": 223.4504896402359
+      },
+      "fixedVsNativePercent": -6.710576165337034,
+      "fixedVsParentPercent": -23.50887803400834,
+      "aaOverTenPercentPairs": 2
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "rowWorkMedianMs": {
+        "native": 154.97392451763153,
+        "parent": 254.40139651298523,
+        "fixed": 182.93412309885025
+      },
+      "fixedVsNativePercent": 18.041872959110393,
+      "fixedVsParentPercent": -28.092327476860813,
+      "aaOverTenPercentPairs": 2
+    }
+  ],
+  "aa": {
+    "pairs": 25,
+    "overTenPercentPairs": 8,
+    "maxReportedDifferencePercent": 31.31
+  },
+  "pending": {
+    "iosRisk": 60,
+    "webRisk": 60
+  },
+  "conclusion": "No all-five regression acceptance. Diff and growing log remain above native by >10%; 8/25 paired A/A differences exceed 10%. Median decreases alone do not establish stable improvement. Preserve all samples, no production-scope expansion."
+}

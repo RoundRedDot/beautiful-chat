@@ -1,0 +1,694 @@
+{
+  "executionRegime": "concurrent-max4",
+  "expected": 60,
+  "collected": 60,
+  "failures": [],
+  "groups": [
+    {
+      "fixture": "diff-large",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 5.200000166893005,
+        "min": 4.900000095367432,
+        "max": 5.999999642372131
+      },
+      "commits": {
+        "n": 5,
+        "median": 9,
+        "min": 9,
+        "max": 9
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 5.4499998688697815,
+            "min": 4.900000095367432,
+            "max": 5.999999642372131
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 5.250000059604645,
+            "min": 5.100000262260437,
+            "max": 5.3999998569488525
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 1,
+            "median": 5.200000166893005,
+            "min": 5.200000166893005,
+            "max": 5.200000166893005
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "diff-large",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 4.999999761581421,
+        "min": 4.6000001430511475,
+        "max": 10.100000023841858
+      },
+      "commits": {
+        "n": 5,
+        "median": 8,
+        "min": 8,
+        "max": 12
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 7.5,
+            "min": 4.899999976158142,
+            "max": 10.100000023841858
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 4.799999952316284,
+            "min": 4.6000001430511475,
+            "max": 4.999999761581421
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 1,
+            "median": 5.699999809265137,
+            "min": 5.699999809265137,
+            "max": 5.699999809265137
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 17.50000023841858,
+        "min": 13.600000500679016,
+        "max": 24
+      },
+      "commits": {
+        "n": 5,
+        "median": 13,
+        "min": 13,
+        "max": 13
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 1,
+            "median": 17.50000023841858,
+            "min": 17.50000023841858,
+            "max": 17.50000023841858
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 19.249999940395355,
+            "min": 14.49999988079071,
+            "max": 24
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 16.65000009536743,
+            "min": 13.600000500679016,
+            "max": 19.699999690055847
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reads-20",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 13.700000047683716,
+        "min": 12.199999809265137,
+        "max": 20.399999618530273
+      },
+      "commits": {
+        "n": 5,
+        "median": 9,
+        "min": 9,
+        "max": 13
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 1,
+            "median": 13.40000033378601,
+            "min": 13.40000033378601,
+            "max": 13.40000033378601
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 17.049999833106995,
+            "min": 13.700000047683716,
+            "max": 20.399999618530273
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 13.099999785423279,
+            "min": 12.199999809265137,
+            "max": 13.999999761581421
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 5.599999904632568,
+        "min": 4.899999737739563,
+        "max": 6.299999952316284
+      },
+      "commits": {
+        "n": 5,
+        "median": 10,
+        "min": 10,
+        "max": 10
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 5.399999797344208,
+            "min": 5.099999785423279,
+            "max": 5.699999809265137
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 1,
+            "median": 4.899999737739563,
+            "min": 4.899999737739563,
+            "max": 4.899999737739563
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 5.949999928474426,
+            "min": 5.599999904632568,
+            "max": 6.299999952316284
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 4.9999998807907104,
+        "min": 4.799999952316284,
+        "max": 6.299999833106995
+      },
+      "commits": {
+        "n": 5,
+        "median": 10,
+        "min": 10,
+        "max": 10
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 5.200000107288361,
+            "min": 4.800000071525574,
+            "max": 5.6000001430511475
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 1,
+            "median": 4.9999998807907104,
+            "min": 4.9999998807907104,
+            "max": 4.9999998807907104
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 5.549999892711639,
+            "min": 4.799999952316284,
+            "max": 6.299999833106995
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 4.899999976158142,
+        "min": 4.5,
+        "max": 5.5
+      },
+      "commits": {
+        "n": 5,
+        "median": 10,
+        "min": 8,
+        "max": 10
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 5,
+            "min": 4.5,
+            "max": 5.5
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 4.799999952316284,
+            "min": 4.699999928474426,
+            "max": 4.899999976158142
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 1,
+            "median": 4.899999976158142,
+            "min": 4.899999976158142,
+            "max": 4.899999976158142
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 4.300000190734863,
+        "min": 3.9000000953674316,
+        "max": 5.199999451637268
+      },
+      "commits": {
+        "n": 5,
+        "median": 10,
+        "min": 8,
+        "max": 10
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 4.100000083446503,
+            "min": 3.9000000953674316,
+            "max": 4.300000071525574
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 4.749999821186066,
+            "min": 4.300000190734863,
+            "max": 5.199999451637268
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 1,
+            "median": 4.799999952316284,
+            "min": 4.799999952316284,
+            "max": 4.799999952316284
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 6.200000166893005,
+        "min": 5.199999809265137,
+        "max": 6.300000071525574
+      },
+      "commits": {
+        "n": 5,
+        "median": 12,
+        "min": 12,
+        "max": 12
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 1,
+            "median": 5.199999809265137,
+            "min": 5.199999809265137,
+            "max": 5.199999809265137
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 6.2500001192092896,
+            "min": 6.200000166893005,
+            "max": 6.300000071525574
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 5.75,
+            "min": 5.299999833106995,
+            "max": 6.200000166893005
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 5.200000047683716,
+        "min": 5.099999785423279,
+        "max": 6.299999952316284
+      },
+      "commits": {
+        "n": 5,
+        "median": 10,
+        "min": 10,
+        "max": 12
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 1,
+            "median": 5.099999785423279,
+            "min": 5.099999785423279,
+            "max": 5.099999785423279
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 2,
+            "median": 5.75,
+            "min": 5.200000047683716,
+            "max": 6.299999952316284
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 5.150000154972076,
+            "min": 5.100000023841858,
+            "max": 5.200000286102295
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "mixed-turn",
+      "mode": "parent",
+      "rows": {
+        "n": 5,
+        "median": 14.800000190734863,
+        "min": 13.999999761581421,
+        "max": 16.200000166893005
+      },
+      "commits": {
+        "n": 5,
+        "median": 12,
+        "min": 10,
+        "max": 14
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 14.500000178813934,
+            "min": 14.100000023841858,
+            "max": 14.90000033378601
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 1,
+            "median": 16.200000166893005,
+            "min": 16.200000166893005,
+            "max": 16.200000166893005
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 14.399999976158142,
+            "min": 13.999999761581421,
+            "max": 14.800000190734863
+          }
+        }
+      ],
+      "endGateExcursions": []
+    },
+    {
+      "fixture": "mixed-turn",
+      "mode": "fixed-a",
+      "rows": {
+        "n": 5,
+        "median": 14.600000143051147,
+        "min": 13.699999809265137,
+        "max": 16.799999833106995
+      },
+      "commits": {
+        "n": 5,
+        "median": 12,
+        "min": 10,
+        "max": 12
+      },
+      "lanes": [
+        {
+          "lane": 2,
+          "rows": {
+            "n": 2,
+            "median": 13.949999928474426,
+            "min": 13.699999809265137,
+            "max": 14.200000047683716
+          }
+        },
+        {
+          "lane": 3,
+          "rows": {
+            "n": 1,
+            "median": 14.799999833106995,
+            "min": 14.799999833106995,
+            "max": 14.799999833106995
+          }
+        },
+        {
+          "lane": 4,
+          "rows": {
+            "n": 2,
+            "median": 15.699999988079071,
+            "min": 14.600000143051147,
+            "max": 16.799999833106995
+          }
+        }
+      ],
+      "endGateExcursions": []
+    }
+  ],
+  "comparisons": [
+    {
+      "fixture": "diff-large",
+      "parent": {
+        "n": 5,
+        "median": 5.200000166893005,
+        "min": 4.900000095367432,
+        "max": 5.999999642372131
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 4.999999761581421,
+        "min": 4.6000001430511475,
+        "max": 10.100000023841858
+      },
+      "deltaParent": -0.03846161517165576,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    },
+    {
+      "fixture": "reads-20",
+      "parent": {
+        "n": 5,
+        "median": 17.50000023841858,
+        "min": 13.600000500679016,
+        "max": 24
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 13.700000047683716,
+        "min": 12.199999809265137,
+        "max": 20.399999618530273
+      },
+      "deltaParent": -0.21714286508365543,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    },
+    {
+      "fixture": "reasoning-long-prose",
+      "parent": {
+        "n": 5,
+        "median": 5.599999904632568,
+        "min": 4.899999737739563,
+        "max": 6.299999952316284
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 4.9999998807907104,
+        "min": 4.799999952316284,
+        "max": 6.299999833106995
+      },
+      "deltaParent": -0.10714286322496386,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    },
+    {
+      "fixture": "reasoning-long-sections",
+      "parent": {
+        "n": 5,
+        "median": 4.899999976158142,
+        "min": 4.5,
+        "max": 5.5
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 4.300000190734863,
+        "min": 3.9000000953674316,
+        "max": 5.199999451637268
+      },
+      "deltaParent": -0.12244893639646713,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    },
+    {
+      "fixture": "tool-expanded-streaming",
+      "parent": {
+        "n": 5,
+        "median": 6.200000166893005,
+        "min": 5.199999809265137,
+        "max": 6.300000071525574
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 5.200000047683716,
+        "min": 5.099999785423279,
+        "max": 6.299999952316284
+      },
+      "deltaParent": -0.16129033746630006,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    },
+    {
+      "fixture": "mixed-turn",
+      "parent": {
+        "n": 5,
+        "median": 14.800000190734863,
+        "min": 13.999999761581421,
+        "max": 16.200000166893005
+      },
+      "native": null,
+      "fixed": {
+        "n": 5,
+        "median": 14.600000143051147,
+        "min": 13.699999809265137,
+        "max": 16.799999833106995
+      },
+      "deltaParent": -0.013513516561230884,
+      "deltaNative": null,
+      "nativeVerdict": "not-compared",
+      "aa": [],
+      "unstablePairs": [],
+      "maxAaMs": null
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Paseo 原生渲染 vs 本仓库 fork 插件
 
+> 最新一轮： [2026-10-16 Mac Studio 串行复测](../2026-10-16-readme/README.md)。本文件保留 10 月 12–15 日的历史数据，下面的“当前”均指当时的批次；不要与新一轮混合比较。`history-100` 是夹具名，不代表 100 个实际 provider turn；`tool-expanded-streaming` 未执行展开操作，新报告按默认状态命名。
+
 问题：装上本仓库的 better-paseo 之后，和不装插件、直接用 Paseo 0.11.2 内置渲染相比，性能是好是坏。2026-10-13 又把 Beautiful Chat `42b61d8` 放进同一次会话。
 
 场景沿用 [`docs/fork-vs-upstream.md`](../../fork-vs-upstream.md) 的 11 个回放 fixture，速度也相同：其余 1，`history-100` max，`tool-expanded-streaming` 4。平台同样分两边：Web 生产构建和 iOS 模拟器开发版。下面 §3–§5 是 2026-10-12 的记录（当时的插件是 `c00be20` 到 `1ec3458` 一带）。**当前数字在 §10**（2026-10-15，rrd-mac-studio，Web 和 iOS 四版本复测）。§9 是 2026-10-14 的三方历史记录；§8 是 2026-10-13 的 Web 三方，插件 `2146289`，跑在负载很高的 M5 Pro 上，秒数不能和 §10 对读。

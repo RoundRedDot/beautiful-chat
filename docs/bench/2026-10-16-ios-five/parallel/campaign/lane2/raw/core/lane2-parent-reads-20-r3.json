@@ -1,0 +1,604 @@
+{
+  "executionRegime": "concurrent-max4",
+  "lane": 2,
+  "phase": "core",
+  "fixture": "reads-20",
+  "mode": "parent",
+  "rep": 3,
+  "disclosure": "defaults",
+  "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+  "sourceIdentity": {
+    "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+    "tree": "50d7edd55c3675a71b00dd18b5269b9c9a7a99d0",
+    "files": 3092,
+    "manifestSha256": "0df3bac4e3e04418d03eaea45fcac4e3ed56e1a9f7738c3a320f968584477732"
+  },
+  "fixtureHash": "a0d0e96fcecdd3690822559e5998a5728b818d2731111d435dcfbfbd02557052",
+  "environment": {
+    "metroWorkers": 2,
+    "cacheDirectories": [
+      "/tmp/bc-ios-five-parallel-20261016/lane2/tmp",
+      "/tmp/bc-ios-five-parallel-20261016/lane2/expo-home",
+      "/tmp/bc-ios-five-parallel-20261016/lane2/host/.expo"
+    ],
+    "harnessHashes": {
+      "runner.mjs": "ee895ea98ad7ac574e4700ad46dcc25b80c19560bf391b2831ddd37ee8f2556e",
+      "resources.mjs": "7bb06302fde378a0e9b793f24bb66517f01be9e824f30371eb80bb92a5efee46",
+      "ios-evaluate.mjs": "4accb1c4b6475e2fd008912306fc0ed743813ecd3911debb52b9c9c84cbe9aaa",
+      "ios-navigate.mjs": "e002306c465b7a11d039a64de8ba1c97e5ffc6e275b22953a298c91c0cccc728",
+      "initialized-router.mjs": "ae3cf8608f8974c01bfccae9fea2f198f8b01d5e2e6ba9c9bc02940f177b0086",
+      "smoke-ui.mjs": "799dbfa7164a5040cb0e062d84b3af358a1008f2976b093f187f6d3aef3feba9"
+    },
+    "executionRegime": "concurrent-max4",
+    "lane": 2,
+    "root": "/tmp/bc-ios-five-parallel-20261016/lane2",
+    "home": "/Users/rrd/.paseo-bench-ios-five-lane2",
+    "port": 8182,
+    "daemonPort": 6882,
+    "server": "srv_V61p9tC-ayBV",
+    "udid": "3AB949E3-BCE2-4751-8AD6-F493384CE4E8",
+    "workspace": "wks_5a1007b79080970e",
+    "version": "0.11.2",
+    "build": "11002999",
+    "hostSha": "75953250959979b8f088bbca8dbd6ee61d0151b1",
+    "hostPatchSha256": "8f060246a58a7a814f6e4d0ca4c49dc31a93f476775fe9d513d13b1205645b15",
+    "hostProbeSha256": "e8daaa53907e6186241b6f19e71981e9f48221bcab2ba7cb63566f3f45293fe1",
+    "hardware": {
+      "hostname": "rrd-mac-studio",
+      "cpu": "Apple M5 Max",
+      "memory": "68719476736",
+      "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434",
+      "node": "v26.11.1"
+    },
+    "sources": {
+      "parent": {
+        "sourceSha": "7f01b2d95c87cb6879adf701571de3778a167060",
+        "tree": "50d7edd55c3675a71b00dd18b5269b9c9a7a99d0",
+        "files": 3092,
+        "manifestSha256": "0df3bac4e3e04418d03eaea45fcac4e3ed56e1a9f7738c3a320f968584477732"
+      },
+      "fixed": {
+        "sourceSha": "722238de2fcc1ade46d542a7a540868932d9dc89",
+        "tree": "2f0186ea924bd8958eff95eeb3b1dfe8ae7a6c22",
+        "files": 3092,
+        "manifestSha256": "74fee9338cc9056be080feb0c0035a78f43c90574477d103eef54d4b6ee6dd3e"
+      }
+    }
+  },
+  "setupStartedAt": "2026-10-16T07:01:09.287Z",
+  "admission": {
+    "admission": {
+      "at": "2026-10-16T07:01:10.011Z",
+      "cpuIdlePct": 67.66,
+      "load": [
+        5.14,
+        7.33,
+        14.26
+      ],
+      "pressureLevel": 1,
+      "memoryFreePct": 57,
+      "vm": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    40704.\nPages active:                                1178393.\nPages inactive:                              1176369.\nPages speculative:                               343.\nPages throttled:                                   0.\nPages wired down:                             586909.\nPages purgeable:                               30700.\n\"Translation faults\":                     6246373834.\nPages copy-on-write:                       257195714.\nPages zero filled:                        2552530513.\nPages reactivated:                          11545953.\nPages purged:                               12496921.\nFile-backed pages:                            814048.\nAnonymous pages:                             1541057.\nPages stored in compressor:                  2658895.\nPages occupied by compressor:                1159883.\nDecompressions:                              4613406.\nCompressions:                               12329838.\nPageins:                                    70457367.\nPageouts:                                       3999.\nSwapins:                                           0.\nSwapouts:                                          0.\nPages tagged:                                 211315.\nPages tagged resident:                        138707.\nPages tagged compressed:                       72608.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 7604.\nPages tag-storage free:                          101.\nPages tag-storage non-tag pageable:           123248.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    9940992.\nTagged compressions:                          155088.\nTagged decompressions:                         73567.",
+      "concurrentTasks": [
+        {
+          "lane": 1,
+          "label": "multi-turn-baseline-4",
+          "stage": "idle",
+          "at": "2026-10-16T07:01:06.194Z"
+        },
+        {
+          "lane": 2,
+          "pid": 18155,
+          "phase": "core",
+          "at": "2026-10-16T07:01:09.287Z",
+          "state": "setup",
+          "label": "lane2-parent-reads-20-r3"
+        },
+        {
+          "lane": 3,
+          "pid": 18156,
+          "phase": "core",
+          "at": "2026-10-16T07:01:05.521Z",
+          "state": "timing",
+          "label": "lane3-fixed-a-reasoning-long-sections-r2"
+        },
+        {
+          "lane": 4,
+          "pid": 18157,
+          "phase": "core",
+          "at": "2026-10-16T07:01:03.685Z",
+          "state": "setup",
+          "label": "lane4-fixed-b-diff-large-r3"
+        }
+      ],
+      "processes": [
+        {
+          "pid": 15236,
+          "ppid": 15228,
+          "command": "node /tmp/bc-history-complete-20261016/tools/run-native.mjs"
+        },
+        {
+          "pid": 18155,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 2 core"
+        },
+        {
+          "pid": 18156,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 3 core"
+        },
+        {
+          "pid": 18157,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 4 core"
+        }
+      ],
+      "admitted": true
+    },
+    "waits": []
+  },
+  "identity": [
+    {
+      "id": "bc-bench",
+      "enabled": true,
+      "status": "running",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane2/provider"
+    },
+    {
+      "id": "better-paseo",
+      "enabled": true,
+      "status": "running",
+      "path": "/tmp/bc-ios-five-parallel-20261016/lane2/active"
+    }
+  ],
+  "agentId": "bf3a88a1-5345-408c-b963-4155672107e6",
+  "runtime": {
+    "hosts": [
+      {
+        "serverId": "srv_V61p9tC-ayBV",
+        "connections": [
+          {
+            "type": "directTcp",
+            "endpoint": "localhost:6882"
+          }
+        ]
+      }
+    ],
+    "serverId": "srv_V61p9tC-ayBV",
+    "status": "online",
+    "endpoint": "localhost:6882",
+    "hostPerf": true,
+    "plugin": true
+  },
+  "preTimingGate": {
+    "admission": {
+      "at": "2026-10-16T07:01:29.192Z",
+      "cpuIdlePct": 75.94,
+      "load": [
+        4.72,
+        7.09,
+        14.01
+      ],
+      "pressureLevel": 1,
+      "memoryFreePct": 58,
+      "vm": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   154471.\nPages active:                                1139398.\nPages inactive:                              1142519.\nPages speculative:                               709.\nPages throttled:                                   0.\nPages wired down:                             545780.\nPages purgeable:                               34380.\n\"Translation faults\":                     6249237193.\nPages copy-on-write:                       257237641.\nPages zero filled:                        2555064641.\nPages reactivated:                          11545987.\nPages purged:                               12498111.\nFile-backed pages:                            813434.\nAnonymous pages:                             1469192.\nPages stored in compressor:                  2658267.\nPages occupied by compressor:                1159724.\nDecompressions:                              4614142.\nCompressions:                               12329838.\nPageins:                                    70462402.\nPageouts:                                       3999.\nSwapins:                                           0.\nSwapouts:                                          0.\nPages tagged:                                 211222.\nPages tagged resident:                        138614.\nPages tagged compressed:                       72608.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 7604.\nPages tag-storage free:                          511.\nPages tag-storage non-tag pageable:           122838.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    9940992.\nTagged compressions:                          155088.\nTagged decompressions:                         73567.",
+      "concurrentTasks": [
+        {
+          "lane": 1,
+          "label": "multi-turn-candidate-4-1",
+          "stage": "timing",
+          "at": "2026-10-16T07:01:19.403Z",
+          "executionRegime": "concurrent-max4"
+        },
+        {
+          "lane": 2,
+          "pid": 18155,
+          "phase": "core",
+          "at": "2026-10-16T07:01:09.287Z",
+          "state": "setup",
+          "label": "lane2-parent-reads-20-r3"
+        },
+        {
+          "lane": 3,
+          "pid": 18156,
+          "phase": "core",
+          "at": "2026-10-16T07:01:25.097Z",
+          "state": "setup",
+          "label": "lane3-fixed-b-reasoning-long-sections-r2"
+        },
+        {
+          "lane": 4,
+          "pid": 18157,
+          "phase": "core",
+          "at": "2026-10-16T07:01:23.323Z",
+          "state": "timing",
+          "label": "lane4-fixed-b-diff-large-r3"
+        }
+      ],
+      "processes": [
+        {
+          "pid": 15236,
+          "ppid": 15228,
+          "command": "node /tmp/bc-history-complete-20261016/tools/run-native.mjs"
+        },
+        {
+          "pid": 18155,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 2 core"
+        },
+        {
+          "pid": 18156,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 3 core"
+        },
+        {
+          "pid": 18157,
+          "ppid": 1,
+          "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 4 core"
+        }
+      ],
+      "admitted": true
+    },
+    "waits": []
+  },
+  "resourceStart": {
+    "at": "2026-10-16T07:01:30.869Z",
+    "cpuIdlePct": 74.61,
+    "load": [
+      4.72,
+      7.09,
+      14.01
+    ],
+    "pressureLevel": 1,
+    "memoryFreePct": 59,
+    "vm": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   146534.\nPages active:                                1159634.\nPages inactive:                              1158040.\nPages speculative:                               709.\nPages throttled:                                   0.\nPages wired down:                             517961.\nPages purgeable:                               49487.\n\"Translation faults\":                     6250137993.\nPages copy-on-write:                       257240638.\nPages zero filled:                        2555940483.\nPages reactivated:                          11546032.\nPages purged:                               12498111.\nFile-backed pages:                            813446.\nAnonymous pages:                             1504937.\nPages stored in compressor:                  2658258.\nPages occupied by compressor:                1159723.\nDecompressions:                              4614152.\nCompressions:                               12329838.\nPageins:                                    70462418.\nPageouts:                                       3999.\nSwapins:                                           0.\nSwapouts:                                          0.\nPages tagged:                                 211225.\nPages tagged resident:                        138617.\nPages tagged compressed:                       72608.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 7604.\nPages tag-storage free:                          253.\nPages tag-storage non-tag pageable:           123096.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    9940992.\nTagged compressions:                          155088.\nTagged decompressions:                         73567.",
+    "concurrentTasks": [
+      {
+        "lane": 1,
+        "label": "multi-turn-candidate-4-1",
+        "stage": "timing",
+        "at": "2026-10-16T07:01:19.403Z",
+        "executionRegime": "concurrent-max4"
+      },
+      {
+        "lane": 2,
+        "pid": 18155,
+        "phase": "core",
+        "at": "2026-10-16T07:01:09.287Z",
+        "state": "setup",
+        "label": "lane2-parent-reads-20-r3"
+      },
+      {
+        "lane": 3,
+        "pid": 18156,
+        "phase": "core",
+        "at": "2026-10-16T07:01:25.097Z",
+        "state": "setup",
+        "label": "lane3-fixed-b-reasoning-long-sections-r2"
+      },
+      {
+        "lane": 4,
+        "pid": 18157,
+        "phase": "core",
+        "at": "2026-10-16T07:01:23.323Z",
+        "state": "timing",
+        "label": "lane4-fixed-b-diff-large-r3"
+      }
+    ],
+    "processes": [
+      {
+        "pid": 15236,
+        "ppid": 15228,
+        "command": "node /tmp/bc-history-complete-20261016/tools/run-native.mjs"
+      },
+      {
+        "pid": 18155,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 2 core"
+      },
+      {
+        "pid": 18156,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 3 core"
+      },
+      {
+        "pid": 18157,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 4 core"
+      }
+    ],
+    "admitted": true
+  },
+  "startGateWaits": [],
+  "startedAt": "2026-10-16T07:01:30.870Z",
+  "probe": {
+    "label": "",
+    "platform": "ios",
+    "elapsedMs": 12441.961709022522,
+    "rows": {
+      "plugin": 280,
+      "native": 5
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 40,
+        "mounts": 4,
+        "n": 40,
+        "p50": 0.2793772220611572,
+        "p95": 3.4482476711273193,
+        "max": 4.381165862083435,
+        "sum": 47.89832544326782
+      },
+      "user": {
+        "commits": 5,
+        "mounts": 1,
+        "n": 5,
+        "p50": 0.4205862283706665,
+        "p95": 2.430168032646179,
+        "max": 2.430168032646179,
+        "sum": 3.7142484188079834
+      },
+      "reasoning": {
+        "commits": 9,
+        "mounts": 2,
+        "n": 9,
+        "p50": 1.1310428380966187,
+        "p95": 2.5140018463134766,
+        "max": 2.5140018463134766,
+        "sum": 10.688675284385681
+      },
+      "tool": {
+        "commits": 231,
+        "mounts": 24,
+        "n": 231,
+        "p50": 0.8680006265640259,
+        "p95": 3.7814574241638184,
+        "max": 12.235669136047363,
+        "sum": 267.6000474691391
+      }
+    },
+    "allRows": {
+      "n": 285,
+      "p50": 0.8507466316223145,
+      "p95": 3.711504817008972,
+      "max": 12.235669136047363,
+      "sum": 329.9012966156006
+    },
+    "perCommit": {
+      "n": 146,
+      "p50": 1.7051750421524048,
+      "p95": 6.157496929168701,
+      "max": 15.890669703483582,
+      "sum": 329.9012966156006
+    },
+    "frames": {
+      "count": 673,
+      "dropped": 83,
+      "droppedRatio": 0.10978835978835978,
+      "longestMs": 135.16124999523163
+    },
+    "longTasks": null,
+    "layoutShift": null,
+    "heapMB": null
+  },
+  "endedAt": "2026-10-16T07:01:41.640Z",
+  "resourceEnd": {
+    "at": "2026-10-16T07:01:42.285Z",
+    "cpuIdlePct": 81.7,
+    "load": [
+      4.83,
+      7.04,
+      13.91
+    ],
+    "pressureLevel": 1,
+    "memoryFreePct": 59,
+    "vm": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                   146094.\nPages active:                                1143262.\nPages inactive:                              1176198.\nPages speculative:                               765.\nPages throttled:                                   0.\nPages wired down:                             517044.\nPages purgeable:                               26877.\n\"Translation faults\":                     6251273005.\nPages copy-on-write:                       257263750.\nPages zero filled:                        2556930075.\nPages reactivated:                          11546033.\nPages purged:                               12498111.\nFile-backed pages:                            813651.\nAnonymous pages:                             1506574.\nPages stored in compressor:                  2656555.\nPages occupied by compressor:                1159237.\nDecompressions:                              4614675.\nCompressions:                               12329838.\nPageins:                                    70464046.\nPageouts:                                       3999.\nSwapins:                                           0.\nSwapouts:                                          0.\nPages tagged:                                 211312.\nPages tagged resident:                        138728.\nPages tagged compressed:                       72584.\nPages tag-storage:                            131072.\nPages tag-storage holding tags:                 7604.\nPages tag-storage free:                          119.\nPages tag-storage non-tag pageable:           123230.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    9936768.\nTagged compressions:                          155088.\nTagged decompressions:                         73591.",
+    "concurrentTasks": [
+      {
+        "lane": 1,
+        "label": "multi-turn-candidate-4-1",
+        "stage": "timing",
+        "at": "2026-10-16T07:01:19.403Z",
+        "executionRegime": "concurrent-max4"
+      },
+      {
+        "lane": 2,
+        "pid": 18155,
+        "phase": "core",
+        "at": "2026-10-16T07:01:30.870Z",
+        "state": "timing",
+        "label": "lane2-parent-reads-20-r3"
+      },
+      {
+        "lane": 3,
+        "pid": 18156,
+        "phase": "core",
+        "at": "2026-10-16T07:01:25.097Z",
+        "state": "setup",
+        "label": "lane3-fixed-b-reasoning-long-sections-r2"
+      },
+      {
+        "lane": 4,
+        "pid": 18157,
+        "phase": "core",
+        "at": "2026-10-16T07:01:31.474Z",
+        "state": "setup",
+        "label": "lane4-native-diff-large-r3"
+      }
+    ],
+    "processes": [
+      {
+        "pid": 15236,
+        "ppid": 15228,
+        "command": "node /tmp/bc-history-complete-20261016/tools/run-native.mjs"
+      },
+      {
+        "pid": 18155,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 2 core"
+      },
+      {
+        "pid": 18156,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 3 core"
+      },
+      {
+        "pid": 18157,
+        "ppid": 1,
+        "command": "node /tmp/bc-ios-five-parallel-20261016/tools/runner.mjs 4 core"
+      }
+    ],
+    "admitted": true
+  },
+  "pluginProbe": {
+    "renders": {
+      "byKind": {
+        "reasoning": 7,
+        "assistant": 24,
+        "tool_call": 137
+      },
+      "byItem": {
+        "reasoning:reasoning#1e1fc5d4": 7,
+        "assistant:assistant#a5fcc4b2": 1,
+        "assistant:assistant#edd7b689": 5,
+        "tool_call:toolu_reads200001": 5,
+        "tool_call:toolu_reads200003": 6,
+        "tool_call:toolu_reads200002": 5,
+        "tool_call:toolu_reads200004": 6,
+        "tool_call:toolu_reads200006": 6,
+        "tool_call:toolu_reads200005": 6,
+        "tool_call:toolu_reads200007": 6,
+        "tool_call:toolu_reads200009": 6,
+        "tool_call:toolu_reads200008": 6,
+        "tool_call:toolu_reads200010": 6,
+        "tool_call:toolu_reads200013": 6,
+        "tool_call:toolu_reads200012": 6,
+        "tool_call:toolu_reads200011": 5,
+        "tool_call:toolu_reads200014": 6,
+        "tool_call:toolu_reads200016": 6,
+        "tool_call:toolu_reads200015": 5,
+        "tool_call:toolu_reads200017": 5,
+        "tool_call:toolu_reads200018": 6,
+        "tool_call:toolu_reads200019": 6,
+        "tool_call:toolu_reads200020": 6,
+        "tool_call:toolu_reads200021": 6,
+        "tool_call:toolu_reads200024": 6,
+        "tool_call:toolu_reads200023": 5,
+        "tool_call:toolu_reads200022": 5,
+        "assistant:assistant#c2de69ca": 18
+      }
+    },
+    "commitMs": {
+      "reasoning": {
+        "count": 7,
+        "total": 52.816,
+        "mean": 7.545,
+        "p50": 7.118,
+        "p95": 12.364,
+        "max": 12.364
+      },
+      "assistant": {
+        "count": 24,
+        "total": 211.219,
+        "mean": 8.801,
+        "p50": 7.177,
+        "p95": 15.568,
+        "max": 26.369
+      },
+      "tool_call": {
+        "count": 121,
+        "total": 1253.807,
+        "mean": 10.362,
+        "p50": 9.441,
+        "p95": 18.761,
+        "max": 22.407
+      }
+    },
+    "markdown": {
+      "parses": 13,
+      "parseMs": {
+        "count": 13,
+        "total": 3.707,
+        "mean": 0.285,
+        "p50": 0.224,
+        "p95": 1.159,
+        "max": 1.159
+      },
+      "parseChars": {
+        "count": 13,
+        "total": 2632,
+        "mean": 202.462,
+        "p50": 195,
+        "p95": 385,
+        "max": 385
+      },
+      "formatFlips": 0,
+      "flipsByBlockIndex": {}
+    },
+    "heightDecreases": {
+      "count": 1,
+      "whileStreaming": 0,
+      "totalPx": 8,
+      "events": [
+        {
+          "key": "reasoning:reasoning#1e1fc5d4",
+          "from": 36,
+          "to": 28,
+          "streaming": false
+        }
+      ]
+    },
+    "highlightRpc": {
+      "count": 0,
+      "byLanguage": {}
+    },
+    "imageRpc": {
+      "count": 0,
+      "duplicatesInFlight": 0
+    },
+    "animations": {
+      "mounted": 0,
+      "peak": 4,
+      "mountsTotal": 25,
+      "byName": {}
+    },
+    "frames": {
+      "count": 713,
+      "dropped": 83,
+      "droppedRatio": 0.104,
+      "longestMs": 135.138,
+      "intervalMs": {
+        "count": 713,
+        "total": 13099.971,
+        "mean": 18.373,
+        "p50": 16.673,
+        "p95": 25.059,
+        "max": 135.138
+      },
+      "suspendedGaps": 0
+    },
+    "longTasks": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "layoutShifts": {
+      "count": 0,
+      "total": 0,
+      "mean": 0,
+      "p50": 0,
+      "p95": 0,
+      "max": 0
+    },
+    "counters": {
+      "md.blockRender": 17,
+      "md.lexFinalMiss": 4
+    }
+  },
+  "displayErrors": [],
+  "completed": true,
+  "comparisonEligible": true,
+  "finishedAt": "2026-10-16T07:01:42.293Z"
+}

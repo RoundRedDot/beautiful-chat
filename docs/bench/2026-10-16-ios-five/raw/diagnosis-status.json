@@ -1,0 +1,23 @@
+{
+  "status": "diagnostic-only",
+  "collected": 10,
+  "formalEligible": 0,
+  "reasons": [
+    "One repetition per mode; no formal acceptance",
+    "Red-test validation overlapped one calibration interval; all calibration excluded from performance acceptance"
+  ],
+  "validationOverlap": {
+    "testStartedAt": "2026-10-16T05:43:03+00:00",
+    "testDurationMs": 747,
+    "sample": "ios-native-reasoning-long-sections-r1.json"
+  },
+  "rejectedPatch": "5721205fd3db896e85810ece2a8e02eb3a73364ca8b6bca8288c557b3916e541",
+  "currentPatch": "ffbbdcc8cccbe93cb41a079f812f4056993a2372db4e230570ecb4d02278eb8c",
+  "studioFixedSnapshot": "superseded initial patch; do not use before resync and source audit",
+  "changed": [
+    "client/live-renderers.tsx",
+    "client/timeline-order.ts",
+    "test/unit/live-tool-group.test.ts",
+    "test/unit/reveal-commit.test.ts"
+  ]
+}
