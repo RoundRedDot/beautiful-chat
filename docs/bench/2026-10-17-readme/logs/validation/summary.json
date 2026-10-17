@@ -1,0 +1,44 @@
+{
+  "sourceSha": "b9dfae6e31453b962d90f7d3c7ca972c0e523cb3",
+  "surface": "local laptop; separate from Studio timing",
+  "node": "v24.18.0",
+  "fullSuite": {
+    "passed": 2146,
+    "failed": 6,
+    "filesPassed": 110,
+    "filesFailed": 2,
+    "failures": {
+      "test/unit/live-turn-footer.test.ts": 2,
+      "test/unit/p4-highlight-equivalence.test.ts": 4
+    }
+  },
+  "parentReproduction": {
+    "sourceSha": "2fc6476acbdf75e8802668b0260cfd128513c990",
+    "failed": 6,
+    "passed": 253,
+    "files": 2,
+    "sameExistingDependencies": true
+  },
+  "typecheck": "passed",
+  "hermes": {
+    "compile": "passed",
+    "stockRegistration": "passed",
+    "stickyRegistration": "passed",
+    "clientBytes": 957047
+  },
+  "benchmarkHarness": {
+    "passed": 13,
+    "failed": 0,
+    "directTransportFramesDuringWait": 20,
+    "proxyControlFramesDuringWait": 0
+  },
+  "historyHarness": {
+    "passed": 11,
+    "failed": 0
+  },
+  "screenshots": {
+    "assets": 52,
+    "testsPassed": 2,
+    "failed": 0
+  }
+}

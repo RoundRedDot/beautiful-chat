@@ -1,0 +1,254 @@
+{
+  "platform": "web",
+  "executionRegime": "concurrent-max4",
+  "lane": 1,
+  "setupStartedAt": "2026-10-17T04:14:31.400Z",
+  "fixture": "mixed-turn",
+  "mode": "native",
+  "rep": 1,
+  "agentId": "857c99c6-061a-456c-88b7-d7019a110180",
+  "identity": [
+    {
+      "id": "beautiful-chat",
+      "path": "/tmp/bc-ios-history/baseline",
+      "enabled": false,
+      "status": "disabled",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-history/baseline"
+        }
+      }
+    },
+    {
+      "id": "better-paseo",
+      "path": "/tmp/bc-readme-20261017/parallel/lane1/active",
+      "enabled": false,
+      "status": "disabled",
+      "name": "Better Paseo",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-readme-20261017/parallel/lane1/active"
+        }
+      }
+    }
+  ],
+  "sourceSha": null,
+  "fixtureHash": "557d9cac02b42e0471663d005c78621b99117f858ce4c612256fcf1a7bc026d1",
+  "errors": [],
+  "seen": {
+    "host": true,
+    "fork": false,
+    "upstream": false
+  },
+  "resourcesStart": {
+    "at": "2026-10-17T04:14:39.583Z",
+    "cpuIdlePct": 89.71,
+    "memoryFreePct": 79,
+    "pressureLevel": 1,
+    "load": [
+      2.92,
+      2.81,
+      1.86
+    ],
+    "activities": [
+      {
+        "at": "2026-10-17T04:14:39.147Z",
+        "lane": 1,
+        "pid": 44369,
+        "platform": "web",
+        "stage": "resource-gate",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:34.302Z",
+        "lane": 2,
+        "pid": 44372,
+        "platform": "web",
+        "stage": "resource-gate",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:34.302Z",
+        "lane": 3,
+        "pid": 44366,
+        "platform": "web",
+        "stage": "resource-gate",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:36.283Z",
+        "lane": 4,
+        "pid": 44335,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      }
+    ],
+    "admitted": true
+  },
+  "loadStart": 2.92,
+  "startedAt": "2026-10-17T04:14:39.586Z",
+  "probe": {
+    "label": "",
+    "platform": "web",
+    "elapsedMs": 16630.299999952316,
+    "rows": {
+      "plugin": 0,
+      "native": 48
+    },
+    "kinds": {
+      "assistant": {
+        "commits": 17,
+        "mounts": 11,
+        "n": 17,
+        "p50": 1.399999976158142,
+        "p95": 3.3000000715255737,
+        "max": 3.3000000715255737,
+        "sum": 21.299999833106995
+      },
+      "user": {
+        "commits": 3,
+        "mounts": 1,
+        "n": 3,
+        "p50": 0.10000002384185791,
+        "p95": 0.3999999761581421,
+        "max": 0.3999999761581421,
+        "sum": 0.6000000238418579
+      },
+      "reasoning": {
+        "commits": 6,
+        "mounts": 3,
+        "n": 6,
+        "p50": 0.19999992847442627,
+        "p95": 7,
+        "max": 7,
+        "sum": 7.900000095367432
+      },
+      "todo": {
+        "commits": 8,
+        "mounts": 4,
+        "n": 8,
+        "p50": 0.20000004768371582,
+        "p95": 0.7000000476837158,
+        "max": 0.7000000476837158,
+        "sum": 2
+      },
+      "tool": {
+        "commits": 14,
+        "mounts": 7,
+        "n": 14,
+        "p50": 0.19999992847442627,
+        "p95": 0.9000000953674316,
+        "max": 0.9000000953674316,
+        "sum": 3.5999999046325684
+      }
+    },
+    "allRows": {
+      "n": 48,
+      "p50": 0.20000004768371582,
+      "p95": 2.6000001430511475,
+      "max": 7,
+      "sum": 35.39999985694885
+    },
+    "perCommit": {
+      "n": 6,
+      "p50": 1.1999999284744263,
+      "p95": 30.300000071525574,
+      "max": 30.300000071525574,
+      "sum": 35.39999985694885
+    },
+    "frames": {
+      "count": 993,
+      "dropped": 5,
+      "droppedRatio": 0.00501002004008016,
+      "longestMs": 83.29999999999927
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0,
+    "heapMB": 190.15735530853271
+  },
+  "endedAt": "2026-10-17T04:14:55.777Z",
+  "elapsedMs": 16191,
+  "loadEnd": 2.66,
+  "resourcesEnd": {
+    "at": "2026-10-17T04:14:56.181Z",
+    "cpuIdlePct": 90.26,
+    "memoryFreePct": 79,
+    "pressureLevel": 1,
+    "load": [
+      2.66,
+      2.76,
+      1.85
+    ],
+    "activities": [
+      {
+        "at": "2026-10-17T04:14:39.586Z",
+        "lane": 1,
+        "pid": 44369,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:44.770Z",
+        "lane": 2,
+        "pid": 44372,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:44.772Z",
+        "lane": 3,
+        "pid": 44366,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:14:53.336Z",
+        "lane": 4,
+        "pid": 44335,
+        "platform": "web",
+        "stage": "idle",
+        "fixture": "mixed-turn",
+        "mode": "native",
+        "rep": 1
+      }
+    ],
+    "admitted": true
+  },
+  "displayErrors": [],
+  "comparisonEligible": true,
+  "cdp": {
+    "delta": {
+      "TaskDuration": 0.27985,
+      "ScriptDuration": 0.12124499999999999,
+      "LayoutDuration": 0.002438,
+      "RecalcStyleDuration": 0.010451
+    },
+    "jsHeapUsedMB": 101.06771469116211,
+    "nodes": 1082
+  },
+  "completed": true,
+  "finishedAt": "2026-10-17T04:14:56.575Z"
+}

@@ -1,0 +1,255 @@
+{
+  "platform": "web",
+  "executionRegime": "concurrent-max4",
+  "lane": 2,
+  "setupStartedAt": "2026-10-17T04:20:54.580Z",
+  "fixture": "mixed-turn",
+  "mode": "upstream",
+  "rep": 1,
+  "agentId": "669a9c10-0807-4a77-9fbb-aec1a44249f0",
+  "identity": [
+    {
+      "id": "beautiful-chat",
+      "path": "/tmp/bc-ios-history/baseline",
+      "enabled": true,
+      "status": "running",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-ios-history/baseline"
+        }
+      }
+    },
+    {
+      "id": "better-paseo",
+      "path": "/tmp/bc-readme-20261017/parallel-v2/lane2/active",
+      "enabled": false,
+      "status": "disabled",
+      "name": "Better Paseo",
+      "installation": {
+        "identity": {
+          "kind": "directory",
+          "path": "/tmp/bc-readme-20261017/parallel-v2/lane2/active"
+        }
+      }
+    }
+  ],
+  "sourceSha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+  "fixtureHash": "557d9cac02b42e0471663d005c78621b99117f858ce4c612256fcf1a7bc026d1",
+  "errors": [],
+  "seen": {
+    "host": true,
+    "fork": false,
+    "upstream": true
+  },
+  "resourcesStart": {
+    "at": "2026-10-17T04:21:03.118Z",
+    "cpuIdlePct": 69.87,
+    "memoryFreePct": 79,
+    "pressureLevel": 1,
+    "load": [
+      2.88,
+      2.57,
+      2.08
+    ],
+    "activities": [
+      {
+        "at": "2026-10-17T04:21:02.939Z",
+        "lane": 1,
+        "pid": 48070,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:02.412Z",
+        "lane": 2,
+        "pid": 48074,
+        "platform": "web",
+        "stage": "resource-gate",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:03.119Z",
+        "lane": 3,
+        "pid": 48073,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:02.888Z",
+        "lane": 4,
+        "pid": 48075,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      }
+    ],
+    "admitted": true
+  },
+  "loadStart": 2.88,
+  "startedAt": "2026-10-17T04:21:03.121Z",
+  "probe": {
+    "label": "",
+    "platform": "web",
+    "elapsedMs": 16941.199999928474,
+    "rows": {
+      "plugin": 6224,
+      "native": 0
+    },
+    "kinds": {
+      "user": {
+        "commits": 6,
+        "mounts": 1,
+        "n": 6,
+        "p50": 0.30000007152557373,
+        "p95": 0.5,
+        "max": 0.5,
+        "sum": 2.1999999284744263
+      },
+      "assistant": {
+        "commits": 50,
+        "mounts": 6,
+        "n": 50,
+        "p50": 0.3999999761581421,
+        "p95": 0.7000000476837158,
+        "max": 0.8000000715255737,
+        "sum": 19.799999952316284
+      },
+      "reasoning": {
+        "commits": 173,
+        "mounts": 6,
+        "n": 173,
+        "p50": 0.20000004768371582,
+        "p95": 0.7999999523162842,
+        "max": 1.9000000953674316,
+        "sum": 53.70000076293945
+      },
+      "todo": {
+        "commits": 986,
+        "mounts": 4,
+        "n": 986,
+        "p50": 0.10000002384185791,
+        "p95": 0.20000004768371582,
+        "max": 1.2999999523162842,
+        "sum": 94.89999985694885
+      },
+      "tool": {
+        "commits": 5009,
+        "mounts": 7,
+        "n": 5009,
+        "p50": 0,
+        "p95": 0.10000002384185791,
+        "max": 3.100000023841858,
+        "sum": 164.5000001192093
+      }
+    },
+    "allRows": {
+      "n": 6224,
+      "p50": 0,
+      "p95": 0.19999992847442627,
+      "max": 3.100000023841858,
+      "sum": 335.1000006198883
+    },
+    "perCommit": {
+      "n": 993,
+      "p50": 0.20000004768371582,
+      "p95": 0.7999999523162842,
+      "max": 11.200000286102295,
+      "sum": 335.1000006198883
+    },
+    "frames": {
+      "count": 1014,
+      "dropped": 3,
+      "droppedRatio": 0.0029498525073746312,
+      "longestMs": 50.100000000000364
+    },
+    "longTasks": {
+      "count": 0,
+      "totalMs": 0
+    },
+    "layoutShift": 0.09337850307888453,
+    "heapMB": 158.64462184906006
+  },
+  "endedAt": "2026-10-17T04:21:19.354Z",
+  "elapsedMs": 16233,
+  "loadEnd": 2.61,
+  "resourcesEnd": {
+    "at": "2026-10-17T04:21:20.120Z",
+    "cpuIdlePct": 72.4,
+    "memoryFreePct": 77,
+    "pressureLevel": 1,
+    "load": [
+      2.61,
+      2.53,
+      2.08
+    ],
+    "activities": [
+      {
+        "at": "2026-10-17T04:21:20.072Z",
+        "lane": 1,
+        "pid": 48070,
+        "platform": "web",
+        "stage": "idle",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:03.121Z",
+        "lane": 2,
+        "pid": 48074,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:03.119Z",
+        "lane": 3,
+        "pid": 48073,
+        "platform": "web",
+        "stage": "timing",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      },
+      {
+        "at": "2026-10-17T04:21:20.022Z",
+        "lane": 4,
+        "pid": 48075,
+        "platform": "web",
+        "stage": "idle",
+        "fixture": "mixed-turn",
+        "mode": "upstream",
+        "rep": 1
+      }
+    ],
+    "admitted": true
+  },
+  "displayErrors": [],
+  "comparisonEligible": true,
+  "cdp": {
+    "delta": {
+      "TaskDuration": 2.074128,
+      "ScriptDuration": 1.219341,
+      "LayoutDuration": 0.03986,
+      "RecalcStyleDuration": 0.149283
+    },
+    "jsHeapUsedMB": 111.0992431640625,
+    "nodes": 3697
+  },
+  "socketViolations": [],
+  "completed": true,
+  "finishedAt": "2026-10-17T04:21:20.531Z"
+}

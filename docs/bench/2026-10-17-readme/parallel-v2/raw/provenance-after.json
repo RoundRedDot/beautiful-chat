@@ -1,0 +1,192 @@
+{
+  "at": "2026-10-17T06:28:14.707Z",
+  "failures": [],
+  "lanes": 4,
+  "harnessFiles": 11,
+  "historyAmendment": {
+    "at": "2026-10-17T05:01:16.702Z",
+    "phase": "all formal long-history samples, Web and iOS",
+    "formalHistoryBefore": 0,
+    "reason": "Fresh workspace reconciliation auto-reopens sole agent for new_tab; draft target is the host new-conversation operation and proves true unmount. No fixture or production change.",
+    "beforeHashes": {
+      "history/tools/web-meter.mjs": "166804adeefa4c0acfbd1c3047d6e26ea0e2fe937f5c700632e2251ce749ec66",
+      "history/tools/native-meter.mjs": "c676fc04ffefbd728ee53ce99d7865e5096783614094bfaae058246cee9bea7f",
+      "history/tools/run-web.mjs": "d1f9895baaf6b3412cadffddaceaed39ff6da15d55f493cc50c35f5b0b516945",
+      "history/tools/run-native.mjs": "4a8072f441770d9019f3320f5713184eb11a738a6f7185150d83a09bb49c4e50"
+    },
+    "afterHashes": {
+      "history/tools/web-meter.mjs": "5187dfd2f0fe4bdcfac40ca497e7d1b221ba8df21dae55c9db2a8f81fb91ad51",
+      "history/tools/native-meter.mjs": "751a8335196eed5ab0eeaa6962a1493f77e5bbb73fecdb230696058991e8b081",
+      "history/tools/run-web.mjs": "68f59fdd1283bb1b5e93e1e82b54720fbcc578f204b3a4b8495171f3d70671d6",
+      "history/tools/run-native.mjs": "e3b90775bf24412a0c864600d87b5c182effdfa312a7c7aa04a99ba05e7b3784"
+    }
+  },
+  "preparationAmendment": {
+    "at": "2026-10-17T05:07:40.109Z",
+    "phase": "all newly collected formal Web history; prospective native preparation guard",
+    "formalHistoryBefore": 0,
+    "beforeHashes": {
+      "history/tools/run-web.mjs": "68f59fdd1283bb1b5e93e1e82b54720fbcc578f204b3a4b8495171f3d70671d6",
+      "history/tools/run-native.mjs": "e3b90775bf24412a0c864600d87b5c182effdfa312a7c7aa04a99ba05e7b3784"
+    },
+    "afterHashes": {
+      "history/tools/run-web.mjs": "5877b56242c225c3d7c78525e18684c6cbaecb8937f671855cc9aad46a10ab8f",
+      "history/tools/run-native.mjs": "7cfe1215bd8f53a8f8adc279402760f01acb3ec9a6132571ee1d2705279e4010"
+    },
+    "excludedWebSamples": 14,
+    "lanes": [
+      {
+        "lane": 1,
+        "files": [
+          {
+            "file": "incident-candidate-1-1.json",
+            "sha256": "d93bff21ce53477366c0f6d95ec050d92ab03ac114e94e26a13f731ce027c43c"
+          },
+          {
+            "file": "incident-candidate-1-2.json",
+            "sha256": "cc89c3229f992ec9e7489b12edbf8c611ecd33c28746442c571b7b3e46246022"
+          }
+        ]
+      },
+      {
+        "lane": 2,
+        "files": [
+          {
+            "file": "incident-baseline-2.json",
+            "sha256": "6c6dbcbc10ed16ffe2e9b57364e107b762aa28035aaec3df5f33cb5c7f23cc2f"
+          },
+          {
+            "file": "incident-candidate-2-1.json",
+            "sha256": "8451e2bcad93dd3ecd48b86ebd73485822e57871d86c72f66cdd45dfec0a5488"
+          },
+          {
+            "file": "incident-candidate-2-2.json",
+            "sha256": "dae26ceb45d2dcafbf0d1ea626f554a0bd1c2a6c9e3cc9933df72c53ad084301"
+          },
+          {
+            "file": "incident-native-2.json",
+            "sha256": "7f4f95cc41c1940af0053a3126df9237271d5c405611d30448d89c5dcc856fa5"
+          },
+          {
+            "file": "multi-turn-baseline-2.json",
+            "sha256": "0cd7046f100619621a9919f0c94ae07340dbab1d4f32ebb2820e4394f7c844ff"
+          },
+          {
+            "file": "multi-turn-candidate-2-1.json",
+            "sha256": "f7701e71529e0dba6836bb0576d656b5701dd7850f81432f720bad87407389cd"
+          },
+          {
+            "file": "multi-turn-native-2.json",
+            "sha256": "0d2ebe8ee3a554eb9249565066672cfb928c21b569d51709c188847a03d049f4"
+          }
+        ]
+      },
+      {
+        "lane": 3,
+        "files": [
+          {
+            "file": "incident-candidate-3-1.json",
+            "sha256": "b4161d901862eeb759459991c9d6db665ff6cadedacfcb0550c229291fdbff4e"
+          },
+          {
+            "file": "incident-candidate-3-2.json",
+            "sha256": "39839a8452b2cd9a6bf36e479907c3369d58f402c9ad36aa39e710ead9d7bf6d"
+          }
+        ]
+      },
+      {
+        "lane": 4,
+        "files": [
+          {
+            "file": "incident-baseline-4.json",
+            "sha256": "73f3bbc40c9451a6cef55bfcc5e9169576bc661ef096704e332078931fd1af87"
+          },
+          {
+            "file": "incident-candidate-4-1.json",
+            "sha256": "ca7161bfc445729e135829a4382441d39641cefec47716ff10fe35e1024f6945"
+          },
+          {
+            "file": "incident-native-4.json",
+            "sha256": "aa1ab864ffa6f54dfc425bea48fb5b4c92354e72f795a972be71affa547fd8f5"
+          }
+        ]
+      }
+    ],
+    "reason": "Untimed 700px Web jump re-anchors through the host 96px pagination threshold. Whole first attempt retained as diagnostic. New Web older phase starts timing before a full-height physical wheel from tail; no untimed pre-scroll. Native adds the same no-early-reveal guard."
+  },
+  "displayPolicyAmendment": {
+    "at": "2026-10-17T05:30:37.293Z",
+    "samples": [
+      {
+        "path": "parallel-v2/lane1/raw/ios/ios-fork-codeblock-streaming-r1.json",
+        "sha256": "947266596ab87a330aaa529ec0074ef20700b13b0f228cfead59d4a7bf0118b8"
+      },
+      {
+        "path": "parallel-v2/lane1/raw/ios/ios-upstream-codeblock-streaming-r1.json",
+        "sha256": "607c01aac3ca35940896f1ef9df2cce856599a4bd6baca84af17ae8b3379d3eb"
+      },
+      {
+        "path": "parallel-v2/lane2/raw/ios/ios-fork-diff-large-r1.json",
+        "sha256": "ec8cc8eb9d12caee2eef3352c47cb415cc7df66daaa3225633a5e7e4cf4fdf8a"
+      },
+      {
+        "path": "parallel-v2/lane3/raw/ios/ios-aa-history-100-r1.json",
+        "sha256": "2dca25642893b69c42726326a920bcf52af50984296dc54b5371e24474c07885"
+      },
+      {
+        "path": "parallel-v2/lane3/raw/ios/ios-native-history-100-r1.json",
+        "sha256": "26b0960acf9dfebf7d848320e10c0007610d5bc68a968f450901445d47522c1a"
+      },
+      {
+        "path": "parallel-v2/lane3/raw/ios/ios-parent-history-100-r1.json",
+        "sha256": "df0f6fa2e78b2af2af6b1c2c9c4d35aac63290d601416243725fdd142ab9dd53"
+      },
+      {
+        "path": "parallel-v2/lane3/raw/ios/ios-upstream-history-100-r1.json",
+        "sha256": "746d0c8fa874fbde70d4479d164db82ccbae3ab4267a74c604b667ea8df43f28"
+      },
+      {
+        "path": "parallel-v2/lane4/raw/ios/ios-parent-markdown-long-r1.json",
+        "sha256": "89b26cab7decb7a76379a56bd0dcab3bcf33463ac26d06063c49acaeb6f35cec"
+      }
+    ],
+    "beforeHashes": {
+      "tools/replay-parallel.mjs": "b3716735ce979f502bf0050098cb9e64d1c1d68d495644bf0a05f5129df03b43"
+    },
+    "reason": "Retain the original iOS fork/diff-large/r1 HostFunction display failure; mark the entire fixture-mode group diagnostic; collect remaining identities without replacing any sample. Timing, sources, fixtures, lane allocation and resource admission unchanged. Already running lanes retain the identical timing path; resumed lanes skip original completed or measured display-only records.",
+    "afterHashes": {
+      "tools/replay-parallel.mjs": "88509c0eec7982d9beeb188b5249da10f6df1e07d76a79b32f95af543c4f8fd0"
+    },
+    "additionalHarnessHashes": {
+      "tools/report.mjs": "2f011b5d9a64f8ae63d230688df6adb080a57b2554ea8e245f57162428a4ba90"
+    },
+    "beforeSourceArchive": "replay-error-policy-v1.tar.gz"
+  },
+  "historyReportingPolicy": {
+    "at": "2026-10-17T06:18:23.520Z",
+    "reason": "Preserve the original simctl pbpaste timeout and all planned identities; report all three cells of the entire affected group as N/A; source/shape/admission/identity errors remain publication blockers. Collection and production source unchanged.",
+    "sourceArchive": "history-reporting-before.tar.gz",
+    "sourceArchiveSha256": "3e9451177fa2444367eb5022677e44dcc9b2ead249e56f01e651cce4d91c04ef",
+    "reportingHashes": {
+      "history/tools/report.mjs": "f9a8a6f46fbaf0e5a55c90ddca6acf692e1efe522a9d0d23d11956546ee06f21",
+      "tools/aggregate.mjs": "05050b2fd4a804645fd3c6834819049ba2fcee6d255eb39bcd9e98dacd16d3e6"
+    },
+    "retainedFailedSample": {
+      "path": "parallel-v2/lane3/history/raw/ios/incident-candidate-3-2.json",
+      "sha256": "a128e96f4d00530fb9395a3fafb1eb2b9c3990423d2bf94091f166c6d036ff1c"
+    }
+  },
+  "historyReportingFinal": {
+    "at": "2026-10-17T06:28:13.289Z",
+    "reason": "A failed IPC leaves archival state and end resources unverified, not changed or over-pressure. Keep unknown snapshots separate. No input or measurement changed.",
+    "previousPolicySha256": "6ac9d1d6307c912ecb51fdcd5489549e2fe8f97676c8f81202d706cd9a1a96a2",
+    "beforeHashes": {
+      "history/tools/report.mjs": "f9a8a6f46fbaf0e5a55c90ddca6acf692e1efe522a9d0d23d11956546ee06f21",
+      "tools/aggregate.mjs": "05050b2fd4a804645fd3c6834819049ba2fcee6d255eb39bcd9e98dacd16d3e6"
+    },
+    "afterHashes": {
+      "history/tools/report.mjs": "1686662437190cf6ea2e8c3dfc00d1b9cac621c1508df137ebae8403a2d50aa9",
+      "tools/aggregate.mjs": "05050b2fd4a804645fd3c6834819049ba2fcee6d255eb39bcd9e98dacd16d3e6"
+    }
+  }
+}

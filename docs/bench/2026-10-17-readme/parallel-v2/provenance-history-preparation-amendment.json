@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-17T05:07:40.109Z",
+  "phase": "all newly collected formal Web history; prospective native preparation guard",
+  "formalHistoryBefore": 0,
+  "beforeHashes": {
+    "history/tools/run-web.mjs": "68f59fdd1283bb1b5e93e1e82b54720fbcc578f204b3a4b8495171f3d70671d6",
+    "history/tools/run-native.mjs": "e3b90775bf24412a0c864600d87b5c182effdfa312a7c7aa04a99ba05e7b3784"
+  },
+  "afterHashes": {
+    "history/tools/run-web.mjs": "5877b56242c225c3d7c78525e18684c6cbaecb8937f671855cc9aad46a10ab8f",
+    "history/tools/run-native.mjs": "7cfe1215bd8f53a8f8adc279402760f01acb3ec9a6132571ee1d2705279e4010"
+  },
+  "excludedWebSamples": 14,
+  "lanes": [
+    {
+      "lane": 1,
+      "files": [
+        {
+          "file": "incident-candidate-1-1.json",
+          "sha256": "d93bff21ce53477366c0f6d95ec050d92ab03ac114e94e26a13f731ce027c43c"
+        },
+        {
+          "file": "incident-candidate-1-2.json",
+          "sha256": "cc89c3229f992ec9e7489b12edbf8c611ecd33c28746442c571b7b3e46246022"
+        }
+      ]
+    },
+    {
+      "lane": 2,
+      "files": [
+        {
+          "file": "incident-baseline-2.json",
+          "sha256": "6c6dbcbc10ed16ffe2e9b57364e107b762aa28035aaec3df5f33cb5c7f23cc2f"
+        },
+        {
+          "file": "incident-candidate-2-1.json",
+          "sha256": "8451e2bcad93dd3ecd48b86ebd73485822e57871d86c72f66cdd45dfec0a5488"
+        },
+        {
+          "file": "incident-candidate-2-2.json",
+          "sha256": "dae26ceb45d2dcafbf0d1ea626f554a0bd1c2a6c9e3cc9933df72c53ad084301"
+        },
+        {
+          "file": "incident-native-2.json",
+          "sha256": "7f4f95cc41c1940af0053a3126df9237271d5c405611d30448d89c5dcc856fa5"
+        },
+        {
+          "file": "multi-turn-baseline-2.json",
+          "sha256": "0cd7046f100619621a9919f0c94ae07340dbab1d4f32ebb2820e4394f7c844ff"
+        },
+        {
+          "file": "multi-turn-candidate-2-1.json",
+          "sha256": "f7701e71529e0dba6836bb0576d656b5701dd7850f81432f720bad87407389cd"
+        },
+        {
+          "file": "multi-turn-native-2.json",
+          "sha256": "0d2ebe8ee3a554eb9249565066672cfb928c21b569d51709c188847a03d049f4"
+        }
+      ]
+    },
+    {
+      "lane": 3,
+      "files": [
+        {
+          "file": "incident-candidate-3-1.json",
+          "sha256": "b4161d901862eeb759459991c9d6db665ff6cadedacfcb0550c229291fdbff4e"
+        },
+        {
+          "file": "incident-candidate-3-2.json",
+          "sha256": "39839a8452b2cd9a6bf36e479907c3369d58f402c9ad36aa39e710ead9d7bf6d"
+        }
+      ]
+    },
+    {
+      "lane": 4,
+      "files": [
+        {
+          "file": "incident-baseline-4.json",
+          "sha256": "73f3bbc40c9451a6cef55bfcc5e9169576bc661ef096704e332078931fd1af87"
+        },
+        {
+          "file": "incident-candidate-4-1.json",
+          "sha256": "ca7161bfc445729e135829a4382441d39641cefec47716ff10fe35e1024f6945"
+        },
+        {
+          "file": "incident-native-4.json",
+          "sha256": "aa1ab864ffa6f54dfc425bea48fb5b4c92354e72f795a972be71affa547fd8f5"
+        }
+      ]
+    }
+  ],
+  "reason": "Untimed 700px Web jump re-anchors through the host 96px pagination threshold. Whole first attempt retained as diagnostic. New Web older phase starts timing before a full-height physical wheel from tail; no untimed pre-scroll. Native adds the same no-early-reveal guard."
+}

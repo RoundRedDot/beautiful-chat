@@ -1,0 +1,250 @@
+{
+  "replay": 550,
+  "history": 80,
+  "replayStructural": [],
+  "historyStructural": [],
+  "historyQuality": [
+    "incident-candidate-3-2: collection/display failure",
+    "incident-candidate-3-2: agent archival state not verified",
+    "incident-candidate-3-2: whole-session unmount/return not proven",
+    "incident-candidate-3-2: older reveal missing",
+    "incident-candidate-3-2: exact-copy gate",
+    "incident-candidate-3-2: older missing/empty",
+    "incident-candidate-3-2: sessionRemount missing/empty"
+  ],
+  "diagnosticReplay": [
+    "ios/codeblock-streaming/aa",
+    "ios/codeblock-streaming/parent",
+    "ios/diff-large/fork",
+    "ios/diff-large/aa",
+    "ios/history-100/fork",
+    "ios/history-100/aa",
+    "ios/markdown-long/fork",
+    "ios/markdown-long/aa",
+    "ios/mixed-turn/fork",
+    "ios/reads-20/aa",
+    "ios/reasoning-long-prose/aa",
+    "ios/reasoning-long-prose/parent",
+    "ios/reasoning-long-sections/fork",
+    "ios/table-streaming/fork",
+    "ios/table-streaming/parent",
+    "ios/tool-expanded-streaming/aa",
+    "ios/tool-expanded-streaming/parent"
+  ],
+  "diagnosticHistory": [
+    "ios/incident/candidate/open",
+    "ios/incident/candidate/older",
+    "ios/incident/candidate/sessionRemount"
+  ],
+  "maxOverlap": 4,
+  "maxMeasuredPhaseOverlap": 4,
+  "missingHistoryIntervals": [
+    {
+      "platform": "ios",
+      "label": "incident-candidate-3-2",
+      "phase": "older",
+      "error": "Error: Command failed: xcrun simctl pbpaste 237D4DD2-7BE9-4CB7-B221-8727E32852BC\nAn error was encountered processing the command (domain=NSPOSIXErrorDomain, code=60):\nThe operation couldn’t be completed. Operation timed out\nOperation timed out\n\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at checkExecSyncError (node:child_process:988:11)\n    at execFileSync (node:child_process:1024:15)\n    at sh (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:12:42)\n    at run (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:104:20)\n    at async file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:190:29"
+    },
+    {
+      "platform": "ios",
+      "label": "incident-candidate-3-2",
+      "phase": "sessionRemount",
+      "error": "Error: Command failed: xcrun simctl pbpaste 237D4DD2-7BE9-4CB7-B221-8727E32852BC\nAn error was encountered processing the command (domain=NSPOSIXErrorDomain, code=60):\nThe operation couldn’t be completed. Operation timed out\nOperation timed out\n\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at checkExecSyncError (node:child_process:988:11)\n    at execFileSync (node:child_process:1024:15)\n    at sh (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:12:42)\n    at run (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:104:20)\n    at async file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:190:29"
+    }
+  ],
+  "source": [
+    {
+      "name": "candidate",
+      "sha": "b9dfae6e31453b962d90f7d3c7ca972c0e523cb3",
+      "directory": "/tmp/bc-readme-20261017/candidate",
+      "files": 4624,
+      "mismatches": []
+    },
+    {
+      "name": "parent",
+      "sha": "2fc6476acbdf75e8802668b0260cfd128513c990",
+      "directory": "/tmp/bc-readme-20261017/parent",
+      "files": 4623,
+      "mismatches": []
+    },
+    {
+      "name": "upstream",
+      "sha": "42b61d8301b5400a67821bbbfcf99fa8b681dc37",
+      "directory": "/tmp/bc-ios-history/baseline",
+      "files": 87,
+      "mismatches": []
+    }
+  ],
+  "protectedSimulator": {
+    "before": "Booted",
+    "after": "Booted"
+  },
+  "protectedAvdsBefore": [
+    "94521 /Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37 -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5554",
+    "94889 /Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37_b -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5556"
+  ],
+  "protectedAvdsAfter": [
+    "94521 /Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37 -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5554",
+    "94889 /Users/rrd/Library/Android/sdk/emulator/qemu/darwin-aarch64/qemu-system-aarch64-headless -avd Pixel_9_API_37_b -no-window -no-audio -no-boot-anim -no-snapshot-save -gpu swiftshader_indirect -port 5556"
+  ],
+  "ownedListeners": "",
+  "lanes": 4,
+  "failedReplaySamples": [
+    {
+      "path": "lane2/raw/ios/ios-aa-codeblock-streaming-r2.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-diff-large-r1.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-diff-large-r5.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-history-100-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-markdown-long-r3.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-reads-20-r1.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-reads-20-r5.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-reasoning-long-prose-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-aa-tool-expanded-streaming-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-diff-large-r1.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": "Error: display errors  ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>\n    at run (file:///private/tmp/bc-readme-20261017/tools/replay-parallel.mjs:112:60)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///private/tmp/bc-readme-20261017/tools/replay-parallel.mjs:130:25"
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-diff-large-r5.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-history-100-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-markdown-long-r3.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-mixed-turn-r2.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-reasoning-long-sections-r3.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-fork-table-streaming-r5.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-parent-codeblock-streaming-r2.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-parent-reasoning-long-prose-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-parent-table-streaming-r5.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    },
+    {
+      "path": "lane2/raw/ios/ios-parent-tool-expanded-streaming-r4.json",
+      "displayErrors": [
+        " ERROR  [Error: Exception in HostFunction: <unknown>] Error: Exception in HostFunction: <unknown>"
+      ],
+      "error": null
+    }
+  ],
+  "failedHistorySamples": [
+    {
+      "path": "lane3/history/raw/ios/incident-candidate-3-2.json",
+      "error": "Error: Command failed: xcrun simctl pbpaste 237D4DD2-7BE9-4CB7-B221-8727E32852BC\nAn error was encountered processing the command (domain=NSPOSIXErrorDomain, code=60):\nThe operation couldn’t be completed. Operation timed out\nOperation timed out\n\n    at genericNodeError (node:internal/errors:999:15)\n    at wrappedFn (node:internal/errors:544:14)\n    at checkExecSyncError (node:child_process:988:11)\n    at execFileSync (node:child_process:1024:15)\n    at sh (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:12:42)\n    at run (file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:104:20)\n    at async file:///private/tmp/bc-readme-20261017/history/tools/run-native.mjs:190:29"
+    }
+  ],
+  "resources": {
+    "measuredEndExcursions": [],
+    "missingEndSnapshots": [
+      "lane3/history/raw/ios/incident-candidate-3-2.json"
+    ]
+  },
+  "replayAa": {
+    "pairs": 110,
+    "diagnosticPairs": 12
+  }
+}

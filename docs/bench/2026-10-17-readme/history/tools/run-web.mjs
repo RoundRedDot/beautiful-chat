@@ -1,0 +1,123 @@
+import{observeSockets}from'../../tools/socket-isolation.mjs';
+import{resources,gate,activity}from'../../tools/resources.mjs';
+import {execFileSync} from 'node:child_process';
+import {readFileSync,writeFileSync,existsSync,mkdirSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import {installWebHistoryMeter} from './web-meter.mjs';
+const root=process.env.BC_ROOT,home=process.env.BC_BENCH_HOME,cli=process.env.BC_PASEO_BIN;
+if(root!==`${process.env.BC_LANE_ROOT}/history`||home!==`/Users/rrd/.paseo-bench-readme-20261017-v2-lane${process.env.BC_LANE}`)throw Error('isolated Studio history environment required');
+const sh=(file,args,extra={})=>execFileSync(file,args,{encoding:'utf8',timeout:180000,maxBuffer:32*1024*1024,stdio:['ignore','pipe','pipe'],...extra}).trim();
+const paseo=(...args)=>sh(cli,['--home',home,...args]);
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const server=readFileSync(`${home}/server-id`,'utf8').trim();
+const load=()=>Number(sh('/usr/sbin/sysctl',['-n','vm.loadavg']).replace(/[{}]/g,'').trim().split(/\s+/)[0]);
+const {chromium}=createRequire('/tmp/bc-v5/tools/package.json')('playwright-core');
+const context=await chromium.launchPersistentContext(`${root}/web-profile`,{executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,locale:'zh-CN',viewport:{width:1280,height:900},permissions:['clipboard-read','clipboard-write']});
+const page=context.pages()[0]??await context.newPage();
+const socketViolations=observeSockets(page,process.env.BC_BENCH_PORT);
+await page.addInitScript(installWebHistoryMeter);
+const view=()=>page.evaluate(()=>globalThis.__webHistory.describe());
+const snapshot=()=>page.evaluate(()=>globalThis.__webHistory.snapshot());
+const reset=()=>page.evaluate(()=>globalThis.__webHistory.reset());
+const scroll=page.locator('[data-testid="agent-chat-scroll"]:visible');
+async function wheel(delta){await scroll.hover();await page.mouse.wheel(0,delta);await sleep(400);}
+async function mode(name){
+  for(const id of ['better-paseo','beautiful-chat']){
+    const [row]=JSON.parse(paseo('plugin','ls',id,'--json')),enabled=name===(id==='better-paseo'?'candidate':'baseline');
+    if(row.enabled!==enabled)paseo('plugin',enabled?'enable':'disable',id);
+  }
+  if(name==='candidate'){sh('/bin/ln',['-sfn',`${root}/candidate`,process.env.BC_ACTIVE_LINK]);paseo('plugin','reload','better-paseo');}
+  return JSON.parse(paseo('plugin','ls','--json')).filter(row=>['better-paseo','beautiful-chat'].includes(row.id));
+}
+async function run(scenario,name,rep,prefix=''){
+  const label=`${prefix}${scenario}-${name}-${rep}`,out=`${root}/raw/web/${label}.json`;
+  if(existsSync(out))throw Error('refusing overwrite');
+  sh(process.execPath,[`${root}/tools/seed.mjs`,scenario],{env:{...process.env,BC_SEED_LABEL:`web-${label}`}});
+  const [seed]=JSON.parse(readFileSync(`${root}/raw/seeds-web-${label}.json`));
+  const errors=[],displayErrors=[],error=e=>errors.push(String(e)),consoleError=e=>{if(e.type()==='error')displayErrors.push(e.text());};
+  page.on('pageerror',error);page.on('console',consoleError);
+  const result={label,platform:'web',scenario,mode:name,rep,seed,sourceSha:name==='candidate'?'b9dfae6e31453b962d90f7d3c7ca972c0e523cb3':name==='baseline'?'42b61d8301b5400a67821bbbfcf99fa8b681dc37':null,executionRegime:'concurrent-max4',lane:Number(process.env.BC_LANE),phases:{},errors,displayErrors};
+  try{
+    result.identity=await mode(name);
+    result.resourcesStart=await gate({platform:'web-history',scenario,name,rep});
+    result.loadStart=result.resourcesStart.load[0];activity({platform:'web-history',stage:'timing',scenario,name,rep});result.startedAt=new Date().toISOString();
+    await page.goto(`http://127.0.0.1:${process.env.BC_WEB_PORT}/h/${server}/agent/${seed.agentId}`);
+    await scroll.waitFor({state:'visible'});await sleep(6000);
+    result.phases.open=await snapshot();Object.assign(result.phases.open,{startedAt:result.startedAt,endedAt:new Date().toISOString()});
+    result.seen=await page.evaluate(()=>({fork:!!globalThis.__bcPerf?.snapshot?.().imageRpc,upstream:!!document.getElementById('beautiful-chat-frosted')}));
+    if(result.seen.fork!==(name==='candidate')||result.seen.upstream!==(name==='baseline'))throw Error('client plugin marker mismatch');
+    if(!result.phases.open.wrapped||!result.phases.open.readyMs||result.phases.open.probeError)throw Error('cold-open probe missing');
+    if(result.phases.open.viewport.agentId&&result.phases.open.viewport.agentId!==seed.agentId)throw Error('wrong active history viewport');
+    if(!result.phases.open.rpc.some(call=>call.agentId===seed.agentId&&call.request.direction==='tail'&&call.returned===808))throw Error('cold-open expanded tail was not captured');
+    const host=result.phases.open.host;
+    if(name==='native'?host.rows.plugin>0||host.rows.native<=0:host.rows.plugin<=0)throw Error('renderer mismatch');
+    if(String(rep)==='1'||String(rep)==='1-1')await page.screenshot({path:`${root}/raw/web/${label}-open.png`});
+    if(name==='candidate'){
+      const expected=readFileSync(`${root}/candidate/test/fixtures/streams/history-long-load.jsonl`,'utf8').trim().split('\n').slice(1).map(line=>JSON.parse(line).item).filter(item=>item?.type==='assistant_message').sort((a,b)=>b.text.length-a.text.length)[0].text;
+      await page.evaluate(()=>navigator.clipboard.writeText('BC-SYNTHETIC-COPY-SENTINEL'));
+      const copy=page.getByRole('button',{name:'Copy reply',exact:true});
+      result.visibleCopyButtons=await copy.count();await copy.click();await sleep(350);
+      const copied=await page.evaluate(()=>navigator.clipboard.readText());
+      result.copyGate={exactMatch:copied===expected,copiedChars:copied.length,expectedChars:expected.length,sentinelBeforeCopy:true};
+      if(!result.copyGate.exactMatch||result.visibleCopyButtons!==1)throw Error('copy gate failed');
+    }
+    await reset();const before=await view();await wheel(-420);await sleep(1000);
+    result.phases.tailDrag={before,...await snapshot()};
+    if(name==='candidate'&&before.metrics.scrollTop-result.phases.tailDrag.viewport.metrics.scrollTop<20)throw Error('tail wheel did not move timeline');
+    // A full-height physical wheel starts the measured reveal from the tail.
+    // No untimed scroll jump: virtualizer re-anchoring can cross the 96px
+    // pagination threshold even when the requested offset is 700px.
+    const olderBefore=await view();
+    result.olderPreparation={method:'no untimed pre-position; measured full-height wheel from tail',after:olderBefore,progressChanged:olderBefore.progressKey!==result.phases.open.viewport.progressKey};
+    if(result.olderPreparation.progressChanged)throw Error('history revealed before measured wheel');
+    await reset();const olderStartedAt=new Date().toISOString();const actions=[];
+    const delta=-Math.ceil(Math.max(800,olderBefore.metrics.scrollHeight));
+    for(let n=0;n<12;n++){await wheel(delta);actions.push(delta);if((await view()).progressKey!==olderBefore.progressKey)break;}
+    await sleep(1000);result.phases.older={before:olderBefore,actions,...await snapshot(),startedAt:olderStartedAt,endedAt:new Date().toISOString()};
+    result.phases.older.revealedOlder=result.phases.older.viewport.progressKey!==olderBefore.progressKey;
+    await page.evaluate(()=>globalThis.__webHistory.leaveSession());await sleep(1200);
+    result.sessionPreparation={unmounted:!await page.evaluate(()=>globalThis.__webHistory.sessionMounted()),action:'host pane retargetCurrentTab(draft), then restore agent target; not archive'};
+    if(!result.sessionPreparation.unmounted)throw Error('session did not actually unmount');
+    await reset();const sessionStartedAt=new Date().toISOString();await page.evaluate(()=>globalThis.__webHistory.returnSession());await sleep(6000);
+    result.phases.sessionRemount=await snapshot();Object.assign(result.phases.sessionRemount,{startedAt:sessionStartedAt,endedAt:new Date().toISOString()});
+    result.phases.sessionRemount.remounted=await page.evaluate(()=>globalThis.__webHistory.sessionMounted());
+    if(!result.phases.sessionRemount.remounted||!result.phases.sessionRemount.readyMs||result.phases.sessionRemount.viewport.agentId!==seed.agentId)throw Error('whole session remount failed');
+    for(const [phase,value]of Object.entries(result.phases)){
+      const ids=value.viewport.history.map(row=>row.id);
+      if(new Set(ids).size!==ids.length)throw Error('duplicate row key in '+phase);
+    }
+    if(!result.phases.older.revealedOlder)throw Error('older reveal gate failed');
+    if(name==='candidate'){
+      const expected=readFileSync(root+'/candidate/test/fixtures/streams/history-long-load.jsonl','utf8').trim().split('\n').slice(1).map(line=>JSON.parse(line).item).filter(item=>item?.type==='assistant_message').sort((a,b)=>b.text.length-a.text.length)[0].text;
+      await page.evaluate(()=>navigator.clipboard.writeText('BC-RETURN-COPY-SENTINEL'));
+      const button=page.getByRole('button',{name:'Copy reply',exact:true});await button.click();await sleep(350);
+      const copied=await page.evaluate(()=>navigator.clipboard.readText());result.returnCopyGate={exactMatch:copied===expected,copiedChars:copied.length,expectedChars:expected.length,sentinelBeforeCopy:true};
+      if(!result.returnCopyGate.exactMatch)throw Error('copy after whole-session return failed');
+    }
+    const lifecycle=JSON.parse(paseo('inspect',seed.agentId,'--json'));
+    result.agentLifecycle={archived:lifecycle.Archived,archivedAt:lifecycle.ArchivedAt};
+    if(lifecycle.Archived!==false||lifecycle.ArchivedAt!==null)throw Error('session navigation changed agent archival state');
+    result.socketViolations=[...socketViolations];if(socketViolations.length)throw Error('unexpected WebSocket endpoint');result.endedAt=new Date().toISOString();result.resourcesEnd=resources();result.loadEnd=result.resourcesEnd.load[0];result.completed=errors.length===0;result.comparisonEligible=result.completed&&displayErrors.length===0;
+    if(!result.completed||displayErrors.length)throw Error('page/display errors');
+    console.log(`${label} ready=${result.phases.open.readyMs.toFixed(0)} row=${host.allRows.sum.toFixed(1)} older=${result.phases.older.revealedOlder} sessionRemount=${!!result.phases.sessionRemount} displayErrors=${displayErrors.length}`);
+  }catch(error){result.error=String(error.stack??error);throw error;}
+  finally{result.finishedAt=new Date().toISOString();activity({platform:'web-history',stage:'idle'});writeFileSync(out,JSON.stringify(result,null,2));page.off('pageerror',error);page.off('console',consoleError);paseo('archive',seed.agentId);}
+}
+mkdirSync(`${root}/raw/web`,{recursive:true});
+try{
+  // Persist only the private host connection before any timed cold navigation.
+  await page.goto(`http://127.0.0.1:${process.env.BC_WEB_PORT}`);await sleep(3000);
+  const direct=page.getByText('直接连接').first();
+  if(await direct.isVisible().catch(()=>false)){
+    await direct.click();const inputs=page.locator('input');
+    await inputs.nth(0).fill('127.0.0.1');await inputs.nth(1).fill(process.env.BC_BENCH_PORT);
+    await page.getByText('连接',{exact:true}).last().click();await sleep(4000);
+  }
+  await page.goto('about:blank');
+  if(process.argv.includes('--smoke')){for(let rep=1;rep<=2;rep++)for(const name of ['candidate','baseline','native'])await run('incident',name,rep,process.env.BC_WEB_HISTORY_PREFIX??'smoke-');}
+  else for(const scenario of ['incident','multi-turn'])for(let rep=1;rep<=5;rep++){
+    if(1+(rep-1)%4!==Number(process.env.BC_LANE))continue;
+    const names=rep%2?['candidate','candidate','baseline','native']:['native','baseline','candidate','candidate'];
+    let n=0;for(const name of names)await run(scenario,name,name==='candidate'?`${rep}-${++n}`:rep);
+  }
+}finally{await context.close();}
